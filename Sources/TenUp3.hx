@@ -10,6 +10,7 @@ import kha.graphics4.TextureFormat;
 import kha.HighscoreList;
 import kha.Image;
 import kha.input.Gamepad;
+import kha.input.Keyboard;
 import kha.input.Mouse;
 import kha.Key;
 import kha.Loader;
@@ -96,6 +97,7 @@ class TenUp3 extends Game {
 		}
 		
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
+		Keyboard.get().notify(keydown, keyup);
 		
 		Configuration.setScreen(this);
 	}
@@ -188,50 +190,52 @@ class TenUp3 extends Game {
 		}
 	}
 
-	override public function buttonDown(button : Button) : Void {
-		switch (mode) {
-		case Game:
-			switch (button) {
-			case UP, BUTTON_1, BUTTON_2:
-				player.setUp();
-			case LEFT:
+	public function keydown(key: Key, char: String) : Void {
+		switch (key) {
+			case Key.CTRL:
+				Dialogue.next();
+			case Key.CHAR:
+				if (char == 'a') {
+					player.left = true;
+				}
+				else if (char == 'd') {
+					player.right = true;
+				}
+				else if (char == 'w') {
+					player.setUp();
+				}
+			case Key.LEFT:
 				player.left = true;
-			case RIGHT:
+			case Key.RIGHT:
 				player.right = true;
+			case Key.UP:
+				player.setUp();
 			default:
-			}
-		default:
 		}
 	}
 	
-	override public function buttonUp(button : Button) : Void {
-		switch (mode) {
-		case Game:
-			switch (button) {
-			case UP, BUTTON_1, BUTTON_2:
+	public function keyup(key: Key, char: String) : Void {
+		switch (key) {
+			case Key.CTRL:
 				player.up = false;
-			case LEFT:
+			case Key.CHAR:
+				if (char == 'a') {
+					player.left = false;
+				}
+				else if (char == 'd') {
+					player.right = false;
+				}
+				else if (char == 'w') {
+					player.up = false;
+				}
+			case Key.LEFT:
 				player.left = false;
-			case RIGHT:
+			case Key.RIGHT:
 				player.right = false;
+			case Key.UP:
+				player.up = false;
 			default:
-			}
-		case BlaBlaBla:
-			switch (button) {
-			case BUTTON_1, BUTTON_2:
-				Dialogue.next();	
-			default:
-			}
-		default:
 		}
-	}
-	
-	override public function keyDown(key: Key, char: String) : Void {
-		
-	}
-	
-	override public function keyUp(key : Key, char : String) : Void {
-		if (key != null && key == Key.SHIFT) shiftPressed = false;
 	}
 
 	public override function mouseDown(x: Int, y: Int): Void {
