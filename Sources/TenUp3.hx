@@ -21,6 +21,7 @@ import kha.Scene;
 import kha.Score;
 import kha.Configuration;
 import kha.ScreenRotation;
+import kha.Sprite;
 import kha.Storage;
 import kha.Tile;
 import kha.Tilemap;
@@ -107,10 +108,16 @@ class TenUp3 extends Game {
 	
 	public function startGame_JustANormalDay() {
 		Player.init();
-		player = new PlayerProfessor(10, 10);
+		player = new PlayerProfessor(100, 400);
 		Scene.the.addHero(player);
 		
-		Dialogues.setStartDlg(player, player);
+		var eheweib = new Sprite(null, 25, 25);
+		eheweib.x = 40;
+		eheweib.y = 300;
+		eheweib.accy = 0;
+		Scene.the.addEnemy(eheweib);
+		
+		Dialogues.setStartDlg(player, eheweib);
 	}
 	
 	public override function update() {

@@ -51,12 +51,12 @@ class TxtKeys {
 
 class Dialogues {
 	
-	static public function setStartDlg(mann: Sprite, frau: Sprite) {
+	static public function setStartDlg(mann: Sprite, eheweib: Sprite) {
 		Dialogue.set([new Bla(Localization.getText(TxtKeys.DLG_START_1), mann)
-					 ,new Bla(Localization.getText(TxtKeys.DLG_START_2), frau)
-					 ,new Bla(Localization.getText(TxtKeys.DLG_START_3), frau)
+					 ,new Bla(Localization.getText(TxtKeys.DLG_START_2), eheweib)
+					 ,new Bla(Localization.getText(TxtKeys.DLG_START_3), eheweib)
 					 ,new Bla(Localization.getText(TxtKeys.DLG_START_4), mann)
-					 ,new Bla(Localization.getText(TxtKeys.DLG_START_5), frau)
+					 ,new Bla(Localization.getText(TxtKeys.DLG_START_5), eheweib)
 					 ,new Bla(Localization.getText(TxtKeys.DLG_START_6), mann)]);
 	}
 	
