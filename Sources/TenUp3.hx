@@ -94,6 +94,7 @@ class TenUp3 extends Game {
 		case BlaBlaBla:
 			Dialogue.update();
 		}
+		Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 	}
 	
 	public override function render(frame: Framebuffer) {
@@ -202,6 +203,7 @@ class TenUp3 extends Game {
 	public override function mouseDown(x: Int, y: Int): Void {
 		mouseX = x / 2 + Scene.the.screenOffsetX;
 		mouseY = y / 2 + Scene.the.screenOffsetY;
+		player.useSpecialAbilityA();
 	}
 	
 	public override function mouseUp(x: Int, y: Int): Void {

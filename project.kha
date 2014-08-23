@@ -125,6 +125,28 @@
 			}
 		},
 		{
+			"id": "f37f1d5d-4a1d-4ac6-a9c6-292ebbcaecf5",
+			"type": "image",
+			"file": "water.png",
+			"name": "water",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			}
+		},
+		{
+			"id": "075058f8-4f66-43af-b69b-f775253c5212",
+			"type": "image",
+			"file": "liquids.png",
+			"name": "liquids",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			}
+		},
+		{
 			"id": "aaa16854-a794-4fa2-b037-bdd7e31b5a96",
 			"type": "blob",
 			"file": "text.xml",
@@ -167,6 +189,9 @@
 				"a093355c-6c09-4de0-8d80-8b4a71398701",
 				"60aef4c6-7f6a-4691-ac26-83a3b04fffe4",
 				"83e4b061-56bc-462a-b187-52987619a14e",
+				"981ecab7-2b5f-4c61-b508-2fda90853742",
+				"f37f1d5d-4a1d-4ac6-a9c6-292ebbcaecf5",
+				"075058f8-4f66-43af-b69b-f775253c5212"
 				"981ecab7-2b5f-4c61-b508-2fda90853742",
 				"aaa16854-a794-4fa2-b037-bdd7e31b5a96",
 				"4b083c38-3a9c-41cf-825f-0c645de83535",
