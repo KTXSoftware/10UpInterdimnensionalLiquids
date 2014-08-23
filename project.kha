@@ -89,7 +89,7 @@
 			"type": "image",
 			"file": "outside.png",
 			"name": "outside",
-			"scale": 2.0
+			"scale": 2
 		},
 		{
 			"id": "a093355c-6c09-4de0-8d80-8b4a71398701",
@@ -107,14 +107,14 @@
 				"green": 174,
 				"blue": 201
 			},
-			"scale": 2.0
+			"scale": 2
 		},
 		{
 			"id": "83e4b061-56bc-462a-b187-52987619a14e",
 			"type": "image",
 			"file": "timecannon.png",
 			"name": "timecannon",
-			"scale": 2.0
+			"scale": 2
 		},
 		{
 			"id": "981ecab7-2b5f-4c61-b508-2fda90853742",
@@ -126,7 +126,7 @@
 				"green": 174,
 				"blue": 201
 			},
-			"scale": 2.0
+			"scale": 2
 		},
 		{
 			"id": "f37f1d5d-4a1d-4ac6-a9c6-292ebbcaecf5",
@@ -138,7 +138,7 @@
 				"green": 174,
 				"blue": 201
 			},
-			"scale": 2.0
+			"scale": 2
 		},
 		{
 			"id": "075058f8-4f66-43af-b69b-f775253c5212",
@@ -150,7 +150,7 @@
 				"green": 174,
 				"blue": 201
 			},
-			"scale": 2.0
+			"scale": 2
 		},
 		{
 			"id": "aaa16854-a794-4fa2-b037-bdd7e31b5a96",
@@ -169,6 +169,18 @@
 			"type": "blob",
 			"file": "Liberation Sans-Regular14.kravur",
 			"name": "Liberation Sans14.kravur"
+		},
+		{
+			"id": "4ea4d94b-5091-4d2f-a94c-837be598e8fb",
+			"type": "image",
+			"file": "lava.png",
+			"name": "lava",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
 		}
 	],
 	"rooms": [
@@ -201,7 +213,8 @@
 				"981ecab7-2b5f-4c61-b508-2fda90853742",
 				"aaa16854-a794-4fa2-b037-bdd7e31b5a96",
 				"4b083c38-3a9c-41cf-825f-0c645de83535",
-				"bada0129-afb0-4267-bb54-8c0d45f46916"
+				"bada0129-afb0-4267-bb54-8c0d45f46916",
+				"4ea4d94b-5091-4d2f-a94c-837be598e8fb"
 			]
 		}
 	]

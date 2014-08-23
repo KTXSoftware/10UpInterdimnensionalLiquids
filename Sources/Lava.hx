@@ -6,14 +6,14 @@ import kha.Loader;
 import kha.math.Vector2i;
 import kha.Sprite;
 
-class Water extends Sprite {
+class Lava extends Sprite {
 	private var lastTile: Vector2i;
 	private var floored: Bool = false;
 	private var right: Animation;
 	private var left: Animation;
 	
 	public function new(x: Float, y: Float) {
-		super(Loader.the.getImage("water"), 32, 32);
+		super(Loader.the.getImage("lava"), 32, 32);
 		this.x = x;
 		this.y = y;
 		speedx = 4;
@@ -33,7 +33,8 @@ class Water extends Sprite {
 		if (lastTile == null || tile.x != lastTile.x || tile.y != lastTile.y) {
 			lastTile = tile;
 			if (floored) {
-				if (value > 0 && value < 17) Level.liquids.set(tile.x, tile.y, value + 1);
+				if (value == 1) Level.liquids.set(tile.x, tile.y, 20);
+				else if (value > 19 && value < 35) Level.liquids.set(tile.x, tile.y, value + 1);
 			}
 		}
 		floored = false;
