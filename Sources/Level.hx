@@ -141,6 +141,7 @@ class Level {
 				continue;
 			}*/
 		}
+		
 		Configuration.setScreen(TenUp3.getInstance());
 		done();
 	}

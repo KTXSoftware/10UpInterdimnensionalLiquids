@@ -26,8 +26,7 @@ import kha.Tilemap;
 
 enum Mode {
 	Game;
-	Highscore;
-	EnterHighscore;
+	BlaBlaBla;
 }
 
 class TenUp3 extends Game {
@@ -67,6 +66,8 @@ class TenUp3 extends Game {
 	}
 
 	public function initLevel(): Void {
+		Localization.language = Localization.LanguageType.en; // TODO: language select
+		Localization.init("text");
 		backbuffer = Image.createRenderTarget(400, 300);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
@@ -80,18 +81,19 @@ class TenUp3 extends Game {
 		
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
 		
+		Dialogues.setStartDlg(player, player);
+		
 		Configuration.setScreen(this);
-	}
-	
-	public function showHighscore() {
-		Scene.the.clear();
-		mode = Mode.EnterHighscore;
-		music.stop();
 	}
 	
 	public override function update() {
 		super.update();
-		Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
+		switch (mode) {
+		case Game:
+			Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
+		case BlaBlaBla:
+			Dialogue.update();
+		}
 		Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 	}
 	
@@ -99,6 +101,8 @@ class TenUp3 extends Game {
 		var g = backbuffer.g2;
 		g.begin();
 		scene.render(g);
+		BlaBox.render(g);
+		Inventory.render(g);
 		g.end();
 		
 		startRender(frame);
@@ -177,7 +181,13 @@ class TenUp3 extends Game {
 			case RIGHT:
 				player.right = false;
 			default:
-			}	
+			}
+		case BlaBlaBla:
+			switch (button) {
+			case BUTTON_1, BUTTON_2:
+				Dialogue.next();	
+			default:
+			}
 		default:
 		}
 	}
@@ -199,6 +209,9 @@ class TenUp3 extends Game {
 	public override function mouseUp(x: Int, y: Int): Void {
 		mouseX = x / 2 + Scene.the.screenOffsetX;
 		mouseY = y / 2 + Scene.the.screenOffsetY;
+		if (mode == BlaBlaBla) {
+			Dialogue.next();
+		}
 	}
 	
 	public override function mouseMove(x: Int, y: Int): Void {
