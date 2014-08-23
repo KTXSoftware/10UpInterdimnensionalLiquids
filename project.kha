@@ -123,6 +123,24 @@
 				"green": 174,
 				"blue": 201
 			}
+		},
+		{
+			"id": "aaa16854-a794-4fa2-b037-bdd7e31b5a96",
+			"type": "blob",
+			"file": "text.xml",
+			"name": "text"
+		},
+		{
+			"id": "4b083c38-3a9c-41cf-825f-0c645de83535",
+			"type": "blob",
+			"file": "Liberation Sans-Regular20.kravur",
+			"name": "Liberation Sans20.kravur"
+		},
+		{
+			"id": "bada0129-afb0-4267-bb54-8c0d45f46916",
+			"type": "blob",
+			"file": "Liberation Sans-Regular14.kravur",
+			"name": "Liberation Sans14.kravur"
 		}
 	],
 	"rooms": [
@@ -149,7 +167,10 @@
 				"a093355c-6c09-4de0-8d80-8b4a71398701",
 				"60aef4c6-7f6a-4691-ac26-83a3b04fffe4",
 				"83e4b061-56bc-462a-b187-52987619a14e",
-				"981ecab7-2b5f-4c61-b508-2fda90853742"
+				"981ecab7-2b5f-4c61-b508-2fda90853742",
+				"aaa16854-a794-4fa2-b037-bdd7e31b5a96",
+				"4b083c38-3a9c-41cf-825f-0c645de83535",
+				"bada0129-afb0-4267-bb54-8c0d45f46916"
 			]
 		}
 	]

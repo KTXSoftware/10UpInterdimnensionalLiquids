@@ -1,0 +1,112 @@
+<DefaultLanguage>de</DefaultLanguage>
+<Mann>
+	<de>Herr Maier</de>
+	<en>Mr. Jonson</en>
+</Mann>
+<Frau>
+	<de>Frau Maier</de>
+	<en>Ms. Jonson</en>
+</Frau>
+<Verkaeuferin>
+	<de>Frau Müller</de>
+	<en>Ms. Müller</en>
+</Verkaeuferin>
+<Terrorist>
+	<de>Der Bäcker</de>
+</Terrorist>
+<Mechanic>
+	<de>Ms. M</de>
+	<en>Ms. M</en>
+</Mechanic>
+<Professor>
+	<de>Professor</de>
+</Professor>
+<Fischmensch>
+	<de>Blupp der Grausame</de>
+	<en>Blupp the Cruel</en>
+</Fischmensch>
+
+
+<Start_Dlg_1>
+	<de>Schatz, ich geh jetzt Brötchen kaufen.</de>
+</Start_Dlg_1>
+<Start_Dlg_2>
+	<de>Wird ja auch Zeit! Ich bin schon am verhungern.</de>
+</Start_Dlg_2>
+<Start_Dlg_3>
+	<de>Und vergiss nicht: Ein Wasserweck und ein Mehrkornbrötchen für mich!</de>
+</Start_Dlg_3>
+<Start_Dlg_4>
+	<de>Aber ich hab' nur einen Euro? Was soll ich denn dann essen?</de>
+</Start_Dlg_4>
+<Start_Dlg_5>
+	<de>Du kannst die Krümmel fressen!</de>
+</Start_Dlg_5>
+<Start_Dlg_6>
+	<de>Ja Schatz ...</de>
+</Start_Dlg_6>
+
+<Geld_Gefunden_c>
+	<de>Oh, da liegt ein ja ein Cent!
+(1): Heute ist wohl mein Glückstag! [Geld nehmen]
+(2): Jemand anderes braucht ihn bestimmt dringender als ich... [Geld liegenlassen]</de>
+</Geld_Gefunden_c>
+
+<Verkaufen_1>
+	<de>Guten Morgen! Sie wünschen?</de>
+</Verkaufen_1>
+<Verkaufen_2_c>
+	<de>(1): Ein Wasserweck und ein Mehrkornbrötchen, bitte.
+(2): Zwei Wasserweck, bitte.</de>
+</Verkaufen_2_c>
+
+<Verkaufen_2a_1>
+	<de>Das macht dann ein Euro und ein Cent, bitte.</de>
+</Verkaufen_2a_1>
+<Verkaufen_2a_2_c>
+	<de>(1): Ich habe aber nur ein Euro...
+(2): [Ein Euro geben]</de>
+</Verkaufen_2a_2_c>
+<Verkaufen_2a_2_GELD>
+	<de>So ein glück aber auch! Ein Euro und ein Cent! [Geld geben]</de>
+</Verkaufen_2a_2_GELD>
+
+<Verkaufen_2a_2a_1>
+	<de>Es tut mir leid.</de>
+</Verkaufen_2a_2a_1>
+<Verkaufen_2a_2a_2>
+	<de>Die Preise von Mehrkornbrötchen wurden von 50 Cent auf 51 Cent angehoben.</de>
+</Verkaufen_2a_2a_2>
+<Verkaufen_2a_2a_3_c>
+	<de>(1): Da kann ich nichts machen. Möchen sie Stattdessen 2 Wasserweck?
+(2): Aber für heute kann ich darüber hinwegsehen.</de>
+</Verkaufen_2a_2a_3_c>
+
+<Verkaufen_2a_2a_3a_1>
+	<de>Ja, dableibt mir wohl nichts übrig. [Geld geben]</de>
+</Verkaufen_2a_2a_3a_1>
+<Verkaufen_2a_2a_3b_1>
+	<de>Vielen vielen Dank, sie retten mir mein Leben! [Geld geben]</de>
+</Verkaufen_2a_2a_3b_1>
+
+<Verkaufen_2a_2b_1_c>
+	<de>(1): Entschuldigen sie Bitte! Das ist nur ein Euro.
+(2): Und hier sind ihre Brötchen. [Brötchen geben]</de>
+</Verkaufen_2a_2b_1_c>
+<Verkaufen_2a_2b_1a_1>
+	<de>Mehr Geld habe ich leider nicht.</de>
+</Verkaufen_2a_2b_1a_1>
+
+<Verkaufen_2b_1>
+	<de>Ein Euro, bitte.</de>
+</Verkaufen_2b_1>
+<Verkaufen_2b_2>
+	<de>Ein Euro. [Geld geben]</de>
+</Verkaufen_2b_2>
+
+<Verkaufen_Erfolg_1>
+	<de>Und ihre Brötchen. Wünsche einen schönen Tag. [Brötchen nehmen]</de>
+</Verkaufen_Erfolg_1>
+<Verkaufen_Erfolg_2>
+	<de>Vielen Dank. Auf wiedersehen.</de>
+</Verkaufen_Erfolg_2>
