@@ -30,12 +30,19 @@ public class SpritesPanel extends JPanel implements MouseListener, MouseMotionLi
 	}
 
 	private SpritesPanel() {
-		int index = 0;
-		String base = "../Assets/Graphics/";
-		sprites.add(new Sprite(base + "coin.png" , index++, 28, 32)); // helmet
-		sprites.add(new Sprite(base + "gumba.png", index++, 32, 32)); // mask
-		sprites.add(new Sprite(base + "koopa.png", index++, 64, 48)); // dressing room
-		sprites.add(new Sprite(base + "fly.png"  , index++, 64, 56)); // director
+		sprites.add(new Sprite("../Assets/Graphics/agent.png", 0, 19, 49));
+		sprites.add(new Sprite("../Assets/Graphics/professor.png", 1, 20, 52));
+		sprites.add(new Sprite("../Assets/Graphics/rowdy.png", 2, 25, 52));
+		sprites.add(new Sprite("../Assets/Graphics/mechanic.png", 3, 21, 52));
+		sprites.add(new Sprite("../Assets/Graphics/door.png", 4, 16, 64));
+		sprites.add(new Sprite("../Assets/Graphics/soldier.png", 5, 22, 41));
+		sprites.add(new Sprite("../Assets/Graphics/window.png", 6, 16, 80));
+		sprites.add(new Sprite("../Assets/Graphics/gate.png", 7, 16, 96));
+		sprites.add(new Sprite("../Assets/Graphics/gatter.png", 8, 32, 6));
+		sprites.add(new Sprite("../Assets/Graphics/computer.png", 9, 46, 60));
+		sprites.add(new Sprite("../Assets/Graphics/machinegun.png", 10, 42, 41));
+		sprites.add(new Sprite("../Assets/Graphics/boss.png", 11, 26, 35));
+		sprites.add(new Sprite("../Assets/Graphics/car.png", 12, 100, 41));
 		addMouseMotionListener(this);
 		addMouseListener(this);
 	}

@@ -30,8 +30,8 @@ enum Mode {
 	EnterHighscore;
 }
 
-class SuperMarioLand extends Game {
-	static var instance : SuperMarioLand;
+class TenUp3 extends Game {
+	static var instance : TenUp3;
 	var music : Music;
 	var tileColissions : Array<Tile>;
 	var map : Array<Array<Int>>;
@@ -51,19 +51,20 @@ class SuperMarioLand extends Game {
 		mode = Mode.Game;
 	}
 	
-	public static function getInstance() : SuperMarioLand {
+	public static function getInstance(): TenUp3 {
 		return instance;
 	}
 	
 	public override function init(): Void {
 		Configuration.setScreen(new LoadingScreen());
-		Loader.the.loadRoom("level1", initLevel);
+		//Loader.the.loadRoom("level1", initLevel);
+		Level.load("level1", initLevel);
 	}
 
 	public function initLevel(): Void {
 		backbuffer = Image.createRenderTarget(600, 520);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
-		tileColissions = new Array<Tile>();
+		/*tileColissions = new Array<Tile>();
 		for (i in 0...140) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
 		}
@@ -84,14 +85,14 @@ class SuperMarioLand extends Game {
 				map[x].push(0);
 			}
 		}
-		music = Loader.the.getMusic("level1");
+		music = Loader.the.getMusic("level1");*/
 		startGame();
 	}
 	
 	public function startGame() {
 		getHighscores().load(Storage.defaultFile());
 		if (Jumpman.getInstance() == null) new Jumpman(music);
-		Scene.the.clear();
+		/*Scene.the.clear();
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		var tilemap : Tilemap = new Tilemap("sml_tiles", 32, 32, map, tileColissions);
 		Scene.the.setColissionMap(tilemap);
@@ -124,7 +125,7 @@ class SuperMarioLand extends Game {
 				}
 			}
 		}
-		music.play(true);
+		music.play(true);*/
 		Jumpman.getInstance().reset();
 		Scene.the.addHero(Jumpman.getInstance());
 		
@@ -185,32 +186,7 @@ class SuperMarioLand extends Game {
 		
 		var g = backbuffer.g2;
 		g.begin();
-		g.font = font;
-		switch (mode) {
-		case Highscore:
-			g.color = Color.White;
-			g.fillRect(0, 0, width, height);
-			g.color = Color.Black;
-			var i: Int = 0;
-			while (i < 10 && i < getHighscores().getScores().length) {
-				var score: Score = getHighscores().getScores()[i];
-				g.drawString(Std.string(i + 1) + ": " + score.getName(), 100, i * 30 + 100);
-				g.drawString(" -           " + Std.string(score.getScore()), 200, i * 30 + 100);
-				++i;
-			}
-		case EnterHighscore:
-			g.color = Color.White;
-			g.fillRect(0, 0, width, height);
-			g.color = Color.Black;
-			g.drawString("Enter your name", width / 2 - 100, 200);
-			g.drawString(highscoreName, width / 2 - 50, 250);
-		case Game:
-			scene.render(g);
-			g.transformation = Matrix3.identity();
-			g.color = Color.Black;
-			g.drawString("Score: " + Std.string(Jumpman.getInstance().getScore()), 20, 25);
-			g.drawString("Round: " + Std.string(Jumpman.getInstance().getRound()), width - 100, 25);
-		}
+		scene.render(g);
 		g.end();
 		
 		startRender(frame);

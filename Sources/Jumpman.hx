@@ -86,7 +86,7 @@ class Jumpman extends Sprite {
 	
 	public override function update() {
 		if (killed && y > 600) {
-			SuperMarioLand.getInstance().showHighscore();
+			TenUp3.getInstance().showHighscore();
 		}
 		if (lastupcount > 0) --lastupcount;
 		if (!killed) {

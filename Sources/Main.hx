@@ -5,6 +5,6 @@ import kha.Starter;
 class Main {
 	public static function main() {
 		var starter = new Starter();
-		starter.start(new SuperMarioLand());
+		starter.start(new TenUp3());
 	}
 }

@@ -1,13 +1,11 @@
 {
 	"format": 1,
-	"game":
-	{
+	"game": {
 		"name": "SML",
 		"width": 600,
 		"height": 520
 	},
-	"assets":
-	[
+	"assets": [
 		{
 			"id": "9c8c0db0-d7cc-11e1-9b23-0800200c9a66",
 			"type": "image",
@@ -81,33 +79,31 @@
 			"name": "stomp"
 		},
 		{
-			"id": "2348bd79-d7ce-11e1-9b23-0800200c9a66",
-			"type": "music",
-			"file": "level1",
-			"name": "level1"
-		},
-		{
-			"id": "5c950390-d7ce-11e1-9b23-0800200c9a66",
-			"type": "blob",
-			"file": "level.map",
-			"name": "level.map"
-		},
-		{
 			"id": "15b1ea20-4032-11e2-a25f-0800200c9a66",
 			"type": "blob",
 			"file": "Arial12.kravur",
 			"name": "Arial12.kravur"
+		},
+		{
+			"id": "17f8b182-af09-4762-aab8-073ac22824e3",
+			"type": "image",
+			"file": "outside.png",
+			"name": "outside"
+		},
+		{
+			"id": "a093355c-6c09-4de0-8d80-8b4a71398701",
+			"type": "blob",
+			"file": "level1",
+			"name": "level1"
 		}
 	],
-	"rooms":
-	[
+	"rooms": [
 		{
-			"id" : "657f6c70-d7ce-11e1-9b23-0800200c9a66",
+			"id": "657f6c70-d7ce-11e1-9b23-0800200c9a66",
 			"name": "level1",
 			"parent": null,
 			"neighbours": [],
-			"assets":
-			[
+			"assets": [
 				"9c8c0db0-d7cc-11e1-9b23-0800200c9a66",
 				"a7a42c00-d7cc-11e1-9b23-0800200c9a66",
 				"12116430-d7ce-11e1-9b23-0800200c9a66",
@@ -120,9 +116,9 @@
 				"2348bd76-d7ce-11e1-9b23-0800200c9a66",
 				"2348bd77-d7ce-11e1-9b23-0800200c9a66",
 				"2348bd78-d7ce-11e1-9b23-0800200c9a66",
-				"2348bd79-d7ce-11e1-9b23-0800200c9a66",
-				"5c950390-d7ce-11e1-9b23-0800200c9a66",
-				"15b1ea20-4032-11e2-a25f-0800200c9a66"
+				"15b1ea20-4032-11e2-a25f-0800200c9a66",
+				"17f8b182-af09-4762-aab8-073ac22824e3",
+				"a093355c-6c09-4de0-8d80-8b4a71398701"
 			]
 		}
 	]

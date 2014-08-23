@@ -1,4 +1,5 @@
 package;
+
 import kha.Color;
 import kha.Configuration;
 import kha.Game;
@@ -7,18 +8,6 @@ import kha.LoadingScreen;
 import kha.Scene;
 import kha.Tile;
 import kha.Tilemap;
-import manipulatables.BoneSaw;
-import manipulatables.Director;
-import manipulatables.Door;
-import manipulatables.Drake;
-import manipulatables.Fire;
-import manipulatables.GuyWithExtinguisher;
-import manipulatables.Helmet;
-import manipulatables.Knight;
-import manipulatables.Pizza;
-import manipulatables.SurgicalMaskAndInjection;
-import manipulatables.WinterCoat;
-import manipulatables.WoundedPerson;
 
 class Level {
 	public static var solution : Bool = false;
@@ -33,13 +22,13 @@ class Level {
 	}
 	
 	private static function initLevel(): Void {
-		if (Jumpman.getInstance() == null) new Jumpman();
+		if (Jumpman.getInstance() == null) new Jumpman(null);
 
 		var tileColissions = new Array<Tile>();
-		for (i in 0...140) {
+		for (i in 0...600) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
 		}
-		var blob = Loader.the.getBlob(levelName + ".map");
+		var blob = Loader.the.getBlob(levelName);
 		blob.reset();
 		var levelWidth: Int = blob.readS32BE();
 		var levelHeight: Int = blob.readS32BE();
@@ -68,10 +57,11 @@ class Level {
 		Scene.the.clear();
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
-		var tileset = "sml_tiles";
-		if (levelName == "level1") tileset = "tileset1";
+		//var tileset = "sml_tiles";
+		//if (levelName == "level1") tileset = "tileset1";
+		var tileset = "outside";
 		
-		var tilemap : Tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
+		var tilemap : Tilemap = new Tilemap(tileset, 16, 16, map, tileColissions);
 		Scene.the.setColissionMap(tilemap);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
 		var TILE_WIDTH : Int = 32;
@@ -91,7 +81,7 @@ class Level {
 				sprites[i * 3 + 1] *= 2;
 				sprites[i * 3 + 2] *= 2;
 			}
-			switch (sprites[i * 3]) {
+			/*switch (sprites[i * 3]) {
 			case 0: // helmet
 				sprite = new Helmet(sprites[i * 3 + 1], sprites[i * 3 + 2]);
 				Scene.the.addHero(sprite);
@@ -138,9 +128,9 @@ class Level {
 			default:
 				trace("That should never happen! We are therefore going to ignore it.");
 				continue;
-			}
+			}*/
 		}
-		Configuration.setScreen(BrewingOfTenUp.getInstance());
+		Configuration.setScreen(TenUp3.getInstance());
 		done();
 	}
 	
