@@ -74,7 +74,8 @@ class PlayerProfessor extends Player {
 		isCrosshairVisible = true;
 	}
 	
-	override public function useSpecialAbilityA( gameTime : Float ) : Void {
+	override public function useSpecialAbilityA() : Void {
+		Scene.the.addOther(new Water(x + 10, y));
 		/*if ( timeCannonNextFireTime  <= gameTime ) {
 			timeCannonNextFireTime = gameTime + 25;
 			

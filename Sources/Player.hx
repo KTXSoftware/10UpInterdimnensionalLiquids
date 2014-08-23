@@ -259,7 +259,7 @@ class Player extends DestructibleSprite {
 		
 	}
 	
-	public function useSpecialAbilityA(gameTime : Float) : Void {
+	public function useSpecialAbilityA() : Void {
 		
 	}
 	

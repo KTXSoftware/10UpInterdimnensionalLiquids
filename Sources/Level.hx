@@ -13,6 +13,7 @@ class Level {
 	public static var solution : Bool = false;
 	private static var levelName: String;
 	private static var done: Void -> Void;
+	public static var liquids: Tilemap;
 	
 	public static function load(levelName: String, done: Void -> Void): Void {
 		Level.levelName = levelName;
@@ -55,6 +56,17 @@ class Level {
 		Scene.the.clear();
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
+		var liquidMap = new Array<Array<Int>>();
+		for (x in 0...levelWidth) {
+			liquidMap.push(new Array<Int>());
+			for (y in 0...levelHeight) {
+				liquidMap[x].push(0);
+			}
+		}
+		var liquidTiles = new Array<Tile>();
+		for (i in 0...100) liquidTiles.push(new Tile(i, false));
+		liquids = new Tilemap("liquids", 16, 16, liquidMap, liquidTiles);
+		
 		//var tileset = "sml_tiles";
 		//if (levelName == "level1") tileset = "tileset1";
 		var tileset = "outside";
@@ -62,6 +74,7 @@ class Level {
 		var tilemap : Tilemap = new Tilemap(tileset, 16, 16, map, tileColissions);
 		Scene.the.setColissionMap(tilemap);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
+		Scene.the.addForegroundTilemap(liquids, 1);
 		var TILE_WIDTH : Int = 32;
 		var TILE_HEIGHT : Int = 32;
 		for (x in 0...originalmap.length) {
