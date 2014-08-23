@@ -12,7 +12,7 @@ class LiquidTile extends kha.Tile {
 		for (y in 0...32) {
 			lines.push(0);
 			for (x in 0...32) {
-				if (imageIndex == 0 || y >= 32 - ((imageIndex - 1) * 4)) lines[y] |= 1;
+				if (imageIndex == 0 || y >= 32 - ((imageIndex - 1) * 2)) lines[y] |= 1;
 				lines[y] <<= 1;
 			}
 		}

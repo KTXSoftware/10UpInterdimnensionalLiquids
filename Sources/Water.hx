@@ -44,7 +44,7 @@ class Water extends Sprite {
 		if (lastTile == null || tile.x != lastTile.x || tile.y != lastTile.y) {
 			lastTile = tile;
 			if (floored) {
-				if (value > 0 && value < 15) Level.liquids.set(tile.x, tile.y, value + 1);
+				if (value > 0 && value < 17) Level.liquids.set(tile.x, tile.y, value + 1);
 			}
 		}
 		floored = false;
