@@ -39,9 +39,9 @@ class PlayerProfessor extends Player {
 		super.update();
 		timecannon.update();
 		var c = center;
-		timecannon.x = c.x - 0.5 * timecannon.width;
+		timecannon.x = c.x - 0.25 * timecannon.width;
 		//graple.x = x + 10;
-		timecannon.y = c.y - 0.5 * timecannon.height - 7;
+		timecannon.y = c.y - 0.25 * timecannon.height - 3;
 		timecannon.angle = Math.atan2(crosshair.y, crosshair.x);
 		if (lookRight) {
 			timecannon.x += 15;

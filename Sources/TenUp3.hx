@@ -69,28 +69,6 @@ class TenUp3 extends Game {
 	public function initLevel(): Void {
 		backbuffer = Image.createRenderTarget(400, 300);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
-		/*tileColissions = new Array<Tile>();
-		for (i in 0...140) {
-			tileColissions.push(new Tile(i, isCollidable(i)));
-		}
-		var blob = Loader.the.getBlob("level.map");
-		var levelWidth: Int = blob.readS32BE();
-		var levelHeight: Int = blob.readS32BE();
-		originalmap = new Array<Array<Int>>();
-		for (x in 0...levelWidth) {
-			originalmap.push(new Array<Int>());
-			for (y in 0...levelHeight) {
-				originalmap[x].push(blob.readS32BE());
-			}
-		}
-		map = new Array<Array<Int>>();
-		for (x in 0...originalmap.length) {
-			map.push(new Array<Int>());
-			for (y in 0...originalmap[0].length) {
-				map[x].push(0);
-			}
-		}
-		music = Loader.the.getMusic("level1");*/
 		startGame();
 	}
 	
@@ -98,40 +76,6 @@ class TenUp3 extends Game {
 		getHighscores().load(Storage.defaultFile());
 		Player.init();
 		player = new PlayerProfessor(10, 10);
-		/*Scene.the.clear();
-		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
-		var tilemap : Tilemap = new Tilemap("sml_tiles", 32, 32, map, tileColissions);
-		Scene.the.setColissionMap(tilemap);
-		Scene.the.addBackgroundTilemap(tilemap, 1);
-		var TILE_WIDTH : Int = 32;
-		var TILE_HEIGHT : Int = 32;
-		for (x in 0...originalmap.length) {
-			for (y in 0...originalmap[0].length) {
-				switch (originalmap[x][y]) {
-				case 15:
-					map[x][y] = 0;
-					Scene.the.addEnemy(new Gumba(x * TILE_WIDTH, y * TILE_HEIGHT));
-				case 16:
-					map[x][y] = 0;
-					Scene.the.addEnemy(new Koopa(x * TILE_WIDTH, y * TILE_HEIGHT - 16));
-				case 17:
-					map[x][y] = 0;
-					Scene.the.addEnemy(new Fly(x * TILE_WIDTH - 32, y * TILE_HEIGHT - 8));
-				case 46:
-					map[x][y] = 0;
-					Scene.the.addEnemy(new Coin(x * TILE_WIDTH, y * TILE_HEIGHT));
-				case 52:
-					map[x][y] = 52;
-					Scene.the.addEnemy(new Exit(x * TILE_WIDTH, y * TILE_HEIGHT));
-				case 56:
-					map[x][y] = 1;
-					Scene.the.addEnemy(new BonusBlock(x * TILE_WIDTH, y * TILE_HEIGHT));
-				default:
-					map[x][y] = originalmap[x][y];
-				}
-			}
-		}
-		music.play(true);*/
 		Scene.the.addHero(player);
 		
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
@@ -143,41 +87,6 @@ class TenUp3 extends Game {
 		Scene.the.clear();
 		mode = Mode.EnterHighscore;
 		music.stop();
-	}
-	
-	private static function isCollidable(tilenumber : Int) : Bool {
-		switch (tilenumber) {
-		case 1: return true;
-		case 6: return true;
-		case 7: return true;
-		case 8: return true;
-		case 26: return true;
-		case 33: return true;
-		case 39: return true;
-		case 48: return true;
-		case 49: return true;
-		case 50: return true;
-		case 53: return true;
-		case 56: return true;
-		case 60: return true;
-		case 61: return true;
-		case 62: return true;
-		case 63: return true;
-		case 64: return true;
-		case 65: return true;
-		case 67: return true;
-		case 68: return true;
-		case 70: return true;
-		case 74: return true;
-		case 75: return true;
-		case 76: return true;
-		case 77: return true;
-		case 84: return true;
-		case 86: return true;
-		case 87: return true;
-		default:
-			return false;
-		}
 	}
 	
 	public override function update() {
@@ -281,10 +190,17 @@ class TenUp3 extends Game {
 	}
 
 	public override function mouseDown(x: Int, y: Int): Void {
-		
+		mouseX = x / 2 + Scene.the.screenOffsetX;
+		mouseY = y / 2 + Scene.the.screenOffsetY;
 	}
 	
-	public override function mouseUp(x : Int, y : Int) : Void {
-		
+	public override function mouseUp(x: Int, y: Int): Void {
+		mouseX = x / 2 + Scene.the.screenOffsetX;
+		mouseY = y / 2 + Scene.the.screenOffsetY;
+	}
+	
+	public override function mouseMove(x: Int, y: Int): Void {
+		mouseX = x / 2 + Scene.the.screenOffsetX;
+		mouseY = y / 2 + Scene.the.screenOffsetY;
 	}
 }

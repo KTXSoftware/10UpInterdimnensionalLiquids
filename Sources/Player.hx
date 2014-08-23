@@ -173,9 +173,7 @@ class Player extends DestructibleSprite {
 		}
 		if (jumpcount > 0) --jumpcount;
 		super.update();
-		if (Player.currentPlayer == this) {
-			updateCrosshair();
-		}
+		updateCrosshair();
 	}
 	
 	public function setUp() {
@@ -303,27 +301,25 @@ class Player extends DestructibleSprite {
 	var crosshair : Vector2;
 	
 	public function updateCrosshair() {
-		if (Player.current() != null) {
-			var v = center;
-			v.x = TenUp3.instance.mouseX - v.x;
-			v.y = TenUp3.instance.mouseY - v.y;
-			//v.y += 0.1 * height;
-			if (lookRight) {
-				if (v.x < 0) {
-					v.x = 0;
-				}
-			} else {
-				if ( v.x > 0) {
-					v.x = 0;
-				}
+		var v = center;
+		v.x = TenUp3.instance.mouseX - v.x;
+		v.y = TenUp3.instance.mouseY - v.y;
+		//v.y += 0.1 * height;
+		if (lookRight) {
+			if (v.x < 0) {
+				v.x = 0;
 			}
-			
-			var vl = v.length;
-			if (vl < 0.001) {
-				return;
+		} else {
+			if ( v.x > 0) {
+				v.x = 0;
 			}
-			crosshair = v.div( vl );
 		}
+		
+		var vl = v.length;
+		if (vl < 0.001) {
+			return;
+		}
+		crosshair = v.div( vl );
 		updateMuzzlePoint();
 	}
 	
