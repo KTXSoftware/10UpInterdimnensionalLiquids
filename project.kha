@@ -2,8 +2,8 @@
 	"format": 1,
 	"game": {
 		"name": "SML",
-		"width": 600,
-		"height": 520
+		"width": 800,
+		"height": 600
 	},
 	"assets": [
 		{
@@ -95,6 +95,34 @@
 			"type": "blob",
 			"file": "level1",
 			"name": "level1"
+		},
+		{
+			"id": "60aef4c6-7f6a-4691-ac26-83a3b04fffe4",
+			"type": "image",
+			"file": "professor.png",
+			"name": "professor",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			}
+		},
+		{
+			"id": "83e4b061-56bc-462a-b187-52987619a14e",
+			"type": "image",
+			"file": "timecannon.png",
+			"name": "timecannon"
+		},
+		{
+			"id": "981ecab7-2b5f-4c61-b508-2fda90853742",
+			"type": "image",
+			"file": "zzzzz.png",
+			"name": "zzzzz",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			}
 		}
 	],
 	"rooms": [
@@ -118,7 +146,10 @@
 				"2348bd78-d7ce-11e1-9b23-0800200c9a66",
 				"15b1ea20-4032-11e2-a25f-0800200c9a66",
 				"17f8b182-af09-4762-aab8-073ac22824e3",
-				"a093355c-6c09-4de0-8d80-8b4a71398701"
+				"a093355c-6c09-4de0-8d80-8b4a71398701",
+				"60aef4c6-7f6a-4691-ac26-83a3b04fffe4",
+				"83e4b061-56bc-462a-b187-52987619a14e",
+				"981ecab7-2b5f-4c61-b508-2fda90853742"
 			]
 		}
 	]

@@ -22,8 +22,6 @@ class Level {
 	}
 	
 	private static function initLevel(): Void {
-		if (Jumpman.getInstance() == null) new Jumpman(null);
-
 		var tileColissions = new Array<Tile>();
 		for (i in 0...600) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
@@ -74,7 +72,7 @@ class Level {
 				}
 			}
 		}
-		var jmpMan = Jumpman.getInstance();
+		//var jmpMan = Jumpman.getInstance();
 		for (i in 0...spriteCount) {
 			var sprite: kha.Sprite;
 			if (levelName == "level1") {

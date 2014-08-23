@@ -31,7 +31,7 @@ enum Mode {
 }
 
 class TenUp3 extends Game {
-	static var instance : TenUp3;
+	public static var instance : TenUp3;
 	var music : Music;
 	var tileColissions : Array<Tile>;
 	var map : Array<Array<Int>>;
@@ -40,6 +40,11 @@ class TenUp3 extends Game {
 	var shiftPressed : Bool;
 	private var font: Font;
 	private var backbuffer: Image;
+	
+	public var mouseX: Float;
+	public var mouseY: Float;
+	
+	var player: PlayerProfessor;
 	
 	var mode : Mode;
 	
@@ -62,7 +67,7 @@ class TenUp3 extends Game {
 	}
 
 	public function initLevel(): Void {
-		backbuffer = Image.createRenderTarget(600, 520);
+		backbuffer = Image.createRenderTarget(400, 300);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		/*tileColissions = new Array<Tile>();
 		for (i in 0...140) {
@@ -91,7 +96,8 @@ class TenUp3 extends Game {
 	
 	public function startGame() {
 		getHighscores().load(Storage.defaultFile());
-		if (Jumpman.getInstance() == null) new Jumpman(music);
+		Player.init();
+		player = new PlayerProfessor(10, 10);
 		/*Scene.the.clear();
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		var tilemap : Tilemap = new Tilemap("sml_tiles", 32, 32, map, tileColissions);
@@ -126,8 +132,7 @@ class TenUp3 extends Game {
 			}
 		}
 		music.play(true);*/
-		Jumpman.getInstance().reset();
-		Scene.the.addHero(Jumpman.getInstance());
+		Scene.the.addHero(player);
 		
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
 		
@@ -177,13 +182,10 @@ class TenUp3 extends Game {
 	
 	public override function update() {
 		super.update();
-		if (Jumpman.getInstance() == null) return;
-		Scene.the.camx = Std.int(Jumpman.getInstance().x) + Std.int(Jumpman.getInstance().width / 2);
+		Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
 	}
 	
 	public override function render(frame: Framebuffer) {
-		if (Jumpman.getInstance() == null) return;
-		
 		var g = backbuffer.g2;
 		g.begin();
 		scene.render(g);
@@ -198,16 +200,16 @@ class TenUp3 extends Game {
 		switch (axis) {
 			case 0:
 				if (value < -0.2) {
-					Jumpman.getInstance().left = true;
-					Jumpman.getInstance().right = false;
+					player.left = true;
+					player.right = false;
 				}
 				else if (value > 0.2) {
-					Jumpman.getInstance().right = true;
-					Jumpman.getInstance().left = false;
+					player.right = true;
+					player.left = false;
 				}
 				else {
-					Jumpman.getInstance().left = false;
-					Jumpman.getInstance().right = false;
+					player.left = false;
+					player.right = false;
 				}
 		}
 	}
@@ -215,25 +217,25 @@ class TenUp3 extends Game {
 	private function buttonListener(button: Int, value: Float): Void {
 		switch (button) {
 			case 0, 1, 2, 3:
-				if (value > 0.5) Jumpman.getInstance().setUp();
-				else Jumpman.getInstance().up = false;
+				if (value > 0.5) player.setUp();
+				else player.up = false;
 			case 14:
 				if (value > 0.5) {
-					Jumpman.getInstance().left = true;
-					Jumpman.getInstance().right = false;
+					player.left = true;
+					player.right = false;
 				}
 				else {
-					Jumpman.getInstance().left = false;
-					Jumpman.getInstance().right = false;
+					player.left = false;
+					player.right = false;
 				}
 			case 15:
 				if (value > 0.5) {
-					Jumpman.getInstance().right = true;
-					Jumpman.getInstance().left = false;
+					player.right = true;
+					player.left = false;
 				}
 				else {
-					Jumpman.getInstance().right = false;
-					Jumpman.getInstance().left = false;
+					player.right = false;
+					player.left = false;
 				}
 		}
 	}
@@ -243,11 +245,11 @@ class TenUp3 extends Game {
 		case Game:
 			switch (button) {
 			case UP, BUTTON_1, BUTTON_2:
-				Jumpman.getInstance().setUp();
+				player.setUp();
 			case LEFT:
-				Jumpman.getInstance().left = true;
+				player.left = true;
 			case RIGHT:
-				Jumpman.getInstance().right = true;
+				player.right = true;
 			default:
 			}
 		default:
@@ -259,11 +261,11 @@ class TenUp3 extends Game {
 		case Game:
 			switch (button) {
 			case UP, BUTTON_1, BUTTON_2:
-				Jumpman.getInstance().up = false;
+				player.up = false;
 			case LEFT:
-				Jumpman.getInstance().left = false;
+				player.left = false;
 			case RIGHT:
-				Jumpman.getInstance().right = false;
+				player.right = false;
 			default:
 			}	
 		default:
@@ -271,25 +273,7 @@ class TenUp3 extends Game {
 	}
 	
 	override public function keyDown(key: Key, char: String) : Void {
-		if (key == Key.CHAR) {
-			if (mode == Mode.EnterHighscore) {
-				if (highscoreName.length < 20) highscoreName += shiftPressed ? char.toUpperCase() : char.toLowerCase();
-			}
-		}
-		else {
-			if (highscoreName.length > 0) {
-				switch (key) {
-				case ENTER:
-					getHighscores().addScore(highscoreName, Jumpman.getInstance().getScore());
-					getHighscores().save(Storage.defaultFile());
-					mode = Mode.Highscore;
-				case BACKSPACE:
-					highscoreName = highscoreName.substr(0, highscoreName.length - 1);
-				default:
-				}
-			}
-			if (key == SHIFT) shiftPressed = true;
-		}
+		
 	}
 	
 	override public function keyUp(key : Key, char : String) : Void {
@@ -297,17 +281,10 @@ class TenUp3 extends Game {
 	}
 
 	public override function mouseDown(x: Int, y: Int): Void {
-		var xt = painterTransformMouseX(x, y);
-		if (xt > width / 2) Jumpman.getInstance().setUp();
-		else {
-			if (xt < width / 4) Jumpman.getInstance().left = true;
-			else Jumpman.getInstance().right = true;
-		}
+		
 	}
 	
 	public override function mouseUp(x : Int, y : Int) : Void {
-		Jumpman.getInstance().up = false;
-		Jumpman.getInstance().left = false;
-		Jumpman.getInstance().right = false;
+		
 	}
 }
