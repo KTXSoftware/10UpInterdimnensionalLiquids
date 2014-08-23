@@ -69,7 +69,8 @@ class BlaBox {
 		var word = "";
 		var first = true;
 		while (t < text.length + 1) {
-			if (text.length == t || text.charAt(t) == " ") {
+			var char = text.charAt(t);
+			if (text.length == t || char == " " || char == "\n") {
 				var txnext: Float = 0;
 				if (first) txnext = tx + font.stringWidth(word);
 				txnext = tx + font.stringWidth(" ") + font.stringWidth(word);
@@ -84,7 +85,13 @@ class BlaBox {
 					else g.drawString(" " + word, tx, ty);
 					tx = txnext;
 				}
-				first = false;
+				if (char == "\n") {
+					first = true;
+					tx = x + 10;
+					ty += font.getHeight();
+				} else {
+					first = false;
+				}
 				word = "";
 			}
 			else {

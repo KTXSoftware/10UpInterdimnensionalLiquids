@@ -22,6 +22,21 @@ class Dialogue {
 		next();
 	}
 	
+	public static function insert(items: Array<DialogueItem>) {
+		var newItems = new Array<DialogueItem>();
+		newItems.push(Dialogue.items[index]);
+		for (item in items) {
+			newItems.push(item);
+		}
+		++index;
+		while (index < Dialogue.items.length) {
+			newItems.push(Dialogue.items[index]);
+			++index;
+		}
+		index = 0;
+		Dialogue.items = newItems;
+	}
+	
 	public static function update() : Void {
 		if (index >= 0 && !items[index].finished) {
 			items[index].execute();

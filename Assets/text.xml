@@ -46,11 +46,20 @@
 	<de>Ja Schatz ...</de>
 </Start_Dlg_6>
 
-<Geld_Gefunden_c>
+<Geld_Gefunden_1_c>
 	<de>Oh, da liegt ein ja ein Cent!
 (1): Heute ist wohl mein Glückstag! [Geld nehmen]
 (2): Jemand anderes braucht ihn bestimmt dringender als ich... [Geld liegenlassen]</de>
-</Geld_Gefunden_c>
+</Geld_Gefunden_1_c>
+<Geld_Gefunden_1>
+	<de>Oh, da liegt ein ja ein Cent!</de>
+</Geld_Gefunden_1>
+<Geld_Gefunden_1a>
+	<de>Heute ist wohl mein Glückstag!</de>
+</Geld_Gefunden_1a>
+<Geld_Gefunden_1b>
+	<de>Jemand anderes braucht ihn bestimmt dringender als ich... [Geld liegenlassen]</de>
+</Geld_Gefunden_1b>
 
 <Verkaufen_1>
 	<de>Guten Morgen! Sie wünschen?</de>
@@ -81,6 +90,12 @@
 	<de>(1): Da kann ich nichts machen. Möchen sie Stattdessen 2 Wasserweck?
 (2): Aber für heute kann ich darüber hinwegsehen.</de>
 </Verkaufen_2a_2a_3_c>
+<Verkaufen_2a_2a_3a>
+	<de>Da kann ich nichts machen. Möchen sie stattdessen 2 Wasserweck?</de>
+</Verkaufen_2a_2a_3a>
+<Verkaufen_2a_2a_3b>
+	<de>Aber für heute kann ich darüber hinwegsehen.</de>
+</Verkaufen_2a_2a_3b>
 
 <Verkaufen_2a_2a_3a_1>
 	<de>Ja, dableibt mir wohl nichts übrig. [Geld geben]</de>
@@ -91,8 +106,11 @@
 
 <Verkaufen_2a_2b_1_c>
 	<de>(1): Entschuldigen sie Bitte! Das ist nur ein Euro.
-(2): Und hier sind ihre Brötchen. [Brötchen geben]</de>
+(2): Und hier sind ihre Brötchen. Wünsche einen schönen Tag. [Brötchen geben]</de>
 </Verkaufen_2a_2b_1_c>
+<Verkaufen_2a_2b_1a>
+	<de>Entschuldigen sie Bitte! Das ist nur ein Euro.</de>
+</Verkaufen_2a_2b_1a>
 <Verkaufen_2a_2b_1a_1>
 	<de>Mehr Geld habe ich leider nicht.</de>
 </Verkaufen_2a_2b_1a_1>
@@ -105,7 +123,7 @@
 </Verkaufen_2b_2>
 
 <Verkaufen_Erfolg_1>
-	<de>Und ihre Brötchen. Wünsche einen schönen Tag. [Brötchen nehmen]</de>
+	<de>Und hier sind ihre Brötchen. Wünsche einen schönen Tag.</de>
 </Verkaufen_Erfolg_1>
 <Verkaufen_Erfolg_2>
 	<de>Vielen Dank. Auf wiedersehen.</de>

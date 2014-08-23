@@ -10,27 +10,30 @@ using StringTools;
 enum BlaWithChoicesStatus {
 	BLA;
 	CHOICE;
-	ROUTED;
 }
 
 class BlaWithChoices extends Bla {
-	var choices : Array<DialogueItem>;
-	var choice : Int;
+	var txtKey : String;
+	var choices : Array<Array<DialogueItem>>;
 	var status : BlaWithChoicesStatus = BlaWithChoicesStatus.BLA;
 	
-	public function new (text : String, speaker : Sprite, choices: Array<DialogueItem>) {
-		super(text, speaker);
-		
+	public function new (txtKey : String, speaker : Sprite, choices: Array<Array<DialogueItem>>) {
+		super(txtKey, speaker);
+		this.txtKey = txtKey;
 		this.choices = choices;
 		
 		this.finished = false;
 	}
 	
+	@:access(Dialogues.dlgChoices) 
 	private function keyUpListener(key:Key, char: String) {
 		var choice = char.fastCodeAt(0) - '1'.fastCodeAt(0);
 		if (choice >= 0 && choice < choices.length) {
+			Dialogues.dlgChoices[txtKey] = choice;
 			Keyboard.get().remove(null, keyUpListener);
-			status = BlaWithChoicesStatus.ROUTED;
+			this.finished = true;
+			Dialogue.insert(choices[choice]);
+			Dialogue.next();
 		}
 	}
 	
@@ -39,16 +42,9 @@ class BlaWithChoices extends Bla {
 			case BlaWithChoicesStatus.BLA:
 				super.execute();
 				Keyboard.get().notify(null, keyUpListener);
+				status = BlaWithChoicesStatus.CHOICE;
 			case BlaWithChoicesStatus.CHOICE:
 				// just wait for input
-			case BlaWithChoicesStatus.ROUTED:
-				var routedItem = choices[choice];
-				if (routedItem != null) {
-					routedItem.execute();
-					finished = routedItem.finished;
-				} else {
-					finished = true;
-				}
 		}
 	}
 }
