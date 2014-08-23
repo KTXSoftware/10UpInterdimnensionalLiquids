@@ -74,7 +74,7 @@ class Level {
 		var tilemap : Tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
 		Scene.the.setColissionMap(liquids);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
-		//Scene.the.addForegroundTilemap(liquids, 1);
+		Scene.the.addForegroundTilemap(liquids, 1);
 		var TILE_WIDTH : Int = 32;
 		var TILE_HEIGHT : Int = 32;
 		for (x in 0...originalmap.length) {
