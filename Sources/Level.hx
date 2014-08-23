@@ -60,11 +60,11 @@ class Level {
 		for (x in 0...levelWidth) {
 			liquidMap.push(new Array<Int>());
 			for (y in 0...levelHeight) {
-				liquidMap[x].push(0);
+				liquidMap[x].push(isCollidable(originalmap[x][y]) ? 0 : 1);
 			}
 		}
 		var liquidTiles = new Array<Tile>();
-		for (i in 0...100) liquidTiles.push(new Tile(i, false));
+		for (i in 0...100) liquidTiles.push(new LiquidTile(i));
 		liquids = new Tilemap("liquids", 16, 16, liquidMap, liquidTiles);
 		
 		//var tileset = "sml_tiles";
@@ -72,7 +72,7 @@ class Level {
 		var tileset = "outside";
 		
 		var tilemap : Tilemap = new Tilemap(tileset, 16, 16, map, tileColissions);
-		Scene.the.setColissionMap(tilemap);
+		Scene.the.setColissionMap(liquids);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
 		Scene.the.addForegroundTilemap(liquids, 1);
 		var TILE_WIDTH : Int = 32;
