@@ -10,6 +10,7 @@ import kha.graphics4.TextureFormat;
 import kha.HighscoreList;
 import kha.Image;
 import kha.input.Gamepad;
+import kha.input.Mouse;
 import kha.Key;
 import kha.Loader;
 import kha.LoadingScreen;
@@ -23,6 +24,11 @@ import kha.ScreenRotation;
 import kha.Storage;
 import kha.Tile;
 import kha.Tilemap;
+
+enum SubGame {
+	TEN_UP_3;
+	JUST_A_NORMAL_DAY;
+}
 
 enum Mode {
 	Game;
@@ -45,6 +51,11 @@ class TenUp3 extends Game {
 	
 	var player: PlayerProfessor;
 	
+#if JUST_A_NORMAL_DAY
+	var subgame : SubGame = SubGame.JUST_A_NORMAL_DAY;
+#else
+	var subgame : SubGame = SubGame.TEN_UP_3;
+#end
 	var mode : Mode;
 	
 	public function new() {
@@ -66,43 +77,59 @@ class TenUp3 extends Game {
 	}
 
 	public function initLevel(): Void {
-		Localization.language = Localization.LanguageType.en; // TODO: language select
-		Localization.init("text");
 		backbuffer = Image.createRenderTarget(800, 600);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
 	}
 	
 	public function startGame() {
-		getHighscores().load(Storage.defaultFile());
-		Player.init();
-		player = new PlayerProfessor(10, 10);
-		Scene.the.addHero(player);
+		Localization.language = Localization.LanguageType.en; // TODO: language select
+		Localization.init("text");
+		Inventory.init();
+		
+		switch(subgame) {
+		case SubGame.TEN_UP_3:
+			startGame_TenUp3();
+		case SubGame.JUST_A_NORMAL_DAY:
+			startGame_JustANormalDay();
+		}
 		
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
-		
-		Dialogues.setStartDlg(player, player);
 		
 		Configuration.setScreen(this);
 	}
 	
+	public function startGame_TenUp3() {
+		Player.init();
+		player = new PlayerProfessor(10, 10);
+		Scene.the.addHero(player);
+	}
+	
+	public function startGame_JustANormalDay() {
+		Player.init();
+		player = new PlayerProfessor(10, 10);
+		Scene.the.addHero(player);
+		
+		Dialogues.setStartDlg(player, player);
+	}
+	
 	public override function update() {
 		super.update();
+		Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
+		Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 		switch (mode) {
-		case Game:
-			Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
 		case BlaBlaBla:
 			Dialogue.update();
+		default:
 		}
-		Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 	}
 	
 	public override function render(frame: Framebuffer) {
 		var g = backbuffer.g2;
 		g.begin();
 		scene.render(g);
-		BlaBox.render(g);
 		Inventory.render(g);
+		BlaBox.render(g);
 		g.end();
 		
 		startRender(frame);
@@ -203,7 +230,12 @@ class TenUp3 extends Game {
 	public override function mouseDown(x: Int, y: Int): Void {
 		mouseX = x + Scene.the.screenOffsetX;
 		mouseY = y + Scene.the.screenOffsetY;
-		player.useSpecialAbilityA();
+		switch (subgame) {
+			case SubGame.TEN_UP_3:
+				player.useSpecialAbilityA();
+			case SubGame.JUST_A_NORMAL_DAY:
+				
+		}
 	}
 	
 	public override function mouseUp(x: Int, y: Int): Void {
