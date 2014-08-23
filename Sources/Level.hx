@@ -133,45 +133,10 @@ class Level {
 	}
 	
 	private static function isCollidable(tilenumber : Int) : Bool {
-		if (levelName == "level1") {
-			switch (tilenumber) {
-				case 33, 34, 35, 36, 48, 49, 50, 96, 97, 98, 99, 100, 101: return true;
-				default: return false;
-			}
-		}
-		else {
-			switch (tilenumber) {
-			case 1: return true;
-			case 6: return true;
-			case 7: return true;
-			case 8: return true;
-			case 26: return true;
-			case 33: return true;
-			case 39: return true;
-			case 48: return true;
-			case 49: return true;
-			case 50: return true;
-			case 53: return true;
-			case 56: return true;
-			case 60: return true;
-			case 61: return true;
-			case 62: return true;
-			case 63: return true;
-			case 64: return true;
-			case 65: return true;
-			case 67: return true;
-			case 68: return true;
-			case 70: return true;
-			case 74: return true;
-			case 75: return true;
-			case 76: return true;
-			case 77: return true;
-			case 84: return true;
-			case 86: return true;
-			case 87: return true;
-			default:
-				return false;
-			}
+		switch (tilenumber) {
+		case 64, 65, 66, 128, 320, 341, 342: return true;
+		default:
+			return false;
 		}
 	}
 }
