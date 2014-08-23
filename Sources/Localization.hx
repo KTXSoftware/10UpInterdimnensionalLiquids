@@ -30,7 +30,7 @@ class Localization
 				for (language in item.elements()) {
 					try {
 						var l = Type.createEnum(LanguageType, language.nodeName.toLowerCase());
-						texts[key][l] = language.firstChild().nodeValue;
+						texts[key][l] = StringTools.replace(StringTools.replace(language.firstChild().nodeValue, "\r\n", "\n"),"\r","\n");
 					} catch (e : Dynamic) {}
 				}
 			}

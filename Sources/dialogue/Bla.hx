@@ -9,8 +9,8 @@ class Bla implements DialogueItem {
 	
 	public var finished(default, null) : Bool = true;
 	
-	public function new (text : String, speaker : Sprite) {
-		this.text = text;
+	public function new (txtKey : String, speaker : Sprite) {
+		this.text = Localization.getText(txtKey);
 		this.speaker = speaker;
 	}
 	

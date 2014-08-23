@@ -107,6 +107,7 @@ class TenUp3 extends Game {
 	}
 	
 	public function startGame_JustANormalDay() {
+		Dialogues.init();
 		Player.init();
 		player = new PlayerProfessor(100, 400);
 		Scene.the.addHero(player);
@@ -117,7 +118,8 @@ class TenUp3 extends Game {
 		eheweib.accy = 0;
 		Scene.the.addEnemy(eheweib);
 		
-		Dialogues.setStartDlg(player, eheweib);
+		//Dialogues.setStartDlg(player, eheweib);
+		Dialogues.setVerkaufMannDlg(player, eheweib, null, null, null);
 	}
 	
 	public override function update() {
