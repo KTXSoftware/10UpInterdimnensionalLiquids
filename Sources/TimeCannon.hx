@@ -12,7 +12,7 @@ class TimeCannon extends Sprite {
 	public var rightAnim(default, null) : Animation;
 	public var leftAnim(default, null) : Animation;
 	public function new() {
-		super(kha.Loader.the.getImage("timecannon"), 44, 20, 4);
+		super(kha.Loader.the.getImage("timecannon"), 44 * 2, 20 * 2, 4);
 		
 		rightAnim = new Animation( [0, 1, 2, 2, 1, 0], 30 );
 		leftAnim = new Animation( [3, 4, 5, 5, 4, 3], 30 );

@@ -68,7 +68,7 @@ class TenUp3 extends Game {
 	public function initLevel(): Void {
 		Localization.language = Localization.LanguageType.en; // TODO: language select
 		Localization.init("text");
-		backbuffer = Image.createRenderTarget(400, 300);
+		backbuffer = Image.createRenderTarget(800, 600);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
 	}
@@ -201,21 +201,21 @@ class TenUp3 extends Game {
 	}
 
 	public override function mouseDown(x: Int, y: Int): Void {
-		mouseX = x / 2 + Scene.the.screenOffsetX;
-		mouseY = y / 2 + Scene.the.screenOffsetY;
+		mouseX = x + Scene.the.screenOffsetX;
+		mouseY = y + Scene.the.screenOffsetY;
 		player.useSpecialAbilityA();
 	}
 	
 	public override function mouseUp(x: Int, y: Int): Void {
-		mouseX = x / 2 + Scene.the.screenOffsetX;
-		mouseY = y / 2 + Scene.the.screenOffsetY;
+		mouseX = x + Scene.the.screenOffsetX;
+		mouseY = y + Scene.the.screenOffsetY;
 		if (mode == BlaBlaBla) {
 			Dialogue.next();
 		}
 	}
 	
 	public override function mouseMove(x: Int, y: Int): Void {
-		mouseX = x / 2 + Scene.the.screenOffsetX;
-		mouseY = y / 2 + Scene.the.screenOffsetY;
+		mouseX = x + Scene.the.screenOffsetX;
+		mouseY = y + Scene.the.screenOffsetY;
 	}
 }

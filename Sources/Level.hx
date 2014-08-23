@@ -65,16 +65,16 @@ class Level {
 		}
 		var liquidTiles = new Array<Tile>();
 		for (i in 0...100) liquidTiles.push(new LiquidTile(i));
-		liquids = new Tilemap("liquids", 16, 16, liquidMap, liquidTiles);
+		liquids = new Tilemap("liquids", 32, 32, liquidMap, liquidTiles);
 		
 		//var tileset = "sml_tiles";
 		//if (levelName == "level1") tileset = "tileset1";
 		var tileset = "outside";
 		
-		var tilemap : Tilemap = new Tilemap(tileset, 16, 16, map, tileColissions);
+		var tilemap : Tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
 		Scene.the.setColissionMap(liquids);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
-		Scene.the.addForegroundTilemap(liquids, 1);
+		//Scene.the.addForegroundTilemap(liquids, 1);
 		var TILE_WIDTH : Int = 32;
 		var TILE_HEIGHT : Int = 32;
 		for (x in 0...originalmap.length) {
