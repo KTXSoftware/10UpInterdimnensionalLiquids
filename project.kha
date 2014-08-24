@@ -183,28 +183,16 @@
 			"scale": 2
 		},
 		{
-			"id": "c2463eea-d0f5-4b19-81ce-9e1698b37583",
+			"id": "a3e173ef-3e50-432d-88cb-66259fd9b22d",
 			"type": "image",
-			"file": "portal.png",
-			"name": "portal",
-			"background": {
-				"red": 255,
-				"green": 174,
-				"blue": 201
-			},
-			"scale": 2
+			"file": "euro.png",
+			"name": "euro"
 		},
 		{
-			"id": "cc475837-ea13-4560-a648-6cafd58ce8ba",
+			"id": "7c62211a-40e1-4c3b-b989-e134f216e90e",
 			"type": "image",
-			"file": "watersplash.png",
-			"name": "watersplash",
-			"background": {
-				"red": 255,
-				"green": 174,
-				"blue": 201
-			},
-			"scale": 2
+			"file": "cent.png",
+			"name": "cent"
 		}
 	],
 	"rooms": [
@@ -239,8 +227,8 @@
 				"4b083c38-3a9c-41cf-825f-0c645de83535",
 				"bada0129-afb0-4267-bb54-8c0d45f46916",
 				"4ea4d94b-5091-4d2f-a94c-837be598e8fb",
-				"c2463eea-d0f5-4b19-81ce-9e1698b37583",
-				"cc475837-ea13-4560-a648-6cafd58ce8ba"
+				"a3e173ef-3e50-432d-88cb-66259fd9b22d",
+				"7c62211a-40e1-4c3b-b989-e134f216e90e"
 			]
 		}
 	]

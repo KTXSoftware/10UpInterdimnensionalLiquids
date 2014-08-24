@@ -3,6 +3,7 @@ package;
 import dialogue.Action;
 import dialogue.Bla;
 import dialogue.BlaWithChoices;
+import dialogue.InventoryAction;
 import dialogue.StartDialogue;
 import localization.Keys_text;
 import kha.Scene;
@@ -37,8 +38,23 @@ class Dialogues {
 					 ,new Bla(Keys_text.DLG_START_6, mann)]);
 	}
 	
-	static public function setGeldGefundenMannDlg(mann: Sprite, coin: Sprite) {
-		Dialogue.insert([new BlaWithChoices(Localization.getText(Keys_text.DLG_GELD_GEFUNDEN_1_C), mann, [[new Action([mann, coin], ActionType.TAKE)], []])]);
+	static public function setGeldGefundenMannDlg(mann: Sprite, cent: Sprite) {
+		Dialogue.insert([
+			new BlaWithChoices(Localization.getText(Keys_text.DLG_GELD_GEFUNDEN_1_C), mann, [
+				[new InventoryAction(mann, cent, InventoryActionMode.PICKUP)]
+				, []
+			])
+		]);
+	}
+	
+	static public function setGeldVerlohrenVerkDlg(verkaeuferin: Sprite, cent: Sprite) {
+		Dialogue.insert([
+			new InventoryAction(verkaeuferin, cent, InventoryActionMode.DROP)
+			, new BlaWithChoices(Keys_text.DLG_GELD_VERLOHREN_1_C, verkaeuferin, [
+				[ new InventoryAction(verkaeuferin, cent, InventoryActionMode.PICKUP) ]
+				, []
+			])
+		]);
 	}
 	
 	static public function setVerkaufMannDlg(mann: Sprite, verkaeuferin: Sprite, euro: Sprite, cent: Sprite, broetchen: Sprite ) {
@@ -163,6 +179,11 @@ class Dialogues {
 		];
 		Dialogue.insert(part1.concat(part2).concat(part3));
 	}
+	
+	
+	
+	
+	
 	
 	static public function setTestDlg(mann : Sprite, eheweib: Sprite, verkaeuferin: Sprite, euro: Sprite, cent: Sprite, broetchen: Sprite) {
 		var t2 = new StartDialogue(setTestDlg.bind(mann, eheweib, verkaeuferin, euro, cent, broetchen));

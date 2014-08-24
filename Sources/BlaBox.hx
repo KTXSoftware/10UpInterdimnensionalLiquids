@@ -31,7 +31,7 @@ class BlaBox {
 		if (font == null) font = Loader.the.loadFont("Liberation Sans", new FontStyle(false, false, false), 20);
 		
 		var sx = pointed.x + pointed.width / 2 - Scene.the.screenOffsetX;
-		var sy = pointed.y - 30;
+		var sy = pointed.y - 30 - Scene.the.screenOffsetY;
 		
 		var right: Bool;
 		var top: Bool;
@@ -40,14 +40,20 @@ class BlaBox {
 		
 		right = !(sx < width);
 		
-		var x : Float = 30;
+		var x : Float = 50;
 		if (right) {
-			 x = kha.Game.the.width - width - 30;
+			 x = kha.Game.the.width - width - 50;
 		}
 		
-		var y = 100;
 		var width = 400;
 		var height = 150;
+		
+		var y : Float = 50;
+		
+		if (y + height + 50 > sy) {
+			y -= Math.max(45, y + height + 50 - sy);
+		}
+		
 		
 		g.color = Color.White;
 		g.fillRect(x, y, width, height);

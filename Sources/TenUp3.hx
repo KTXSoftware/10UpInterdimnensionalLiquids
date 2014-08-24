@@ -92,6 +92,7 @@ class TenUp3 extends Game {
 		Localization.language = Localization.LanguageType.en; // TODO: language select
 		Localization.buildKeys("../Assets/text.xml","text");
 		//Localization.init("text");
+		Dialogues.init();
 		Inventory.init();
 		
 		switch(subgame) {
@@ -115,13 +116,17 @@ class TenUp3 extends Game {
 	}
 	
 	public function startGame_JustANormalDay() {
-		Dialogues.init();
 		Player.init();
-		player = new PlayerProfessor(100, 400);
+		player = new PlayerProfessor(250, 400);
 		Scene.the.addHero(player);
 		
+		var euro = new Sprite(Loader.the.getImage("euro"));
+		var cent = new Sprite(Loader.the.getImage("cent"));
+		Inventory.pick(euro);
+		Inventory.pick(cent);
+		
 		var eheweib = new Sprite(null, 25, 25);
-		eheweib.x = 40;
+		eheweib.x = 150;
 		eheweib.y = 300;
 		eheweib.accy = 0;
 		Scene.the.addEnemy(eheweib);
@@ -134,7 +139,12 @@ class TenUp3 extends Game {
 	public override function update() {
 		super.update();
 		Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
-		Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
+		switch (subgame) {
+			case TEN_UP_3:
+				Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
+			case JUST_A_NORMAL_DAY:
+				Scene.the.camy = Std.int(player.y - 0.35 * height) + Std.int(player.height / 2);
+		}
 		switch (mode) {
 		case BlaBlaBla:
 			Dialogue.update();
@@ -146,6 +156,7 @@ class TenUp3 extends Game {
 		var g = backbuffer.g2;
 		g.begin();
 		scene.render(g);
+		g.transformation = Matrix3.identity();
 		Inventory.render(g);
 		BlaBox.render(g);
 		g.end();

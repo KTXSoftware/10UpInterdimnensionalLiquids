@@ -78,13 +78,13 @@ class Inventory {
 			var item = items[i];
 			item.x = itemX;
 			item.y = itemY;
-			var ow = item.width;
-			var oh = item.height;
-			item.width = itemWidth;
-			item.height = itemHeight;
+			var osx = item.scaleX;
+			var osy = item.scaleY;
+			item.scaleX = itemWidth / item.width;
+			item.scaleY = itemHeight / item.height;
 			item.render(g);
-			item.width = ow;
-			item.height = oh;
+			item.scaleX = osx;
+			item.scaleY = osy;
 			if (i == selected) {
 				g.color = Color.fromValue(0xFFFF00FF);
 				var top = itemY - 1;
