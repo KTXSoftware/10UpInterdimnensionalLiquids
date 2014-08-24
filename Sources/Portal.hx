@@ -38,20 +38,20 @@ class Portal extends Sprite {
 		speedy = 0;
 		switch (canIndex) {
 			case 0:
-			switch (dir) {
-				case UP:
-					setAnimation(Animation.create(2));
-					Scene.the.addOther(water = new Water(x, y, 12, -0));
-				case LEFT:
-					setAnimation(Animation.create(1));
-					Scene.the.addOther(water = new Water(x, y, -12, 0));
-				case RIGHT:
-					setAnimation(Animation.create(4));
-					Scene.the.addOther(water = new Water(x, y, 12, 0));
-				case DOWN:
-					setAnimation(Animation.create(3));
-					Scene.the.addOther(water = new Water(x, y, -12, 0));
-			}
+				switch (dir) {
+					case UP:
+						setAnimation(Animation.create(2));
+						Scene.the.addOther(water = new Water(x, y, 12, -0));
+					case LEFT:
+						setAnimation(Animation.create(1));
+						Scene.the.addOther(water = new Water(x, y, -12, 0));
+					case RIGHT:
+						setAnimation(Animation.create(4));
+						Scene.the.addOther(water = new Water(x, y, 12, 0));
+					case DOWN:
+						setAnimation(Animation.create(3));
+						Scene.the.addOther(water = new Water(x, y, -12, 0));
+				}
 			case 1:
 				switch (dir) {
 				case UP:
@@ -66,7 +66,18 @@ class Portal extends Sprite {
 				case DOWN:
 					setAnimation(Animation.create(3));
 					Scene.the.addOther(lava = new Lava(x, y, -12, 0));
-			}
+				}
+			default:
+				switch (dir) {
+					case UP:
+						setAnimation(Animation.create(2));
+					case LEFT:
+						setAnimation(Animation.create(1));
+					case RIGHT:
+						setAnimation(Animation.create(4));
+					case DOWN:
+						setAnimation(Animation.create(3));
+				}
 		}
 	}
 	
@@ -83,7 +94,7 @@ class Portal extends Sprite {
 						y += height / 2;
 					case 2:
 						x += 0;
-						y += 8;
+						y -= 16;
 					case 3:
 						x += width / 2;
 						y += 0;
@@ -96,7 +107,8 @@ class Portal extends Sprite {
 						Scene.the.addOther(new WaterSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
 					case 1:
 						Scene.the.addOther(new LavaSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
-
+					case 2:
+						if (count % 200 == 0) Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100, y));
 				}
 			}
 		}
