@@ -8,7 +8,7 @@ import kha.Sprite;
 
 class Water extends Sprite {
 	private var lastTile: Vector2i;
-	private var floored: Bool = false;
+	//private var floored: Bool = false;
 	private var right: Animation;
 	private var left: Animation;
 	
@@ -29,21 +29,30 @@ class Water extends Sprite {
 		splash();
 	}
 	
+	private function isWater(value: Int): Bool {
+		return value > 1 && value < 18;
+	}
+	
+	private function isWallOrWater(value: Int): Bool {
+		return value == 0 || isWater(value);
+	}
+	
 	private function splash(): Void {
 		var tile = Level.liquids.index(x, y + height - 1);
 		var value = Level.liquids.get(tile.x, tile.y);
+		var valueBelow = Level.liquids.get(tile.x, tile.y + 1);
+		var floored = isWallOrWater(value) || isWallOrWater(valueBelow);		
 		if (lastTile == null || tile.x != lastTile.x || tile.y != lastTile.y) {
 			lastTile = tile;
 			if (floored) {
-				if (value > 0 && value < 17) Level.liquids.set(tile.x, tile.y, value + 1);
+				if (isWater(valueBelow) && valueBelow < 17) Level.liquids.set(tile.x, tile.y + 1, valueBelow + 1);
+				else if (value > 0 && value < 17) Level.liquids.set(tile.x, tile.y, value + 1);
 			}
 		}
-		floored = false;
 	}
 	
 	override public function hitFrom(dir: Direction): Void {
 		super.hitFrom(dir);
-		if (dir == Direction.UP) floored = true;
 		if (dir == Direction.LEFT || dir == Direction.RIGHT) {
 			speedx = -speedx;
 			
