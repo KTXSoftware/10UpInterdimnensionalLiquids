@@ -8,7 +8,6 @@ import kha.Sprite;
 
 class Water extends Sprite {
 	private var lastTile: Vector2i;
-	//private var floored: Bool = false;
 	private var right: Animation;
 	private var left: Animation;
 	

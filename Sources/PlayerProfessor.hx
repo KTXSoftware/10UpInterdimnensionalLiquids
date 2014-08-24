@@ -85,7 +85,7 @@ class PlayerProfessor extends Player {
 			lastPortal.remove();
 			Scene.the.removeOther(lastPortal);
 		}
-		Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y));
+		Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y, Inventory.selectedIndex()));
 	}
 	
 	/**
