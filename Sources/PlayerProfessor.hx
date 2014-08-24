@@ -58,6 +58,11 @@ class PlayerProfessor extends Player {
 				timecannon.originX = timecannon.width - timecannon.originX;
 			}
 		}
+		
+		if (foundTenUp && x < 300 && !finishedGame) {
+			Dialogues.startProfWinDialog(this);
+			finishedGame = true;
+		}
 	}
 	
 	override public function render(g: Graphics): Void {
@@ -101,9 +106,13 @@ class PlayerProfessor extends Player {
 		}*/
 	}
 	
+	private var foundTenUp: Bool = false;
+	private var finishedGame: Bool = false;
+	
 	override public function hit(sprite: Sprite): Void {
-		if (Std.is(sprite, TenUpShelf)) {
+		if (!foundTenUp && Std.is(sprite, TenUpShelf)) {
 			Dialogues.startProfGotItDialog(this);
+			foundTenUp = true;
 		}
 	}
 }
