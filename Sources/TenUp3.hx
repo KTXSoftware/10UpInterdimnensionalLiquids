@@ -16,12 +16,15 @@ import kha.Key;
 import kha.Loader;
 import kha.LoadingScreen;
 import kha.math.Matrix3;
+import kha.math.Random;
 import kha.Music;
 import kha.Scaler;
 import kha.Scene;
+import kha.Scheduler;
 import kha.Score;
 import kha.Configuration;
 import kha.ScreenRotation;
+import kha.SoundChannel;
 import kha.Sprite;
 import kha.Storage;
 import kha.Tile;
@@ -79,6 +82,7 @@ class TenUp3 extends Game {
 	}
 
 	public function initLevel(): Void {
+		Random.init(Std.int(Scheduler.time() * 10000));
 		backbuffer = Image.createRenderTarget(800, 600);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
