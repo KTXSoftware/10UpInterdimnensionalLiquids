@@ -121,7 +121,7 @@ public class Level extends JPanel implements MouseListener, MouseMotionListener,
 			levelHeight = stream.readInt();
 			map = new int[levelWidth][levelHeight];
 			for (int x = 0; x < levelWidth; ++x) for (int y = 0; y < levelHeight; ++y) map[x][y] = stream.readInt();
-			/*int count = stream.readInt();
+			int count = stream.readInt();
 			for (int i = 0; i < count; ++i) {
 				int index = stream.readInt();
 				int x = stream.readInt();
@@ -131,7 +131,7 @@ public class Level extends JPanel implements MouseListener, MouseMotionListener,
 					if (sprite.sprite.index == index) ++id;
 				}
 				sprites.add(new PlacedSprite(x, y, SpritesPanel.getInstance().getSprite(index), id));
-			}*/
+			}
 		}
 		catch (IOException ex) {
 			ex.printStackTrace();

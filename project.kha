@@ -281,6 +281,37 @@
 			"name": "gas"
 		},
 		{
+			"id": "032e09da-eae2-4846-bfa0-9ad6b2e48a55",
+			"type": "image",
+			"file": "10up.png",
+			"name": "10up",
+			"scale": 2
+		},
+		{
+			"id": "334155cf-3ba6-41df-a62d-56164e299099",
+			"type": "image",
+			"file": "machinegun.png",
+			"name": "machinegun",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
+		},
+		{
+			"id": "0173a8b3-4118-4a79-a51c-1af54bd1792e",
+			"type": "image",
+			"file": "shot.png",
+			"name": "shot",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
+		},
+		{
 			"id": "b0e1dc7d-2b2b-4818-8cb6-6c4a74f43184",
 			"type": "image",
 			"file": "mechanic.png",
@@ -334,6 +365,10 @@
 				"c2463eea-d0f5-4b19-81ce-9e1698b37583",
 				"cc475837-ea13-4560-a648-6cafd58ce8ba",
 				"4f4c34c2-fa42-4775-baca-3dba9e23b9b6",
+				"511ce524-b37f-4834-9da1-0fa96a3c0eff",
+				"032e09da-eae2-4846-bfa0-9ad6b2e48a55",
+				"334155cf-3ba6-41df-a62d-56164e299099",
+				"0173a8b3-4118-4a79-a51c-1af54bd1792e",
 				"511ce524-b37f-4834-9da1-0fa96a3c0eff",
 				"7c62211a-40e1-4c3b-b989-e134f216e90e",
 				"b0e1dc7d-2b2b-4818-8cb6-6c4a74f43184"

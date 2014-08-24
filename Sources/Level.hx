@@ -13,6 +13,7 @@ class Level {
 	public static var solution : Bool = false;
 	private static var levelName: String;
 	private static var done: Void -> Void;
+	public static var tilemap: Tilemap;
 	public static var liquids: Tilemap;
 	
 	public static function load(levelName: String, done: Void -> Void): Void {
@@ -71,7 +72,7 @@ class Level {
 		//if (levelName == "level1") tileset = "tileset1";
 		var tileset = "outside";
 		
-		var tilemap : Tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
+		tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
 		Scene.the.setColissionMap(liquids);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
 		Scene.the.addForegroundTilemap(liquids, 1);
@@ -92,8 +93,8 @@ class Level {
 				sprites[i * 3 + 1] *= 2;
 				sprites[i * 3 + 2] *= 2;
 			}
-			/*switch (sprites[i * 3]) {
-			case 0: // helmet
+			switch (sprites[i * 3]) {
+			/*case 0: // helmet
 				sprite = new Helmet(sprites[i * 3 + 1], sprites[i * 3 + 2]);
 				Scene.the.addHero(sprite);
 			case 1: // mask
@@ -132,14 +133,14 @@ class Level {
 				Scene.the.addHero(sprite);
 			case 7: // fire
 				sprite = new Fire(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
-			case 8: // saw
-				sprite = new BoneSaw(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
+				Scene.the.addHero(sprite);*/
+			case 8:
+				sprite = new TenUpShelf(sprites[i * 3 + 1], sprites[i * 3 + 2]);
+				Scene.the.addEnemy(sprite);
 			default:
 				trace("That should never happen! We are therefore going to ignore it.");
 				continue;
-			}*/
+			}
 		}
 		
 		Configuration.setScreen(TenUp3.getInstance());
@@ -148,7 +149,7 @@ class Level {
 	
 	private static function isCollidable(tilenumber : Int) : Bool {
 		switch (tilenumber) {
-		case 64, 65, 66, 128, 320, 341, 342: return true;
+		case 64, 65, 66, 128, 320, 341, 342, 346, 347: return true;
 		default:
 			return false;
 		}

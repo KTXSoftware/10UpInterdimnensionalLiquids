@@ -66,4 +66,5 @@ class Keys_text {
 	static public var PROF5 = "prof5";
 	static public var PROF6 = "prof6";
 	static public var PROF7 = "prof7";
+	static public var PROF8 = "prof8";
 }
