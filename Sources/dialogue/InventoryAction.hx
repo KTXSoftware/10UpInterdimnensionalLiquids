@@ -11,11 +11,11 @@ enum InventoryActionMode {
 
 class InventoryAction implements Dialogue.DialogueItem
 {
-	var source: Sprite;
+	var source: Player;
 	var item: Sprite;
 	var mode: InventoryActionMode;
 	
-	public function new(source: Sprite, item: Sprite, mode: InventoryActionMode) {
+	public function new(source: Player, item: Sprite, mode: InventoryActionMode) {
 		this.source = source;
 		this.item = item;
 		this.mode = mode;
@@ -26,17 +26,17 @@ class InventoryAction implements Dialogue.DialogueItem
 	public function execute() : Void {
 		switch (mode) {
 			case ADD:
-				Inventory.pick(item);
+				source.inventory.pick(item);
 			case PICKUP:
 				Scene.the.removeHero(item);
-				Inventory.pick(item);
+				source.inventory.pick(item);
 			case DROP:
 				Scene.the.addHero(item);
-				Inventory.loose(item);
+				source.inventory.loose(item);
 				item.x = source.x + 0.5 * source.width;
 				item.y = source.y;
 			case REMOVE:
-				Inventory.loose(item);
+				source.inventory.loose(item);
 		}
 		Dialogue.next();
 	}
