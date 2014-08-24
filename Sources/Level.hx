@@ -148,7 +148,7 @@ class Level {
 	
 	private static function isCollidable(tilenumber : Int) : Bool {
 		switch (tilenumber) {
-		case 64, 65, 66, 128, 320, 341, 342: return true;
+		case 64, 65, 66, 128, 320, 341, 342, 346, 347: return true;
 		default:
 			return false;
 		}
