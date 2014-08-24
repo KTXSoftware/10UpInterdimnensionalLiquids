@@ -109,7 +109,7 @@ class TenUp3 extends Game {
 	
 	public function startGame_TenUp3() {
 		Player.init();
-		player = new PlayerProfessor(10, 10);
+		player = new PlayerProfessor(400, 10);
 		Scene.the.addHero(player);
 	}
 	

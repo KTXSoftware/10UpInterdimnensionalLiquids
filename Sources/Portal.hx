@@ -33,16 +33,16 @@ class Portal extends Sprite {
 		switch (dir) {
 			case UP:
 				setAnimation(Animation.create(2));
-				Scene.the.addOther(water = new Water(x, y, 4, -0));
+				Scene.the.addOther(water = new Water(x, y, 10, -0));
 			case LEFT:
 				setAnimation(Animation.create(1));
-				Scene.the.addOther(water = new Water(x, y, -4, 0));
+				Scene.the.addOther(water = new Water(x, y, -10, 0));
 			case RIGHT:
 				setAnimation(Animation.create(4));
-				Scene.the.addOther(water = new Water(x, y, 4, 0));
+				Scene.the.addOther(water = new Water(x, y, 10, 0));
 			case DOWN:
 				setAnimation(Animation.create(3));
-				Scene.the.addOther(water = new Water(x, y, -4, 0));
+				Scene.the.addOther(water = new Water(x, y, -10, 0));
 		}
 	}
 	

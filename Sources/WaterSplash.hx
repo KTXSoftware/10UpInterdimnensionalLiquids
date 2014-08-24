@@ -19,10 +19,18 @@ class WaterSplash extends Sprite {
 		start = Scheduler.time();
 	}
 	
-	override public function render(g: Graphics): Void {
+	override public function update(): Void {
+		super.update();
 		var alpha = Scheduler.time() - start;
 		if (alpha > 1) {
 			Scene.the.removeOther(this);
+			return;
+		}
+	}
+	
+	override public function render(g: Graphics): Void {
+		var alpha = Scheduler.time() - start;
+		if (alpha > 1) {
 			return;
 		}
 		g.pushOpacity(1 - alpha);
