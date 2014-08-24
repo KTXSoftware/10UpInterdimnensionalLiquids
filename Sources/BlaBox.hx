@@ -31,26 +31,23 @@ class BlaBox {
 		if (font == null) font = Loader.the.loadFont("Liberation Sans", new FontStyle(false, false, false), 20);
 		
 		var sx = pointed.x + pointed.width / 2 - Scene.the.screenOffsetX;
-		var sy = pointed.y - 10;
+		var sy = pointed.y - 30;
 		
-		var left: Bool;
+		var right: Bool;
 		var top: Bool;
 		
-		if (sx < 400) {
-			left = true;
-		}
-		else {
-			left = false;
-		}
-		
-		var x: Float = 370;
-		if (left) {
-			x = 30;
-		}
-		
-		var y = 150;
 		var width = 400;
-		var height = 100;
+		
+		right = !(sx < width);
+		
+		var x : Float = 30;
+		if (right) {
+			 x = kha.Game.the.width - width - 30;
+		}
+		
+		var y = 100;
+		var width = 400;
+		var height = 150;
 		
 		g.color = Color.White;
 		g.fillRect(x, y, width, height);
@@ -59,8 +56,8 @@ class BlaBox {
 		g.color = Color.White;
 		g.fillTriangle(sx - 10, y + height - 5, sx + 10, y + height - 5, sx, sy);
 		g.color = Color.Black;
-		g.drawLine(sx - 10, y + height -5, sx, sy, 5);
-		g.drawLine(sx + 10, y + height -5, sx, sy, 5);
+		g.drawLine(sx - 10, y + height -5, sx, sy, 3);
+		g.drawLine(sx + 10, y + height -5, sx, sy, 3);
 		g.font = font;
 		
 		var tx: Float = x + 10;

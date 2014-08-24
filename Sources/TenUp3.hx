@@ -126,7 +126,8 @@ class TenUp3 extends Game {
 		Scene.the.addEnemy(eheweib);
 		
 		//Dialogues.setStartDlg(player, eheweib);
-		Dialogues.setVerkaufMannDlg(player, eheweib, null, null, null);
+		//Dialogues.setVerkaufMannDlg(player, eheweib, null, null, null);
+		Dialogues.setTestDlg(player, eheweib, eheweib, null, null, null);
 	}
 	
 	public override function update() {

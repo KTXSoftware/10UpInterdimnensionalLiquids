@@ -18,6 +18,9 @@ class Keys_text {
 	static public var DLG_GELD_GEFUNDEN_1 = "dlg_Geld_Gefunden_1";
 	static public var DLG_GELD_GEFUNDEN_1A = "dlg_Geld_Gefunden_1a";
 	static public var DLG_GELD_GEFUNDEN_1B = "dlg_Geld_Gefunden_1b";
+	static public var DLG_GELD_VERLOHREN_1_C = "dlg_Geld_Verlohren_1_c";
+	static public var DLG_GELD_VERLOHREN_1A = "dlg_Geld_Verlohren_1a";
+	static public var DLG_GELD_VERLOHREN_1B = "dlg_Geld_Verlohren_1b";
 	static public var DLG_VERKAUFEN_1 = "dlg_Verkaufen_1";
 	static public var DLG_VERKAUFEN_2_C = "dlg_Verkaufen_2_c";
 	static public var DLG_VERKAUFEN_2A = "dlg_Verkaufen_2a";
@@ -41,4 +44,11 @@ class Keys_text {
 	static public var DLG_VERKAUFEN_2B_2 = "dlg_Verkaufen_2b_2";
 	static public var DLG_VERKAUFEN_ERFOLG_1 = "dlg_Verkaufen_Erfolg_1";
 	static public var DLG_VERKAUFEN_ERFOLG_2 = "dlg_Verkaufen_Erfolg_2";
+	static public var DLG_ARBEITSLOS_1 = "dlg_Arbeitslos_1";
+	static public var DLG_ARBEITSLOS_2 = "dlg_Arbeitslos_2";
+	static public var DLG_ARBEITSLOS_3_C = "dlg_Arbeitslos_3_c";
+	static public var DLG_ARBEITSLOS_3A = "dlg_Arbeitslos_3a";
+	static public var DLG_ARBEITSLOS_3B = "dlg_Arbeitslos_3b";
+	static public var GAME_VERSAGT = "game_versagt";
+	static public var GAME_ERFOLG = "game_erfolg";
 }
