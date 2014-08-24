@@ -24,6 +24,10 @@ class Dialogues {
 		dlgChoices[Keys_text.DLG_VERKAUFEN_2A_2B_1_C] = 0;
 	}
 	
+	static public function startProfStartDialog(prof: Sprite) {
+		Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF1, prof)]);
+	}
+	
 	static public function startDlg(mann: Sprite, eheweib: Sprite) {
 		Dialogue.insert([new Bla(Keys_text.DLG_START_1, mann)
 					 ,new Bla(Keys_text.DLG_START_2, eheweib)

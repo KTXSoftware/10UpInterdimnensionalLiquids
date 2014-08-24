@@ -111,6 +111,7 @@ class TenUp3 extends Game {
 		Player.init();
 		player = new PlayerProfessor(400, 10);
 		Scene.the.addHero(player);
+		Dialogues.startProfStartDialog(player);
 	}
 	
 	public function startGame_JustANormalDay() {
