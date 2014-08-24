@@ -30,25 +30,21 @@ public class SpritesPanel extends JPanel implements MouseListener, MouseMotionLi
 	}
 
 	private SpritesPanel() {
-		//sprites.add(new Sprite("../Assets/Graphics/agent.png", 0, 19, 49));
-		sprites.add(new Sprite("../Assets/Graphics/professor.png", 1, 20, 52));
-		//sprites.add(new Sprite("../Assets/Graphics/rowdy.png", 2, 25, 52));
-		//sprites.add(new Sprite("../Assets/Graphics/mechanic.png", 3, 21, 52));
-		//sprites.add(new Sprite("../Assets/Graphics/door.png", 4, 16, 64));
-		//sprites.add(new Sprite("../Assets/Graphics/soldier.png", 5, 22, 41));
-		//sprites.add(new Sprite("../Assets/Graphics/window.png", 6, 16, 80));
-		//sprites.add(new Sprite("../Assets/Graphics/gate.png", 7, 16, 96));
-		//sprites.add(new Sprite("../Assets/Graphics/gatter.png", 8, 32, 6));
-		//sprites.add(new Sprite("../Assets/Graphics/computer.png", 9, 46, 60));
-		//sprites.add(new Sprite("../Assets/Graphics/machinegun.png", 10, 42, 41));
-		//sprites.add(new Sprite("../Assets/Graphics/boss.png", 11, 26, 35));
-		//sprites.add(new Sprite("../Assets/Graphics/car.png", 12, 100, 41));
+		int i = 0;
+		sprites.add(new Sprite("../Assets/Graphics/ehefrau.png", i++, 20, 27));
+		sprites.add(new Sprite("../Assets/Graphics/typ.png", i++, 48, 72));
+		sprites.add(new Sprite("../Assets/Graphics/seller.png", i++, 48, 72));
+		sprites.add(new Sprite("../Assets/Graphics/door.png", i++, 128 / 4, 64));
+		sprites.add(new Sprite("../Assets/Graphics/theke.png", i++, 64, 33));
+		sprites.add(new Sprite("../Assets/Graphics/backdoor.png", i++, 16, 64));
+		sprites.add(new Sprite("../Assets/Graphics/mafioso.png", i++, 48, 72));
+		sprites.add(new Sprite("../Assets/Graphics/machinegun.png", i++, 22, 41));
 		addMouseMotionListener(this);
 		addMouseListener(this);
 	}
 	
 	public Sprite getSprite(int index) {
-		return sprites.get(0);
+		return sprites.get(index);
 	}
 	
 	public int getSpriteCount() {
