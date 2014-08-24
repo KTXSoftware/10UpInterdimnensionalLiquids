@@ -86,7 +86,8 @@ class TenUp3 extends Game {
 	
 	public function startGame() {
 		Localization.language = Localization.LanguageType.en; // TODO: language select
-		Localization.init("text");
+		Localization.buildKeys("../Assets/text.xml","text");
+		//Localization.init("text");
 		Inventory.init();
 		
 		switch(subgame) {
