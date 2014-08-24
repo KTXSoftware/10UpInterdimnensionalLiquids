@@ -54,4 +54,6 @@ class Keys_text {
 	static public var PROF1 = "prof1";
 	static public var PROF2 = "prof2";
 	static public var PROF3 = "prof3";
+	static public var PROF4 = "prof4";
+	static public var PROF5 = "prof5";
 }
