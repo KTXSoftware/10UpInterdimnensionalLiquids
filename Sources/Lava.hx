@@ -41,11 +41,11 @@ class Lava extends Sprite {
 		var value = Level.liquids.get(tile.x, tile.y);
 		var valueBelow = Level.liquids.get(tile.x, tile.y + 1);
 		var floored = isWallOrLava(value) || isWallOrLava(valueBelow);		
-		if (lastTile == null || tile.x != lastTile.x || tile.y != lastTile.y) {
+		if (lastTile == null || tile.x != lastTile.x) {
 			lastTile = tile;
 			if (floored) {
-				if (isLava(valueBelow) && valueBelow < 35) Level.liquids.set(tile.x, tile.y + 1, valueBelow + 1);
-				else if (value == 1 || value > 19 && value < 35) Level.liquids.set(tile.x, tile.y, value + 1);
+				if (isLava(valueBelow) && valueBelow < 35) Level.liquids.set(tile.x, tile.y + 1, valueBelow == 1 ? 20 : valueBelow + 1);
+				else if (value == 1 || value > 19 && value < 35) Level.liquids.set(tile.x, tile.y, value == 1 ? 20 : value + 1);
 			}
 		}
 	}
@@ -58,6 +58,7 @@ class Lava extends Sprite {
 			if (speedx < 0) setAnimation(left);
 			else setAnimation(right);
 			
+			splash();
 			lastTile = null;
 		}
 	}

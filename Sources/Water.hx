@@ -41,7 +41,7 @@ class Water extends Sprite {
 		var value = Level.liquids.get(tile.x, tile.y);
 		var valueBelow = Level.liquids.get(tile.x, tile.y + 1);
 		var floored = isWallOrWater(value) || isWallOrWater(valueBelow);		
-		if (lastTile == null || tile.x != lastTile.x || tile.y != lastTile.y) {
+		if (lastTile == null || tile.x != lastTile.x) {
 			lastTile = tile;
 			if (floored) {
 				if (isWater(valueBelow) && valueBelow < 17) Level.liquids.set(tile.x, tile.y + 1, valueBelow + 1);
@@ -58,6 +58,7 @@ class Water extends Sprite {
 			if (speedx < 0) setAnimation(left);
 			else setAnimation(right);
 			
+			splash();
 			lastTile = null;
 		}
 	}

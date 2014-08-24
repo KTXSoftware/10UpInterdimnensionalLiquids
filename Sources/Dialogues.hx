@@ -26,7 +26,7 @@ class Dialogues {
 	}
 	
 	static public function startProfStartDialog(prof: Sprite) {
-		Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF1, prof)]);
+		Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
 	}
 	
 	static public function startDlg(mann: Sprite, eheweib: Sprite) {

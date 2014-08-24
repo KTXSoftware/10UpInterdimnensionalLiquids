@@ -191,14 +191,20 @@ Du bist gefeuert!</de>
 	<de>Die Mafia hat unseren 10Up-Transporter überfallen. Die örtliche Bäckerei ist ihr Hauptquartier. Ich werde dort einbrechen und unseren Geheimdrunk wiederbeschaffen.</de>
 </prof1>
 <prof2>
-	<de>Mit meinem brandneuen Portalgenerator kann ich kleine Wurmlöcher zu weit entfernten Planeten erzeugen und so deren flüssige oder gasförmige Rohstoffe anzapfen. Ich habe die Technik für die örtliche Feuerwehr entworfen, um auch in unwegsamen Gelände stets eine ausreichende Wasserversorgung sicherzustellen. Ich habe aber auch weitere interessante Planeten gefunden. Ein spontan erzeugter Magmafluss zum Beispiel kann viele anstrengende Diskussionen verkürzen.</de>
+	<de>Mit meinem brandneuen Portalgenerator kann ich kleine Wurmlöcher zu weit entfernten Planeten erzeugen und so deren flüssige oder gasförmige Rohstoffe anzapfen.</de>
 </prof2>
 <prof3>
-	<de>Aus Sicherheitsgründen bin ich in meinem teuersten Schuhwerk unterwegs, mit dem ich mich über jegliche Flüssigkeit bewegen kann. Auch über besagte Magma.</de>
+	<de>Ich habe die Technik für die örtliche Feuerwehr entworfen, um auch in unwegsamen Gelände stets eine ausreichende Wasserversorgung sicherzustellen.</de>
 </prof3>
 <prof4>
-	<de>Mein 10Up-Vorrat! Nun aber nichts wie weg und zurück zu meinem Absetzpunkt.</de>
+	<de>Ich habe aber auch weitere interessante Planeten gefunden. Ein spontan erzeugter Magmafluss zum Beispiel kann viele anstrengende Diskussionen verkürzen.</de>
 </prof4>
 <prof5>
-	<de>Exquisit, Sie haben das Spiel erfolgreich abgeschlossen.</de>
+	<de>Aus Sicherheitsgründen bin ich in meinem teuersten Schuhwerk unterwegs, mit dem ich mich über jegliche Flüssigkeit bewegen kann. Auch über besagtes Magma.</de>
 </prof5>
+<prof6>
+	<de>Mein 10Up-Vorrat! Nun aber nichts wie weg und zurück zu meinem Absetzpunkt.</de>
+</prof6>
+<prof7>
+	<de>Exquisit, Sie haben das Spiel erfolgreich abgeschlossen.</de>
+</prof7>
