@@ -181,6 +181,30 @@
 				"blue": 201
 			},
 			"scale": 2
+		},
+		{
+			"id": "c2463eea-d0f5-4b19-81ce-9e1698b37583",
+			"type": "image",
+			"file": "portal.png",
+			"name": "portal",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
+		},
+		{
+			"id": "cc475837-ea13-4560-a648-6cafd58ce8ba",
+			"type": "image",
+			"file": "watersplash.png",
+			"name": "watersplash",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
 		}
 	],
 	"rooms": [
@@ -214,7 +238,9 @@
 				"aaa16854-a794-4fa2-b037-bdd7e31b5a96",
 				"4b083c38-3a9c-41cf-825f-0c645de83535",
 				"bada0129-afb0-4267-bb54-8c0d45f46916",
-				"4ea4d94b-5091-4d2f-a94c-837be598e8fb"
+				"4ea4d94b-5091-4d2f-a94c-837be598e8fb",
+				"c2463eea-d0f5-4b19-81ce-9e1698b37583",
+				"cc475837-ea13-4560-a648-6cafd58ce8ba"
 			]
 		}
 	]

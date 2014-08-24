@@ -74,9 +74,18 @@ class PlayerProfessor extends Player {
 		isCrosshairVisible = true;
 	}
 	
+	private var lastPortal: Portal;
+	
 	override public function useSpecialAbilityA() : Void {
 		//Scene.the.addOther(new Water(x + 10, y));
-		Scene.the.addOther(new Lava(x + 10, y));
+		//Scene.the.addOther(new Lava(x + 10, y));
+		var dir = new Vector2(TenUp3.instance.mouseX, TenUp3.instance.mouseY).sub(new Vector2(x, y));
+		dir.length = 4;
+		if (lastPortal != null) {
+			lastPortal.remove();
+			Scene.the.removeOther(lastPortal);
+		}
+		Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y));
 	}
 	
 	/**

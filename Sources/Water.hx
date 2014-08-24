@@ -12,14 +12,16 @@ class Water extends Sprite {
 	private var right: Animation;
 	private var left: Animation;
 	
-	public function new(x: Float, y: Float) {
+	public function new(x: Float, y: Float, speedx: Float, speedy: Float) {
 		super(Loader.the.getImage("water"), 32, 32);
 		this.x = x;
 		this.y = y;
-		speedx = 4;
+		this.speedx = speedx;
+		this.speedy = speedy;
 		left = Animation.create(0);
 		right = Animation.create(1);
-		setAnimation(right);
+		if (speedx > 0) setAnimation(right);
+		else setAnimation(left);
 	}
 	
 	override public function update(): Void {
