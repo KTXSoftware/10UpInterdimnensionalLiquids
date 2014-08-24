@@ -171,15 +171,45 @@
 (2): Mit dem Geld aus euerem Drogenimperium?</de>
 </dlg_Arbeitslos_3_c>
 <dlg_Arbeitslos_3a>
+	<de>*schweigt*</de>
+</dlg_Arbeitslos_3a>
+<dlg_Arbeitslos_3b>
+	<de>Mit dem Geld aus euerem Drogenimperium?</de>
+</dlg_Arbeitslos_3b>
+
+<dlg_Arbeitslos_3a_1>
 	<de>Bestimmt nicht, weil ich etwas was verschenke!
 	
 Du bist gefeuert!</de>
-</dlg_Arbeitslos_3a>
+</dlg_Arbeitslos_3a_1>
 
-<dlg_Arbeitslos_3b>
+<dlg_Arbeitslos_3b_1>
 	<de>Du weißt zu viel...</de>
-</dlg_Arbeitslos_3b>
+</dlg_Arbeitslos_3b_1>
 
+<!-- FRAU BEKOMMT IHRE BRÖTCHEN... -->
+<dlg_Eheweib_1>
+	<de>Endlich zurück!
+Hast ziemlich lange gebraucht!</de>
+</dlg_Eheweib_1>
+<dlg_Eheweib_2>
+	<de>Worauf wartest du? Schmeiß die Brötchen rauf!</de>
+</dlg_Eheweib_2>
+<dlg_Eheweib_3>
+	<de>Ja Schatz...</de>
+</dlg_Eheweib_3>
+<dlg_Eheweib_4>
+	<de>*raschel*
+*schmatz*</de>
+</dlg_Eheweib_4>
+<dlg_Eheweib_5>
+	<de>Was fällt dir ein mir zwei Wasserweck zu bringen?</de>
+</dlg_Eheweib_5>
+<dlg_Eheweib_6>
+	<de>Sieh zu, dass du mir mein Mehrkornbrötchen bringst, sonst kannst du aber was erleben! [schmeißt Bratpfanne]</de>
+</dlg_Eheweib_6>
+
+<!-- SPIEL ENDE -->
 <game_versagt>
 	<de>Versagt...</de>
 </game_versagt>
@@ -187,6 +217,7 @@ Du bist gefeuert!</de>
 	<de>Welch ein normaler Tag... (Gewonnen)</de>
 </game_erfolg>
 
+<!-- TEN UP INTRO -->
 <prof1>
 	<de>Die Mafia hat unseren 10Up-Transporter überfallen. Die örtliche Bäckerei ist ihr Hauptquartier. Ich werde dort einbrechen und unseren Geheimdrunk wiederbeschaffen.</de>
 </prof1>

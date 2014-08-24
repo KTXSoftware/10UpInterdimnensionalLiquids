@@ -38,5 +38,6 @@ class InventoryAction implements Dialogue.DialogueItem
 			case REMOVE:
 				Inventory.loose(item);
 		}
+		Dialogue.next();
 	}
 }

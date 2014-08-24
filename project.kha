@@ -310,6 +310,18 @@
 				"blue": 201
 			},
 			"scale": 2
+		},
+		{
+			"id": "b0e1dc7d-2b2b-4818-8cb6-6c4a74f43184",
+			"type": "image",
+			"file": "mechanic.png",
+			"name": "mechanic"
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
 		}
 	],
 	"rooms": [
@@ -356,7 +368,10 @@
 				"511ce524-b37f-4834-9da1-0fa96a3c0eff",
 				"032e09da-eae2-4846-bfa0-9ad6b2e48a55",
 				"334155cf-3ba6-41df-a62d-56164e299099",
-				"0173a8b3-4118-4a79-a51c-1af54bd1792e"
+				"0173a8b3-4118-4a79-a51c-1af54bd1792e",
+				"511ce524-b37f-4834-9da1-0fa96a3c0eff",
+				"7c62211a-40e1-4c3b-b989-e134f216e90e",
+				"b0e1dc7d-2b2b-4818-8cb6-6c4a74f43184"
 			]
 		}
 	]

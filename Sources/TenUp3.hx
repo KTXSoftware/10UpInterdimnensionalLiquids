@@ -54,7 +54,7 @@ class TenUp3 extends Game {
 	public var mouseX: Float;
 	public var mouseY: Float;
 	
-	var player: PlayerProfessor;
+	var player: Player;
 	
 #if JUST_A_NORMAL_DAY
 	var subgame : SubGame = SubGame.JUST_A_NORMAL_DAY;
@@ -92,7 +92,6 @@ class TenUp3 extends Game {
 		Localization.language = Localization.LanguageType.en; // TODO: language select
 		Localization.buildKeys("../Assets/text.xml","text");
 		//Localization.init("text");
-		Dialogues.init();
 		Inventory.init();
 		
 		switch(subgame) {
@@ -122,13 +121,19 @@ class TenUp3 extends Game {
 		Dialogues.startProfStartDialog(player);
 	}
 	
+	var justANormalDay: JustANormalDay;
 	public function startGame_JustANormalDay() {
 		Player.init();
-		player = new PlayerProfessor(250, 400);
+		var mann = new ZeroEightFifteenMan(250, 350);
+		
+		player = mann;
 		Scene.the.addHero(player);
+		player.setCurrent();
 		
 		var euro = new Sprite(Loader.the.getImage("euro"));
+		euro.scaleX = euro.scaleY = 0.5;
 		var cent = new Sprite(Loader.the.getImage("cent"));
+		cent.scaleX = cent.scaleY = 0.5;
 		Inventory.pick(euro);
 		Inventory.pick(cent);
 		
@@ -138,9 +143,13 @@ class TenUp3 extends Game {
 		eheweib.accy = 0;
 		Scene.the.addEnemy(eheweib);
 		
-		//Dialogues.setStartDlg(player, eheweib);
-		//Dialogues.setVerkaufMannDlg(player, eheweib, null, null, null);
-		Dialogues.setTestDlg(player, eheweib, eheweib, null, null, null);
+		var verkaeuferin = new Verkaeuferin(400, 350);
+		Scene.the.addHero(verkaeuferin);
+		
+		justANormalDay = new JustANormalDay(mann, eheweib, verkaeuferin);
+		
+		//Dialogues.setStartDlg(mann, eheweib);
+		Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, null);
 	}
 	
 	public override function update() {
@@ -151,6 +160,11 @@ class TenUp3 extends Game {
 				Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 			case JUST_A_NORMAL_DAY:
 				Scene.the.camy = Std.int(player.y - 0.35 * height) + Std.int(player.height / 2);
+				justANormalDay.update(Scheduler.time());
+		}
+		if (advanceDialogue) {
+			Dialogue.next();
+			advanceDialogue = false;
 		}
 		switch (mode) {
 		case BlaBlaBla:
@@ -295,11 +309,12 @@ class TenUp3 extends Game {
 		}
 	}
 	
+	public var advanceDialogue: Bool = false;
 	public function mouseup(button: Int, x: Int, y: Int): Void {
 		mouseX = x + Scene.the.screenOffsetX;
 		mouseY = y + Scene.the.screenOffsetY;
 		if (mode == BlaBlaBla) {
-			Dialogue.next();
+			advanceDialogue = true;
 		}
 	}
 	
