@@ -93,8 +93,8 @@ class Level {
 				sprites[i * 3 + 1] *= 2;
 				sprites[i * 3 + 2] *= 2;
 			}
-			/*switch (sprites[i * 3]) {
-			case 0: // helmet
+			switch (sprites[i * 3]) {
+			/*case 0: // helmet
 				sprite = new Helmet(sprites[i * 3 + 1], sprites[i * 3 + 2]);
 				Scene.the.addHero(sprite);
 			case 1: // mask
@@ -133,14 +133,14 @@ class Level {
 				Scene.the.addHero(sprite);
 			case 7: // fire
 				sprite = new Fire(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
-			case 8: // saw
-				sprite = new BoneSaw(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
+				Scene.the.addHero(sprite);*/
+			case 8:
+				sprite = new TenUpShelf(sprites[i * 3 + 1], sprites[i * 3 + 2]);
+				Scene.the.addEnemy(sprite);
 			default:
 				trace("That should never happen! We are therefore going to ignore it.");
 				continue;
-			}*/
+			}
 		}
 		
 		Configuration.setScreen(TenUp3.getInstance());

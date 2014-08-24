@@ -279,6 +279,13 @@
 			"type": "image",
 			"file": "gas.png",
 			"name": "gas"
+		},
+		{
+			"id": "032e09da-eae2-4846-bfa0-9ad6b2e48a55",
+			"type": "image",
+			"file": "10up.png",
+			"name": "10up",
+			"scale": 2
 		}
 	],
 	"rooms": [
@@ -322,7 +329,8 @@
 				"c2463eea-d0f5-4b19-81ce-9e1698b37583",
 				"cc475837-ea13-4560-a648-6cafd58ce8ba",
 				"4f4c34c2-fa42-4775-baca-3dba9e23b9b6",
-				"511ce524-b37f-4834-9da1-0fa96a3c0eff"
+				"511ce524-b37f-4834-9da1-0fa96a3c0eff",
+				"032e09da-eae2-4846-bfa0-9ad6b2e48a55"
 			]
 		}
 	]

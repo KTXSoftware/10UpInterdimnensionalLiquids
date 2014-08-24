@@ -29,6 +29,14 @@ class Dialogues {
 		Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
 	}
 	
+	static public function startProfGotItDialog(prof: Sprite) {
+		Dialogue.insert([new Bla(Keys_text.PROF6, prof)]);
+	}
+	
+	static public function startProfWinDialog(prof: Sprite) {
+		Dialogue.insert([new Bla(Keys_text.PROF7, prof)]);
+	}
+	
 	static public function startDlg(mann: Sprite, eheweib: Sprite) {
 		Dialogue.insert([new Bla(Keys_text.DLG_START_1, mann)
 					 ,new Bla(Keys_text.DLG_START_2, eheweib)

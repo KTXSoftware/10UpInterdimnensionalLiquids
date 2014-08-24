@@ -7,6 +7,7 @@ import kha.Loader;
 import kha.math.Vector2;
 import kha.Rectangle;
 import kha.Scene;
+import kha.Sprite;
 
 class PlayerProfessor extends Player {
 	var timecannon : TimeCannon;
@@ -98,5 +99,11 @@ class PlayerProfessor extends Player {
 				Level.the.gates[0].open();
 			}
 		}*/
+	}
+	
+	override public function hit(sprite: Sprite): Void {
+		if (Std.is(sprite, TenUpShelf)) {
+			Dialogues.startProfGotItDialog(this);
+		}
 	}
 }
