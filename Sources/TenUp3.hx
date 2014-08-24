@@ -54,8 +54,6 @@ class TenUp3 extends Game {
 	public var mouseX: Float;
 	public var mouseY: Float;
 	
-	var player: Player;
-	
 #if JUST_A_NORMAL_DAY
 	var subgame : SubGame = SubGame.JUST_A_NORMAL_DAY;
 #else
@@ -92,7 +90,6 @@ class TenUp3 extends Game {
 		Localization.language = Localization.LanguageType.en; // TODO: language select
 		Localization.buildKeys("../Assets/text.xml","text");
 		//Localization.init("text");
-		Inventory.init();
 		
 		switch(subgame) {
 		case SubGame.TEN_UP_3:
@@ -111,14 +108,15 @@ class TenUp3 extends Game {
 	
 	public function startGame_TenUp3() {
 		Player.init();
-		player = new PlayerProfessor(400, 10);
-		Scene.the.addHero(player);
-		Inventory.pick(new Sprite(Loader.the.getImage('waterflow')));
-		Inventory.pick(new Sprite(Loader.the.getImage('lavaflow')));
-		Inventory.pick(new Sprite(Loader.the.getImage('gasflow')));
-		Inventory.pick(new Sprite(Loader.the.getImage('noflow')));
-		Inventory.selectIndex(0);
-		Dialogues.startProfStartDialog(player);
+		var prof = new PlayerProfessor(400, 10);
+		prof.setCurrent();
+		Scene.the.addHero(prof);
+		prof.inventory.pick(new Sprite(Loader.the.getImage('waterflow')));
+		prof.inventory.pick(new Sprite(Loader.the.getImage('lavaflow')));
+		prof.inventory.pick(new Sprite(Loader.the.getImage('gasflow')));
+		prof.inventory.pick(new Sprite(Loader.the.getImage('noflow')));
+		prof.inventory.selectIndex(0);
+		Dialogues.startProfStartDialog(prof);
 	}
 	
 	var justANormalDay: JustANormalDay;
@@ -126,16 +124,14 @@ class TenUp3 extends Game {
 		Player.init();
 		var mann = new ZeroEightFifteenMan(250, 350);
 		
-		player = mann;
-		Scene.the.addHero(player);
-		player.setCurrent();
+		Scene.the.addHero(mann);
+		mann.setCurrent();
 		
 		var euro = new Sprite(Loader.the.getImage("euro"));
 		euro.scaleX = euro.scaleY = 0.5;
 		var cent = new Sprite(Loader.the.getImage("cent"));
 		cent.scaleX = cent.scaleY = 0.5;
-		Inventory.pick(euro);
-		Inventory.pick(cent);
+		mann.inventory.pick(euro);
 		
 		var eheweib = new Sprite(null, 25, 25);
 		eheweib.x = 150;
@@ -149,11 +145,12 @@ class TenUp3 extends Game {
 		justANormalDay = new JustANormalDay(mann, eheweib, verkaeuferin);
 		
 		//Dialogues.setStartDlg(mann, eheweib);
-		Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, null);
+		Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, cent);
 	}
 	
 	public override function update() {
 		super.update();
+		var player = Player.current();
 		Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
 		switch (subgame) {
 			case TEN_UP_3:
@@ -178,7 +175,6 @@ class TenUp3 extends Game {
 		g.begin();
 		scene.render(g);
 		g.transformation = Matrix3.identity();
-		Inventory.render(g);
 		BlaBox.render(g);
 		g.end();
 		
@@ -191,16 +187,16 @@ class TenUp3 extends Game {
 		switch (axis) {
 			case 0:
 				if (value < -0.2) {
-					player.left = true;
-					player.right = false;
+					Player.current().left = true;
+					Player.current().right = false;
 				}
 				else if (value > 0.2) {
-					player.right = true;
-					player.left = false;
+					Player.current().right = true;
+					Player.current().left = false;
 				}
 				else {
-					player.left = false;
-					player.right = false;
+					Player.current().left = false;
+					Player.current().right = false;
 				}
 		}
 	}
@@ -208,25 +204,25 @@ class TenUp3 extends Game {
 	private function buttonListener(button: Int, value: Float): Void {
 		switch (button) {
 			case 0, 1, 2, 3:
-				if (value > 0.5) player.setUp();
-				else player.up = false;
+				if (value > 0.5) Player.current().setUp();
+				else Player.current().up = false;
 			case 14:
 				if (value > 0.5) {
-					player.left = true;
-					player.right = false;
+					Player.current().left = true;
+					Player.current().right = false;
 				}
 				else {
-					player.left = false;
-					player.right = false;
+					Player.current().left = false;
+					Player.current().right = false;
 				}
 			case 15:
 				if (value > 0.5) {
-					player.right = true;
-					player.left = false;
+					Player.current().right = true;
+					Player.current().left = false;
 				}
 				else {
-					player.right = false;
-					player.left = false;
+					Player.current().right = false;
+					Player.current().left = false;
 				}
 		}
 	}
@@ -238,32 +234,32 @@ class TenUp3 extends Game {
 					Dialogue.next();
 				case Key.CHAR:
 					if (char == 'a') {
-						player.left = true;
+						Player.current().left = true;
 					}
 					else if (char == 'd') {
-						player.right = true;
+						Player.current().right = true;
 					}
 					else if (char == 'w') {
-						player.setUp();
+						Player.current().setUp();
 					}
 					else if (char == '1') {
-						Inventory.selectIndex(0);
+						Player.current().inventory.selectIndex(0);
 					}
 					else if (char == '2') {
-						Inventory.selectIndex(1);
+						Player.current().inventory.selectIndex(1);
 					}
 					else if (char == '3') {
-						Inventory.selectIndex(2);
+						Player.current().inventory.selectIndex(2);
 					}
 					else if (char == '4') {
-						Inventory.selectIndex(3);
+						Player.current().inventory.selectIndex(3);
 					}
 				case Key.LEFT:
-					player.left = true;
+					Player.current().left = true;
 				case Key.RIGHT:
-					player.right = true;
+					Player.current().right = true;
 				case Key.UP:
-					player.setUp();
+					Player.current().setUp();
 				default:
 			}
 		}
@@ -272,23 +268,23 @@ class TenUp3 extends Game {
 	public function keyup(key: Key, char: String) : Void {
 		switch (key) {
 			case Key.CTRL:
-				player.up = false;
+				Player.current().up = false;
 			case Key.CHAR:
 				if (char == 'a') {
-					player.left = false;
+					Player.current().left = false;
 				}
 				else if (char == 'd') {
-					player.right = false;
+					Player.current().right = false;
 				}
 				else if (char == 'w') {
-					player.up = false;
+					Player.current().up = false;
 				}
 			case Key.LEFT:
-				player.left = false;
+				Player.current().left = false;
 			case Key.RIGHT:
-				player.right = false;
+				Player.current().right = false;
 			case Key.UP:
-				player.up = false;
+				Player.current().up = false;
 			default:
 		}
 	}
@@ -300,7 +296,7 @@ class TenUp3 extends Game {
 			case SubGame.TEN_UP_3:
 				switch(mode) {
 					case Mode.Game:
-						player.useSpecialAbilityA();
+						Player.current().useSpecialAbilityA();
 					case Mode.BlaBlaBla:
 						
 				}
@@ -325,13 +321,13 @@ class TenUp3 extends Game {
 	
 	public function mousewheel(delta: Int): Void {
 		if (delta > 0) {
-			++inventorySelection;
+			--inventorySelection;
 			if (inventorySelection > 3) inventorySelection = 0;
 		}
 		else {
-			--inventorySelection;
+			++inventorySelection;
 			if (inventorySelection < 0) inventorySelection = 3;
 		}
-		Inventory.selectIndex(inventorySelection);
+		Player.current().inventory.selectIndex(inventorySelection);
 	}
 }

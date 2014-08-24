@@ -6,6 +6,7 @@ import kha.Direction;
 import kha.graphics2.Graphics;
 import kha.Image;
 import kha.Loader;
+import kha.math.Matrix3;
 import kha.math.Vector2;
 import kha.Music;
 import kha.Rectangle;
@@ -40,6 +41,8 @@ class Player extends DestructibleSprite {
 	private static var currentPlayer: Player = null;
 	private static var jumpmans: Array<Player>;
 	
+	public var inventory(default, null) : Inventory;
+	
 	var muzzlePoint : Vector2;
 	
 	public function new(x: Float, y: Float, image: String, width: Int, height: Int, maxHealth: Int = 50) {
@@ -68,6 +71,7 @@ class Player extends DestructibleSprite {
 		isRepairable = true;
 		hitSound = Loader.the.getSound("hit");
 		zzzzz = Loader.the.getImage("zzzzz");
+		inventory = new Inventory();
 	}
 	
 	public static function init(): Void {
@@ -94,7 +98,7 @@ class Player extends DestructibleSprite {
 		jumpman.index = index;
 	}
 	
-	public static function current(): Player {
+	public static inline function current(): Player {
 		return currentPlayer;
 	}
 	
@@ -364,5 +368,11 @@ class Player extends DestructibleSprite {
 		painter.drawRect( x - collider.x, y - collider.y, width, height );
 		painter.setColor( kha.Color.fromBytes(0,255,0) );
 		painter.fillRect( x - 2, y - 2, 5, 5 );*/
+		
+		if (this == current()) {
+			g.pushTransformation(Matrix3.identity());
+			inventory.render(g);
+			g.popTransformation();
+		}
 	}
 }
