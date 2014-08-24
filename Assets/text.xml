@@ -13,6 +13,7 @@
 </Verkaeuferin>
 <Terrorist>
 	<de>Der Bäcker</de>
+	<en>The Baker</en>
 </Terrorist>
 <Mechanic>
 	<de>Ms. M</de>
@@ -20,6 +21,7 @@
 </Mechanic>
 <Professor>
 	<de>Professor</de>
+	<en>Professor</en>
 </Professor>
 <Fischmensch>
 	<de>Blupp der Grausame</de>
@@ -29,37 +31,49 @@
 
 <dlg_Start_1>
 	<de>Schatz, ich geh jetzt Brötchen kaufen.</de>
+	<en>Bonny, I'll get some buns.
 </dlg_Start_1>
 <dlg_Start_2>
 	<de>Wird ja auch Zeit! Ich bin schon am verhungern.</de>
+	<en>About time, I'm starving!</en>
 </dlg_Start_2>
 <dlg_Start_3>
 	<de>Und vergiss nicht: Ein Wasserweck und ein Mehrkornbrötchen für mich!</de>
+	<en>I want one Blaa and one Kaiser roll.
 </dlg_Start_3>
 <dlg_Start_4>
 	<de>Aber ich hab' nur einen Euro? Was soll ich denn dann essen?</de>
+	<en>But I've only got one Euro. What am I supposed to eat?</en>
 </dlg_Start_4>
 <dlg_Start_5>
 	<de>Du kannst die Krümmel fressen!</de>
+	<en>You can eat the crumbs.</en>
 </dlg_Start_5>
 <dlg_Start_6>
-	<de>Ja Schatz ...</de>
+	<de>Ja Schatz...</de>
+	<en>Yes bonny...</en>
 </dlg_Start_6>
 
 <!-- GELD GEFUNDEN -->
 <dlg_Geld_Gefunden_1_c>
-	<de>Oh, da liegt ein ja ein Cent!
+	<de>Oh, da liegt ja ein Cent!
 (1): Heute ist wohl mein Glückstag! [Geld nehmen]
 (2): Jemand anderes braucht ihn bestimmt dringender als ich... [Geld liegenlassen]</de>
+	<en>Oh, there lies a Cent!
+(1): This is my lucky day! [Take money]
+(2): Soneone else will need it more urgently than I do... [Leave money]</en>
 </dlg_Geld_Gefunden_1_c>
 <dlg_Geld_Gefunden_1>
-	<de>Oh, da liegt ein ja ein Cent!</de>
+	<de>Oh, da liegt ja ein Cent!</de>
+	<en>Oh, there lies a Cent!</en>
 </dlg_Geld_Gefunden_1>
 <dlg_Geld_Gefunden_1a>
 	<de>Heute ist wohl mein Glückstag!</de>
+	<en>This is my lucky day!</en>
 </dlg_Geld_Gefunden_1a>
 <dlg_Geld_Gefunden_1b>
-	<de>Jemand anderes braucht ihn bestimmt dringender als ich... [Geld liegenlassen]</de>
+	<de>Jemand anderes braucht ihn bestimmt dringender als ich...</de>
+	<en>Soneone else will need it more urgently than I do...</en>
 </dlg_Geld_Gefunden_1b>
 
 <!-- GELD VERLOHREN -->
@@ -67,50 +81,67 @@
 	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen.
 (1): [Cent aufheben]
 (2): Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit. [Cent liegenlassen]</de>
+	<en>There goes a Cent. Must've fallen out of my pocket.
+(1): [Pick up Cent]
+(2): Time is money. I'm already late for work. [Leave Cent]</en>
 </dlg_Geld_Verlohren_1_c>
 <dlg_Geld_Verlohren_1a>
-	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen. [hebt Cent auf]</de>
+	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen.</de>
+	<en>There goes a Cent. Must've fallen out of my pocket.</en> 
 </dlg_Geld_Verlohren_1a>
 <dlg_Geld_Verlohren_1b>
 	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen...
 
 ... Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit.</de>
+	<en>Time is money. I'm already late for work.</en>
 </dlg_Geld_Verlohren_1b>
 
 <!-- Brötchen kaufen -->
 <dlg_Verkaufen_1>
 	<de>Guten Morgen! Sie wünschen?</de>
+	<en>Good morning! What can I do for you?</en>
 </dlg_Verkaufen_1>
 <dlg_Verkaufen_2_c>
 	<de>(1): Ein Wasserweck und ein Mehrkornbrötchen, bitte.
 (2): Zwei Wasserweck, bitte.</de>
+	<en>(1): One Blaa and one Kaiser roll please.
+(2): Two Blaas please.</en>
 </dlg_Verkaufen_2_c>
 <dlg_Verkaufen_2a>
 	<de>Ein Wasserweck und ein Mehrkornbrötchen, bitte.</de>
+	<en>One Blaa and one Kaiser roll please.</en>
 </dlg_Verkaufen_2a>
 <dlg_Verkaufen_2b>
 	<de>Zwei Wasserweck, bitte.</de>
+	<en>Two Blaas please.</en>
 </dlg_Verkaufen_2b>
 
 <dlg_Verkaufen_2a_1>
 	<de>Das macht dann ein Euro und ein Cent, bitte.</de>
+	<en>That's one Euro and one Cent.</en>
 </dlg_Verkaufen_2a_1>
 <dlg_Verkaufen_2a_2_c>
 	<de>(1): Ich habe aber nur ein Euro...
 (2): [Ein Euro geben]</de>
+	<en>(1): I have only one Euro...
+(2): [Pay one Euro]</en>
 </dlg_Verkaufen_2a_2_c>
 <dlg_Verkaufen_2a_2a>
 	<de>Ich habe aber nur ein Euro...</de>
+	<en>I have only one Euro...</en>
 </dlg_Verkaufen_2a_2a>
 <dlg_Verkaufen_2a_2b>
 	<de>[Gibt einen Euro]</de>
+	<en>[Paid one Euro]</en>
 </dlg_Verkaufen_2a_2b>
 <dlg_Verkaufen_2a_2_GELD>
 	<de>So ein glück aber auch! Ein Euro und ein Cent! [Geld geben]</de>
+	<en>Such a happy coincident! One Euro and one Cent! [Pay money]</en>
 </dlg_Verkaufen_2a_2_GELD>
 
 <dlg_Verkaufen_2a_2a_1>
 	<de>Es tut mir leid.</de>
+	<en>I'm sorry.</en>
 </dlg_Verkaufen_2a_2a_1>
 <dlg_Verkaufen_2a_2a_2>
 	<de>Die Preise von Mehrkornbrötchen wurden von 50 Cent auf 51 Cent angehoben.</de>
