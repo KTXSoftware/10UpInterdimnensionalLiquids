@@ -28,7 +28,7 @@ class Lava extends Sprite {
 		splash();
 	}
 	
-	private function isLava(value: Int): Bool {
+	public static function isLava(value: Int): Bool {
 		return value > 19 && value < 36;
 	}
 	

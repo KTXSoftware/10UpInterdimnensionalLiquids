@@ -64,6 +64,15 @@ class PlayerProfessor extends Player {
 			Dialogues.startProfWinDialog(this);
 			finishedGame = true;
 		}
+		
+		var tile = Level.liquids.index(x + collider.width / 2, y + collider.height);
+		if (!gameover && Lava.isLava(Level.liquids.get(tile.x, tile.y))) {
+			Dialogues.startProfLooseDialog(this);
+			gameover = true;
+			if (lookRight) setAnimation(Animation.create(22));
+			else setAnimation(Animation.create(23));
+			speedx = 0;
+		}
 	}
 	
 	override public function render(g: Graphics): Void {
@@ -130,11 +139,12 @@ class PlayerProfessor extends Player {
 				Scene.the.addEnemy(new Mafioso(1920, 440));
 			}
 		}
-		else if (Std.is(sprite, Shot)) {
+		else if (!gameover && Std.is(sprite, Shot)) {
 			Dialogues.startProfLooseDialog(this);
 			gameover = true;
 			if (lookRight) setAnimation(Animation.create(22));
 			else setAnimation(Animation.create(23));
+			speedx = 0;
 		}
 	}
 }
