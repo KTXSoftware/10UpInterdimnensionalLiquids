@@ -35,6 +35,14 @@ class Inventory {
 		items.remove(item);
 	}
 	
+	public static function selectedIndex(): Int {
+		return selected;
+	}
+	
+	public static function selectIndex(index: Int): Void {
+		selected = index;
+	}
+	
 	public static function select(item : Sprite) {
 		var s = items.indexOf(item);
 		if (s == selected) {

@@ -103,23 +103,22 @@ class TenUp3 extends Game {
 		}
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
 		Keyboard.get().notify(keydown, keyup);
+		Mouse.get().notify(mousedown, mouseup, mousemove, mousewheel);
 		
 		Configuration.setScreen(this);
 	}
 	
-	private var waterflow: Sprite;
-	private var lavaflow: Sprite;
-	private var gasflow: Sprite;
-	private var noflow: Sprite;
+	private var inventorySelection: Int = 0;
 	
 	public function startGame_TenUp3() {
 		Player.init();
 		player = new PlayerProfessor(400, 10);
 		Scene.the.addHero(player);
-		Inventory.pick(waterflow = new FlowCan('waterflow'));
-		Inventory.pick(lavaflow = new FlowCan('lavaflow'));
-		Inventory.pick(gasflow = new FlowCan('gasflow'));
-		Inventory.pick(noflow = new FlowCan('noflow'));
+		Inventory.pick(new Sprite(Loader.the.getImage('waterflow')));
+		Inventory.pick(new Sprite(Loader.the.getImage('lavaflow')));
+		Inventory.pick(new Sprite(Loader.the.getImage('gasflow')));
+		Inventory.pick(new Sprite(Loader.the.getImage('noflow')));
+		Inventory.selectIndex(0);
 		Dialogues.startProfStartDialog(player);
 	}
 	
@@ -234,16 +233,16 @@ class TenUp3 extends Game {
 						player.setUp();
 					}
 					else if (char == '1') {
-						Inventory.select(waterflow);
+						Inventory.selectIndex(0);
 					}
 					else if (char == '2') {
-						Inventory.select(lavaflow);
+						Inventory.selectIndex(1);
 					}
 					else if (char == '3') {
-						Inventory.select(gasflow);
+						Inventory.selectIndex(2);
 					}
 					else if (char == '4') {
-						Inventory.select(noflow);
+						Inventory.selectIndex(3);
 					}
 				case Key.LEFT:
 					player.left = true;
@@ -280,7 +279,7 @@ class TenUp3 extends Game {
 		}
 	}
 
-	public override function mouseDown(x: Int, y: Int): Void {
+	public function mousedown(button: Int, x: Int, y: Int): Void {
 		mouseX = x + Scene.the.screenOffsetX;
 		mouseY = y + Scene.the.screenOffsetY;
 		switch (subgame) {
@@ -296,7 +295,7 @@ class TenUp3 extends Game {
 		}
 	}
 	
-	public override function mouseUp(x: Int, y: Int): Void {
+	public function mouseup(button: Int, x: Int, y: Int): Void {
 		mouseX = x + Scene.the.screenOffsetX;
 		mouseY = y + Scene.the.screenOffsetY;
 		if (mode == BlaBlaBla) {
@@ -304,8 +303,20 @@ class TenUp3 extends Game {
 		}
 	}
 	
-	public override function mouseMove(x: Int, y: Int): Void {
+	public function mousemove(x: Int, y: Int): Void {
 		mouseX = x + Scene.the.screenOffsetX;
 		mouseY = y + Scene.the.screenOffsetY;
+	}
+	
+	public function mousewheel(delta: Int): Void {
+		if (delta > 0) {
+			++inventorySelection;
+			if (inventorySelection > 3) inventorySelection = 0;
+		}
+		else {
+			--inventorySelection;
+			if (inventorySelection < 0) inventorySelection = 3;
+		}
+		Inventory.selectIndex(inventorySelection);
 	}
 }
