@@ -37,6 +37,10 @@ class Dialogues {
 		Dialogue.insert([new Bla(Keys_text.PROF7, prof)]);
 	}
 	
+	static public function startProfLooseDialog(prof: Sprite) {
+		Dialogue.insert([new Bla(Keys_text.PROF8, prof)]);
+	}
+	
 	static public function startDlg(mann: Sprite, eheweib: Sprite) {
 		Dialogue.insert([new Bla(Keys_text.DLG_START_1, mann)
 					 ,new Bla(Keys_text.DLG_START_2, eheweib)

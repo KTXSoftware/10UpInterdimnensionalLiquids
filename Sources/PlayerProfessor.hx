@@ -37,6 +37,7 @@ class PlayerProfessor extends Player {
 	
 	@:access(kha.Animation) 
 	override public function update() {
+		if (gameover) return;
 		super.update();
 		timecannon.update();
 		var c = center;
@@ -83,6 +84,7 @@ class PlayerProfessor extends Player {
 	private var lastPortal: Portal;
 	
 	override public function useSpecialAbilityA() : Void {
+		if (gameover) return;
 		//Scene.the.addOther(new Water(x + 10, y));
 		//Scene.the.addOther(new Lava(x + 10, y));
 		var dir = new Vector2(TenUp3.instance.mouseX, TenUp3.instance.mouseY).sub(new Vector2(x, y));
@@ -108,11 +110,31 @@ class PlayerProfessor extends Player {
 	
 	private var foundTenUp: Bool = false;
 	private var finishedGame: Bool = false;
+	private var gameover: Bool = false;
 	
 	override public function hit(sprite: Sprite): Void {
 		if (!foundTenUp && Std.is(sprite, TenUpShelf)) {
 			Dialogues.startProfGotItDialog(this);
 			foundTenUp = true;
+			var gas: Int = 0;
+			for (i in 0...Scene.the.countOthers()) {
+				var other = Scene.the.getOther(index);
+				if (Std.is(other, Gas) && other.x > 2000 && other.y < 500) {
+					++gas;
+				}
+			}
+			if (gas > 30) {
+				
+			}
+			else {
+				Scene.the.addEnemy(new Mafioso(1920, 440));
+			}
+		}
+		else if (Std.is(sprite, Shot)) {
+			Dialogues.startProfLooseDialog(this);
+			gameover = true;
+			if (lookRight) setAnimation(Animation.create(22));
+			else setAnimation(Animation.create(23));
 		}
 	}
 }
