@@ -75,16 +75,8 @@ class PlayerProfessor extends Player {
 	}
 	
 	override public function useSpecialAbilityA() : Void {
-		Scene.the.addOther(new Water(x + 10, y));
-		/*if ( timeCannonNextFireTime  <= gameTime ) {
-			timeCannonNextFireTime = gameTime + 25;
-			
-			var projectile = new TimeProjectile( crosshair, this.z );
-			projectile.x = muzzlePoint.x + (0.8 * projectile.width * crosshair.x);
-			projectile.y = muzzlePoint.y + (0.8 * projectile.height * crosshair.y);
-			Scene.the.addProjectile( projectile );
-			isCrosshairVisible = false;
-		}*/
+		//Scene.the.addOther(new Water(x + 10, y));
+		Scene.the.addOther(new Lava(x + 10, y));
 	}
 	
 	/**
