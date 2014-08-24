@@ -1,5 +1,10 @@
 package ;
+
+import haxe.io.Path;
 import haxe.xml.Parser;
+
+#if !macro
+
 import kha.Loader;
 
 enum LanguageType {
@@ -7,8 +12,11 @@ enum LanguageType {
 	de;
 }
 
+#end
+
 class Localization
 {
+#if !macro
 	static var defaultLanguage : LanguageType = en;
 	static public var language : LanguageType = en;
 	static var texts : Map < String, Map < LanguageType, String >> = null;
@@ -47,5 +55,33 @@ class Localization
 			}
 		}
 		return key;
+	}
+#end
+
+	macro static public inline function buildKeys(file: String, assetName: String) : haxe.macro.Expr {
+		trace ('Building keys for "$file"');
+		var f = haxe.macro.Context.getPosInfos(haxe.macro.Context.currentPos()).file;
+		var dir = Path.directory(f) + "/";
+		var name = 'Keys_$assetName';
+		var contend = new StringBuf();
+		contend.add("package localization;\n\n");
+		contend.add('class $name {\n');
+		
+		var xml = Parser.parse(sys.io.File.getContent(file));
+		for (item in xml.elements()) {
+			var key = item.nodeName;
+			if (key != "DefaultLanguage") {
+				contend.add('\tstatic public var ${key.toUpperCase()} = "$key";\n');
+			}
+		}
+		contend.add("}");
+		
+		var ldir = dir + "localization";
+		if (!sys.FileSystem.exists(ldir) || !sys.FileSystem.isDirectory(ldir)) {
+			sys.FileSystem.createDirectory(ldir);
+		}
+		sys.io.File.saveContent(ldir + '/$name.hx', contend.toString());
+		
+		return haxe.macro.Context.parse('Localization.init("$assetName")' , haxe.macro.Context.currentPos());
 	}
 }
