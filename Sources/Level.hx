@@ -13,6 +13,7 @@ class Level {
 	public static var solution : Bool = false;
 	private static var levelName: String;
 	private static var done: Void -> Void;
+	public static var tilemap: Tilemap;
 	public static var liquids: Tilemap;
 	
 	public static function load(levelName: String, done: Void -> Void): Void {
@@ -71,7 +72,7 @@ class Level {
 		//if (levelName == "level1") tileset = "tileset1";
 		var tileset = "outside";
 		
-		var tilemap : Tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
+		tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
 		Scene.the.setColissionMap(liquids);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
 		Scene.the.addForegroundTilemap(liquids, 1);

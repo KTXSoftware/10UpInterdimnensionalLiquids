@@ -40,6 +40,19 @@ class Lava extends Sprite {
 		var tile = Level.liquids.index(x, y + height - 1);
 		var value = Level.liquids.get(tile.x, tile.y);
 		var valueBelow = Level.liquids.get(tile.x, tile.y + 1);
+	
+		var map = Level.tilemap.get(tile.x, tile.y);
+		var mapBelow = Level.tilemap.get(tile.x, tile.y + 1);
+		if (map == 346 || map == 347) {
+			Level.tilemap.set(tile.x, tile.y, map - 2);
+			Level.liquids.set(tile.x, tile.y, 1);
+			return;
+		}
+		if (mapBelow == 346 || mapBelow == 347) {
+			Level.tilemap.set(tile.x, tile.y + 1, mapBelow - 2);
+			Level.liquids.set(tile.x, tile.y + 1, 1);
+			return;
+		}
 		var floored = isWallOrLava(value) || isWallOrLava(valueBelow);		
 		if (lastTile == null || tile.x != lastTile.x) {
 			lastTile = tile;
