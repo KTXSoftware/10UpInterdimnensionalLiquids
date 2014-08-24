@@ -108,7 +108,7 @@ class Portal extends Sprite {
 					case 1:
 						Scene.the.addOther(new LavaSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
 					case 2:
-						if (count % 200 == 0) Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100, y));
+						if (count % 50 == 0) Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100, y));
 				}
 			}
 		}

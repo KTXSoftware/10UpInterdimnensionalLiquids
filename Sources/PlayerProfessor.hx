@@ -127,8 +127,8 @@ class PlayerProfessor extends Player {
 			foundTenUp = true;
 			var gas: Int = 0;
 			for (i in 0...Scene.the.countOthers()) {
-				var other = Scene.the.getOther(index);
-				if (Std.is(other, Gas) && other.x > 2000 && other.y < 500) {
+				var other = Scene.the.getOther(i);
+				if (Std.is(other, Gas) && other.x > 1920 && other.y < 500) {
 					++gas;
 				}
 			}
