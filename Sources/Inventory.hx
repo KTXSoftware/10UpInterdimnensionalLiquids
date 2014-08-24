@@ -88,8 +88,8 @@ class Inventory {
 			item.y = itemY;
 			var osx = item.scaleX;
 			var osy = item.scaleY;
-			item.scaleX = itemWidth / item.width;
-			item.scaleY = itemHeight / item.height;
+			item.scaleX *= itemWidth / item.width;
+			item.scaleY *= itemHeight / item.height;
 			item.render(g);
 			item.scaleX = osx;
 			item.scaleY = osy;

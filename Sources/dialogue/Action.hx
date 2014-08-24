@@ -4,8 +4,7 @@ import Dialogue.DialogueItem;
 import kha.Sprite;
 
 enum ActionType {
-	TAKE;
-	GIVE;
+	MG;
 }
 
 class Action implements DialogueItem {
@@ -26,17 +25,13 @@ class Action implements DialogueItem {
 			started = true;
 			counter = 0;
 			switch(type) {
-				case ActionType.TAKE:
-					// TODO
-				case ActionType.GIVE:
+				case ActionType.MG:
 					// TODO
 			}
 			return;
 		} else {
 			switch(type) {
-				case ActionType.TAKE:
-					// TODO
-				case ActionType.GIVE:
+				case ActionType.MG:
 					// TODO
 			}
 		}

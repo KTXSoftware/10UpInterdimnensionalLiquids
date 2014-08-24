@@ -49,6 +49,14 @@ class Keys_text {
 	static public var DLG_ARBEITSLOS_3_C = "dlg_Arbeitslos_3_c";
 	static public var DLG_ARBEITSLOS_3A = "dlg_Arbeitslos_3a";
 	static public var DLG_ARBEITSLOS_3B = "dlg_Arbeitslos_3b";
+	static public var DLG_ARBEITSLOS_3A_1 = "dlg_Arbeitslos_3a_1";
+	static public var DLG_ARBEITSLOS_3B_1 = "dlg_Arbeitslos_3b_1";
+	static public var DLG_EHEWEIB_1 = "dlg_Eheweib_1";
+	static public var DLG_EHEWEIB_2 = "dlg_Eheweib_2";
+	static public var DLG_EHEWEIB_3 = "dlg_Eheweib_3";
+	static public var DLG_EHEWEIB_4 = "dlg_Eheweib_4";
+	static public var DLG_EHEWEIB_5 = "dlg_Eheweib_5";
+	static public var DLG_EHEWEIB_6 = "dlg_Eheweib_6";
 	static public var GAME_VERSAGT = "game_versagt";
 	static public var GAME_ERFOLG = "game_erfolg";
 	static public var PROF1 = "prof1";
