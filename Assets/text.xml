@@ -46,6 +46,7 @@
 	<de>Ja Schatz ...</de>
 </dlg_Start_6>
 
+<!-- GELD GEFUNDEN -->
 <dlg_Geld_Gefunden_1_c>
 	<de>Oh, da liegt ein ja ein Cent!
 (1): Heute ist wohl mein Glückstag! [Geld nehmen]
@@ -61,6 +62,22 @@
 	<de>Jemand anderes braucht ihn bestimmt dringender als ich... [Geld liegenlassen]</de>
 </dlg_Geld_Gefunden_1b>
 
+<!-- GELD VERLOHREN -->
+<dlg_Geld_Verlohren_1_c>
+	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen.
+(1): [Cent aufheben]
+(2): Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit. [Cent liegenlassen]</de>
+</dlg_Geld_Verlohren_1_c>
+<dlg_Geld_Verlohren_1a>
+	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen. [hebt Cent auf]</de>
+</dlg_Geld_Verlohren_1a>
+<dlg_Geld_Verlohren_1b>
+	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen...
+
+... Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit.</de>
+</dlg_Geld_Verlohren_1b>
+
+<!-- Brötchen kaufen -->
 <dlg_Verkaufen_1>
 	<de>Guten Morgen! Sie wünschen?</de>
 </dlg_Verkaufen_1>
@@ -69,7 +86,7 @@
 (2): Zwei Wasserweck, bitte.</de>
 </dlg_Verkaufen_2_c>
 <dlg_Verkaufen_2a>
-	<de>(1): Ein Wasserweck und ein Mehrkornbrötchen, bitte.</de>
+	<de>Ein Wasserweck und ein Mehrkornbrötchen, bitte.</de>
 </dlg_Verkaufen_2a>
 <dlg_Verkaufen_2b>
 	<de>Zwei Wasserweck, bitte.</de>
@@ -140,3 +157,32 @@
 <dlg_Verkaufen_Erfolg_2>
 	<de>Vielen Dank. Auf wiedersehen.</de>
 </dlg_Verkaufen_Erfolg_2>
+
+
+<!-- Gefeuert werden -->
+<dlg_Arbeitslos_1>
+	<de>Was soll das! Kannst du nichtmal den Preis von zwei Brötchen addieren?</de>
+</dlg_Arbeitslos_1>
+<dlg_Arbeitslos_2>
+	<de>Was Glaubst du Wohl, wie ich mein Brötchenimperium aufgebaut habe?</de>
+</dlg_Arbeitslos_2>
+<dlg_Arbeitslos_3_c>
+	<de>(1): [schweigen]
+(2): Mit dem Geld aus euerem Drogenimperium?</de>
+</dlg_Arbeitslos_3_c>
+<dlg_Arbeitslos_3a>
+	<de>Bestimmt nicht, weil ich etwas was verschenke!
+	
+Du bist gefeuert!</de>
+</dlg_Arbeitslos_3a>
+
+<dlg_Arbeitslos_3b>
+	<de>Du weißt zu viel...</de>
+</dlg_Arbeitslos_3b>
+
+<game_versagt>
+	<de>Versagt...</de>
+</game_versagt>
+<game_erfolg>
+	<de>Welch ein normaler Tag... (Gewonnen)</de>
+</game_erfolg>
