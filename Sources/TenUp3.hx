@@ -101,17 +101,25 @@ class TenUp3 extends Game {
 		case SubGame.JUST_A_NORMAL_DAY:
 			startGame_JustANormalDay();
 		}
-		
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
 		Keyboard.get().notify(keydown, keyup);
 		
 		Configuration.setScreen(this);
 	}
 	
+	private var waterflow: Sprite;
+	private var lavaflow: Sprite;
+	private var gasflow: Sprite;
+	private var noflow: Sprite;
+	
 	public function startGame_TenUp3() {
 		Player.init();
 		player = new PlayerProfessor(400, 10);
 		Scene.the.addHero(player);
+		Inventory.pick(waterflow = new FlowCan('waterflow'));
+		Inventory.pick(lavaflow = new FlowCan('lavaflow'));
+		Inventory.pick(gasflow = new FlowCan('gasflow'));
+		Inventory.pick(noflow = new FlowCan('noflow'));
 		Dialogues.startProfStartDialog(player);
 	}
 	
@@ -224,6 +232,18 @@ class TenUp3 extends Game {
 					}
 					else if (char == 'w') {
 						player.setUp();
+					}
+					else if (char == '1') {
+						Inventory.select(waterflow);
+					}
+					else if (char == '2') {
+						Inventory.select(lavaflow);
+					}
+					else if (char == '3') {
+						Inventory.select(gasflow);
+					}
+					else if (char == '4') {
+						Inventory.select(noflow);
 					}
 				case Key.LEFT:
 					player.left = true;
