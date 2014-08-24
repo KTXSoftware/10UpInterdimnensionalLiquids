@@ -261,6 +261,18 @@
 				"blue": 201
 			},
 			"scale": 2
+		},
+		{
+			"id": "4f4c34c2-fa42-4775-baca-3dba9e23b9b6",
+			"type": "image",
+			"file": "lavasplash.png",
+			"name": "lavasplash",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
 		}
 	],
 	"rooms": [
@@ -302,7 +314,8 @@
 				"79814a31-b1fa-49bf-9547-73cf08ee62af",
 				"9188beee-1a7f-43a8-bac3-60d448462971",
 				"c2463eea-d0f5-4b19-81ce-9e1698b37583",
-				"cc475837-ea13-4560-a648-6cafd58ce8ba"
+				"cc475837-ea13-4560-a648-6cafd58ce8ba",
+				"4f4c34c2-fa42-4775-baca-3dba9e23b9b6"
 			]
 		}
 	]
