@@ -211,26 +211,28 @@ class TenUp3 extends Game {
 	}
 
 	public function keydown(key: Key, char: String) : Void {
-		switch (key) {
-			case Key.CTRL:
-				Dialogue.next();
-			case Key.CHAR:
-				if (char == 'a') {
+		if (mode == Mode.Game) {
+			switch (key) {
+				case Key.CTRL:
+					Dialogue.next();
+				case Key.CHAR:
+					if (char == 'a') {
+						player.left = true;
+					}
+					else if (char == 'd') {
+						player.right = true;
+					}
+					else if (char == 'w') {
+						player.setUp();
+					}
+				case Key.LEFT:
 					player.left = true;
-				}
-				else if (char == 'd') {
+				case Key.RIGHT:
 					player.right = true;
-				}
-				else if (char == 'w') {
+				case Key.UP:
 					player.setUp();
-				}
-			case Key.LEFT:
-				player.left = true;
-			case Key.RIGHT:
-				player.right = true;
-			case Key.UP:
-				player.setUp();
-			default:
+				default:
+			}
 		}
 	}
 	
@@ -263,7 +265,12 @@ class TenUp3 extends Game {
 		mouseY = y + Scene.the.screenOffsetY;
 		switch (subgame) {
 			case SubGame.TEN_UP_3:
-				player.useSpecialAbilityA();
+				switch(mode) {
+					case Mode.Game:
+						player.useSpecialAbilityA();
+					case Mode.BlaBlaBla:
+						
+				}
 			case SubGame.JUST_A_NORMAL_DAY:
 				
 		}
