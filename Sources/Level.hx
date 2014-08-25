@@ -167,11 +167,15 @@ class Level {
 			case 1: // Mann
 				if (Cfg.mann == null) {
 					Cfg.mann = new ZeroEightFifteenMan(x, y);
+					Cfg.mann.inventory.itemWidth = 64;
+					Cfg.mann.inventory.itemHeight = 64;
 				}
 				Cfg.mannPositions.push(new Vector2i(x, y));
 			case 2: // Verkaeuferin
 				if (Cfg.verkaeuferin == null) {
 					Cfg.verkaeuferin = new Verkaeuferin(x, y);
+					Cfg.verkaeuferin.inventory.itemWidth = 64;
+					Cfg.verkaeuferin.inventory.itemHeight = 64;
 				}
 				Cfg.verkaeuferinPositions.push(new Vector2i(x, y));
 			/*case 3: // door
