@@ -1,4 +1,5 @@
 package ;
+import kha.math.Vector2i;
 import kha.Sprite;
 import localization.Keys_text;
 
@@ -36,7 +37,12 @@ class Cfg
 	public static var mann: ZeroEightFifteenMan;
 	public static var eheweib: Sprite;
 	public static var verkaeuferin: Verkaeuferin;
-	public static var mafiosi: Sprite;
+	public static var mafioso: Sprite;
+	public static var euro: Sprite;
+	public static var cent: Sprite;
+	public static var broetchen: Sprite;
+	public static var verkaeuferinPositions : Array<Vector2i> = new Array();
+	public static var mannPositions : Array<Vector2i> = new Array();
 	
 	var victoryConditions : Map<VictoryCondition, Bool>;
 	

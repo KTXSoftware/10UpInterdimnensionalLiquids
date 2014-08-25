@@ -75,6 +75,7 @@ class TenUp3 extends Game {
 	
 	public override function init(): Void {
 		Configuration.setScreen(new LoadingScreen());
+		Player.init();
 		Loader.the.loadRoom("start", initMenu);
 	}
 	
@@ -113,7 +114,6 @@ class TenUp3 extends Game {
 	private var inventorySelection: Int = 0;
 	
 	public function startGame_TenUp3() {
-		Player.init();
 		var prof = new PlayerProfessor(400, 10);
 		prof.setCurrent();
 		Scene.the.addHero(prof);
@@ -127,8 +127,7 @@ class TenUp3 extends Game {
 	
 	var cfg: Cfg;
 	public function startGame_JustANormalDay() {
-		Player.init();
-		var mann = new ZeroEightFifteenMan(250, 350);
+		var mann = Cfg.mann;
 		
 		Scene.the.addHero(mann);
 		mann.setCurrent();
@@ -139,10 +138,7 @@ class TenUp3 extends Game {
 		cent.scaleX = cent.scaleY = 0.5;
 		mann.inventory.pick(euro);
 		
-		var eheweib = new Sprite(null, 25, 25);
-		eheweib.x = 150;
-		eheweib.y = 300;
-		eheweib.accy = 0;
+		var eheweib = Cfg.eheweib;
 		Scene.the.addEnemy(eheweib);
 		
 		var verkaeuferin = new Verkaeuferin(400, 350);

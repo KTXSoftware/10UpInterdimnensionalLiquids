@@ -5,7 +5,9 @@ import kha.Configuration;
 import kha.Game;
 import kha.Loader;
 import kha.LoadingScreen;
+import kha.math.Vector2i;
 import kha.Scene;
+import kha.Sprite;
 import kha.Tile;
 import kha.Tilemap;
 
@@ -89,53 +91,44 @@ class Level {
 		//var jmpMan = Jumpman.getInstance();
 		for (i in 0...spriteCount) {
 			var sprite: kha.Sprite;
+			var x = sprites[i * 3 + 1];
+			var y = sprites[i * 3 + 2];
 			if (levelName == "level1") {
-				sprites[i * 3 + 1] *= 2;
-				sprites[i * 3 + 2] *= 2;
+				x *= 2;
+				y *= 2;
 			}
 			switch (sprites[i * 3]) {
-			/*case 0: // helmet
-				sprite = new Helmet(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
-			case 1: // mask
-				sprite = new SurgicalMaskAndInjection(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
-			case 2: // Pizza
-				sprite = new Pizza(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
-			case 3: // director
-				if (solution) {
-					sprite = new Director(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				} else if (jmpMan.hasHelmet) {
-					sprite = new Drake(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				} else if (jmpMan.hasSurgicalMask) {
-					sprite = new WoundedPerson(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				} else {
-					throw "This should not happen. Therefore you shall not pass\n\n\n\\n\n\nthis line of code";
+			case 0: // Eheweib
+				sprite = new Sprite(Loader.the.getImage("eheweib"));
+				sprite.x = x;
+				sprite.y = y;
+				sprite.accy = 0;
+				Cfg.eheweib = sprite;
+			case 1: // Mann
+				if (Cfg.mann == null) {
+					Cfg.mann = new ZeroEightFifteenMan(x, y);
 				}
-				Scene.the.addHero(sprite);
-			case 4: // door
+				Cfg.mannPositions.push(new Vector2i(x, y));
+			case 2: // Verkaeuferin
+				if (Cfg.verkaeuferin == null) {
+					Cfg.verkaeuferin = new Verkaeuferin(x, y);
+				}
+				Cfg.verkaeuferinPositions.push(new Vector2i(x, y));
+			/*case 3: // door
 				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addOther(sprite);
-			case 5: // assistant
-				var guy : GuyWithExtinguisher;
-				if (solution || jmpMan.hasSurgicalMask) {
-					guy = new GuyWithExtinguisher(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				} else if (jmpMan.hasHelmet) {
-					guy = new Knight(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				} else {
-					throw "This should not happen. Therefore you shall not pass\n\n\n\\n\n\nthis line of code";
-				}
-				guy.spawnItem();
-				Scene.the.addHero(guy);
-			case 6: // coat
-				sprite = new WinterCoat(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);
-			case 7: // fire
-				sprite = new Fire(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addHero(sprite);*/
+				Scene.the.addOther(sprite);*/
+			/*case 4: // theke
+				*/
+			/*case 5: // backdoor
+				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
+				Scene.the.addOther(sprite);*/
+			case 6: // mafioso
+				Cfg.mafioso = new Mafioso(x, y);
+				Scene.the.addEnemy(Cfg.mafioso);
+			case 7: // machine gun
+				// Integrated into mafioso
 			case 8:
-				sprite = new TenUpShelf(sprites[i * 3 + 1], sprites[i * 3 + 2]);
+				sprite = new TenUpShelf(x, y);
 				Scene.the.addEnemy(sprite);
 			default:
 				trace("That should never happen! We are therefore going to ignore it.");
