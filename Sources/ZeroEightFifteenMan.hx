@@ -42,8 +42,14 @@ class ZeroEightFifteenMan extends Player {
 			doEnde = false;
 			Dialogues.setMannEndeDlg();
 		}
+		
+		if (doGulli && y > 515) {
+			doGulli = false;
+			Scheduler.addTimeTask(Dialogues.setGameEnd, 1);
+		}
 	}
 	
+	var doGulli = true;
 	var doEnde = false;
 	var doCent = true;
 	var doTheke = true;

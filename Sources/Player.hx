@@ -132,7 +132,7 @@ class Player extends DestructibleSprite {
 	}
 	
 	public function getRound() : Int {
-		return round;
+		return 0;
 	}
 	
 	public function nextRound() {

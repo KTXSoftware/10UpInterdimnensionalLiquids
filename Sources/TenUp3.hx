@@ -91,6 +91,10 @@ class TenUp3 extends Game {
 		Localization.buildKeys("../Assets/text.xml","text");
 		//Localization.load("text");
 		
+		loadTheOneAndOnlyLevel();
+	}
+	
+	public function loadTheOneAndOnlyLevel() {
 		Level.load("level1", initLevel);
 	}
 
@@ -102,8 +106,6 @@ class TenUp3 extends Game {
 	}
 	
 	public function startGame() {
-		Cfg.init(); // TODO: load previous data
-		
 		switch(subgame) {
 		case SubGame.TEN_UP_3:
 			startGame_TenUp3();
@@ -153,6 +155,7 @@ class TenUp3 extends Game {
 		// Reset Victory conditions:
 		Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
 		Cfg.setVictoryCondition(VictoryCondition.BOUGHT_ROLLS, false);
+		Cfg.setVictoryCondition(VictoryCondition.DELIVERED_ROLLS, false);
 		Cfg.setVictoryCondition(VictoryCondition.MEHRKORN, false);
 		Cfg.setVictoryCondition(VictoryCondition.CENT_TAKEN, false);
 		
