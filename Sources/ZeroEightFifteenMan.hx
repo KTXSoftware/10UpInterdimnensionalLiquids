@@ -19,7 +19,7 @@ class ZeroEightFifteenMan extends Player {
 	}
 	
 	public function new(x: Float, y: Float) {
-		super(x, y - 8, "professor", Std.int(410 / 10 * 2), Std.int(455 / 7 * 2));
+		super(x, y - 8, "nullachtfuenfzehnmann", Std.int(360 * 2 / 9), Std.int(128 * 2 / 2));
 		me = this;
 		Player.setPlayer(1, this);
 				
