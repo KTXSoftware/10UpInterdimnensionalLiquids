@@ -182,16 +182,16 @@ class Level {
 					Cfg.verkaeuferin.inventory.itemHeight = 64;
 				}
 				Cfg.verkaeuferinPositions.push(new Vector2i(x, y));
-			/*case 3: // door
-				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addOther(sprite);*/
+			case 3: // door
+				sprite = new Door(x, y);
+				Scene.the.addProjectile(sprite);
 			case 4: // theke
-				sprite = new TenUpShelf(x, y);
+				sprite = new Theke(x, y);
 				Cfg.theke = sprite;
 				Scene.the.addEnemy(sprite);
-			/*case 5: // backdoor
-				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addOther(sprite);*/
+			case 5: // backdoor
+				sprite = new Door(x, y);
+				Scene.the.addProjectile(sprite);
 			case 6: // mafioso
 				Cfg.mafioso = new Mafioso(x, y);
 				Scene.the.addEnemy(Cfg.mafioso);

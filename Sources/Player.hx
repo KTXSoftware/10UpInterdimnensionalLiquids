@@ -36,7 +36,7 @@ class Player extends DestructibleSprite {
 	var jumpRight : Animation;
 	var score : Int;
 	var round : Int;
-	private var hitSound: Sound;
+	//private var hitSound: Sound;
 	private var time: Float;
 	private static var currentPlayer: Player = null;
 	private static var jumpmans: Array<Player>;
@@ -46,7 +46,7 @@ class Player extends DestructibleSprite {
 	var muzzlePoint : Vector2;
 	
 	public function new(x: Float, y: Float, image: String, width: Int, height: Int, maxHealth: Int = 50) {
-		super(maxHealth, Loader.the.getImage(image), width, height, 0);
+		super(maxHealth, Loader.the.getImage(image), width, height, 1);
 		this.x = x;
 		this.y = y;
 		standing = false;
@@ -69,7 +69,7 @@ class Player extends DestructibleSprite {
 		jumpcount = 0;
 		crosshair = new Vector2(1, 0);
 		isRepairable = true;
-		hitSound = Loader.the.getSound("hit");
+		//hitSound = Loader.the.getSound("hit");
 		zzzzz = Loader.the.getImage("zzzzz");
 		inventory = new Inventory();
 	}

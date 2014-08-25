@@ -69,7 +69,7 @@ class PlayerProfessor extends Player {
 			die();
 		}
 		
-		if (!visitedVeraeuferin && Verkaeuferin.the().x > x && Verkaeuferin.the().x < x + 200) {
+		if (!visitedVeraeuferin && x > 1900) {
 			visitedVeraeuferin = true;
 			if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {
 				if (!Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) Dialogues.setGefeuertDlg();
@@ -102,7 +102,11 @@ class PlayerProfessor extends Player {
 			Scene.the.removeOther(lastPortal);
 			lastPortal = null;
 		}
-		if (inventory.selectedIndex() != 3) Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y, inventory.selectedIndex()));
+		if (inventory.selectedIndex() != 3) {
+			if ((lookRight && TenUp3.instance.mouseX - 16 > x) || (!lookRight && TenUp3.instance.mouseX - 16 < x)) {
+				Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y, inventory.selectedIndex()));
+			}
+		}
 	}
 
 	private var foundTenUp: Bool = false;
@@ -118,7 +122,8 @@ class PlayerProfessor extends Player {
 				
 			}
 			else {
-				Scene.the.addEnemy(new Mafioso(1920, 440));
+				Mafioso.the().x = 1920;
+				Mafioso.the().useMg = true;
 			}
 			Cfg.setVictoryCondition(VictoryCondition.TENUPWEG, true);
 			Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
