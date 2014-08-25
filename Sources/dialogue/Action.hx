@@ -26,6 +26,8 @@ class Action implements DialogueItem {
 		this.type = type;
 	}
 	
+	static public var finishThrow = false;
+	
 	@:access(Dialogue.isActionActive) 
 	public function execute() : Void {
 		if (!started) {
@@ -40,6 +42,7 @@ class Action implements DialogueItem {
 				case ActionType.FADE_FROM_BLACK:
 					counter = TenUp3.getInstance().overlayColor.Ab;
 				case ActionType.THROW:
+					finishThrow = false;
 					var from = sprites[0];
 					var to = sprites[1];
 					var proj = sprites[2];
@@ -101,8 +104,9 @@ class Action implements DialogueItem {
 						TenUp3.getInstance().overlayColor.Ab = counter;
 					}
 				case ActionType.THROW:
-					autoAdvance = false;
-					actionFinished();
+					if (finishThrow) {
+						actionFinished();
+					}
 			}
 		}
 	}

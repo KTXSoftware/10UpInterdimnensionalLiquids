@@ -132,13 +132,13 @@ class Portal extends Sprite {
 						if (count % 25 == 0) {
 							switch (animation.get()) {
 								case 1: // Left
-									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 5, y + 10, -2, 0));
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2001) - 1000) / 100 + 5, y + 10, -1.5 + Math.random(), 0));
 								case 2: // Up
-									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 10, y, 0, 0));
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2001) - 1000) / 100 + 10, y, -0.5 + Math.random(), 0));
 								case 3: // Down
-									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 10, y, 0, 4));
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2001) - 1000) / 100 + 10, y, -0.5 + Math.random(), 4));
 								case 4: // Right
-									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 10, y + 10, 2, 0));
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2001) - 1000) / 100 + 10, y + 10, 1.5 + Math.random(), 0));
 							}
 						}
 				}

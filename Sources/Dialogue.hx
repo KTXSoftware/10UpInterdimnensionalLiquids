@@ -81,6 +81,7 @@ class Dialogue {
 				kha.Sys.mouse.show();
 			}
 			items = null;
+			index = -1;
 			return;
 		}
 		

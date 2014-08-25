@@ -24,9 +24,9 @@ class Dialogues {
 		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS)) {
 			Scene.the.addHero(Cfg.mann);
 			Cfg.mann.lookRight = false;
-			Dialogue.insert([new StartDialogue(setMannEndeDlg), new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
+			Dialogue.insert([new Action(null, ActionType.FADE_FROM_BLACK), new StartDialogue(setMannEndeDlg), new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
 		} else {
-			Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
+			Dialogue.insert([new Action(null, ActionType.FADE_FROM_BLACK), new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
 		}
 	}
 	

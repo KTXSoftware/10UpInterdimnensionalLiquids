@@ -14,7 +14,7 @@ class Gas extends Sprite {
 		this.speedx = speedx;
 		this.speedy = speedy;
 		accy = -0.1;
-		collider = new Rectangle(20, 20, 10, 10);
+		collider = new Rectangle(20, 20, 16, 16);
 	}
 	
 	override public function update(): Void {
@@ -36,7 +36,8 @@ class Gas extends Sprite {
 			var pos2 = new Vector2(sprite.x, sprite.y);
 			var pos1 = new Vector2(x, y);
 			var dir = pos1.sub(pos2);
-			dir.length = 0.2;
+			dir.y += 0.0001;
+			dir.length = 0.25;
 			speedx = dir.x;
 			speedy = dir.y;
 		}
