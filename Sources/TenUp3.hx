@@ -136,15 +136,23 @@ class TenUp3 extends Game {
 			// Play as Mann
 			Scene.the.addHero(Cfg.mann);
 			
+			if (true || Cfg.getVictoryCondition(VictoryCondition.CENT_DROPPED)) {
+				Cfg.cent.x = Cfg.verkaeuferin.x + 150;
+				Cfg.cent.y = Cfg.verkaeuferin.y;
+				Scene.the.addOther(Cfg.cent);
+			}
+			
+			Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
+			Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
 		} else {
 			// Play as Verkäuferin
-			Scene.the.addHero(Cfg.verkaeuferin);
 			Cfg.verkaeuferin.inventory.pick(Cfg.cent);
 		}
 		
-		Cfg.mann.inventory.pick(Cfg.euro);
+		Scene.the.addHero(Cfg.verkaeuferin); // allways needed
+		Cfg.mann.inventory.pick(Cfg.euro); // allways needed
 		
-		Dialogues.setStartDlg(Cfg.mann, Cfg.eheweib);
+		Dialogues.setStartDlg();
 		//Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, cent);
 	}
 	

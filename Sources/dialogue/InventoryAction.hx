@@ -28,10 +28,10 @@ class InventoryAction implements Dialogue.DialogueItem
 			case ADD:
 				source.inventory.pick(item);
 			case PICKUP:
-				Scene.the.removeHero(item);
+				Scene.the.removeProjectile(item);
 				source.inventory.pick(item);
 			case DROP:
-				Scene.the.addHero(item);
+				Scene.the.addProjectile(item);
 				source.inventory.loose(item);
 				item.x = source.x + 0.5 * source.width;
 				item.y = source.y;
