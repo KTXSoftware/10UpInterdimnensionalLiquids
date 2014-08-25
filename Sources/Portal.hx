@@ -89,25 +89,43 @@ class Portal extends Sprite {
 			if (count % 5 == 0) {
 				var x = this.x;
 				var y = this.y;
+				var speedx: Float = 0;
+				var speedy: Float = 0;
 				switch (animation.get()) {
 					case 1:
-						x += 0;
-						y += height / 2;
+						if (canIndex == 0) {
+							x += 16;
+							y += 8;
+						}
+						speedx = -4;
+						speedy = (Random.getIn(0, 2000) - 1000) / 250;
 					case 2:
-						x += 0;
-						y -= 16;
+						if (canIndex == 0) {
+							x += 8;
+							y += 8;
+						}
+						speedx = (Random.getIn(0, 2000) - 1000) / 250;
+						speedy = -4;
 					case 3:
-						x += width / 2;
-						y += 0;
+						if (canIndex == 0) {
+							x += 8;
+							y += 0;
+						}
+						speedx = (Random.getIn(0, 2000) - 1000) / 250;
+						speedy = 0;
 					case 4:
-						x += 0;
-						y += 8;
+						if (canIndex == 0) {
+							x += 0;
+							y += 8;
+						}
+						speedx = 4;
+						speedy = (Random.getIn(0, 2000) - 1000) / 250;
 				}
 				switch (canIndex) {
 					case 0:
-						Scene.the.addProjectile(new WaterSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
+						Scene.the.addProjectile(new WaterSplash(x, y, speedx, speedy));
 					case 1:
-						Scene.the.addProjectile(new LavaSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
+						Scene.the.addProjectile(new LavaSplash(x, y, speedx, speedy));
 					case 2:
 						if (count % 50 == 0) Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100, y));
 				}

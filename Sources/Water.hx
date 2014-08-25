@@ -37,17 +37,19 @@ class Water extends Sprite {
 		return value == 0 || isWater(value);
 	}
 	
+	private function isWallOrLiquid(value: Int): Bool {
+		return value == 0 || Lava.isLava(value) || isWater(value);
+	}
+	
 	private function splash(): Void {
 		var tile = Level.liquids.index(x, y + height - 1);
 		var value = Level.liquids.get(tile.x, tile.y);
 		var valueBelow = Level.liquids.get(tile.x, tile.y + 1);
-		var floored = isWallOrWater(value) || isWallOrWater(valueBelow);		
+		var floored = isWallOrLiquid(value) || isWallOrLiquid(valueBelow);		
 		if (lastTile == null || tile.x != lastTile.x) {
 			lastTile = tile;
 			if (floored) {
-				if (isWater(valueBelow) && valueBelow < 17) Level.liquids.set(tile.x, tile.y + 1, valueBelow + 1);
-				else if (value > 0 && value < 17) Level.liquids.set(tile.x, tile.y, value + 1);
-				else if (Lava.isLava(value)) {
+				if (Lava.isLava(value)) {
 					if (value == 20) {
 						Level.liquids.set(tile.x, tile.y, 1);
 					}
@@ -65,6 +67,8 @@ class Water extends Sprite {
 					}
 					Scene.the.addProjectile(new Haze(x + collider.width / 2, y));
 				}
+				else if (isWater(valueBelow) && valueBelow < 17) Level.liquids.set(tile.x, tile.y + 1, valueBelow + 1);
+				else if (value > 0 && value < 17) Level.liquids.set(tile.x, tile.y, value + 1);
 			}
 		}
 	}

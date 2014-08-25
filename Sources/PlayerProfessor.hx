@@ -52,7 +52,7 @@ class PlayerProfessor extends Player {
 				timecannon.originX = timecannon.width - timecannon.originX;
 			}
 		} else {
-			timecannon.x -= 15;
+			timecannon.x -= 60;
 			timecannon.angle = timecannon.angle + Math.PI;
 			if (timecannon.animation.indices != timecannon.leftAnim.indices) {
 				timecannon.animation.indices = timecannon.leftAnim.indices;
@@ -78,10 +78,8 @@ class PlayerProfessor extends Player {
 	}
 	
 	override public function render(g: Graphics): Void {
+		timecannon.render(g);
 		super.render(g);
-		//if (isCrosshairVisible || timeCannonNextFireTime > TenUp.instance.currentGameTime + 23.5) {
-			timecannon.render(g);
-		//}
 	}
 	
 	/**
@@ -99,28 +97,16 @@ class PlayerProfessor extends Player {
 		//Scene.the.addOther(new Water(x + 10, y));
 		//Scene.the.addOther(new Lava(x + 10, y));
 		Cfg.setVictoryCondition(VictoryCondition.WATER, false);
-		var dir = new Vector2(TenUp3.instance.mouseX, TenUp3.instance.mouseY).sub(new Vector2(x, y));
-		dir.length = 4;
+		var dir = new Vector2(TenUp3.instance.mouseX - 16, TenUp3.instance.mouseY - 16).sub(new Vector2(x, y));
+		dir.length = 8;
 		if (lastPortal != null) {
 			lastPortal.remove();
-			lastPortal = null;
 			Scene.the.removeOther(lastPortal);
+			lastPortal = null;
 		}
 		if (inventory.selectedIndex() != 3) Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y, inventory.selectedIndex()));
 	}
-	
-	/**
-	  Hacking
-	 */
-	override public function useSpecialAbilityB(gameTime: Float): Void {
-		/*if (Level.the.computers.length > 0) {
-			var computer = Level.the.computers[0];
-			if (computer.collisionRect().collision(collisionRect())) {
-				Level.the.gates[0].open();
-			}
-		}*/
-	}
-	
+
 	private var foundTenUp: Bool = false;
 	private var finishedGame: Bool = false;
 	private var gameover: Bool = false;
@@ -150,7 +136,7 @@ class PlayerProfessor extends Player {
 		var gas: Int = 0;
 		for (i in 0...Scene.the.countOthers()) {
 			var other = Scene.the.getOther(i);
-			if (Std.is(other, Gas) && other.x > 1920 && other.y < 500) {
+			if (Std.is(other, Gas) && other.x > 1950 && other.y < 500) {
 				++gas;
 			}
 		}

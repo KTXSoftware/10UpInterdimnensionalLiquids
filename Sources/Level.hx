@@ -79,7 +79,11 @@ class Level {
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
 		var liquidMap = new Array<Array<Int>>();
-		if (Cfg.getVictoryCondition(VictoryCondition.WATER)) {
+		var water = false;
+		#if JUST_A_NORMAL_DAY
+		water = true;
+		#end
+		if (water && Cfg.getVictoryCondition(VictoryCondition.WATER)) {
 			for (x in 0...levelWidth) {
 				liquidMap.push(new Array<Int>());
 				for (y in 0...levelHeight) {
@@ -137,6 +141,14 @@ class Level {
 				default:
 					map[x][y] = originalmap[x][y];
 				}
+			}
+		}
+		for (x in 0...levelWidth) {
+			for (y in 0...levelHeight) {
+				if (map[x][y] == 346 && liquidMap[x][y] == 1) {
+					map[x][y] = 344;
+				}
+				if (map[x][y] == 347 && liquidMap[x][y] == 1) map[x][y] = 345;
 			}
 		}
 		//var jmpMan = Jumpman.getInstance();
