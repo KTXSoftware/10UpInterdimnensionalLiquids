@@ -1,6 +1,6 @@
 package dialogue;
 
-import JustANormalDay;
+import Cfg;
 
 class SetVictoryCondition implements Dialogue.DialogueItem
 {
@@ -15,7 +15,7 @@ class SetVictoryCondition implements Dialogue.DialogueItem
 	public var finished(default, null) : Bool = true;
 	
 	public function execute(): Void {
-		JustANormalDay.setVictoryCondition(condition, value);
+		Cfg.setVictoryCondition(condition, value);
 		Dialogue.next();
 	}
 }

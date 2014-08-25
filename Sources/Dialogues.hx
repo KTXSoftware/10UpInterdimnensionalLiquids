@@ -9,7 +9,7 @@ import dialogue.EndGame;
 import dialogue.InventoryAction;
 import dialogue.SetVictoryCondition;
 import dialogue.StartDialogue;
-import JustANormalDay;
+import Cfg;
 import localization.Keys_text;
 import kha.Scene;
 import kha.Sprite;
@@ -68,7 +68,7 @@ class Dialogues {
 			, new BlaWithChoices(Keys_text.DLG_VERKAUFEN_2_C, mann, [
 				[ // Antwort 1
 					new Bla(Keys_text.DLG_VERKAUFEN_2A_1, verkaeuferin)
-					, new BooleanBranch(JustANormalDay.getVictoryCondition.bind(VictoryCondition.CENT_TAKEN)
+					, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.CENT_TAKEN)
 						, [ // HAS CENT
 							new Bla(Keys_text.DLG_VERKAUFEN_2A_2_GELD, mann)
 							, new InventoryAction(mann, euro, InventoryActionMode.REMOVE)
@@ -81,7 +81,7 @@ class Dialogues {
 								[ // Antwort 1
 									new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_1, verkaeuferin)
 									, new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_2, verkaeuferin)
-									, new IntBranch(JustANormalDay.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2A_2A_3_C), [
+									, new IntBranch(Cfg.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2A_2A_3_C), [
 										[ // Antwort 1: Da kann ich nix machen
 											new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_3A, verkaeuferin)
 											, new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_3A_1, mann)
@@ -99,7 +99,7 @@ class Dialogues {
 									])
 								]
 								, [ // Antwort 2
-									new IntBranch(JustANormalDay.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2A_2B_1_C), [
+									new IntBranch(Cfg.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2A_2B_1_C), [
 										[ // Antwort 1
 											new InventoryAction(mann, euro, InventoryActionMode.REMOVE)
 											, new Bla(Keys_text.DLG_VERKAUFEN_2A_2B_1A, verkaeuferin)
@@ -136,9 +136,9 @@ class Dialogues {
 	static public function setVerkaufVerkDlg(mann: Sprite, verkaeuferin: Sprite ) {
 		Dialogue.insert( [
 			new Bla(Keys_text.DLG_VERKAUFEN_1, verkaeuferin)
-			, new IntBranch(JustANormalDay.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2_C), [
+			, new IntBranch(Cfg.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2_C), [
 				[ // Antwort 1: Richtige Brötchen
-					new BooleanBranch(JustANormalDay.getVictoryCondition.bind(VictoryCondition.CENT_TAKEN)
+					new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.CENT_TAKEN)
 						, [ // Cent
 							new Bla(Keys_text.DLG_VERKAUFEN_2A, mann)
 							, new Bla(Keys_text.DLG_VERKAUFEN_2A_1, verkaeuferin) 
@@ -150,7 +150,7 @@ class Dialogues {
 						, [ // no cent
 							new Bla(Keys_text.DLG_VERKAUFEN_2A, mann)
 							, new Bla(Keys_text.DLG_VERKAUFEN_2A_1, verkaeuferin)
-							, new IntBranch(JustANormalDay.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2A_2_C), [
+							, new IntBranch(Cfg.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2A_2_C), [
 								[ // Antwort 1: hab nur 1 euro
 									new Bla(Keys_text.DLG_VERKAUFEN_2A_2A, mann)
 									, new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_1, verkaeuferin)

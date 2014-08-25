@@ -29,9 +29,9 @@ class UpdateData {
 	public var advanceDialogue : Bool;
 }
 
-class JustANormalDay
+class Cfg
 {
-	static var the : JustANormalDay;
+	static var the : Cfg;
 	
 	var mann: ZeroEightFifteenMan;
 	var eheweib: Sprite;

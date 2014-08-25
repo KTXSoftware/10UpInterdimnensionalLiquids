@@ -95,7 +95,7 @@ class TenUp3 extends Game {
 		case SubGame.TEN_UP_3:
 			startGame_TenUp3();
 		case SubGame.JUST_A_NORMAL_DAY:
-			startGame_JustANormalDay();
+			startGame_Cfg();
 		}
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
 		Keyboard.get().notify(keydown, keyup);
@@ -119,8 +119,8 @@ class TenUp3 extends Game {
 		Dialogues.startProfStartDialog(prof);
 	}
 	
-	var justANormalDay: JustANormalDay;
-	public function startGame_JustANormalDay() {
+	var Cfg: Cfg;
+	public function startGame_Cfg() {
 		Player.init();
 		var mann = new ZeroEightFifteenMan(250, 350);
 		
@@ -142,7 +142,7 @@ class TenUp3 extends Game {
 		var verkaeuferin = new Verkaeuferin(400, 350);
 		Scene.the.addHero(verkaeuferin);
 		
-		justANormalDay = new JustANormalDay(mann, eheweib, verkaeuferin);
+		Cfg = new Cfg(mann, eheweib, verkaeuferin);
 		
 		//Dialogues.setStartDlg(mann, eheweib);
 		Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, cent);
@@ -157,7 +157,7 @@ class TenUp3 extends Game {
 				Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 			case JUST_A_NORMAL_DAY:
 				Scene.the.camy = Std.int(player.y - 0.35 * height) + Std.int(player.height / 2);
-				justANormalDay.update(Scheduler.time());
+				Cfg.update(Scheduler.time());
 		}
 		if (advanceDialogue) {
 			Dialogue.next();
