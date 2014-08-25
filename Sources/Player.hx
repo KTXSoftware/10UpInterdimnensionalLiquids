@@ -36,7 +36,7 @@ class Player extends DestructibleSprite {
 	var jumpRight : Animation;
 	var score : Int;
 	var round : Int;
-	private var hitSound: Sound;
+	//private var hitSound: Sound;
 	private var time: Float;
 	private static var currentPlayer: Player = null;
 	private static var jumpmans: Array<Player>;
@@ -69,7 +69,7 @@ class Player extends DestructibleSprite {
 		jumpcount = 0;
 		crosshair = new Vector2(1, 0);
 		isRepairable = true;
-		hitSound = Loader.the.getSound("hit");
+		//hitSound = Loader.the.getSound("hit");
 		zzzzz = Loader.the.getImage("zzzzz");
 		inventory = new Inventory();
 	}

@@ -11,8 +11,15 @@ class Mafioso extends Sprite {
 	private var mg : Sprite;
 	public var useMg : Bool;
 	
+	private static var me: Mafioso;
+	
+	public static function the(): Mafioso {
+		return me;
+	}
+	
 	public function new(x: Float, y: Float) {
-		super(Loader.the.getImage('mafioso'));
+		super(Loader.the.getImage('boss'));
+		me = this;
 		mg = new Sprite(Loader.the.getImage('machinegun'));
 		this.x = x;
 		this.y = y;
@@ -23,7 +30,7 @@ class Mafioso extends Sprite {
 		if (useMg) {
 			++count;
 			if (count % 20 == 0) {
-				Scene.the.addProjectile(new Shot(x, y + height / 2 - 6, -10));
+				Scene.the.addProjectile(new Shot(x - mg.width / 2, y + height / 2 - 10, -10));
 			}
 		}
 	}
@@ -32,8 +39,8 @@ class Mafioso extends Sprite {
 	{
 		super.render(g);
 		if (useMg) {
-			mg.x = x - mg.width;
-			mg.y = y - height + mg.height;
+			mg.x = x - mg.width / 2;
+			mg.y = y + height - mg.height;
 			mg.render(g);
 		}
 	}

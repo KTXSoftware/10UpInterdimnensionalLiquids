@@ -95,7 +95,7 @@ class TenUp3 extends Game {
 	}
 
 	function initLevel(): Void {
-		backbuffer = Image.createRenderTarget(800, 600);
+		backbuffer = Image.createRenderTarget(960, 600);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
 	}
