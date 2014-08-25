@@ -39,7 +39,7 @@ class Verkaeuferin extends Player {
 		if (health <= 0) return;
 		super.update();
 		
-		if (!sleeping && PlayerProfessor.lotsOfGas()) {
+		if (!sleeping && x > 2000 && y < 500 && PlayerProfessor.lotsOfGas()) {
 			sleeping = true;
 			if (lookRight) angle = Math.PI * 1.5;
 			else angle = Math.PI * 0.5;
