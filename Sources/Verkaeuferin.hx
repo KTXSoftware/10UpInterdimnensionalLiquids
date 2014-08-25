@@ -39,6 +39,14 @@ class Verkaeuferin extends Player {
 		if (health <= 0) return;
 		super.update();
 		
+		if (!sleeping && PlayerProfessor.lotsOfGas()) {
+			sleeping = true;
+			if (lookRight) angle = Math.PI * 1.5;
+			else angle = Math.PI * 0.5;
+			originX = collider.width / 2;
+			originY = collider.height;
+		}
+		
 		if (disableActions || Player.current() != this) return;
 		
 		if (dropCent && x > Cfg.verkaeuferinPositions[0].x + 150) {
@@ -53,14 +61,6 @@ class Verkaeuferin extends Player {
 		
 		if (left && x + 50 < Cfg.verkaeuferinPositions[0].x) {
 			Dialogues.setWrongDirection();
-		}
-		
-		if (!sleeping && PlayerProfessor.lotsOfGas()) {
-			sleeping = true;
-			if (lookRight) angle = Math.PI * 1.5;
-			else angle = Math.PI * 0.5;
-			originX = collider.width / 2;
-			originY = collider.height;
 		}
 	}
 	
