@@ -18,6 +18,7 @@ class ShowOther extends Bla
 			Scene.the.addHero(Cfg.verkaeuferin);
 			Cfg.verkaeuferin.setCurrent();
 			Dialogues.setGefeuertDlg();
+			super.execute();
 		} else if (Player.current() == Cfg.verkaeuferin && Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN)) {
 			// verkäuferin => mann
 			Cfg.mann.x = Cfg.mannPositions[0].x;
@@ -27,7 +28,10 @@ class ShowOther extends Bla
 			Scene.the.addHero(Cfg.mann);
 			Cfg.mann.setCurrent();
 			Dialogues.setMannEndeDlg();
+			super.execute();
 		}
-		super.execute();
+		else {
+			Dialogue.next();
+		}
 	}
 }

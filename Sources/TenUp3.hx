@@ -135,7 +135,6 @@ class TenUp3 extends Game {
 		case SubGame.TEN_UP_3:
 			startGame_TenUp3();
 		case SubGame.JUST_A_NORMAL_DAY:
-			Cfg.mann.setCurrent(); // TODO: Player select
 			startGame_JustANormalDay();
 		}
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);

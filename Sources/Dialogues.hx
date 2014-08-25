@@ -325,10 +325,10 @@ class Dialogues {
 	}
 	
 	static public function setGameEnd() {
-		Cfg.save();
 		if (Player.current() == Cfg.mann) {
 			// Mann:
 			Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
+			Cfg.save();
 			Dialogue.insert( [
 				new Action(null, ActionType.FADE_TO_BLACK)
 				, new BooleanBranch(function() { return Cfg.getVictoryCondition(VictoryCondition.MEHRKORN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS); }, 
@@ -352,6 +352,7 @@ class Dialogues {
 		} else if (Player.current() == Cfg.verkaeuferin) {
 			// Frau:
 			Cfg.setVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN, true);
+			Cfg.save();
 			Dialogue.insert( [
 				new Action(null, ActionType.FADE_TO_BLACK)
 				, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MATHEGENIE), 
