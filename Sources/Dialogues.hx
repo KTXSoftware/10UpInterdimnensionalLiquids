@@ -231,7 +231,7 @@ class Dialogues {
 				, [new StartDialogue(setGeldVerlohrenVerkDlg.bind(verkaeuferin, cent)), t2]
 				, [new StartDialogue(setVerkaufMannDlg.bind(mann, verkaeuferin, euro, cent, broetchen)), t2 ]
 				, [new StartDialogue(setVerkaufVerkDlg.bind(mann, verkaeuferin)), t2 ]
-				, [/* TODO! */ t2 ]
+				, [new StartDialogue(setGefeuertDlg.bind(verkaeuferin, eheweib, cent)), t2 ]
 			]);
 		
 		Dialogue.insert([ test ]);
