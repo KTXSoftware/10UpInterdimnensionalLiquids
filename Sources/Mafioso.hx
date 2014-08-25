@@ -10,6 +10,7 @@ class Mafioso extends Sprite {
 	private var count: Int = 0;
 	private var mg : Sprite;
 	public var useMg : Bool;
+	private var sleeping = false;
 	
 	private static var me: Mafioso;
 	
@@ -32,6 +33,12 @@ class Mafioso extends Sprite {
 			if (count % 20 == 0) {
 				Scene.the.addProjectile(new Shot(x - mg.width / 2, y + height / 2 - 10, -10));
 			}
+		}
+		if (!sleeping && PlayerProfessor.lotsOfGas()) {
+			sleeping = true;
+			angle = Math.PI * 0.5;
+			originX = collider.width / 2;
+			originY = collider.height;
 		}
 	}
 	

@@ -12,6 +12,7 @@ import kha.Sprite;
 
 class Verkaeuferin extends Player {
 	private static var me: Verkaeuferin;
+	private var sleeping = false;
 	
 	public static function the(): Verkaeuferin {
 		return me;
@@ -52,6 +53,14 @@ class Verkaeuferin extends Player {
 		
 		if (left && x + 50 < Cfg.verkaeuferinPositions[0].x) {
 			Dialogues.setWrongDirection();
+		}
+		
+		if (!sleeping && PlayerProfessor.lotsOfGas()) {
+			sleeping = true;
+			if (lookRight) angle = Math.PI * 1.5;
+			else angle = Math.PI * 0.5;
+			originX = collider.width / 2;
+			originY = collider.height;
 		}
 	}
 	

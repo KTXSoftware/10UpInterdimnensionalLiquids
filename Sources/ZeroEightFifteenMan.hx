@@ -86,7 +86,7 @@ class ZeroEightFifteenMan extends Player {
 	private function die(): Void {
 		if (health > 0) {
 			health = 0;
-			if (lookRight) angle = Math.PI * 3 / 4;
+			if (lookRight) angle = Math.PI * 1.5;
 			else angle = Math.PI * 0.5;
 			originX = collider.width / 2;
 			originY = collider.height;
