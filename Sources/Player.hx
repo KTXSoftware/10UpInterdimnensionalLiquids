@@ -104,6 +104,7 @@ class Player extends DestructibleSprite {
 	
 	public function setCurrent(): Void {
 		currentPlayer = this;
+		Scene.the.camyHack = inventory.itemHeight + 2 * inventory.spacing;
 	}
 	
 	public function timeLeft(): Float {
