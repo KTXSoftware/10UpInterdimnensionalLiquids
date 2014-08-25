@@ -15,6 +15,11 @@ class Dialogue {
 	public static var isActionActive(default,null): Bool = false;
 	
 	public static function set(items: Array<DialogueItem>): Void {
+		if (Player.current() != null) {
+			Player.current().left = false;
+			Player.current().up = false;
+			Player.current().right = false;
+		}
 		Dialogue.items = items;
 		index = -1;
 		TenUp3.getInstance().mode = Mode.BlaBlaBla;

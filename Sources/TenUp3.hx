@@ -133,15 +133,22 @@ class TenUp3 extends Game {
 		Player.current().inventory.itemHeight = 64;
 		
 		if (Player.current() == Cfg.mann) {
+			// Reset Victory conditions:
+			Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
+			Cfg.setVictoryCondition(VictoryCondition.BOUGHT_ROLLS, false);
+			Cfg.setVictoryCondition(VictoryCondition.MEHRKORN, false);
+			Cfg.setVictoryCondition(VictoryCondition.CENT_TAKEN, false);
+			
 			// Play as Mann
 			Scene.the.addHero(Cfg.mann);
 			
-			if (true || Cfg.getVictoryCondition(VictoryCondition.CENT_DROPPED)) {
+			if (Cfg.getVictoryCondition(VictoryCondition.CENT_DROPPED)) {
 				Cfg.cent.x = Cfg.verkaeuferin.x + 150;
 				Cfg.cent.y = Cfg.verkaeuferin.y;
 				Scene.the.addOther(Cfg.cent);
 			}
 			
+			Cfg.verkaeuferin.lookRight = false;
 			Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
 			Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
 		} else {
