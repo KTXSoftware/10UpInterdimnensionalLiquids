@@ -69,7 +69,7 @@ class BlaBox {
 		var sy : Float = -1;
 		if (pointed != null) {
 			sx = pointed.x + pointed.width / 2 - Scene.the.screenOffsetX;
-			sy = pointed.y - 30 - Scene.the.screenOffsetY;
+			sy = pointed.y - 15 - Scene.the.screenOffsetY;
 		}
 		
 		var x : Float = (pointed == null) ? (0.5 * (kha.Game.the.width - width)) : sx - 0.3 * width;
@@ -83,7 +83,8 @@ class BlaBox {
 		
 		var y : Float = (pointed == null) ? (0.3 * (kha.Game.the.height - height)) : sy - 30 - height;
 		if (y < 0) {
-			y = 0;
+			sy += pointed.height + 15;
+			y = sy + 30;
 		}
 		
 		g.color = Color.White;
@@ -92,10 +93,17 @@ class BlaBox {
 		g.drawRect(x, y, width, height, 5);
 		g.color = Color.White;
 		if (pointed != null) {
-			g.fillTriangle(sx - 10, y + height - 5, sx + 10, y + height - 5, sx, sy);
-			g.color = Color.Black;
-			g.drawLine(sx - 10, y + height -5, sx, sy, 3);
-			g.drawLine(sx + 10, y + height -5, sx, sy, 3);
+			if (sy < y) {
+				g.fillTriangle(sx - 10, y + 0.5 * padding, sx + 10, y + 0.5 * padding, sx, sy);
+				g.color = Color.Black;
+				g.drawLine(sx - 10, y + 0.5 * padding, sx, sy, 3);
+				g.drawLine(sx + 10, y + 0.5 * padding, sx, sy, 3);
+			} else {
+				g.fillTriangle(sx - 10, y + height - 0.5 * padding, sx + 10, y + height - 0.5 * padding, sx, sy);
+				g.color = Color.Black;
+				g.drawLine(sx - 10, y + height - 0.5 * padding, sx, sy, 3);
+				g.drawLine(sx + 10, y + height - 0.5 * padding, sx, sy, 3);
+			}
 		} else {
 			g.color = Color.Black;
 		}
