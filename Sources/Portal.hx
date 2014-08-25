@@ -10,6 +10,7 @@ import kha.Sprite;
 class Portal extends Sprite {
 	private var count: Int = 0;
 	private var water: Water;
+	private var water2: Water;
 	private var lava: Lava;
 	public var canIndex: Int;
 	
@@ -27,6 +28,9 @@ class Portal extends Sprite {
 		if (water != null) {
 			Scene.the.removeOther(water);
 		}
+		if (water2 != null) {
+			Scene.the.removeOther(water2);
+		}
 		if (lava != null) {
 			Scene.the.removeOther(lava);
 		}
@@ -42,17 +46,15 @@ class Portal extends Sprite {
 				switch (dir) {
 					case UP:
 						setAnimation(Animation.create(2));
-						Scene.the.addOther(water = new Water(x, y, 12, -0));
 					case LEFT:
 						setAnimation(Animation.create(1));
-						Scene.the.addOther(water = new Water(x, y, -12, 0));
 					case RIGHT:
 						setAnimation(Animation.create(4));
-						Scene.the.addOther(water = new Water(x, y, 12, 0));
 					case DOWN:
 						setAnimation(Animation.create(3));
-						Scene.the.addOther(water = new Water(x, y, -12, 0));
 				}
+				Scene.the.addOther(water = new Water(x, y, 12, -0));
+				Scene.the.addOther(water2 = new Water(x, y, -12, -0));
 			case 1:
 				switch (dir) {
 				case UP:

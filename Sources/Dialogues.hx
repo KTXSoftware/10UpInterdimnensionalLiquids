@@ -262,6 +262,32 @@ class Dialogues {
 		}
 	}
 	
+	static public function setGefeuertProfDlg() {
+		var verkaeuferin = Cfg.verkaeuferin;
+		verkaeuferin.lookRight = true;
+		verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
+		verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+		Scene.the.removeHero(verkaeuferin);
+		Scene.the.addHero(verkaeuferin);
+		var mafioso = Cfg.mafioso;
+		Dialogue.insert( [
+			new Action(null, ActionType.FADE_FROM_BLACK)
+			, new Bla(Keys_text.DLG_ARBEITSLOS_1, mafioso)
+			, new Bla(Keys_text.DLG_ARBEITSLOS_2, mafioso)
+			, new IntBranch(Cfg.getDlgChoice.bind(Keys_text.DLG_ARBEITSLOS_3_C), [
+				[ // Arbeitslos A
+					new Bla(Keys_text.DLG_ARBEITSLOS_3A, verkaeuferin)
+					, new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafioso)
+				]
+				, [ // Arbeitslos B
+					new Bla(Keys_text.DLG_ARBEITSLOS_3B, verkaeuferin)
+					, new Bla(Keys_text.DLG_ARBEITSLOS_3B_1, mafioso)
+					, new Action([mafioso], ActionType.MG)
+				]
+			])
+		] );
+	}
+	
 	static public function setMannEndeDlg() {
 		var weib = Cfg.eheweib;
 		var mann = Cfg.mann;
