@@ -17,12 +17,25 @@ class Level {
 	private static var done: Void -> Void;
 	public static var tilemap: Tilemap;
 	public static var liquids: Tilemap;
+	private static var levelWidth: Int;
+	private static var levelHeight: Int;
 	
 	public static function load(levelName: String, done: Void -> Void): Void {
 		Level.levelName = levelName;
 		Level.done = done;
 		Configuration.setScreen(new LoadingScreen());
 		Loader.the.loadRoom(levelName, initLevel);
+	}
+	
+	public static function getSaveMap(): Array<Array<Int>> {
+		var map = new Array<Array<Int>>();
+		for (x in 0...levelWidth) {
+			map.push(new Array<Int>());
+			for (y in 0...levelHeight) {
+				map[x].push(liquids.get(x, y));
+			}
+		}
+		return map;
 	}
 	
 	private static function initLevel(): Void {
@@ -32,8 +45,8 @@ class Level {
 		}
 		var blob = Loader.the.getBlob(levelName);
 		blob.reset();
-		var levelWidth: Int = blob.readS32BE();
-		var levelHeight: Int = blob.readS32BE();
+		levelWidth = blob.readS32BE();
+		levelHeight = blob.readS32BE();
 		var originalmap = new Array<Array<Int>>();
 		for (x in 0...levelWidth) {
 			originalmap.push(new Array<Int>());

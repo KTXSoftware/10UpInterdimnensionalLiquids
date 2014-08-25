@@ -51,11 +51,19 @@ class Lava extends Sprite {
 		if (map == 346 || map == 347) {
 			Level.tilemap.set(tile.x, tile.y, map - 2);
 			Level.liquids.set(tile.x, tile.y, 1);
+			Cfg.setVictoryCondition(VictoryCondition.GULLI, true);
+			Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
+			Cfg.setMap(Level.getSaveMap());
+			Cfg.save();
 			return;
 		}
 		if (mapBelow == 346 || mapBelow == 347) {
 			Level.tilemap.set(tile.x, tile.y + 1, mapBelow - 2);
 			Level.liquids.set(tile.x, tile.y + 1, 1);
+			Cfg.setVictoryCondition(VictoryCondition.GULLI, true);
+			Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
+			Cfg.setMap(Level.getSaveMap());
+			Cfg.save();
 			return;
 		}
 		var floored = isWallOrLiquid(value) || isWallOrLiquid(valueBelow);		

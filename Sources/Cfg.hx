@@ -1,41 +1,10 @@
 package;
 
+import kha.math.Vector2;
 import kha.math.Vector2i;
 import kha.Sprite;
 import kha.Storage;
 import localization.Keys_text;
-
-enum VictoryCondition {
-	PLAYED_MANN;
-	PLAYED_VERKAEUFERIN;
-	CENT_DROPPED;
-	CENT_TAKEN;
-	MEHRKORN;
-	MATHEGENIE;
-	
-	WATER;
-	SLEEPY;
-	GULLI;
-	TENUPWEG;
-}
-
-class UpdateData {
-	public function new(time: Float, left: Bool, right: Bool, up: Bool, advanceDialogue: Bool) {
-		this.time = time;
-		this.left = left;
-		this.right = right;
-		this.up = up;
-		this.advanceDialogue = advanceDialogue;
-	}
-	
-	public var time : Float;
-	
-	public var left : Bool;
-	public var right : Bool;
-	public var up : Bool;
-	
-	public var advanceDialogue : Bool;
-}
 
 class Cfg
 {
@@ -52,12 +21,34 @@ class Cfg
 	public static var mannPositions : Array<Vector2i> = new Array();
 	
 	var victoryConditions : Map<VictoryCondition, Bool>;
+	var profX: Float = -1;
+	var profY: Float = -1;
+	var map: Array<Array<Int>> = null;
 	
 	static public inline function getVictoryCondition(condition: VictoryCondition) : Bool {
 		return the.victoryConditions[condition];
 	}
+	
 	static public inline function setVictoryCondition(condition: VictoryCondition, value: Bool) : Void {
 		the.victoryConditions[condition] = value;
+	}
+	
+	static public function getProfPosition(): Vector2 {
+		if (the.profX < 0) return null;
+		return new Vector2(the.profX, the.profY);
+	}
+	
+	static public function setProfPosition(x: Float, y: Float): Void {
+		the.profX = x;
+		the.profY = y;
+	}
+	
+	static public function getMap(): Array<Array<Int>> {
+		return the.map;
+	}
+	
+	static public function setMap(map: Array<Array<Int>>): Void {
+		the.map = map;
 	}
 	
 	var dlgChoices : Map<String, Int>;
@@ -70,8 +61,13 @@ class Cfg
 	}
 	
 	static public function init() {
-		the = new Cfg();
-		// TODO: load previous data
+		var data = Storage.defaultFile().readObject();
+		if (data == null) the = new Cfg();
+		else the = cast data;
+	}
+	
+	static public function save(): Void {
+		Storage.defaultFile().writeObject(the);
 	}
 	
 	private function new() {
