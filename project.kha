@@ -19,42 +19,6 @@
 			"name": "bonusblock"
 		},
 		{
-			"id": "12116430-d7ce-11e1-9b23-0800200c9a66",
-			"type": "image",
-			"file": "coin.png",
-			"name": "coin"
-		},
-		{
-			"id": "2348bd70-d7ce-11e1-9b23-0800200c9a66",
-			"type": "image",
-			"file": "fly.png",
-			"name": "fly"
-		},
-		{
-			"id": "2348bd71-d7ce-11e1-9b23-0800200c9a66",
-			"type": "image",
-			"file": "gumba.png",
-			"name": "gumba"
-		},
-		{
-			"id": "2348bd72-d7ce-11e1-9b23-0800200c9a66",
-			"type": "image",
-			"file": "jumpman.png",
-			"name": "jumpman"
-		},
-		{
-			"id": "2348bd73-d7ce-11e1-9b23-0800200c9a66",
-			"type": "image",
-			"file": "koopa.png",
-			"name": "koopa"
-		},
-		{
-			"id": "2348bd74-d7ce-11e1-9b23-0800200c9a66",
-			"type": "image",
-			"file": "sml_tiles.png",
-			"name": "sml_tiles"
-		},
-		{
 			"id": "2348bd75-d7ce-11e1-9b23-0800200c9a66",
 			"type": "sound",
 			"file": "coin",
@@ -400,12 +364,6 @@
 			"assets": [
 				"9c8c0db0-d7cc-11e1-9b23-0800200c9a66",
 				"a7a42c00-d7cc-11e1-9b23-0800200c9a66",
-				"12116430-d7ce-11e1-9b23-0800200c9a66",
-				"2348bd70-d7ce-11e1-9b23-0800200c9a66",
-				"2348bd71-d7ce-11e1-9b23-0800200c9a66",
-				"2348bd72-d7ce-11e1-9b23-0800200c9a66",
-				"2348bd73-d7ce-11e1-9b23-0800200c9a66",
-				"2348bd74-d7ce-11e1-9b23-0800200c9a66",
 				"2348bd75-d7ce-11e1-9b23-0800200c9a66",
 				"2348bd76-d7ce-11e1-9b23-0800200c9a66",
 				"2348bd77-d7ce-11e1-9b23-0800200c9a66",
