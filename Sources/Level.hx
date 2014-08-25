@@ -1,5 +1,7 @@
 package;
 
+import haxe.io.Bytes;
+import kha.Blob;
 import kha.Color;
 import kha.Configuration;
 import kha.Game;
@@ -8,6 +10,7 @@ import kha.LoadingScreen;
 import kha.math.Vector2i;
 import kha.Scene;
 import kha.Sprite;
+import kha.Storage;
 import kha.Tile;
 import kha.Tilemap;
 
@@ -39,6 +42,7 @@ class Level {
 	}
 	
 	private static function initLevel(): Void {
+		//Storage.defaultFile().write(null);
 		Cfg.init();
 		
 		var tileColissions = new Array<Tile>();
@@ -102,6 +106,17 @@ class Level {
 				}
 			}
 		}
+		
+		#if JUST_A_NORMAL_DAY
+			for (x in 0...levelWidth) {
+				for (y in 0...levelHeight) {
+					if (Lava.isLava(liquidMap[x][y])) {
+						liquidMap[x][y] += 18;
+					}
+				}
+			}
+		#end
+		
 		var liquidTiles = new Array<Tile>();
 		for (i in 0...100) liquidTiles.push(new LiquidTile(i));
 		liquids = new Tilemap("liquids", 32, 32, liquidMap, liquidTiles);
