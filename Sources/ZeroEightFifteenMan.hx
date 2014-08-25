@@ -24,12 +24,12 @@ class ZeroEightFifteenMan extends Player {
 		Player.setPlayer(1, this);
 				
 		collider = new Rectangle(10 * 2, 15 * 2, (41 - 20) * 2, ((65 - 1) - 15) * 2);
-		walkLeft = Animation.createRange(11, 18, 4);
+		walkLeft = Animation.createRange(10, 17, 4);
 		walkRight = Animation.createRange(1, 8, 4);
-		standLeft = Animation.create(10);
+		standLeft = Animation.create(9);
 		standRight = Animation.create(0);
-		jumpLeft = Animation.create(16);
-		jumpRight = Animation.create(6);
+		jumpLeft = Animation.create(1);
+		jumpRight = Animation.create(2);
 	}
 	
 	override public function update():Void {
@@ -86,8 +86,10 @@ class ZeroEightFifteenMan extends Player {
 	private function die(): Void {
 		if (health > 0) {
 			health = 0;
-			if (lookRight) setAnimation(Animation.create(22));
-			else setAnimation(Animation.create(23));
+			if (lookRight) angle = Math.PI * 3 / 4;
+			else angle = Math.PI * 0.5;
+			originX = collider.width / 2;
+			originY = collider.height;
 			speedx = 0;
 			if (Player.current() == this) {
 				Scheduler.addTimeTask(Dialogues.setGameEnd, 1);

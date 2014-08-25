@@ -183,14 +183,14 @@ class Level {
 				}
 				Cfg.verkaeuferinPositions.push(new Vector2i(x, y));
 			case 3: // door
-				sprite = new Door(x, y);
+				sprite = new Door(x, y, false);
 				Scene.the.addProjectile(sprite);
 			case 4: // theke
 				sprite = new Theke(x, y);
 				Cfg.theke = sprite;
 				Scene.the.addEnemy(sprite);
 			case 5: // backdoor
-				Cfg.backdoor = new Door(x, y);
+				Cfg.backdoor = new Door(x, y, true);
 				Scene.the.addProjectile(Cfg.backdoor);
 			case 6: // mafioso
 				Cfg.mafioso = new Mafioso(x, y);
