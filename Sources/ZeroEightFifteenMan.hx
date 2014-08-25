@@ -36,6 +36,8 @@ class ZeroEightFifteenMan extends Player {
 		if (health <= 0) return;
 		super.update();
 		
+		if (Player.current() != this) return;
+		
 		if (x > Cfg.mannPositions[0].x + 300) {
 			doEnde = true;
 		} else if (x < Cfg.mannPositions[0].x + 75 && doEnde) {

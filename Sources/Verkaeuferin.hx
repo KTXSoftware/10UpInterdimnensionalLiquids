@@ -34,7 +34,9 @@ class Verkaeuferin extends Player {
 		if (health <= 0) return;
 		super.update();
 		
-		if (dropCent && Player.current() == this && x > Cfg.verkaeuferinPositions[0].x + 150) {
+		if (Player.current() != this) return;
+		
+		if (dropCent && x > Cfg.verkaeuferinPositions[0].x + 150) {
 			dropCent = false;
 			Dialogues.setGeldVerlohrenVerkDlg();
 		}
