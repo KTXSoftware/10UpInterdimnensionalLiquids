@@ -30,11 +30,15 @@ class ZeroEightFifteenMan extends Player {
 		jumpRight = Animation.create(6);
 	}
 	
+	var doCent = true;
 	override public function hit(sprite:Sprite):Void 
 	{
 		super.hit(sprite);
-		if (sprite == Cfg.cent) {
-			Dialogues.setGeldGefundenMannDlg();
+		if (doCent) {
+			if (sprite == Cfg.cent) {
+				doCent = false;
+				Dialogues.setGeldGefundenMannDlg();
+			}
 		}
 	}
 }

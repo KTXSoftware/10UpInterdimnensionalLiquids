@@ -72,7 +72,7 @@ class PlayerProfessor extends Player {
 		if (!visitedVeraeuferin && Verkaeuferin.the().x > x && Verkaeuferin.the().x < x + 200) {
 			visitedVeraeuferin = true;
 			if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {
-				if (!Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) Dialogues.setGefeuertDlg(Verkaeuferin.the(), null, null);
+				if (!Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) Dialogues.setGefeuertDlg();
 			}
 		}
 	}

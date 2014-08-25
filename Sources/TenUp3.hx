@@ -137,7 +137,7 @@ class TenUp3 extends Game {
 			Scene.the.addHero(Cfg.mann);
 			
 			if (true || Cfg.getVictoryCondition(VictoryCondition.CENT_DROPPED)) {
-				Cfg.cent.x = Cfg.verkaeuferin.x + 100;
+				Cfg.cent.x = Cfg.verkaeuferin.x + 150;
 				Cfg.cent.y = Cfg.verkaeuferin.y;
 				Scene.the.addOther(Cfg.cent);
 			}
