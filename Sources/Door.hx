@@ -16,7 +16,12 @@ class Door extends Sprite {
 	
 	override public function hit(sprite: Sprite): Void {
 		super.hit(sprite);
-		open();
+		if (Std.is(sprite, Water) || Std.is(sprite, Lava) || Std.is(sprite, Gas)) {
+			sprite.speedx *= -1;
+		}
+		else {
+			open();
+		}
 	}
 	
 	public function open() {
