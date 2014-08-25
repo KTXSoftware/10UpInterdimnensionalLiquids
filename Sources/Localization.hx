@@ -59,12 +59,14 @@ class Localization
 	}
 	
 	static public function getText(key : String) {
-		var t = texts[key];
-		if (t != null) {
-			if (t.exists(language)) {
-				return t[language];
-			} else if (t.exists(fallbackLanguage)) {
-				return t[fallbackLanguage];
+		if (texts != null) {
+			var t = texts[key];
+			if (t != null) {
+				if (t.exists(language)) {
+					return t[language];
+				} else if (t.exists(fallbackLanguage)) {
+					return t[fallbackLanguage];
+				}
 			}
 		}
 		return key;

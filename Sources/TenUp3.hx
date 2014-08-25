@@ -87,7 +87,33 @@ class TenUp3 extends Game {
 	
 	function initMenu() {
 		Localization.init("localizations");
-		// TODO: language select
+		
+		backbuffer = Image.createRenderTarget(960, 600);
+		
+		Cfg.init();
+		if (Cfg.language == null) {
+			Configuration.setScreen(this);
+			var msg = "Please select your language:";
+			var choices = new Array<Array<Dialogue.DialogueItem>>();
+			var i = 1;
+			for (l in Localization.availableLanguages.keys()) {
+				choices.push([new StartDialogue(function() { Cfg.language = l; } )]);
+				msg += '\n($i): ${Localization.availableLanguages[l]}';
+				++i;
+			}
+			Dialogue.set( [
+				new BlaWithChoices(msg, null, choices)
+				, new StartDialogue(Cfg.save)
+				, new StartDialogue(advanceMenu)
+			] );
+		} else {
+			advanceMenu();
+		}
+	}
+	
+	function advanceMenu() {
+		Localization.language = Cfg.language;
+		
 		Localization.buildKeys("../Assets/text.xml","text");
 		//Localization.load("text");
 		
@@ -99,7 +125,7 @@ class TenUp3 extends Game {
 	}
 
 	function initLevel(): Void {
-		backbuffer = Image.createRenderTarget(960, 600);
+		Dialogue.set(null);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
 	}
@@ -204,12 +230,14 @@ class TenUp3 extends Game {
 		super.update();
 		updateMouse();
 		var player = Player.current();
-		Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
-		switch (subgame) {
-			case TEN_UP_3:
-				Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
-			case JUST_A_NORMAL_DAY:
-				Scene.the.camy = Std.int(player.y + player.height + 80 - 0.5 * height);
+		if (player != null) {
+			Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
+			switch (subgame) {
+				case TEN_UP_3:
+					Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
+				case JUST_A_NORMAL_DAY:
+					Scene.the.camy = Std.int(player.y + player.height + 80 - 0.5 * height);
+			}
 		}
 		if (advanceDialogue) {
 			Dialogue.next();
@@ -328,6 +356,23 @@ class TenUp3 extends Game {
 	
 	public function keyup(key: Key, char: String) : Void {
 		switch (key) {
+			case Key.ESC:
+				{
+				var msg = "What to do?\n(1): Restart";
+					var choices = new Array<Array<Dialogue.DialogueItem>>();
+					choices.push( [ new StartDialogue(Dialogues.restartGameDlg) ] );
+					var i = 2;
+					for (l in Localization.availableLanguages.keys()) {
+						choices.push([new StartDialogue(function() { Cfg.language = l; } )]);
+						msg += '\n($i): Set language to "${Localization.availableLanguages[l]}"';
+						++i;
+					}
+					Dialogue.insert( [
+						new BlaWithChoices(msg, null, choices)
+						, new StartDialogue(Cfg.save)
+						, new StartDialogue(function () { Localization.language = Cfg.language; } )
+					], true );
+				}
 			case Key.CTRL:
 				Player.current().up = false;
 			case Key.CHAR:

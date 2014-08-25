@@ -28,6 +28,11 @@ class Cfg
 	var profX: Float = -1;
 	var profY: Float = -1;
 	var map: Array<Array<Int>> = null;
+	var _language : String;
+	
+	static public var language(get, set): String;
+	static function get_language():String { return the._language; }
+	static function set_language(value:String):String { return the._language = value; }
 	
 	static public inline function getVictoryCondition(condition: VictoryCondition) : Bool {
 		return the.victoryConditions[condition];

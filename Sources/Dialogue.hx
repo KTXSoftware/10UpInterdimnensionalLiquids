@@ -15,6 +15,9 @@ class Dialogue {
 	public static var isActionActive(default,null): Bool = false;
 	
 	public static function set(items: Array<DialogueItem>): Void {
+		if (items == null || items.length <= 0) {
+			return;
+		}
 		if (Player.current() != null) {
 			Player.current().left = false;
 			Player.current().up = false;
@@ -27,20 +30,25 @@ class Dialogue {
 		next();
 	}
 	
-	public static function insert(items: Array<DialogueItem>) {
+	public static function insert(items: Array<DialogueItem>, argl = false) {
 		if (Dialogue.items == null) {
 			set(items);
 		} else if (index < 0) {
-			for (item in items) {
-				Dialogue.items.push(item);
+			for (item in Dialogue.items) {
+				items.push(item);
 			}
+			Dialogue.items = items;
 		} else {
 			var newItems = new Array<DialogueItem>();
-			newItems.push(Dialogue.items[index]);
+			if (!argl) {
+				newItems.push(Dialogue.items[index]);
+			}
 			for (item in items) {
 				newItems.push(item);
 			}
-			++index;
+			if (!argl) {
+				++index;
+			}
 			while (index < Dialogue.items.length) {
 				newItems.push(Dialogue.items[index]);
 				++index;
