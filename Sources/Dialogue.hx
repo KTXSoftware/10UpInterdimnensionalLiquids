@@ -16,7 +16,6 @@ class Dialogue {
 	
 	public static function set(items: Array<DialogueItem>): Void {
 		if (items == null || items.length <= 0) {
-			index = -1;
 			return;
 		}
 		if (Player.current() != null) {

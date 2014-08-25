@@ -267,8 +267,17 @@ class Dialogues {
 				, new Bla(Keys_text.DLG_ARBEITSLOS_1, mafioso)
 				, new Bla(Keys_text.DLG_ARBEITSLOS_2, mafioso)
 				, new BlaWithChoices(Keys_text.DLG_ARBEITSLOS_3_C, verkaeuferin, [
-					[new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafioso), new EndGame()]
-					, [new Bla(Keys_text.DLG_ARBEITSLOS_3B_1, mafioso), new Action([mafioso], ActionType.MG)]
+					[ // Gefeuert
+						new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafioso)
+						, new StartDialogue(function () { verkaeuferin.left = true; } )
+						, new Action(null, ActionType.FADE_TO_BLACK)
+						, new StartDialogue(function () { verkaeuferin.left = false; } )
+						, new EndGame()
+					]
+					, [ // weiß zuviel
+						new Bla(Keys_text.DLG_ARBEITSLOS_3B_1, mafioso)
+						, new Action([mafioso], ActionType.MG)
+					]
 				])
 			] );
 		}
