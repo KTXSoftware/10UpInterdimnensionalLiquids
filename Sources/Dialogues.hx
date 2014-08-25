@@ -21,6 +21,12 @@ using Lambda;
 class Dialogues {
 		
 	static public function startProfStartDialog(prof: Sprite) {
+		if (Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) {
+			var verkaeuferin = Cfg.verkaeuferin;
+			Scene.the.removeHero(verkaeuferin);
+			Scene.the.addHero(verkaeuferin);
+			verkaeuferin.operateTheke(true);
+		}
 		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS)) {
 			Scene.the.addHero(Cfg.mann);
 			Cfg.mann.lookRight = false;
@@ -285,6 +291,7 @@ class Dialogues {
 				[ // Arbeitslos A
 					new Bla(Keys_text.DLG_ARBEITSLOS_3A, verkaeuferin)
 					, new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafioso)
+					, new StartDialogue(function () { verkaeuferin.left = true; })
 				]
 				, [ // Arbeitslos B
 					new Bla(Keys_text.DLG_ARBEITSLOS_3B, verkaeuferin)

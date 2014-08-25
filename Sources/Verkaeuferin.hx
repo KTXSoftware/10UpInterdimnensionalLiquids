@@ -40,6 +40,11 @@ class Verkaeuferin extends Player {
 		super.update();
 		
 		if (!sleeping && x > 2000 && y < 500 && PlayerProfessor.lotsOfGas()) {
+			var tmpx = x;
+			var tmpy = y;
+			operateTheke(false);
+			x = tmpx;
+			y = tmpy;
 			sleeping = true;
 			if (lookRight) angle = Math.PI * 1.5;
 			else angle = Math.PI * 0.5;
