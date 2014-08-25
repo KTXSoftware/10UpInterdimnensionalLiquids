@@ -102,7 +102,11 @@ class PlayerProfessor extends Player {
 			Scene.the.removeOther(lastPortal);
 			lastPortal = null;
 		}
-		if (inventory.selectedIndex() != 3) Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y, inventory.selectedIndex()));
+		if (inventory.selectedIndex() != 3) {
+			if ((lookRight && TenUp3.instance.mouseX - 16 > x) || (!lookRight && TenUp3.instance.mouseX - 16 < x)) {
+				Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y, inventory.selectedIndex()));
+			}
+		}
 	}
 
 	private var foundTenUp: Bool = false;
