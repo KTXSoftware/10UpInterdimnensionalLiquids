@@ -68,6 +68,13 @@ class PlayerProfessor extends Player {
 		if (!gameover && Lava.isLava(Level.liquids.get(tile.x, tile.y))) {
 			die();
 		}
+		
+		if (!visitedVeraeuferin && Verkaeuferin.the().x > x && Verkaeuferin.the().x < x + 200) {
+			visitedVeraeuferin = true;
+			if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {
+				if (!Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) Dialogues.setGefeuertDlg(Verkaeuferin.the(), null, null);
+			}
+		}
 	}
 	
 	override public function render(g: Graphics): Void {
@@ -117,6 +124,7 @@ class PlayerProfessor extends Player {
 	private var foundTenUp: Bool = false;
 	private var finishedGame: Bool = false;
 	private var gameover: Bool = false;
+	private var visitedVeraeuferin: Bool = false;
 	
 	override public function hit(sprite: Sprite): Void {
 		if (!foundTenUp && Std.is(sprite, TenUpShelf)) {
