@@ -1,5 +1,6 @@
 package;
 
+import dialogue.Action;
 import dialogue.EndGame;
 import kha.Animation;
 import kha.Color;
@@ -62,6 +63,8 @@ class ZeroEightFifteenMan extends Player {
 		
 		if (Std.is(sprite, Bratpfanne) || Std.is(sprite, Shot)) {
 			die();
+			Action.finishThrow = true;
+			Dialogue.next();
 			if (Std.is(sprite, Bratpfanne)) {
 				sprite.speedx = 0;
 			}

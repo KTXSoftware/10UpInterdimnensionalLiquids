@@ -1,5 +1,6 @@
 package;
 
+import dialogue.Action;
 import kha.Animation;
 import kha.Loader;
 import kha.Sprite;
@@ -19,6 +20,7 @@ class Weib extends Sprite {
 			++count;
 			kha.Scene.the.removeProjectile(sprite);
 			if (count >= 2)  {
+				Action.finishThrow = true;
 				Dialogue.next();
 			}
 		}
