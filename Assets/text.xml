@@ -36,6 +36,12 @@
 	<en>Blupp the Cruel</en>
 </Fischmensch>
 
+<dlg_Select_Role>
+	<de>Wen möchten Sie spielen?
+		(1): Den Ehemann
+		(2): Die Verkäuferin
+		(3): Zufällig</de>
+</dlg_Select_Role>
 
 <dlg_Start_1>
 	<de>Schatz, ich geh jetzt Brötchen kaufen.</de>

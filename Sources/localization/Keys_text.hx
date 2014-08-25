@@ -8,6 +8,7 @@ class Keys_text {
 	static public var MECHANIC = "Mechanic";
 	static public var PROFESSOR = "Professor";
 	static public var FISCHMENSCH = "Fischmensch";
+	static public var DLG_SELECT_ROLE = "dlg_Select_Role";
 	static public var DLG_START_1 = "dlg_Start_1";
 	static public var DLG_START_2 = "dlg_Start_2";
 	static public var DLG_START_3 = "dlg_Start_3";
