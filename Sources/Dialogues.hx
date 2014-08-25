@@ -290,7 +290,7 @@ class Dialogues {
 					)
 				]
 				, [ // keine Brötchen...
-					new Bla(Keys_text.DLG_EHEWEIB_3B_1, weib)
+					new Bla(Keys_text.DLG_EHEWEIB_3B_1, mann)
 					, new Bla(Keys_text.DLG_EHEWEIB_3A_4, weib)
 					, new Action([weib, mann, bratpfanne], ActionType.THROW)
 				]
