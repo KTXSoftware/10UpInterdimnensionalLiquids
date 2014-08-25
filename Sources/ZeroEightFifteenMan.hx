@@ -7,6 +7,7 @@ import kha.Loader;
 import kha.math.Vector2;
 import kha.Rectangle;
 import kha.Scene;
+import kha.Sprite;
 
 class ZeroEightFifteenMan extends Player {
 	
@@ -21,5 +22,13 @@ class ZeroEightFifteenMan extends Player {
 		standRight = Animation.create(0);
 		jumpLeft = Animation.create(16);
 		jumpRight = Animation.create(6);
+	}
+	
+	override public function hit(sprite:Sprite):Void 
+	{
+		super.hit(sprite);
+		if (sprite == Cfg.cent) {
+			Dialogues.setGeldGefundenMannDlg();
+		}
 	}
 }

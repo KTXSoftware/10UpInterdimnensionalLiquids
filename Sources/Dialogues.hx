@@ -10,6 +10,7 @@ import dialogue.InventoryAction;
 import dialogue.SetVictoryCondition;
 import dialogue.StartDialogue;
 import Cfg;
+import haxe.macro.Expr.Var;
 import localization.Keys_text;
 import kha.Scene;
 import kha.Sprite;
@@ -34,7 +35,9 @@ class Dialogues {
 		Dialogue.insert([new Bla(Keys_text.PROF8, prof)]);
 	}
 	
-	static public function setStartDlg(mann: ZeroEightFifteenMan, eheweib: Sprite) {
+	static public function setStartDlg() {
+		var mann = Cfg.mann;
+		var eheweib = Cfg.eheweib;
 		Dialogue.insert([new Bla(Keys_text.DLG_START_1, mann)
 					 ,new Bla(Keys_text.DLG_START_2, eheweib)
 					 ,new Bla(Keys_text.DLG_START_3, eheweib)
@@ -43,7 +46,9 @@ class Dialogues {
 					 ,new Bla(Keys_text.DLG_START_6, mann)]);
 	}
 	
-	static public function setGeldGefundenMannDlg(mann: ZeroEightFifteenMan, cent: Sprite) {
+	static public function setGeldGefundenMannDlg() {
+		var mann = Cfg.mann;
+		var cent = Cfg.cent;
 		Dialogue.insert([
 			new BlaWithChoices(Localization.getText(Keys_text.DLG_GELD_GEFUNDEN_1_C), mann, [
 				[ new InventoryAction(mann, cent, InventoryActionMode.PICKUP), new SetVictoryCondition(VictoryCondition.CENT_TAKEN, true) ]
@@ -52,7 +57,9 @@ class Dialogues {
 		]);
 	}
 	
-	static public function setGeldVerlohrenVerkDlg(verkaeuferin: Verkaeuferin, cent: Sprite) {
+	static public function setGeldVerlohrenVerkDlg() {
+		var verkaeuferin = Cfg.verkaeuferin;
+		var cent = Cfg.cent;
 		Dialogue.insert([
 			new InventoryAction(verkaeuferin, cent, InventoryActionMode.DROP)
 			, new BlaWithChoices(Keys_text.DLG_GELD_VERLOHREN_1_C, verkaeuferin, [
@@ -62,7 +69,12 @@ class Dialogues {
 		]);
 	}
 	
-	static public function setVerkaufMannDlg(mann: ZeroEightFifteenMan, verkaeuferin: Verkaeuferin, euro: Sprite, cent: Sprite, broetchen: Sprite) {	
+	static public function setVerkaufMannDlg() {
+		var mann = Cfg.mann;
+		var verkaeuferin = Cfg.verkaeuferin;
+		var euro = Cfg.euro;
+		var cent = Cfg.cent;
+		var broetchen = Cfg.broetchen;
 		var part1 = [
 			new Bla(Keys_text.DLG_VERKAUFEN_1, verkaeuferin)
 			, new BlaWithChoices(Keys_text.DLG_VERKAUFEN_2_C, mann, [
@@ -133,7 +145,9 @@ class Dialogues {
 		Dialogue.insert(part1);
 	}
 	
-	static public function setVerkaufVerkDlg(mann: Sprite, verkaeuferin: Sprite ) {
+	static public function setVerkaufVerkDlg() {
+		var mann = Cfg.mann;
+		var verkaeuferin = Cfg.verkaeuferin; 
 		Dialogue.insert( [
 			new Bla(Keys_text.DLG_VERKAUFEN_1, verkaeuferin)
 			, new IntBranch(Cfg.getDlgChoice.bind(Keys_text.DLG_VERKAUFEN_2_C), [
@@ -207,13 +221,15 @@ class Dialogues {
 	}
 	
 	
-	static public function setGefeuertDlg(verkaeuferin: Verkaeuferin, mafiosi: Sprite, mg: Sprite) {
+	static public function setGefeuertDlg() {
+		var verkaeuferin = Cfg.verkaeuferin;	
+		var mafioso = Cfg.mafioso;
 		Dialogue.insert( [
-			new Bla(Keys_text.DLG_ARBEITSLOS_1, mafiosi)
-			, new Bla(Keys_text.DLG_ARBEITSLOS_2, mafiosi)
+			new Bla(Keys_text.DLG_ARBEITSLOS_1, mafioso)
+			, new Bla(Keys_text.DLG_ARBEITSLOS_2, mafioso)
 			, new BlaWithChoices(Keys_text.DLG_ARBEITSLOS_3_C, verkaeuferin, [
-				[new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafiosi), new EndGame()]
-				, [new Bla(Keys_text.DLG_ARBEITSLOS_3B_1, mafiosi), new Action([mg], ActionType.MG)]
+				[new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafioso), new EndGame()]
+				, [new Bla(Keys_text.DLG_ARBEITSLOS_3B_1, mafioso), new Action([mafioso], ActionType.MG)]
 			])
 		] );
 	}
@@ -235,11 +251,11 @@ class Dialogues {
 			+ "(3): Brötchen kaufen\n"
 			+ "(4): Brötchen verkaufen\n"
 			+ "(5): Gefeuert werden\n", mann, [
-				[new StartDialogue(setGeldGefundenMannDlg.bind(mann, cent)), t2]
-				, [new StartDialogue(setGeldVerlohrenVerkDlg.bind(verkaeuferin, cent)), t2]
-				, [new StartDialogue(setVerkaufMannDlg.bind(mann, verkaeuferin, euro, cent, broetchen)), t2 ]
-				, [new StartDialogue(setVerkaufVerkDlg.bind(mann, verkaeuferin)), t2 ]
-				, [new StartDialogue(setGefeuertDlg.bind(verkaeuferin, eheweib, cent)), t2 ]
+				[new StartDialogue(setGeldGefundenMannDlg), t2]
+				, [new StartDialogue(setGeldVerlohrenVerkDlg), t2]
+				, [new StartDialogue(setVerkaufMannDlg), t2 ]
+				, [new StartDialogue(setVerkaufVerkDlg), t2 ]
+				, [new StartDialogue(setGefeuertDlg), t2 ]
 			]);
 		
 		Dialogue.insert([ test ]);
