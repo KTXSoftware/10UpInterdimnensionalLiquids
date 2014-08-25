@@ -61,11 +61,11 @@ class ZeroEightFifteenMan extends Player {
 	{
 		super.hit(sprite);
 		
-		if (Std.is(sprite, Bratpfanne) || Std.is(sprite, Shot)) {
+		if (health > 0 && Std.is(sprite, Bratpfanne) || Std.is(sprite, Shot)) {
 			die();
-			Action.finishThrow = true;
 			Dialogue.next();
 			if (Std.is(sprite, Bratpfanne)) {
+				Action.finishThrow = true;
 				sprite.speedx = 0;
 			}
 		}
