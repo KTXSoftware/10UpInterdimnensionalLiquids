@@ -9,5 +9,6 @@ class TenUpShelf extends Sprite {
 		this.x = x;
 		this.y = y;
 		accy = 0;
+		collides = false;
 	}	
 }

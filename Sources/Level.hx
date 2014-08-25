@@ -75,7 +75,25 @@ class Level {
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
 		var liquidMap = new Array<Array<Int>>();
-		if (Cfg.getMap() != null) liquidMap = Cfg.getMap();
+		if (Cfg.getVictoryCondition(VictoryCondition.WATER)) {
+			for (x in 0...levelWidth) {
+				liquidMap.push(new Array<Int>());
+				for (y in 0...levelHeight) {
+					liquidMap[x].push(isCollidable(originalmap[x][y]) ? 0 : 1);
+				}
+			}
+			for (x in 0...levelWidth) {
+				for (y in 0...levelHeight) {
+					if (liquidMap[x][y] == 1) {
+						if (y == 14) liquidMap[x][y] = 3;
+						else if (y > 14) liquidMap[x][y] = 17;
+					}
+				}
+			}
+		}
+		else if (Cfg.getMap() != null) {
+			liquidMap = Cfg.getMap();
+		}
 		else {
 			for (x in 0...levelWidth) {
 				liquidMap.push(new Array<Int>());
