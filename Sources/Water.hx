@@ -26,6 +26,8 @@ class Water extends Sprite {
 	
 	override public function update(): Void {
 		super.update();
+		if (speedx < 0) setAnimation(left);
+		else setAnimation(right);
 		splash();
 	}
 	
