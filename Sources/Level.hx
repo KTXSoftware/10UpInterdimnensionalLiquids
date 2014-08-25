@@ -7,8 +7,10 @@ import kha.Configuration;
 import kha.Game;
 import kha.Loader;
 import kha.LoadingScreen;
+import kha.math.Random;
 import kha.math.Vector2i;
 import kha.Scene;
+import kha.Scheduler;
 import kha.Sprite;
 import kha.Storage;
 import kha.Tile;
@@ -45,6 +47,8 @@ class Level {
 		//Storage.defaultFile().write(null);
 		Cfg.init();
 		
+		Random.init(Std.int(Scheduler.time() * 10000));
+		
 		var tileColissions = new Array<Tile>();
 		for (i in 0...600) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
@@ -79,11 +83,11 @@ class Level {
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
 		var liquidMap = new Array<Array<Int>>();
-		var water = false;
+		var normalday = false;
 		#if JUST_A_NORMAL_DAY
-		water = true;
+		normalday = true;
 		#end
-		if (water && Cfg.getVictoryCondition(VictoryCondition.WATER)) {
+		if (normalday && Cfg.getVictoryCondition(VictoryCondition.WATER)) {
 			for (x in 0...levelWidth) {
 				liquidMap.push(new Array<Int>());
 				for (y in 0...levelHeight) {
@@ -99,7 +103,7 @@ class Level {
 				}
 			}
 		}
-		else if (Cfg.getMap() != null) {
+		else if (normalday && Cfg.getMap() != null) {
 			liquidMap = Cfg.getMap();
 		}
 		else {
@@ -193,10 +197,18 @@ class Level {
 				sprite = new TenUpShelf(x, y);
 				Scene.the.addEnemy(sprite);
 			default:
-				trace("That should never happen! We are therefore going to ignore it.");
+				//trace("That should never happen! We are therefore going to ignore it.");
 				continue;
 			}
 		}
+		
+		#if JUST_A_NORMAL_DAY
+		if (Cfg.getVictoryCondition(VictoryCondition.WATER)) {
+			for (i in 0...2) {
+				Scene.the.addEnemy(new Fishman(Random.getIn(500, 1800), 400));
+			}
+		}
+		#end
 		
 		Configuration.setScreen(TenUp3.getInstance());
 		done();
