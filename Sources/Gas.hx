@@ -1,15 +1,20 @@
 package;
 
+import kha.Direction;
 import kha.Loader;
 import kha.math.Vector2;
+import kha.Rectangle;
 import kha.Sprite;
 
 class Gas extends Sprite {
-	public function new(x: Float, y: Float) {
+	public function new(x: Float, y: Float, speedx: Float, speedy: Float) {
 		super(Loader.the.getImage('gas'));
 		this.x = x;
 		this.y = y;
+		this.speedx = speedx;
+		this.speedy = speedy;
 		accy = -0.1;
+		collider = new Rectangle(20, 20, 10, 10);
 	}
 	
 	override public function update(): Void {
@@ -31,9 +36,9 @@ class Gas extends Sprite {
 			var pos2 = new Vector2(sprite.x, sprite.y);
 			var pos1 = new Vector2(x, y);
 			var dir = pos1.sub(pos2);
-			dir.length = 0.1;
-			speedx = dir.x * 2;
-			speedy += dir.y / 2;
+			dir.length = 0.2;
+			speedx = dir.x;
+			speedy = dir.y;
 		}
 	}
 }

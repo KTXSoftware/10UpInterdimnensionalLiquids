@@ -94,8 +94,6 @@ class PlayerProfessor extends Player {
 	
 	override public function useSpecialAbilityA() : Void {
 		if (gameover) return;
-		//Scene.the.addOther(new Water(x + 10, y));
-		//Scene.the.addOther(new Lava(x + 10, y));
 		Cfg.setVictoryCondition(VictoryCondition.WATER, false);
 		var dir = new Vector2(TenUp3.instance.mouseX - 16, TenUp3.instance.mouseY - 16).sub(new Vector2(x, y));
 		dir.length = 8;
