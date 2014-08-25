@@ -31,7 +31,7 @@ class Action implements DialogueItem {
 			counter = 0;
 			switch(type) {
 				case ActionType.MG:
-					// TODO
+					Cfg.mafioso.useMg = true;
 				case ActionType.FADE:
 					TenUp3.getInstance().renderOverlay = true;
 					TenUp3.getInstance().overlayColor = Color.fromValue(0x00000000);

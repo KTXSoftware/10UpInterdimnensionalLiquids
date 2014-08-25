@@ -36,14 +36,22 @@ class ZeroEightFifteenMan extends Player {
 		if (health <= 0) return;
 		super.update();
 		
+		if (Player.current() != this) return;
+		
 		if (x > Cfg.mannPositions[0].x + 300) {
 			doEnde = true;
 		} else if (x < Cfg.mannPositions[0].x + 75 && doEnde) {
 			doEnde = false;
 			Dialogues.setMannEndeDlg();
 		}
+		
+		if (doGulli && y > 515) {
+			doGulli = false;
+			Scheduler.addTimeTask(Dialogues.setGameEnd, 1);
+		}
 	}
 	
+	var doGulli = true;
 	var doEnde = false;
 	var doCent = true;
 	var doTheke = true;
