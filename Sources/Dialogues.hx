@@ -21,6 +21,8 @@ class Dialogues {
 		
 	static public function startProfStartDialog(prof: Sprite) {
 		Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
+		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN)) setMannEndeDlg();
+		else if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) setVerkEndeDlg();
 	}
 	
 	static public function startProfGotItDialog(prof: Sprite) {
