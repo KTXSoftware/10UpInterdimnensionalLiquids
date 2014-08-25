@@ -42,7 +42,7 @@ class Water extends Sprite {
 	}
 	
 	private function splash(): Void {
-		var tile = Level.liquids.index(x, y + height - 1);
+		var tile = Level.liquids.index(speedx > 0 ? x : x + width - 1, y + height - 1);
 		var value = Level.liquids.get(tile.x, tile.y);
 		var valueBelow = Level.liquids.get(tile.x, tile.y + 1);
 		var floored = isWallOrLiquid(value) || isWallOrLiquid(valueBelow);		
