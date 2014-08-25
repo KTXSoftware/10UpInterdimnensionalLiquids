@@ -1,4 +1,12 @@
+<!-- 
+	The DefaultLanguage tag specifies the 
+	fallback language of this file.
+	All keys that don't have an other language will
+	use the default language instead.
+	I.e. the original language of this file
+-->
 <DefaultLanguage>de</DefaultLanguage>
+
 <Mann>
 	<de>Herr Maier</de>
 	<en>Mr. Jonson</en>

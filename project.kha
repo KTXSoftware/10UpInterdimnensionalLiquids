@@ -322,6 +322,12 @@
 				"blue": 201
 			},
 			"scale": 2
+		},
+		{
+			"id": "f51576a5-d96a-43f4-b275-8a9b7f0136c2",
+			"type": "blob",
+			"file": "localizations.xml",
+			"name": "localizations"
 		}
 	],
 	"rooms": [
@@ -352,7 +358,6 @@
 				"f37f1d5d-4a1d-4ac6-a9c6-292ebbcaecf5",
 				"075058f8-4f66-43af-b69b-f775253c5212",
 				"981ecab7-2b5f-4c61-b508-2fda90853742",
-				"aaa16854-a794-4fa2-b037-bdd7e31b5a96",
 				"4b083c38-3a9c-41cf-825f-0c645de83535",
 				"bada0129-afb0-4267-bb54-8c0d45f46916",
 				"4ea4d94b-5091-4d2f-a94c-837be598e8fb",
@@ -370,6 +375,19 @@
 				"334155cf-3ba6-41df-a62d-56164e299099",
 				"0173a8b3-4118-4a79-a51c-1af54bd1792e",
 				"0d97149b-727c-4657-926a-bfcf884e4261"
+			]
+		},
+		{
+			"id": "dfe79def-8e13-4036-afd6-395cc922a10e",
+			"name": "start",
+			"parent": null,
+			"neighbours": [],
+			"assets": [
+				"f51576a5-d96a-43f4-b275-8a9b7f0136c2",
+				"4b083c38-3a9c-41cf-825f-0c645de83535",
+				"bada0129-afb0-4267-bb54-8c0d45f46916",
+				"15b1ea20-4032-11e2-a25f-0800200c9a66",
+				"aaa16854-a794-4fa2-b037-bdd7e31b5a96"
 			]
 		}
 	]

@@ -7,39 +7,52 @@ import haxe.xml.Parser;
 
 import kha.Loader;
 
-enum LanguageType {
-	en;
-	de;
-}
-
 #end
 
 class Localization
 {
 #if !macro
-	static var defaultLanguage : LanguageType = en;
-	static public var language : LanguageType = en;
-	static var texts : Map < String, Map < LanguageType, String >> = null;
+	static var fallbackLanguage : String = "en";
+	static public var language : String;
+	static public var availableLanguages(default, null) : Map<String, String>;
+	static var texts : Map <String, Map <String, String>> = null;
 	
-	static public function init(filename : String, force = false) {
-		if (texts != null && !force) {
-			return;
+	static public function init(initFilename : String, startingLanguage = "en") {
+		availableLanguages = new Map();
+		var xml = Parser.parse(Loader.the.getBlob(initFilename).toString());
+		var languages = xml.firstElement();
+		if (languages.nodeName.toLowerCase() == "languages") {
+			for (language in languages.elements()) {
+				var key = language.nodeName.toLowerCase();
+				availableLanguages[key] = language.firstChild().nodeValue;
+			}
 		}
-		texts = new Map();
+		
+		if (availableLanguages.exists(startingLanguage)) {
+			language = startingLanguage;
+		} else {
+			language = availableLanguages.keys().next();
+		}
+		if (!availableLanguages.exists(fallbackLanguage)) {
+			fallbackLanguage = availableLanguages.keys().next();
+		}
+	}
+	
+	static public function load(filename : String, replace = false) {
+		if (texts == null || replace) {
+			texts = new Map();
+		}
+		
 		var xml = Parser.parse(Loader.the.getBlob(filename).toString());
 		for (item in xml.elements()) {
 			var key = item.nodeName;
 			if (key == "DefaultLanguage") {
-				try {
-					defaultLanguage = Type.createEnum(LanguageType, item.firstChild().nodeValue.toLowerCase());
-				} catch (e : Dynamic) {}
+				fallbackLanguage = item.firstChild().nodeValue.toLowerCase();
 			} else {
 				texts[key] = new Map();
 				for (language in item.elements()) {
-					try {
-						var l = Type.createEnum(LanguageType, language.nodeName.toLowerCase());
-						texts[key][l] = StringTools.replace(StringTools.replace(language.firstChild().nodeValue, "\r\n", "\n"),"\r","\n");
-					} catch (e : Dynamic) {}
+					var l = language.nodeName.toLowerCase();
+					texts[key][l] = StringTools.replace(StringTools.replace(language.firstChild().nodeValue, "\r\n", "\n"),"\r","\n");
 				}
 			}
 		}
@@ -50,8 +63,8 @@ class Localization
 		if (t != null) {
 			if (t.exists(language)) {
 				return t[language];
-			} else if (t.exists(defaultLanguage)) {
-				return t[defaultLanguage];
+			} else if (t.exists(fallbackLanguage)) {
+				return t[fallbackLanguage];
 			}
 		}
 		return key;
@@ -82,6 +95,6 @@ class Localization
 		}
 		sys.io.File.saveContent(ldir + '/$name.hx', contend.toString());
 		
-		return haxe.macro.Context.parse('Localization.init("$assetName")' , haxe.macro.Context.currentPos());
+		return haxe.macro.Context.parse('Localization.load("$assetName")' , haxe.macro.Context.currentPos());
 	}
 }

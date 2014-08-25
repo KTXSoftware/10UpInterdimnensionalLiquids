@@ -75,11 +75,19 @@ class TenUp3 extends Game {
 	
 	public override function init(): Void {
 		Configuration.setScreen(new LoadingScreen());
-		//Loader.the.loadRoom("level1", initLevel);
+		Loader.the.loadRoom("start", initMenu);
+	}
+	
+	function initMenu() {
+		Localization.init("localizations");
+		// TODO: language select
+		Localization.buildKeys("../Assets/text.xml","text");
+		//Localization.load("text");
+		
 		Level.load("level1", initLevel);
 	}
 
-	public function initLevel(): Void {
+	function initLevel(): Void {
 		Random.init(Std.int(Scheduler.time() * 10000));
 		backbuffer = Image.createRenderTarget(800, 600);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
@@ -87,10 +95,6 @@ class TenUp3 extends Game {
 	}
 	
 	public function startGame() {
-		Localization.language = Localization.LanguageType.en; // TODO: language select
-		Localization.buildKeys("../Assets/text.xml","text");
-		//Localization.init("text");
-		
 		switch(subgame) {
 		case SubGame.TEN_UP_3:
 			startGame_TenUp3();
