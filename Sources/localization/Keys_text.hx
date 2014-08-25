@@ -65,6 +65,8 @@ class Keys_text {
 	static public var DLG_EHEWEIB_3A_4 = "dlg_Eheweib_3a_4";
 	static public var GAME_VERSAGT = "game_versagt";
 	static public var GAME_ERFOLG = "game_erfolg";
+	static public var GAME_ERFOLG_2 = "game_erfolg_2";
+	static public var GAME_ERFOLG_3 = "game_erfolg_3";
 	static public var GAME_ABER = "game_aber";
 	static public var PROF1 = "prof1";
 	static public var PROF2 = "prof2";

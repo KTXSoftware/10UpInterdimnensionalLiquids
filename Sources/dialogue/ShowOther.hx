@@ -9,7 +9,7 @@ class ShowOther extends Bla
 	}
 	
 	override public function execute(): Void {
-		if (Player.current() == Cfg.mann) {
+		if (Player.current() == Cfg.mann && Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {
 			// mann => verkäuferin
 			Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
 			Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
@@ -18,7 +18,7 @@ class ShowOther extends Bla
 			Scene.the.addHero(Cfg.verkaeuferin);
 			Cfg.verkaeuferin.setCurrent();
 			Dialogues.setGefeuertDlg();
-		} else {
+		} else if (Player.current() == Cfg.verkaeuferin && Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN)) {
 			// verkäuferin => mann
 			Cfg.mann.x = Cfg.mannPositions[0].x;
 			Cfg.mann.y = Cfg.verkaeuferinPositions[0].y;

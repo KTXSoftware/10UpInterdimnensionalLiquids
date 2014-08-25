@@ -135,6 +135,8 @@ class TenUp3 extends Game {
 	
 	var cfg: Cfg;
 	function startGame_JustANormalDay() {
+		overlayColor = Color.Black;
+		renderOverlay = true;
 		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN) == Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {
 			Dialogue.insert( [
 				new BlaWithChoices(Keys_text.DLG_SELECT_ROLE, null, [

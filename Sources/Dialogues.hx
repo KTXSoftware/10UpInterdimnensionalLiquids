@@ -40,12 +40,15 @@ class Dialogues {
 	static public function setStartDlg() {
 		var mann = Cfg.mann;
 		var eheweib = Cfg.eheweib;
-		Dialogue.insert([new Bla(Keys_text.DLG_START_1, mann)
-					 ,new Bla(Keys_text.DLG_START_2, eheweib)
-					 ,new Bla(Keys_text.DLG_START_3, eheweib)
-					 ,new Bla(Keys_text.DLG_START_4, mann)
-					 ,new Bla(Keys_text.DLG_START_5, eheweib)
-					 ,new Bla(Keys_text.DLG_START_6, mann)]);
+		Dialogue.insert( [
+			new Action(null, ActionType.FADE_FROM_BLACK)
+			, new Bla(Keys_text.DLG_START_1, mann)
+			,new Bla(Keys_text.DLG_START_2, eheweib)
+			,new Bla(Keys_text.DLG_START_3, eheweib)
+			,new Bla(Keys_text.DLG_START_4, mann)
+			,new Bla(Keys_text.DLG_START_5, eheweib)
+			,new Bla(Keys_text.DLG_START_6, mann)
+		] );
 	}
 	
 	static public function setGeldGefundenMannDlg() {
@@ -224,6 +227,7 @@ class Dialogues {
 					, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_1, verkaeuferin)
 				]
 			])
+			, new SetVictoryCondition(VictoryCondition.BOUGHT_ROLLS, true)
 			, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_2, mann)
 			, new Action(null, ActionType.FADE_TO_BLACK)
 			, new StartDialogue(setGefeuertDlg)
@@ -233,7 +237,8 @@ class Dialogues {
 	
 	static public function setGefeuertDlg() {
 		Scene.the.removeHero(Cfg.mann);
-		var verkaeuferin = Cfg.verkaeuferin;	
+		var verkaeuferin = Cfg.verkaeuferin;
+		verkaeuferin.lookRight = true;
 		var mafioso = Cfg.mafioso;
 		if (Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) {
 			Dialogue.insert( [
@@ -293,39 +298,68 @@ class Dialogues {
 		if (Player.current() == Cfg.mann) {
 			// Mann:
 			Dialogue.insert( [
-				new BooleanBranch(function() { return Cfg.getVictoryCondition(VictoryCondition.MEHRKORN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS); }, 
+				new Action(null, ActionType.FADE_TO_BLACK)
+				, new BooleanBranch(function() { return Cfg.getVictoryCondition(VictoryCondition.MEHRKORN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS); }, 
 					[ // MEhrkorn
 						new Bla(Keys_text.GAME_ERFOLG, null)
-						, new ShowOther()
+						, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MATHEGENIE), 
+							[ // Mathegenie
+								new StartDialogue(setRealVictoryDlg)
+							]
+							, [ // Plus, minus, mal? Ist doch alles das selbe...
+								new ShowOther()
+							]
+						)
 					]
 					, [ // kein Mehrkorn...
 						new Bla(Keys_text.GAME_VERSAGT, null)
-						, new StartDialogue(TenUp3.getInstance().loadTheOneAndOnlyLevel)
 					]
 				)
+				, new StartDialogue(restartGameDlg)
 			] );
-		} else {
+		} else if (Player.current() == Cfg.mann) {
 			// Frau:
 			Dialogue.insert( [
-				new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MATHEGENIE), 
+				new Action(null, ActionType.FADE_TO_BLACK)
+				, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MATHEGENIE), 
 					[ // Mathegenie
 						new Bla(Keys_text.GAME_ERFOLG, null)
-						, new ShowOther()
-						, new StartDialogue(TenUp3.getInstance().loadTheOneAndOnlyLevel)
+						, new BooleanBranch(function() { return Cfg.getVictoryCondition(VictoryCondition.MEHRKORN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS); }, 
+							[ // Mehrkorn
+								new StartDialogue(setRealVictoryDlg)
+							]
+							, [ // kein Mehrkorn...
+								new ShowOther()
+							]
+						)
 					]
 					, [ // Plus, minus, mal? Ist doch alles das selbe...
 						new Bla(Keys_text.GAME_VERSAGT, null)
-						, new ShowOther()
 					]
 				)
+				, new StartDialogue(restartGameDlg)
 			] );
 		}
 	}
 	
+	static public function setRealVictoryDlg() {
+		Dialogue.insert( [
+			new Bla(Keys_text.GAME_ERFOLG_2, null)
+			, new Bla(Keys_text.GAME_ERFOLG_3, null)
+		] );
+	}
+	
+	static public function restartGameDlg() {
+		Dialogue.insert( [
+			new Action(null, ActionType.FADE_TO_BLACK)
+			, new StartDialogue(TenUp3.getInstance().loadTheOneAndOnlyLevel)
+		] );
+	}
 	
 	static public function setVerkStartDlg() {
 		Dialogue.insert( [
-			new Bla(Keys_text.DLG_VERK_START_1, Cfg.verkaeuferin)
+			new Action(null, ActionType.FADE_FROM_BLACK)
+			, new Bla(Keys_text.DLG_VERK_START_1, Cfg.verkaeuferin)
 		] );
 	}
 	

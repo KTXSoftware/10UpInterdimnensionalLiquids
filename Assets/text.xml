@@ -69,19 +69,19 @@
 	<en>Yes bonny...</en>
 </dlg_Start_6>
 
-<!-- starte als verkäuferin -->
+<!-- starte als verkï¿½uferin -->
 <dlg_Verk_Start_1>
-	<de>Ich sollte mich beleien, sonst komme ich zu spät zur Arbeit!</de>
+	<de>Ich sollte mich beleien, sonst komme ich zu spï¿½t zur Arbeit!</de>
 </dlg_Verk_Start_1>
 <dlg_Verk_Start_Falsche_Richtung>
-	<de>Die Bäckerei ist in der anderen Richtung!</de>
+	<de>Die Bï¿½ckerei ist in der anderen Richtung!</de>
 </dlg_Verk_Start_Falsche_Richtung>
 <dlg_Verk_Start_2>
 	<de>Wird aber auch Zeit, dass du Auftauchst!
 		Und jetzt ab an die Arbeit.</de>
 </dlg_Verk_Start_2>
 <dlg_Verk_Start_3>
-	<de>Einige Zeit später...</de>
+	<de>Einige Zeit spï¿½ter...</de>
 </dlg_Verk_Start_3>
 
 <!-- GELD GEFUNDEN -->
@@ -278,8 +278,24 @@ Hast ziemlich lange gebraucht!</de>
 	<de>Versagt...</de>
 </game_versagt>
 <game_erfolg>
-	<de>Welch ein normaler Tag... (Gewonnen)</de>
+	<de>Welch ein normaler Tag... (Gewonnen?)</de>
 </game_erfolg>
+<game_erfolg_2>
+	<de>Ja, welch ein normaler Tag. (Gewonnen!)</de>
+	<en>Yes, just a normal day. (Won!)</en>
+</game_erfolg_2>
+<game_erfolg_3>
+	<de>Herzlichen Glï¿½ckwunsch, Sie haben eines unserer Geschenke gefunden!
+	
+	Gehe zu "ConnGame" um es einzulï¿½sen.
+	
+	Codewort #2: 266</de>
+	<en>Congratulations, you found one of our presents!
+	
+	Check "ConnGame" to redeem it.
+	
+	Codeword #2: 266</en>
+</game_erfolg_3>
 <game_aber>
 	<de>Anderswo zur gleichen Zeit...</de>
 </game_aber>
