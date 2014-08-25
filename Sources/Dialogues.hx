@@ -65,8 +65,13 @@ class Dialogues {
 		Dialogue.insert([
 			new InventoryAction(verkaeuferin, cent, InventoryActionMode.DROP)
 			, new BlaWithChoices(Keys_text.DLG_GELD_VERLOHREN_1_C, verkaeuferin, [
-				[ new InventoryAction(verkaeuferin, cent, InventoryActionMode.PICKUP), new SetVictoryCondition(VictoryCondition.CENT_DROPPED, false), new SetVictoryCondition(VictoryCondition.CENT_TAKEN, false) ]
-				, [ new SetVictoryCondition(VictoryCondition.CENT_DROPPED, true) ]
+				[
+					new InventoryAction(verkaeuferin, cent, InventoryActionMode.PICKUP)
+					, new SetVictoryCondition(VictoryCondition.CENT_DROPPED, false)
+					, new SetVictoryCondition(VictoryCondition.CENT_TAKEN, false) ]
+				, [
+					new SetVictoryCondition(VictoryCondition.CENT_DROPPED, true)
+				]
 			])
 		]);
 	}
@@ -219,22 +224,32 @@ class Dialogues {
 					, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_1, verkaeuferin)
 				]
 			])
-			, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_2,mann)
+			, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_2, mann)
+			, new Action(null, ActionType.FADE_TO_BLACK)
+			, new StartDialogue(setGefeuertDlg)
 		] );
 	}
 	
 	
 	static public function setGefeuertDlg() {
+		Scene.the.removeHero(Cfg.mann);
 		var verkaeuferin = Cfg.verkaeuferin;	
 		var mafioso = Cfg.mafioso;
-		Dialogue.insert( [
-			new Bla(Keys_text.DLG_ARBEITSLOS_1, mafioso)
-			, new Bla(Keys_text.DLG_ARBEITSLOS_2, mafioso)
-			, new BlaWithChoices(Keys_text.DLG_ARBEITSLOS_3_C, verkaeuferin, [
-				[new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafioso), new EndGame()]
-				, [new Bla(Keys_text.DLG_ARBEITSLOS_3B_1, mafioso), new Action([mafioso], ActionType.MG)]
-			])
-		] );
+		if (Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) {
+			Dialogue.insert( [
+				new EndGame()
+			] );
+		} else {
+			Dialogue.insert( [
+				new Action(null, ActionType.FADE_FROM_BLACK)
+				, new Bla(Keys_text.DLG_ARBEITSLOS_1, mafioso)
+				, new Bla(Keys_text.DLG_ARBEITSLOS_2, mafioso)
+				, new BlaWithChoices(Keys_text.DLG_ARBEITSLOS_3_C, verkaeuferin, [
+					[new Bla(Keys_text.DLG_ARBEITSLOS_3A_1, mafioso), new EndGame()]
+					, [new Bla(Keys_text.DLG_ARBEITSLOS_3B_1, mafioso), new Action([mafioso], ActionType.MG)]
+				])
+			] );
+		}
 	}
 	
 	static public function setMannEndeDlg() {
@@ -243,7 +258,8 @@ class Dialogues {
 		var broetchen = Cfg.broetchen;
 		var bratpfanne = Cfg.bratpfanne;
 		Dialogue.insert( [
-			new Bla(Keys_text.DLG_EHEWEIB_1, weib)
+			new Action(null, ActionType.FADE_FROM_BLACK)
+			, new Bla(Keys_text.DLG_EHEWEIB_1, weib)
 			, new Bla(Keys_text.DLG_EHEWEIB_2, weib)
 			, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.BOUGHT_ROLLS),
 				[ // Brötchen gekauft
@@ -322,8 +338,23 @@ class Dialogues {
 	static public function setVerkaufStartDlg() {
 		Dialogue.insert( [
 			new Bla(Keys_text.DLG_VERK_START_2, Cfg.mafioso)
-			, new Action([], ActionType.FADE)
-			, new Bla(Keys_text.DLG_VERK_START_3, null)
+			, new Action([], ActionType.FADE_TO_BLACK)
+			, new StartDialogue(setVerkaufStart2Dlg)
+		] );
+	}
+	static public function setVerkaufStart2Dlg() {
+		Scene.the.removeHero(Cfg.mann);
+		Cfg.mann.x = Cfg.mannPositions[1].x;
+		Cfg.mann.y = Cfg.mannPositions[1].y;
+		Cfg.mann.lookRight = true;
+		Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
+		Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+		Cfg.verkaeuferin.lookRight = false;
+		Scene.the.addHero(Cfg.mann);
+		
+		Dialogue.insert( [
+			new Bla(Keys_text.DLG_VERK_START_3, null)
+			, new Action(null, ActionType.FADE_FROM_BLACK)
 			, new StartDialogue(setVerkaufVerkDlg)
 		] );
 	}

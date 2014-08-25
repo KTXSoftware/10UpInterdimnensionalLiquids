@@ -230,11 +230,11 @@ class TenUp3 extends Game {
 		if (Player.current() != null) {
 			Player.current().inventory.render(g);
 		}
-		BlaBox.render(g);
 		if (renderOverlay) {
 			g.color = overlayColor;
 			g.fillRect(0, 0, width, height);
 		}
+		BlaBox.render(g);
 		g.end();
 		
 		startRender(frame);
