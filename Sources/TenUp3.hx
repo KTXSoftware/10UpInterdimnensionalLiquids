@@ -160,6 +160,7 @@ class TenUp3 extends Game {
 	
 	var cfg: Cfg;
 	function startGame_JustANormalDay() {
+		kha.Sys.mouse.hide();
 		overlayColor = Color.Black;
 		renderOverlay = true;
 		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN) == Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {

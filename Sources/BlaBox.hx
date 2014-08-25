@@ -1,6 +1,5 @@
 package;
 
-import kha.AnimatedImageCursor;
 import kha.Color;
 import kha.Font;
 import kha.FontStyle;

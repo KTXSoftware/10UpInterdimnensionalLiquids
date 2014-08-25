@@ -64,6 +64,7 @@ class Dialogue {
 		}
 	}
 	
+	@:access(TenUp3.subgame)
 	public static function next(): Void {
 		if (index >= 0 && !items[index].finished) {
 			items[index].execute();
@@ -76,7 +77,9 @@ class Dialogue {
 		
 		if (index >= items.length) {
 			TenUp3.getInstance().mode = Mode.Game;
-			kha.Sys.mouse.show();
+			if (TenUp3.instance.subgame == TenUp3.SubGame.TEN_UP_3) {
+				kha.Sys.mouse.show();
+			}
 			items = null;
 			return;
 		}
