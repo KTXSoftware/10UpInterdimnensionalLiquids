@@ -16,11 +16,11 @@
 	<en>Ms. Jonson</en>
 </Frau>
 <Verkaeuferin>
-	<de>Frau Müller</de>
-	<en>Ms. Müller</en>
+	<de>Frau MÃ¼ller</de>
+	<en>Ms. MÃ¼ller</en>
 </Verkaeuferin>
 <Terrorist>
-	<de>Der Bäcker</de>
+	<de>Der BÃ¤cker</de>
 	<en>The Baker</en>
 </Terrorist>
 <Mechanic>
@@ -37,14 +37,14 @@
 </Fischmensch>
 
 <dlg_Select_Role>
-	<de>Wen möchten Sie spielen?
+	<de>Wen mÃ¶chten Sie spielen?
 		(1): Den Ehemann
-		(2): Die Verkäuferin
-		(3): Zufällig</de>
+		(2): Die VerkÃ¤uferin
+		(3): ZufÃ¤llig</de>
 </dlg_Select_Role>
 
 <dlg_Start_1>
-	<de>Schatz, ich geh jetzt Brötchen kaufen.</de>
+	<de>Schatz, ich geh jetzt BrÃ¶tchen kaufen.</de>
 	<en>Bonny, I'll get some buns.</en>
 </dlg_Start_1>
 <dlg_Start_2>
@@ -52,7 +52,7 @@
 	<en>About time, I'm starving!</en>
 </dlg_Start_2>
 <dlg_Start_3>
-	<de>Und vergiss nicht: Ein Wasserweck und ein Mehrkornbrötchen für mich!</de>
+	<de>Und vergiss nicht: Ein Wasserweck und ein MehrkornbrÃ¶tchen fÃ¼r mich!</de>
 	<en>I want one Blaa and one Kaiser roll.</en>
 </dlg_Start_3>
 <dlg_Start_4>
@@ -60,7 +60,7 @@
 	<en>But I've only got one Euro. What am I supposed to eat?</en>
 </dlg_Start_4>
 <dlg_Start_5>
-	<de>Du kannst die Krümmel fressen!</de>
+	<de>Du kannst die KrÃ¼mmel fressen!</de>
 	<en>You can eat the crumbs.</en>
 </dlg_Start_5>
 <dlg_Start_6>
@@ -71,7 +71,7 @@
 <!-- GELD GEFUNDEN -->
 <dlg_Geld_Gefunden_1_c>
 	<de>Oh, da liegt ja ein Cent!
-(1): Heute ist wohl mein Glückstag! [Geld nehmen]
+(1): Heute ist wohl mein GlÃ¼ckstag! [Geld nehmen]
 (2): Jemand anderes braucht ihn bestimmt dringender als ich... [Geld liegenlassen]</de>
 	<en>Oh, there lies a Cent!
 (1): This is my lucky day! [Take money]
@@ -82,7 +82,7 @@
 	<en>Oh, there lies a Cent!</en>
 </dlg_Geld_Gefunden_1>
 <dlg_Geld_Gefunden_1a>
-	<de>Heute ist wohl mein Glückstag!</de>
+	<de>Heute ist wohl mein GlÃ¼ckstag!</de>
 	<en>This is my lucky day!</en>
 </dlg_Geld_Gefunden_1a>
 <dlg_Geld_Gefunden_1b>
@@ -94,7 +94,7 @@
 <dlg_Geld_Verlohren_1_c>
 	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen.
 (1): [Cent aufheben]
-(2): Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit. [Cent liegenlassen]</de>
+(2): Zeit ist Geld. Ich komme sowieso schon zu SpÃ¤t zur Arbeit. [Cent liegenlassen]</de>
 	<en>There goes a Cent. Must've fallen out of my pocket.
 (1): [Pick up Cent]
 (2): Time is money. I'm already late for work. [Leave Cent]</en>
@@ -106,23 +106,23 @@
 <dlg_Geld_Verlohren_1b>
 	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen...
 
-... Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit.</de>
+... Zeit ist Geld. Ich komme sowieso schon zu SpÃ¤t zur Arbeit.</de>
 	<en>Time is money. I'm already late for work.</en>
 </dlg_Geld_Verlohren_1b>
 
-<!-- Brötchen kaufen -->
+<!-- BrÃ¶tchen kaufen -->
 <dlg_Verkaufen_1>
-	<de>Guten Morgen! Sie wünschen?</de>
+	<de>Guten Morgen! Sie wÃ¼nschen?</de>
 	<en>Good morning! What can I do for you?</en>
 </dlg_Verkaufen_1>
 <dlg_Verkaufen_2_c>
-	<de>(1): Ein Wasserweck und ein Mehrkornbrötchen, bitte.
+	<de>(1): Ein Wasserweck und ein MehrkornbrÃ¶tchen, bitte.
 (2): Zwei Wasserweck, bitte.</de>
 	<en>(1): One Blaa and one Kaiser roll please.
 (2): Two Blaas please.</en>
 </dlg_Verkaufen_2_c>
 <dlg_Verkaufen_2a>
-	<de>Ein Wasserweck und ein Mehrkornbrötchen, bitte.</de>
+	<de>Ein Wasserweck und ein MehrkornbrÃ¶tchen, bitte.</de>
 	<en>One Blaa and one Kaiser roll please.</en>
 </dlg_Verkaufen_2a>
 <dlg_Verkaufen_2b>
@@ -149,7 +149,7 @@
 	<en>[Paid one Euro]</en>
 </dlg_Verkaufen_2a_2b>
 <dlg_Verkaufen_2a_2_GELD>
-	<de>So ein glück aber auch! Ein Euro und ein Cent! [Geld geben]</de>
+	<de>So ein glÃ¼ck aber auch! Ein Euro und ein Cent! [Geld geben]</de>
 	<en>Such a happy coincident! One Euro and one Cent! [Pay money]</en>
 </dlg_Verkaufen_2a_2_GELD>
 
@@ -158,21 +158,21 @@
 	<en>I'm sorry.</en>
 </dlg_Verkaufen_2a_2a_1>
 <dlg_Verkaufen_2a_2a_2>
-	<de>Die Preise von Mehrkornbrötchen wurden von 50 Cent auf 51 Cent angehoben.</de>
+	<de>Die Preise von MehrkornbrÃ¶tchen wurden von 50 Cent auf 51 Cent angehoben.</de>
 </dlg_Verkaufen_2a_2a_2>
 <dlg_Verkaufen_2a_2a_3_c>
-	<de>(1): Da kann ich nichts machen. Möchen sie Stattdessen 2 Wasserweck?
-(2): Aber für heute kann ich darüber hinwegsehen.</de>
+	<de>(1): Da kann ich nichts machen. MÃ¶chen sie Stattdessen 2 Wasserweck?
+(2): Aber fÃ¼r heute kann ich darÃ¼ber hinwegsehen.</de>
 </dlg_Verkaufen_2a_2a_3_c>
 <dlg_Verkaufen_2a_2a_3a>
-	<de>Da kann ich nichts machen. Möchen sie stattdessen 2 Wasserweck?</de>
+	<de>Da kann ich nichts machen. MÃ¶chen sie stattdessen 2 Wasserweck?</de>
 </dlg_Verkaufen_2a_2a_3a>
 <dlg_Verkaufen_2a_2a_3b>
-	<de>Aber für heute kann ich darüber hinwegsehen.</de>
+	<de>Aber fÃ¼r heute kann ich darÃ¼ber hinwegsehen.</de>
 </dlg_Verkaufen_2a_2a_3b>
 
 <dlg_Verkaufen_2a_2a_3a_1>
-	<de>Ja, dableibt mir wohl nichts übrig. [Geld geben]</de>
+	<de>Ja, dableibt mir wohl nichts Ã¼brig. [Geld geben]</de>
 </dlg_Verkaufen_2a_2a_3a_1>
 <dlg_Verkaufen_2a_2a_3b_1>
 	<de>Vielen vielen Dank, sie retten mir mein Leben! [Geld geben]</de>
@@ -180,7 +180,7 @@
 
 <dlg_Verkaufen_2a_2b_1_c>
 	<de>(1): Entschuldigen sie Bitte! Das ist nur ein Euro.
-(2): Und hier sind ihre Brötchen. Wünsche einen schönen Tag. [Brötchen geben]</de>
+(2): Und hier sind ihre BrÃ¶tchen. WÃ¼nsche einen schÃ¶nen Tag. [BrÃ¶tchen geben]</de>
 </dlg_Verkaufen_2a_2b_1_c>
 <dlg_Verkaufen_2a_2b_1a>
 	<de>Entschuldigen sie Bitte! Das ist nur ein Euro.</de>
@@ -197,7 +197,7 @@
 </dlg_Verkaufen_2b_2>
 
 <dlg_Verkaufen_Erfolg_1>
-	<de>Und hier sind ihre Brötchen. Wünsche einen schönen Tag.</de>
+	<de>Und hier sind ihre BrÃ¶tchen. WÃ¼nsche einen schÃ¶nen Tag.</de>
 </dlg_Verkaufen_Erfolg_1>
 <dlg_Verkaufen_Erfolg_2>
 	<de>Vielen Dank. Auf wiedersehen.</de>
@@ -206,10 +206,10 @@
 
 <!-- Gefeuert werden -->
 <dlg_Arbeitslos_1>
-	<de>Was soll das! Kannst du nichtmal den Preis von zwei Brötchen addieren?</de>
+	<de>Was soll das! Kannst du nichtmal den Preis von zwei BrÃ¶tchen addieren?</de>
 </dlg_Arbeitslos_1>
 <dlg_Arbeitslos_2>
-	<de>Was Glaubst du Wohl, wie ich mein Brötchenimperium aufgebaut habe?</de>
+	<de>Was Glaubst du Wohl, wie ich mein BrÃ¶tchenimperium aufgebaut habe?</de>
 </dlg_Arbeitslos_2>
 <dlg_Arbeitslos_3_c>
 	<de>(1): [schweigen]
@@ -229,32 +229,32 @@ Du bist gefeuert!</de>
 </dlg_Arbeitslos_3a_1>
 
 <dlg_Arbeitslos_3b_1>
-	<de>Du weißt zu viel...</de>
+	<de>Du weiÃŸt zu viel...</de>
 </dlg_Arbeitslos_3b_1>
 
-<!-- FRAU BEKOMMT IHRE BRÖTCHEN... -->
+<!-- FRAU BEKOMMT IHRE BRÃ–TCHEN... -->
 <dlg_Eheweib_1>
-	<de>Endlich zurück!
+	<de>Endlich zurÃ¼ck!
 Hast ziemlich lange gebraucht!</de>
 </dlg_Eheweib_1>
 <dlg_Eheweib_2>
-	<de>Worauf wartest du? Schmeiß die Brötchen rauf!</de>
+	<de>Worauf wartest du? SchmeiÃŸ die BrÃ¶tchen rauf!</de>
 </dlg_Eheweib_2>
 <dlg_Eheweib_3a_1>
 	<de>Ja Schatz...</de>
 </dlg_Eheweib_3a_1>
 <dlg_Eheweib_3b_1>
-	<de>Ich habe noch keine Brötchen...</de>
+	<de>Ich habe noch keine BrÃ¶tchen...</de>
 </dlg_Eheweib_3b_1>
 <dlg_Eheweib_3a_2>
 	<de>*raschel*
 *schmatz*</de>
 </dlg_Eheweib_3a_2>
 <dlg_Eheweib_3a_3>
-	<de>Was fällt dir ein mir zwei Wasserweck zu bringen?</de>
+	<de>Was fÃ¤llt dir ein mir zwei Wasserweck zu bringen?</de>
 </dlg_Eheweib_3a_3>
 <dlg_Eheweib_3a_4>
-	<de>Sieh zu, dass du mir mein Mehrkornbrötchen bringst, sonst kannst du aber was Erleben! [schmeißt Bratpfanne]</de>
+	<de>Sieh zu, dass du mir mein MehrkornbrÃ¶tchen bringst, sonst kannst du aber was Erleben! [schmeiÃŸt Bratpfanne]</de>
 </dlg_Eheweib_3a_4>
 
 <!-- SPIEL ENDE -->
@@ -270,22 +270,22 @@ Hast ziemlich lange gebraucht!</de>
 
 <!-- TEN UP INTRO -->
 <prof1>
-	<de>Die Mafia hat unseren 10Up-Transporter überfallen. Die örtliche Bäckerei ist ihr Hauptquartier. Ich werde dort einbrechen und unseren Geheimdrunk wiederbeschaffen.</de>
+	<de>Die Mafia hat unseren 10Up-Transporter Ã¼berfallen. Die Ã¶rtliche BÃ¤ckerei ist ihr Hauptquartier. Ich werde dort einbrechen und unseren Geheimdrunk wiederbeschaffen.</de>
 </prof1>
 <prof2>
-	<de>Mit meinem brandneuen Portalgenerator kann ich kleine Wurmlöcher zu weit entfernten Planeten erzeugen und so deren flüssige oder gasförmige Rohstoffe anzapfen.</de>
+	<de>Mit meinem brandneuen Portalgenerator kann ich kleine WurmlÃ¶cher zu weit entfernten Planeten erzeugen und so deren flÃ¼ssige oder gasfÃ¶rmige Rohstoffe anzapfen.</de>
 </prof2>
 <prof3>
-	<de>Ich habe die Technik für die örtliche Feuerwehr entworfen, um auch in unwegsamen Gelände stets eine ausreichende Wasserversorgung sicherzustellen.</de>
+	<de>Ich habe die Technik fÃ¼r die Ã¶rtliche Feuerwehr entworfen, um auch in unwegsamen GelÃ¤nde stets eine ausreichende Wasserversorgung sicherzustellen.</de>
 </prof3>
 <prof4>
-	<de>Ich habe aber auch weitere interessante Planeten gefunden. Ein spontan erzeugter Magmafluss zum Beispiel kann viele anstrengende Diskussionen verkürzen.</de>
+	<de>Ich habe aber auch weitere interessante Planeten gefunden. Ein spontan erzeugter Magmafluss zum Beispiel kann viele anstrengende Diskussionen verkÃ¼rzen.</de>
 </prof4>
 <prof5>
-	<de>Aus Sicherheitsgründen bin ich in meinem teuersten Schuhwerk unterwegs, mit dem ich mich über jegliche Flüssigkeit bewegen kann. Jegliche Flüssigkeit außer flüssiger Magma zumindest.</de>
+	<de>Aus SicherheitsgrÃ¼nden bin ich in meinem teuersten Schuhwerk unterwegs, mit dem ich mich Ã¼ber jegliche FlÃ¼ssigkeit bewegen kann. Jegliche FlÃ¼ssigkeit auÃŸer flÃ¼ssiger Magma zumindest.</de>
 </prof5>
 <prof6>
-	<de>Mein 10Up-Vorrat! Nun aber nichts wie weg und zurück zu meinem Absetzpunkt.</de>
+	<de>Mein 10Up-Vorrat! Nun aber nichts wie weg und zurÃ¼ck zu meinem Absetzpunkt.</de>
 </prof6>
 <prof7>
 	<de>Exquisit, Sie haben das Spiel erfolgreich abgeschlossen.</de>
