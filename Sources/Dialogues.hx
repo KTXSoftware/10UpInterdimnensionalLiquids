@@ -21,8 +21,13 @@ using Lambda;
 class Dialogues {
 		
 	static public function startProfStartDialog(prof: Sprite) {
-		Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
-		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN)) setMannEndeDlg();
+		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS)) {
+			Scene.the.addHero(Cfg.mann);
+			Cfg.mann.lookRight = false;
+			Dialogue.insert([new StartDialogue(setMannEndeDlg), new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
+		} else {
+			Dialogue.insert([new Bla(Keys_text.PROF1, prof), new Bla(Keys_text.PROF2, prof), new Bla(Keys_text.PROF3, prof), new Bla(Keys_text.PROF4, prof), new Bla(Keys_text.PROF5, prof)]);
+		}
 	}
 	
 	static public function startProfGotItDialog(prof: Sprite) {
@@ -266,12 +271,12 @@ class Dialogues {
 			new Action(null, ActionType.FADE_FROM_BLACK)
 			, new Bla(Keys_text.DLG_EHEWEIB_1, weib)
 			, new Bla(Keys_text.DLG_EHEWEIB_2, weib)
+			, new SetVictoryCondition(VictoryCondition.DELIVERED_ROLLS, true)
 			, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.BOUGHT_ROLLS),
 				[ // Brötchen gekauft
 					new Bla(Keys_text.DLG_EHEWEIB_3A_1, mann)
 					, new InventoryAction(mann, broetchen, InventoryActionMode.REMOVE)
 					, new Action([mann, weib, broetchen], ActionType.THROW)
-					, new SetVictoryCondition(VictoryCondition.DELIVERED_ROLLS, true)
 					, new Bla(Keys_text.DLG_EHEWEIB_3A_2, weib)
 					, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MEHRKORN),
 						[ // 1 Wasserweck + 1 Mehrkorn
