@@ -46,7 +46,7 @@ class Player extends DestructibleSprite {
 	var muzzlePoint : Vector2;
 	
 	public function new(x: Float, y: Float, image: String, width: Int, height: Int, maxHealth: Int = 50) {
-		super(maxHealth, Loader.the.getImage(image), width, height, 0);
+		super(maxHealth, Loader.the.getImage(image), width, height, 1);
 		this.x = x;
 		this.y = y;
 		standing = false;
