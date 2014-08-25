@@ -119,6 +119,7 @@ class TenUp3 extends Game {
 	
 	public function startGame_TenUp3() {
 		var prof = new PlayerProfessor(400, 10);
+		Scene.the.camyHack = prof.inventory.itemHeight + 2 * prof.inventory.spacing;
 		prof.setCurrent();
 		Scene.the.addHero(prof);
 		prof.inventory.pick(new Sprite(Loader.the.getImage('waterflow')));
