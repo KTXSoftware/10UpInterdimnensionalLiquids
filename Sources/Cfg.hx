@@ -18,6 +18,7 @@ class Cfg
 	public static var euro: Sprite;
 	public static var cent: Sprite;
 	public static var broetchen: Sprite;
+	public static var broetchen_mehrkorn: Sprite;
 	public static var theke: Sprite;
 	public static var backdoor: Door;
 	public static var bratpfanne: Sprite;
@@ -87,6 +88,7 @@ class Cfg
 		Cfg.cent = new Sprite(Loader.the.getImage("cent"));
 		Cfg.cent.scaleX = Cfg.cent.scaleY = 0.5;
 		Cfg.broetchen = new Broetchen();
+		Cfg.broetchen_mehrkorn = new Broetchen(true);
 		Cfg.bratpfanne = new Bratpfanne();
 		
 		#if JUST_A_NORMAL_DAY

@@ -4,6 +4,7 @@ import Dialogue.DialogueItem;
 import kha.Color;
 import kha.math.Vector2;
 import kha.Scene;
+import kha.Scheduler;
 import kha.Sprite;
 
 enum ActionType {
@@ -54,6 +55,27 @@ class Action implements DialogueItem {
 					proj.accx = 0;
 					proj.accy = 0;
 					Scene.the.addProjectile(proj);
+					if (proj == Cfg.broetchen) {
+						cast(from, Player).inventory.loose(Cfg.broetchen);
+						cast(from, Player).inventory.loose(Cfg.broetchen_mehrkorn);
+						var newProj;
+						if (Cfg.getVictoryCondition(VictoryCondition.MEHRKORN)) {
+							newProj = new Broetchen(true);
+						} else {
+							newProj = new Broetchen(false);
+						}
+						newProj.x = spos.x;
+						newProj.y = spos.y;
+						newProj.speedx = speed.x;
+						newProj.speedy = speed.y;
+						newProj.maxspeedy = speed.y;
+						newProj.accx = 0;
+						newProj.accy = 0;
+						Scheduler.addTimeTask(function () {
+							Scene.the.addProjectile(newProj);
+							
+						}, 0.6);
+					}
 			}
 			return;
 		} else {

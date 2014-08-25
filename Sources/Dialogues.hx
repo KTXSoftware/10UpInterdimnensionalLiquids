@@ -89,7 +89,6 @@ class Dialogues {
 		var verkaeuferin = Cfg.verkaeuferin;
 		var euro = Cfg.euro;
 		var cent = Cfg.cent;
-		var broetchen = Cfg.broetchen;
 		var part1 = [
 			new Bla(Keys_text.DLG_VERKAUFEN_1, verkaeuferin)
 			, new BlaWithChoices(Keys_text.DLG_VERKAUFEN_2_C, mann, [
@@ -101,6 +100,7 @@ class Dialogues {
 							, new InventoryAction(mann, euro, InventoryActionMode.REMOVE)
 							, new InventoryAction(mann, cent, InventoryActionMode.REMOVE)
 							, new SetVictoryCondition(VictoryCondition.MEHRKORN, true)
+							, new InventoryAction(mann, Cfg.broetchen_mehrkorn, InventoryActionMode.ADD)
 							, new SetVictoryCondition(VictoryCondition.MATHEGENIE, true)
 						] 
 						, [ // ONLY ONE EURO
@@ -114,6 +114,7 @@ class Dialogues {
 											, new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_3A_1, mann)
 											, new InventoryAction(mann, euro, InventoryActionMode.REMOVE)
 											, new SetVictoryCondition(VictoryCondition.MEHRKORN, false)
+											, new InventoryAction(mann, Cfg.broetchen, InventoryActionMode.ADD)
 											, new SetVictoryCondition(VictoryCondition.MATHEGENIE, true)
 										]
 										, [ // Antwort 2: sehe darüber hinweg
@@ -121,6 +122,7 @@ class Dialogues {
 											, new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_3B_1, mann)
 											, new InventoryAction(mann, euro, InventoryActionMode.REMOVE)
 											, new SetVictoryCondition(VictoryCondition.MEHRKORN, true)
+											, new InventoryAction(mann, Cfg.broetchen_mehrkorn, InventoryActionMode.ADD)
 											, new SetVictoryCondition(VictoryCondition.MATHEGENIE, false)
 										]
 									])
@@ -134,10 +136,12 @@ class Dialogues {
 											, new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_3A, verkaeuferin)
 											, new Bla(Keys_text.DLG_VERKAUFEN_2A_2A_3A_1, mann)
 											, new SetVictoryCondition(VictoryCondition.MEHRKORN, false)
+											, new InventoryAction(mann, Cfg.broetchen, InventoryActionMode.ADD)
 										]
 										, [ // Antwort 2
 											new InventoryAction(mann, euro, InventoryActionMode.REMOVE)
 											, new SetVictoryCondition(VictoryCondition.MEHRKORN, true)
+											, new InventoryAction(mann, Cfg.broetchen_mehrkorn, InventoryActionMode.ADD)
 											, new SetVictoryCondition(VictoryCondition.MATHEGENIE, false)
 										]
 									])
@@ -154,7 +158,7 @@ class Dialogues {
 				]
 			] )
 			, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_1,verkaeuferin)
-			, new InventoryAction(mann, broetchen, InventoryActionMode.ADD)
+			, new InventoryAction(mann, Cfg.broetchen, InventoryActionMode.ADD)
 			, new SetVictoryCondition(VictoryCondition.BOUGHT_ROLLS, true)
 			, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_2,mann)
 		];
@@ -291,7 +295,6 @@ class Dialogues {
 	static public function setMannEndeDlg() {
 		var weib = Cfg.eheweib;
 		var mann = Cfg.mann;
-		var broetchen = Cfg.broetchen;
 		var bratpfanne = Cfg.bratpfanne;
 		Dialogue.insert( [
 			new Action(null, ActionType.FADE_FROM_BLACK)
@@ -301,8 +304,8 @@ class Dialogues {
 			, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.BOUGHT_ROLLS),
 				[ // Brötchen gekauft
 					new Bla(Keys_text.DLG_EHEWEIB_3A_1, mann)
-					, new InventoryAction(mann, broetchen, InventoryActionMode.REMOVE)
-					, new Action([mann, weib, broetchen], ActionType.THROW)
+					, new InventoryAction(mann, Cfg.broetchen, InventoryActionMode.REMOVE)
+					, new Action([mann, weib, Cfg.broetchen], ActionType.THROW)
 					, new Bla(Keys_text.DLG_EHEWEIB_3A_2, weib)
 					, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MEHRKORN),
 						[ // 1 Wasserweck + 1 Mehrkorn

@@ -13,10 +13,14 @@ class Weib extends Sprite {
 		accy = 0;
 	}
 	
+	var count = 0;
 	override public function hit(sprite:Sprite):Void {
-		if (sprite == Cfg.broetchen) {
+		if (Std.is(sprite, Broetchen)) {
+			++count;
 			kha.Scene.the.removeProjectile(sprite);
-			Dialogue.next();
+			if (count >= 2)  {
+				Dialogue.next();
+			}
 		}
 	}
 }
