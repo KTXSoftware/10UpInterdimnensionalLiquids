@@ -218,6 +218,14 @@ class Dialogues {
 		] );
 	}
 	
+	static public function setMannEndeDlg() {
+		
+	}
+	
+	static public function setVerkEndeDlg() {
+		
+	}
+	
 	static public function setTestDlg(mann : ZeroEightFifteenMan, eheweib: Sprite, verkaeuferin: Verkaeuferin, euro: Sprite, cent: Sprite, broetchen: Sprite) {
 		var t2 = new StartDialogue(setTestDlg.bind(mann, eheweib, verkaeuferin, euro, cent, broetchen));
 		
