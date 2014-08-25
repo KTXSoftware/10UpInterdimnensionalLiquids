@@ -14,14 +14,14 @@ class Cfg
 	public static var mann: ZeroEightFifteenMan;
 	public static var eheweib: Sprite;
 	public static var verkaeuferin: Verkaeuferin;
-	public static var mafioso: Sprite;
+	public static var mafioso: Mafioso;
 	public static var euro: Sprite;
 	public static var cent: Sprite;
 	public static var broetchen: Sprite;
 	public static var theke: Sprite;
 	public static var bratpfanne: Sprite;
-	public static var verkaeuferinPositions : Array<Vector2i> = new Array();
-	public static var mannPositions : Array<Vector2i> = new Array();
+	public static var verkaeuferinPositions : Array<Vector2i>;
+	public static var mannPositions : Array<Vector2i>;
 	
 	var victoryConditions : Map<VictoryCondition, Bool>;
 	var profX: Float = -1;
@@ -68,6 +68,21 @@ class Cfg
 		if (data == null) the = new Cfg();
 		else the = cast data;
 		
+		Player.init();
+		Cfg.mann = null;
+		Cfg.mannPositions = new Array();
+		Cfg.verkaeuferin = null;
+		Cfg.verkaeuferinPositions = new Array();
+		Cfg.eheweib = null;
+		Cfg.mafioso = null;
+		
+		#if JUST_A_NORMAL_DAY
+		#else
+		Cfg.setVictoryCondition(VictoryCondition.WATER, false);
+		Cfg.setVictoryCondition(VictoryCondition.SLEEPY, false);
+		Cfg.setVictoryCondition(VictoryCondition.GULLI, false);
+		Cfg.setVictoryCondition(VictoryCondition.TENUPWEG, false);
+		#end
 		
 		Cfg.euro = new Sprite(Loader.the.getImage("euro"));
 		Cfg.euro.scaleX = Cfg.euro.scaleY = 0.5;

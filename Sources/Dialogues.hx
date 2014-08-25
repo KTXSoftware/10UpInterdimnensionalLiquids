@@ -248,7 +248,9 @@ class Dialogues {
 			, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.BOUGHT_ROLLS),
 				[ // Brötchen gekauft
 					new Bla(Keys_text.DLG_EHEWEIB_3A_1, mann)
-					, new Action([mann, weib, bratpfanne], ActionType.THROW)
+					, new InventoryAction(mann, broetchen, InventoryActionMode.REMOVE)
+					, new Action([mann, weib, broetchen], ActionType.THROW)
+					, new SetVictoryCondition(VictoryCondition.DELIVERED_ROLLS, true)
 					, new Bla(Keys_text.DLG_EHEWEIB_3A_2, weib)
 					, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MEHRKORN),
 						[ // 1 Wasserweck + 1 Mehrkorn
@@ -271,16 +273,18 @@ class Dialogues {
 	}
 	
 	static public function setGameEnd() {
+		Cfg.save();
 		if (Player.current() == Cfg.mann) {
 			// Mann:
 			Dialogue.insert( [
-				new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MEHRKORN), 
+				new BooleanBranch(function() { return Cfg.getVictoryCondition(VictoryCondition.MEHRKORN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS); }, 
 					[ // MEhrkorn
 						new Bla(Keys_text.GAME_ERFOLG, null)
 						, new ShowOther()
 					]
 					, [ // kein Mehrkorn...
 						new Bla(Keys_text.GAME_VERSAGT, null)
+						, new StartDialogue(TenUp3.getInstance().loadTheOneAndOnlyLevel)
 					]
 				)
 			] );
@@ -291,6 +295,7 @@ class Dialogues {
 					[ // Mathegenie
 						new Bla(Keys_text.GAME_ERFOLG, null)
 						, new ShowOther()
+						, new StartDialogue(TenUp3.getInstance().loadTheOneAndOnlyLevel)
 					]
 					, [ // Plus, minus, mal? Ist doch alles das selbe...
 						new Bla(Keys_text.GAME_VERSAGT, null)

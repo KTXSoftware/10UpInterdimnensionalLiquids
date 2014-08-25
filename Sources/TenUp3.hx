@@ -1,5 +1,7 @@
 package;
 
+import dialogue.BlaWithChoices;
+import dialogue.StartDialogue;
 import kha.Button;
 import kha.Color;
 import kha.Font;
@@ -29,6 +31,7 @@ import kha.Sprite;
 import kha.Storage;
 import kha.Tile;
 import kha.Tilemap;
+import localization.Keys_text;
 
 enum SubGame {
 	TEN_UP_3;
@@ -88,19 +91,20 @@ class TenUp3 extends Game {
 		Localization.buildKeys("../Assets/text.xml","text");
 		//Localization.load("text");
 		
+		loadTheOneAndOnlyLevel();
+	}
+	
+	public function loadTheOneAndOnlyLevel() {
 		Level.load("level1", initLevel);
 	}
 
 	function initLevel(): Void {
-		Random.init(Std.int(Scheduler.time() * 10000));
-		backbuffer = Image.createRenderTarget(800, 600);
+		backbuffer = Image.createRenderTarget(960, 600);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
 	}
 	
 	public function startGame() {
-		Cfg.init(); // TODO: load previous data
-		
 		switch(subgame) {
 		case SubGame.TEN_UP_3:
 			startGame_TenUp3();
@@ -130,39 +134,66 @@ class TenUp3 extends Game {
 	}
 	
 	var cfg: Cfg;
-	public function startGame_JustANormalDay() {
-		Player.current().inventory.itemWidth = 64;
-		Player.current().inventory.itemHeight = 64;
-		
-		if (Player.current() == Cfg.mann) {
-			// Reset Victory conditions:
-			Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
-			Cfg.setVictoryCondition(VictoryCondition.BOUGHT_ROLLS, false);
-			Cfg.setVictoryCondition(VictoryCondition.MEHRKORN, false);
-			Cfg.setVictoryCondition(VictoryCondition.CENT_TAKEN, false);
-			
-			// Play as Mann
-			Scene.the.addHero(Cfg.mann);
-			
-			if (Cfg.getVictoryCondition(VictoryCondition.CENT_DROPPED)) {
-				Cfg.cent.x = Cfg.verkaeuferin.x + 150;
-				Cfg.cent.y = Cfg.verkaeuferin.y;
-				Scene.the.addOther(Cfg.cent);
-			}
-			
-			Cfg.verkaeuferin.lookRight = false;
-			Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
-			Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+	function startGame_JustANormalDay() {
+		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN) == Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {
+			Dialogue.insert( [
+				new BlaWithChoices(Keys_text.DLG_SELECT_ROLE, null, [
+					[ new StartDialogue(initMan) ]
+					, [ new StartDialogue(initSeller) ]
+					, [ new StartDialogue((Math.random() < 0.5) ? initMan : initSeller) ]
+				])
+			] );
+		} else if (!Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN)) {
+			initMan();
 		} else {
-			// Play as Verkäuferin
-			Cfg.verkaeuferin.inventory.pick(Cfg.cent);
+			initSeller();
+		}
+	}
+	
+	function initMan() {
+		// Reset Victory conditions:
+		Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
+		Cfg.setVictoryCondition(VictoryCondition.BOUGHT_ROLLS, false);
+		Cfg.setVictoryCondition(VictoryCondition.DELIVERED_ROLLS, false);
+		Cfg.setVictoryCondition(VictoryCondition.MEHRKORN, false);
+		Cfg.setVictoryCondition(VictoryCondition.CENT_TAKEN, false);
+		
+		
+		Cfg.mann.setCurrent();
+		Cfg.mann.lookRight = false;
+		Scene.the.addHero(Cfg.mann);
+		
+		
+		Cfg.mann.inventory.pick(Cfg.euro);
+		
+		if (Cfg.getVictoryCondition(VictoryCondition.CENT_DROPPED)) {
+			Cfg.cent.x = Cfg.verkaeuferin.x + 150;
+			Cfg.cent.y = Cfg.verkaeuferin.y;
+			Scene.the.addOther(Cfg.cent);
 		}
 		
-		Scene.the.addHero(Cfg.verkaeuferin); // allways needed
-		Cfg.mann.inventory.pick(Cfg.euro); // allways needed
+		
+		Cfg.verkaeuferin.lookRight = false;
+		Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
+		Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+		Scene.the.addHero(Cfg.verkaeuferin);
 		
 		Dialogues.setStartDlg();
-		//Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, cent);
+	}
+	
+	function initSeller() {
+		// Reset Victory conditions:
+		Cfg.setVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN, true);
+		Cfg.setVictoryCondition(VictoryCondition.MATHEGENIE, false);
+		Cfg.setVictoryCondition(VictoryCondition.CENT_DROPPED, false);
+		
+		Cfg.verkaeuferin.setCurrent();
+		Scene.the.addHero(Cfg.verkaeuferin);
+		
+		// Play as Verkäuferin
+		Cfg.verkaeuferin.inventory.pick(Cfg.cent);
+		
+		Cfg.mann.inventory.pick(Cfg.euro); // allways needed
 	}
 	
 	public override function update() {
@@ -174,7 +205,7 @@ class TenUp3 extends Game {
 			case TEN_UP_3:
 				Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 			case JUST_A_NORMAL_DAY:
-				Scene.the.camy = Std.int(player.y + player.height + 80 - height);
+				Scene.the.camy = Std.int(player.y + player.height + 80 - 0.5 * height);
 		}
 		if (advanceDialogue) {
 			Dialogue.next();

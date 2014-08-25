@@ -31,7 +31,7 @@ class Action implements DialogueItem {
 			counter = 0;
 			switch(type) {
 				case ActionType.MG:
-					// TODO
+					Cfg.mafioso.useMg = true;
 				case ActionType.FADE:
 					TenUp3.getInstance().renderOverlay = true;
 					TenUp3.getInstance().overlayColor = Color.fromValue(0x00000000);
@@ -39,8 +39,8 @@ class Action implements DialogueItem {
 					var from = sprites[0];
 					var to = sprites[1];
 					var proj = sprites[2];
-					var spos = new Vector2(from.x + 0.5 * from.y, from.y + 0.5 * from.height);
-					var dpos = new Vector2(to.x + 0.5 * to.width, to.y + 0.5 * to.height);
+					var spos = new Vector2(from.x + 0.5 * from.width, from.y + 0.2 * from.height);
+					var dpos = new Vector2(to.x + 0.5 * to.width, to.y + 0.2 * to.height);
 					var speed = dpos.sub(spos);
 					speed.length = proj.speedx;
 					proj.x = spos.x;
@@ -68,6 +68,7 @@ class Action implements DialogueItem {
 						TenUp3.getInstance().overlayColor.Ab = counter;
 					}
 				case ActionType.THROW:
+					autoAdvance = false;
 					actionFinished();
 			}
 		}

@@ -2,7 +2,7 @@
 	"format": 1,
 	"game": {
 		"name": "SML",
-		"width": 800,
+		"width": 960,
 		"height": 600
 	},
 	"assets": [
@@ -145,11 +145,6 @@
 			"type": "image",
 			"file": "liquids.png",
 			"name": "liquids",
-			"background": {
-				"red": 255,
-				"green": 174,
-				"blue": 201
-			},
 			"scale": 2
 		},
 		{
@@ -334,6 +329,54 @@
 			"type": "image",
 			"file": "haze.png",
 			"name": "haze"
+		},
+		{
+			"id": "158e28a2-c261-4dee-9cdd-63ee75f991b9",
+			"type": "image",
+			"file": "fishy.png",
+			"name": "fishy",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
+		},
+		{
+			"id": "ff27f696-4aa1-47e8-9f4d-bf03263d5178",
+			"type": "image",
+			"file": "boss.png",
+			"name": "boss",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
+		},
+		{
+			"id": "0b2f792e-f476-40c9-9e4c-d9c72892c9a6",
+			"type": "image",
+			"file": "door.png",
+			"name": "door",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
+		},
+		{
+			"id": "9008d05e-00da-4065-9e71-f37236b34524",
+			"type": "image",
+			"file": "theke.png",
+			"name": "theke",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
 		}
 	],
 	"rooms": [
@@ -380,7 +423,11 @@
 				"334155cf-3ba6-41df-a62d-56164e299099",
 				"0173a8b3-4118-4a79-a51c-1af54bd1792e",
 				"0d97149b-727c-4657-926a-bfcf884e4261",
-				"115f1278-9f46-4d1d-9e78-aaa09befbaac"
+				"115f1278-9f46-4d1d-9e78-aaa09befbaac",
+				"158e28a2-c261-4dee-9cdd-63ee75f991b9",
+				"ff27f696-4aa1-47e8-9f4d-bf03263d5178",
+				"0b2f792e-f476-40c9-9e4c-d9c72892c9a6",
+				"9008d05e-00da-4065-9e71-f37236b34524"
 			]
 		},
 		{

@@ -7,8 +7,10 @@ import kha.Configuration;
 import kha.Game;
 import kha.Loader;
 import kha.LoadingScreen;
+import kha.math.Random;
 import kha.math.Vector2i;
 import kha.Scene;
+import kha.Scheduler;
 import kha.Sprite;
 import kha.Storage;
 import kha.Tile;
@@ -45,6 +47,8 @@ class Level {
 		//Storage.defaultFile().write(null);
 		Cfg.init();
 		
+		Random.init(Std.int(Scheduler.time() * 10000));
+		
 		var tileColissions = new Array<Tile>();
 		for (i in 0...600) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
@@ -79,11 +83,11 @@ class Level {
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
 		var liquidMap = new Array<Array<Int>>();
-		var water = false;
+		var normalday = false;
 		#if JUST_A_NORMAL_DAY
-		water = true;
+		normalday = true;
 		#end
-		if (water && Cfg.getVictoryCondition(VictoryCondition.WATER)) {
+		if (normalday && Cfg.getVictoryCondition(VictoryCondition.WATER)) {
 			for (x in 0...levelWidth) {
 				liquidMap.push(new Array<Int>());
 				for (y in 0...levelHeight) {
@@ -99,7 +103,7 @@ class Level {
 				}
 			}
 		}
-		else if (Cfg.getMap() != null) {
+		else if (normalday && Cfg.getMap() != null) {
 			liquidMap = Cfg.getMap();
 		}
 		else {
@@ -162,32 +166,32 @@ class Level {
 			}
 			switch (sprites[i * 3]) {
 			case 0: // Eheweib
-				sprite = new Sprite(Loader.the.getImage("eheweib"));
-				sprite.x = x;
-				sprite.y = y;
-				sprite.accy = 0;
-				Cfg.eheweib = sprite;
-				Scene.the.addEnemy(sprite);
+				Cfg.eheweib = new Weib(x, y);
+				Scene.the.addEnemy(Cfg.eheweib);
 			case 1: // Mann
 				if (Cfg.mann == null) {
 					Cfg.mann = new ZeroEightFifteenMan(x, y);
+					Cfg.mann.inventory.itemWidth = 64;
+					Cfg.mann.inventory.itemHeight = 64;
 				}
 				Cfg.mannPositions.push(new Vector2i(x, y));
 			case 2: // Verkaeuferin
 				if (Cfg.verkaeuferin == null) {
 					Cfg.verkaeuferin = new Verkaeuferin(x, y);
+					Cfg.verkaeuferin.inventory.itemWidth = 64;
+					Cfg.verkaeuferin.inventory.itemHeight = 64;
 				}
 				Cfg.verkaeuferinPositions.push(new Vector2i(x, y));
-			/*case 3: // door
-				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addOther(sprite);*/
+			case 3: // door
+				sprite = new Door(x, y);
+				Scene.the.addProjectile(sprite);
 			case 4: // theke
-				sprite = new TenUpShelf(x, y);
+				sprite = new Theke(x, y);
 				Cfg.theke = sprite;
 				Scene.the.addEnemy(sprite);
-			/*case 5: // backdoor
-				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
-				Scene.the.addOther(sprite);*/
+			case 5: // backdoor
+				sprite = new Door(x, y);
+				Scene.the.addProjectile(sprite);
 			case 6: // mafioso
 				Cfg.mafioso = new Mafioso(x, y);
 				Scene.the.addEnemy(Cfg.mafioso);
@@ -197,10 +201,18 @@ class Level {
 				sprite = new TenUpShelf(x, y);
 				Scene.the.addEnemy(sprite);
 			default:
-				trace("That should never happen! We are therefore going to ignore it.");
+				//trace("That should never happen! We are therefore going to ignore it.");
 				continue;
 			}
 		}
+		
+		#if JUST_A_NORMAL_DAY
+		if (Cfg.getVictoryCondition(VictoryCondition.WATER)) {
+			for (i in 0...2) {
+				Scene.the.addEnemy(new Fishman(Random.getIn(500, 1800), 400));
+			}
+		}
+		#end
 		
 		Configuration.setScreen(TenUp3.getInstance());
 		done();
