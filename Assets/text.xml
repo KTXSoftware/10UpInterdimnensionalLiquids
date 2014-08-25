@@ -41,6 +41,10 @@
 		(1): Den Ehemann
 		(2): Die Verkäuferin
 		(3): Zufällig</de>
+	<en>Wo do you want to play?
+		(1): The husband
+		(2): The clerk
+		(3): Randomize</en>
 </dlg_Select_Role>
 
 <!-- starte als mann -->
@@ -69,19 +73,24 @@
 	<en>Yes bonny...</en>
 </dlg_Start_6>
 
-<!-- starte als verk�uferin -->
+<!-- starte als verkäuferin -->
 <dlg_Verk_Start_1>
-	<de>Ich sollte mich beleien, sonst komme ich zu sp�t zur Arbeit!</de>
+	<de>Ich sollte mich beeilen, sonst komme ich zu spät zur Arbeit!</de>
+	<en>I should hurry or else I'll be late for work.</en>
 </dlg_Verk_Start_1>
 <dlg_Verk_Start_Falsche_Richtung>
-	<de>Die B�ckerei ist in der anderen Richtung!</de>
+	<de>Die Bäckerei ist in der anderen Richtung!</de>
+	<en>The bakery lies to the other direction!</en>
 </dlg_Verk_Start_Falsche_Richtung>
 <dlg_Verk_Start_2>
 	<de>Wird aber auch Zeit, dass du Auftauchst!
 		Und jetzt ab an die Arbeit.</de>
+	<en>About time you show up!
+		Now get to work.</en>
 </dlg_Verk_Start_2>
 <dlg_Verk_Start_3>
-	<de>Einige Zeit sp�ter...</de>
+	<de>Einige Zeit später...</de>
+	<en>Some time later...</en>
 </dlg_Verk_Start_3>
 
 <!-- GELD GEFUNDEN -->
@@ -122,7 +131,7 @@
 <dlg_Geld_Verlohren_1b>
 	<de>Da kullert ein Cent. Der ist mir wohl aus der Tasche gefallen...
 
-... Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit.</de>
+		Zeit ist Geld. Ich komme sowieso schon zu Spät zur Arbeit.</de>
 	<en>Time is money. I'm already late for work.</en>
 </dlg_Geld_Verlohren_1b>
 
@@ -175,113 +184,149 @@
 </dlg_Verkaufen_2a_2a_1>
 <dlg_Verkaufen_2a_2a_2>
 	<de>Die Preise von Mehrkornbrötchen wurden von 50 Cent auf 51 Cent angehoben.</de>
+	<en>The prices for Kaiser rolls were increased from 50 Cents to 51 Cents.</en>
 </dlg_Verkaufen_2a_2a_2>
 <dlg_Verkaufen_2a_2a_3_c>
 	<de>(1): Da kann ich nichts machen. Möchen sie Stattdessen 2 Wasserweck?
 (2): Aber für heute kann ich darüber hinwegsehen.</de>
+	<en>(1): Can't help you there. Would you you like to have two Blaas instead?
+		(2): I can turn a blind eye on that today.</en>
 </dlg_Verkaufen_2a_2a_3_c>
 <dlg_Verkaufen_2a_2a_3a>
 	<de>Da kann ich nichts machen. Möchen sie stattdessen 2 Wasserweck?</de>
+	<en>Can't help you there. Would you you like to have two Blaas instead?</en>
 </dlg_Verkaufen_2a_2a_3a>
 <dlg_Verkaufen_2a_2a_3b>
 	<de>Aber für heute kann ich darüber hinwegsehen.</de>
+	<en>I can turn a blind eye on that today.</en>
 </dlg_Verkaufen_2a_2a_3b>
 
 <dlg_Verkaufen_2a_2a_3a_1>
-	<de>Ja, dableibt mir wohl nichts übrig. [Geld geben]</de>
+	<de>Ja, da bleibt mir wohl nichts übrig. [Geld geben]</de>
+	<en>Looks like there is nothing I can do. [give money]</en>
 </dlg_Verkaufen_2a_2a_3a_1>
 <dlg_Verkaufen_2a_2a_3b_1>
 	<de>Vielen vielen Dank, sie retten mir mein Leben! [Geld geben]</de>
+	<en>Many many thanks, you save my life! [give money]</en>
 </dlg_Verkaufen_2a_2a_3b_1>
 
 <dlg_Verkaufen_2a_2b_1_c>
 	<de>(1): Entschuldigen sie Bitte! Das ist nur ein Euro.
 (2): Und hier sind ihre Brötchen. Wünsche einen schönen Tag. [Brötchen geben]</de>
+	<en>(1): Excuse me but that is just one Euro.
+(2): And there are your bread rolls. Have a nice day. [give bread rolls]</en>
 </dlg_Verkaufen_2a_2b_1_c>
 <dlg_Verkaufen_2a_2b_1a>
 	<de>Entschuldigen sie Bitte! Das ist nur ein Euro.</de>
+	<en>Excuse me but that is just one Euro.</en>
 </dlg_Verkaufen_2a_2b_1a>
 <dlg_Verkaufen_2a_2b_1a_1>
 	<de>Mehr Geld habe ich leider nicht.</de>
+	<en>And there are your bread rolls. Have a nice day.</en>
 </dlg_Verkaufen_2a_2b_1a_1>
 
 <dlg_Verkaufen_2b_1>
 	<de>Ein Euro, bitte.</de>
+	<en>One Euro, please.</en>
 </dlg_Verkaufen_2b_1>
 <dlg_Verkaufen_2b_2>
 	<de>Ein Euro. [Geld geben]</de>
+	<en>One Euro. [give money]</en>
 </dlg_Verkaufen_2b_2>
 
 <dlg_Verkaufen_Erfolg_1>
 	<de>Und hier sind ihre Brötchen. Wünsche einen schönen Tag.</de>
+	<en>And there are your bread rolls. Have a nice day.</en>
 </dlg_Verkaufen_Erfolg_1>
 <dlg_Verkaufen_Erfolg_2>
 	<de>Vielen Dank. Auf wiedersehen.</de>
+	<en>Thank you, good bye.</en>
 </dlg_Verkaufen_Erfolg_2>
 
 
 <!-- Gefeuert werden -->
 <dlg_Arbeitslos_1>
 	<de>Was soll das! Kannst du nichtmal den Preis von zwei Brötchen addieren?</de>
+	<en>What's that? Can't you count the prices of two bread rolls.</en>
 </dlg_Arbeitslos_1>
 <dlg_Arbeitslos_2>
 	<de>Was Glaubst du Wohl, wie ich mein Brötchenimperium aufgebaut habe?</de>
+	<en>How do you think I build my bread roll empire?</en>
 </dlg_Arbeitslos_2>
 <dlg_Arbeitslos_3_c>
 	<de>(1): [schweigen]
-(2): Mit dem Geld aus euerem Drogenimperium?</de>
+		(2): Mit dem Geld aus euerem Drogenimperium?</de>
+	<en>(1): [say nothing]
+		(2): By using the money from your drugs empire?</en>
 </dlg_Arbeitslos_3_c>
 <dlg_Arbeitslos_3a>
 	<de>*schweigt*</de>
+	<en>*silence*</en>
 </dlg_Arbeitslos_3a>
 <dlg_Arbeitslos_3b>
 	<de>Mit dem Geld aus euerem Drogenimperium?</de>
+	<en>By using the money from your drugs empire?</en>
 </dlg_Arbeitslos_3b>
 
 <dlg_Arbeitslos_3a_1>
 	<de>Bestimmt nicht, weil ich etwas was verschenke!
-
-Du bist gefeuert!</de>
+		
+		Du bist gefeuert!</de>
+	<en>Not because I give stuff away!
+		
+		You're fired!</en>
 </dlg_Arbeitslos_3a_1>
 
 <dlg_Arbeitslos_3b_1>
 	<de>Du weißt zu viel...</de>
+	<en>You know too much...</en>
 </dlg_Arbeitslos_3b_1>
 
 <!-- FRAU BEKOMMT IHRE BRÖTCHEN... -->
 <dlg_Eheweib_1>
 	<de>Endlich zurück!
 Hast ziemlich lange gebraucht!</de>
+	<en>Back at last!
+		You took your time!</en>
 </dlg_Eheweib_1>
 <dlg_Eheweib_2>
 	<de>Worauf wartest du? Schmeiß die Brötchen rauf!</de>
+	<en>What are you waiting for? Toss me the bread rolls!</en>
 </dlg_Eheweib_2>
 <dlg_Eheweib_3a_1>
 	<de>Ja Schatz...</de>
+	<en>Yes honey...</en>
 </dlg_Eheweib_3a_1>
 <dlg_Eheweib_3b_1>
 	<de>Ich habe noch keine Brötchen...</de>
+	<en>I don't have the bread rolls yet...</en>
 </dlg_Eheweib_3b_1>
 <dlg_Eheweib_3a_2>
 	<de>*raschel*
-*schmatz*</de>
+		*schmatz*</de>
+	<en>*rustle*
+		*omnomnom*</en>
 </dlg_Eheweib_3a_2>
 <dlg_Eheweib_3a_3>
 	<de>Was fällt dir ein mir zwei Wasserweck zu bringen?</de>
+	<en>What are you thinking, getting me two Blaas?</en>
 </dlg_Eheweib_3a_3>
 <dlg_Eheweib_3a_4>
 	<de>Sieh zu, dass du mir mein Mehrkornbrötchen bringst, sonst kannst du aber was Erleben! [schmeißt Bratpfanne]</de>
+	<en>Get me my Kaiser roll or you'll get it! [throws frying pan]</en>
 </dlg_Eheweib_3a_4>
 
 <!-- SPIEL ENDE -->
 <game_versagt>
 	<de>Versagt...</de>
+	<en>Failure...</en>
 </game_versagt>
 <game_erfolg>
 	<de>Welch ein normaler Tag... (Gewonnen?)</de>
+	<en>Such a normal day... (You win)</en>
 </game_erfolg>
 <game_erfolg_2>
-	<de>Ja, welch ein normaler Tag. (Gewonnen!)</de>
+	<de>Ja, nur ein ganz normaler Tag. (Gewonnen!)</de>
 	<en>Yes, just a normal day. (Won!)</en>
 </game_erfolg_2>
 <game_erfolg_3>
@@ -298,30 +343,39 @@ Hast ziemlich lange gebraucht!</de>
 </game_erfolg_3>
 <game_aber>
 	<de>Anderswo zur gleichen Zeit...</de>
+	<en>Elsewhere just now...</en>
 </game_aber>
 
 <!-- TEN UP INTRO -->
 <prof1>
 	<de>Die Mafia hat unseren 10Up-Transporter überfallen. Die örtliche Bäckerei ist ihr Hauptquartier. Ich werde dort einbrechen und unseren Geheimdrunk wiederbeschaffen.</de>
+	<en>The Mafia robbed our 10Up transporter. The local bakery contains their headquarters. I'll break in and get our secret drinks back.</en>
 </prof1>
 <prof2>
 	<de>Mit meinem brandneuen Portalgenerator kann ich kleine Wurmlöcher zu weit entfernten Planeten erzeugen und so deren flüssige oder gasförmige Rohstoffe anzapfen.</de>
+	<en>Using my brand new portal generator I can draw off liquids and gasses from far away planets.</en>
 </prof2>
 <prof3>
 	<de>Ich habe die Technik für die örtliche Feuerwehr entworfen, um auch in unwegsamen Gelände stets eine ausreichende Wasserversorgung sicherzustellen.</de>
+	<en>I designed the device for the local fire brigade, so they have adequate water supply wherever they go.</en>
 </prof3>
 <prof4>
 	<de>Ich habe aber auch weitere interessante Planeten gefunden. Ein spontan erzeugter Magmafluss zum Beispiel kann viele anstrengende Diskussionen verkürzen.</de>
+	<en>But I found additional interesting planets. Spontaneously creating a river of lava can shorten many annoying discussions.</en>
 </prof4>
 <prof5>
 	<de>Aus Sicherheitsgründen bin ich in meinem teuersten Schuhwerk unterwegs, mit dem ich mich über jegliche Flüssigkeit bewegen kann. Jegliche Flüssigkeit außer flüssiger Magma zumindest.</de>
+	<en>For safety reasons I use my advanced security shoes, which will keep me on top of any liquid. Well, any liquid but hot magma of course.</en>
 </prof5>
 <prof6>
 	<de>Mein 10Up-Vorrat! Nun aber nichts wie weg und zurück zu meinem Absetzpunkt.</de>
+	<en>My 10Up stock! Now let's get out of here and back to my drop zone.</en>
 </prof6>
 <prof7>
 	<de>Exquisit, Sie haben das Spiel erfolgreich abgeschlossen. Merken Sie sich die Zahl 137, sie kann Ihnen im ConnGame weiterhelfen. Meinem Eindruck nach werden Sie die Hilfe nötig haben.</de>
+	<en>Exquisite, you successfully finished the game. Remember the number 137, it can help you out in the ConnGame. You will probably need any help you can get.</en>
 </prof7>
 <prof8>
 	<de>Ich bin hin.</de>
+	<en>I'm gone.</en>
 </prof8>

@@ -28,7 +28,7 @@ class ZeroEightFifteenMan extends Player {
 		walkRight = Animation.createRange(1, 8, 4);
 		standLeft = Animation.create(9);
 		standRight = Animation.create(0);
-		jumpLeft = Animation.create(1);
+		jumpLeft = Animation.create(11);
 		jumpRight = Animation.create(2);
 	}
 	
