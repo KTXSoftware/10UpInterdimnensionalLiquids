@@ -82,8 +82,10 @@ class ZeroEightFifteenMan extends Player {
 	private function die(): Void {
 		if (health > 0) {
 			health = 0;
-			if (lookRight) setAnimation(Animation.create(22));
-			else setAnimation(Animation.create(23));
+			if (lookRight) angle = Math.PI * 3 / 4;
+			else angle = Math.PI * 0.5;
+			originX = collider.width / 2;
+			originY = collider.height;
 			speedx = 0;
 			Scheduler.addTimeTask(Dialogues.setGameEnd, 1);
 		}
