@@ -61,17 +61,12 @@ class PlayerProfessor extends Player {
 		}
 		
 		if (foundTenUp && x < 300 && !finishedGame) {
-			Dialogues.startProfWinDialog(this);
-			finishedGame = true;
+			win();
 		}
 		
 		var tile = Level.liquids.index(x + collider.width / 2, y + collider.height);
 		if (!gameover && Lava.isLava(Level.liquids.get(tile.x, tile.y))) {
-			Dialogues.startProfLooseDialog(this);
-			gameover = true;
-			if (lookRight) setAnimation(Animation.create(22));
-			else setAnimation(Animation.create(23));
-			speedx = 0;
+			die();
 		}
 	}
 	
@@ -96,10 +91,12 @@ class PlayerProfessor extends Player {
 		if (gameover) return;
 		//Scene.the.addOther(new Water(x + 10, y));
 		//Scene.the.addOther(new Lava(x + 10, y));
+		Cfg.setVictoryCondition(VictoryCondition.WATER, false);
 		var dir = new Vector2(TenUp3.instance.mouseX, TenUp3.instance.mouseY).sub(new Vector2(x, y));
 		dir.length = 4;
 		if (lastPortal != null) {
 			lastPortal.remove();
+			lastPortal = null;
 			Scene.the.removeOther(lastPortal);
 		}
 		if (inventory.selectedIndex() != 3) Scene.the.addOther(lastPortal = new Portal(x + 10, y, dir.x, dir.y, inventory.selectedIndex()));
@@ -125,26 +122,52 @@ class PlayerProfessor extends Player {
 		if (!foundTenUp && Std.is(sprite, TenUpShelf)) {
 			Dialogues.startProfGotItDialog(this);
 			foundTenUp = true;
-			var gas: Int = 0;
-			for (i in 0...Scene.the.countOthers()) {
-				var other = Scene.the.getOther(i);
-				if (Std.is(other, Gas) && other.x > 1920 && other.y < 500) {
-					++gas;
-				}
-			}
-			if (gas > 30) {
+			if (lotsOfGas()) {
 				
 			}
 			else {
 				Scene.the.addEnemy(new Mafioso(1920, 440));
 			}
+			Cfg.setVictoryCondition(VictoryCondition.TENUPWEG, true);
+			Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
+			Cfg.setMap(Level.getSaveMap());
+			Cfg.save();
 		}
 		else if (!gameover && Std.is(sprite, Shot)) {
-			Dialogues.startProfLooseDialog(this);
-			gameover = true;
-			if (lookRight) setAnimation(Animation.create(22));
-			else setAnimation(Animation.create(23));
-			speedx = 0;
+			die();
 		}
+	}
+	
+	private function lotsOfGas(): Bool {
+		var gas: Int = 0;
+		for (i in 0...Scene.the.countOthers()) {
+			var other = Scene.the.getOther(i);
+			if (Std.is(other, Gas) && other.x > 1920 && other.y < 500) {
+				++gas;
+			}
+		}
+		return gas > 30;
+	}
+	
+	private function win(): Void {
+		Dialogues.startProfWinDialog(this);
+		finishedGame = true;
+		Cfg.setMap(Level.getSaveMap());
+		Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
+		Cfg.setVictoryCondition(VictoryCondition.SLEEPY, lotsOfGas());
+		Cfg.save();
+	}
+	
+	private function die(): Void {
+		Dialogues.startProfLooseDialog(this);
+		gameover = true;
+		if (lookRight) setAnimation(Animation.create(22));
+		else setAnimation(Animation.create(23));
+		speedx = 0;
+		Cfg.setMap(Level.getSaveMap());
+		Cfg.setProfPosition(x, y);
+		Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
+		Cfg.setVictoryCondition(VictoryCondition.SLEEPY, lotsOfGas());
+		Cfg.save();
 	}
 }

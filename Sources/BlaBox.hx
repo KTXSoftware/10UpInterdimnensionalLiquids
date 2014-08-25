@@ -53,6 +53,9 @@ class BlaBox {
 		if (y + height + 50 > sy) {
 			y -= Math.max(45, y + height + 50 - sy);
 		}
+		if (y < 0) {
+			y = 0;
+		}
 		
 		
 		g.color = Color.White;

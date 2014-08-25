@@ -11,7 +11,7 @@ class Portal extends Sprite {
 	private var count: Int = 0;
 	private var water: Water;
 	private var lava: Lava;
-	private var canIndex: Int;
+	public var canIndex: Int;
 	
 	public function new(x: Float, y: Float, speedx: Float, speedy: Float, canIndex: Int) {
 		super(Loader.the.getImage('portal'), 32, 32);
@@ -38,6 +38,7 @@ class Portal extends Sprite {
 		speedy = 0;
 		switch (canIndex) {
 			case 0:
+				Cfg.setVictoryCondition(VictoryCondition.WATER, true);
 				switch (dir) {
 					case UP:
 						setAnimation(Animation.create(2));

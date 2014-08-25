@@ -1,5 +1,7 @@
 package;
 
+import haxe.io.Bytes;
+import kha.Blob;
 import kha.Color;
 import kha.Configuration;
 import kha.Game;
@@ -8,6 +10,7 @@ import kha.LoadingScreen;
 import kha.math.Vector2i;
 import kha.Scene;
 import kha.Sprite;
+import kha.Storage;
 import kha.Tile;
 import kha.Tilemap;
 
@@ -17,6 +20,8 @@ class Level {
 	private static var done: Void -> Void;
 	public static var tilemap: Tilemap;
 	public static var liquids: Tilemap;
+	private static var levelWidth: Int;
+	private static var levelHeight: Int;
 	
 	public static function load(levelName: String, done: Void -> Void): Void {
 		Level.levelName = levelName;
@@ -25,15 +30,29 @@ class Level {
 		Loader.the.loadRoom(levelName, initLevel);
 	}
 	
+	public static function getSaveMap(): Array<Array<Int>> {
+		var map = new Array<Array<Int>>();
+		for (x in 0...levelWidth) {
+			map.push(new Array<Int>());
+			for (y in 0...levelHeight) {
+				map[x].push(liquids.get(x, y));
+			}
+		}
+		return map;
+	}
+	
 	private static function initLevel(): Void {
+		//Storage.defaultFile().write(null);
+		Cfg.init();
+		
 		var tileColissions = new Array<Tile>();
 		for (i in 0...600) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
 		}
 		var blob = Loader.the.getBlob(levelName);
 		blob.reset();
-		var levelWidth: Int = blob.readS32BE();
-		var levelHeight: Int = blob.readS32BE();
+		levelWidth = blob.readS32BE();
+		levelHeight = blob.readS32BE();
 		var originalmap = new Array<Array<Int>>();
 		for (x in 0...levelWidth) {
 			originalmap.push(new Array<Int>());
@@ -60,12 +79,44 @@ class Level {
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
 		var liquidMap = new Array<Array<Int>>();
-		for (x in 0...levelWidth) {
-			liquidMap.push(new Array<Int>());
-			for (y in 0...levelHeight) {
-				liquidMap[x].push(isCollidable(originalmap[x][y]) ? 0 : 1);
+		if (Cfg.getVictoryCondition(VictoryCondition.WATER)) {
+			for (x in 0...levelWidth) {
+				liquidMap.push(new Array<Int>());
+				for (y in 0...levelHeight) {
+					liquidMap[x].push(isCollidable(originalmap[x][y]) ? 0 : 1);
+				}
+			}
+			for (x in 0...levelWidth) {
+				for (y in 0...levelHeight) {
+					if (liquidMap[x][y] == 1) {
+						if (y == 14) liquidMap[x][y] = 3;
+						else if (y > 14) liquidMap[x][y] = 17;
+					}
+				}
 			}
 		}
+		else if (Cfg.getMap() != null) {
+			liquidMap = Cfg.getMap();
+		}
+		else {
+			for (x in 0...levelWidth) {
+				liquidMap.push(new Array<Int>());
+				for (y in 0...levelHeight) {
+					liquidMap[x].push(isCollidable(originalmap[x][y]) ? 0 : 1);
+				}
+			}
+		}
+		
+		#if JUST_A_NORMAL_DAY
+			for (x in 0...levelWidth) {
+				for (y in 0...levelHeight) {
+					if (Lava.isLava(liquidMap[x][y])) {
+						liquidMap[x][y] += 18;
+					}
+				}
+			}
+		#end
+		
 		var liquidTiles = new Array<Tile>();
 		for (i in 0...100) liquidTiles.push(new LiquidTile(i));
 		liquids = new Tilemap("liquids", 32, 32, liquidMap, liquidTiles);
