@@ -127,7 +127,18 @@ class Portal extends Sprite {
 					case 1:
 						Scene.the.addProjectile(new LavaSplash(x, y, speedx, speedy));
 					case 2:
-						if (count % 50 == 0) Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100, y));
+						if (count % 50 == 0) {
+							switch (animation.get()) {
+								case 1: // Left
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 5, y + 10, -2, 0));
+								case 2: // Up
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 10, y, 0, 0));
+								case 3: // Down
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 10, y, 0, 4));
+								case 4: // Right
+									Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100 + 10, y + 10, 2, 0));
+							}
+						}
 				}
 			}
 		}
