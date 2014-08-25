@@ -135,14 +135,14 @@ class TenUp3 extends Game {
 		Player.current().inventory.itemHeight = 64;
 		
 		if (Player.current() == Cfg.mann) {
+			// Play as Mann
+			Scene.the.addHero(Cfg.mann);
+			
 			// Reset Victory conditions:
 			Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
 			Cfg.setVictoryCondition(VictoryCondition.BOUGHT_ROLLS, false);
 			Cfg.setVictoryCondition(VictoryCondition.MEHRKORN, false);
 			Cfg.setVictoryCondition(VictoryCondition.CENT_TAKEN, false);
-			
-			// Play as Mann
-			Scene.the.addHero(Cfg.mann);
 			
 			if (Cfg.getVictoryCondition(VictoryCondition.CENT_DROPPED)) {
 				Cfg.cent.x = Cfg.verkaeuferin.x + 150;
@@ -156,6 +156,11 @@ class TenUp3 extends Game {
 		} else {
 			// Play as Verkäuferin
 			Cfg.verkaeuferin.inventory.pick(Cfg.cent);
+			
+			// Reset Victory conditions:
+			Cfg.setVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN, true);
+			Cfg.setVictoryCondition(VictoryCondition.MATHEGENIE, false);
+			Cfg.setVictoryCondition(VictoryCondition.CENT_DROPPED, false);
 		}
 		
 		Scene.the.addHero(Cfg.verkaeuferin); // allways needed

@@ -248,7 +248,8 @@ class Dialogues {
 			, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.BOUGHT_ROLLS),
 				[ // Brötchen gekauft
 					new Bla(Keys_text.DLG_EHEWEIB_3A_1, mann)
-					, new Action([mann, weib, bratpfanne], ActionType.THROW)
+					, new InventoryAction(mann, broetchen, InventoryActionMode.REMOVE)
+					, new Action([mann, weib, broetchen], ActionType.THROW)
 					, new Bla(Keys_text.DLG_EHEWEIB_3A_2, weib)
 					, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MEHRKORN),
 						[ // 1 Wasserweck + 1 Mehrkorn

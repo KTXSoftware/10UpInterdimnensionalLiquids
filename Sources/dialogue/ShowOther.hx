@@ -23,10 +23,10 @@ class ShowOther extends Bla
 			Cfg.mann.x = Cfg.mannPositions[0].x;
 			Cfg.mann.y = Cfg.verkaeuferinPositions[0].y;
 			Cfg.mann.lookRight = false;
-			Scene.the.removeHero(Cfg.verkaeuferin);
-			Scene.the.addHero(Cfg.verkaeuferin);
-			Cfg.verkaeuferin.setCurrent();
-			Dialogues.setGefeuertDlg();
+			Scene.the.removeHero(Cfg.mann);
+			Scene.the.addHero(Cfg.mann);
+			Cfg.mann.setCurrent();
+			Dialogues.setMannEndeDlg();
 		}
 		super.execute();
 	}

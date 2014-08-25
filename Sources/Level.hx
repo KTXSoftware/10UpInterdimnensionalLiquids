@@ -162,12 +162,8 @@ class Level {
 			}
 			switch (sprites[i * 3]) {
 			case 0: // Eheweib
-				sprite = new Sprite(Loader.the.getImage("eheweib"));
-				sprite.x = x;
-				sprite.y = y;
-				sprite.accy = 0;
-				Cfg.eheweib = sprite;
-				Scene.the.addEnemy(sprite);
+				Cfg.eheweib = new Weib(x, y);
+				Scene.the.addEnemy(Cfg.eheweib);
 			case 1: // Mann
 				if (Cfg.mann == null) {
 					Cfg.mann = new ZeroEightFifteenMan(x, y);
