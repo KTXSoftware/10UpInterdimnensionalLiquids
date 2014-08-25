@@ -302,6 +302,7 @@ class Dialogues {
 		Cfg.save();
 		if (Player.current() == Cfg.mann) {
 			// Mann:
+			Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
 			Dialogue.insert( [
 				new Action(null, ActionType.FADE_TO_BLACK)
 				, new BooleanBranch(function() { return Cfg.getVictoryCondition(VictoryCondition.MEHRKORN) && Cfg.getVictoryCondition(VictoryCondition.DELIVERED_ROLLS); }, 
@@ -322,8 +323,9 @@ class Dialogues {
 				)
 				, new StartDialogue(restartGameDlg)
 			] );
-		} else if (Player.current() == Cfg.mann) {
+		} else if (Player.current() == Cfg.verkaeuferin) {
 			// Frau:
+			Cfg.setVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN, true);
 			Dialogue.insert( [
 				new Action(null, ActionType.FADE_TO_BLACK)
 				, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MATHEGENIE), 
@@ -355,7 +357,7 @@ class Dialogues {
 	}
 	
 	static public function restartGameDlg() {
-		Dialogue.insert( [
+		Dialogue.set( [
 			new Action(null, ActionType.FADE_TO_BLACK)
 			, new StartDialogue(TenUp3.getInstance().loadTheOneAndOnlyLevel)
 		] );

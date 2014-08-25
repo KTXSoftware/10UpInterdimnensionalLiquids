@@ -37,7 +37,7 @@ class Action implements DialogueItem {
 					TenUp3.getInstance().renderOverlay = true;
 					counter = TenUp3.getInstance().overlayColor.Ab;
 				case ActionType.FADE_FROM_BLACK:
-					counter = 255;
+					counter = TenUp3.getInstance().overlayColor.Ab;
 				case ActionType.THROW:
 					var from = sprites[0];
 					var to = sprites[1];
@@ -64,7 +64,7 @@ class Action implements DialogueItem {
 				case ActionType.FADE_TO_BLACK:
 					++counter;
 					++counter;
-					if (counter >= 256) {
+					if (!TenUp3.getInstance().renderOverlay || counter >= 256) {
 						actionFinished();
 					} else {
 						TenUp3.getInstance().overlayColor.Ab = counter;

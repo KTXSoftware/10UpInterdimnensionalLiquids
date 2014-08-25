@@ -180,7 +180,6 @@ class TenUp3 extends Game {
 	
 	function initMan() {
 		// Reset Victory conditions:
-		Cfg.setVictoryCondition(VictoryCondition.PLAYED_MANN, true);
 		Cfg.setVictoryCondition(VictoryCondition.BOUGHT_ROLLS, false);
 		Cfg.setVictoryCondition(VictoryCondition.DELIVERED_ROLLS, false);
 		Cfg.setVictoryCondition(VictoryCondition.MEHRKORN, false);
@@ -212,7 +211,6 @@ class TenUp3 extends Game {
 	
 	function initSeller() {
 		// Reset Victory conditions:
-		Cfg.setVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN, true);
 		Cfg.setVictoryCondition(VictoryCondition.MATHEGENIE, false);
 		Cfg.setVictoryCondition(VictoryCondition.CENT_DROPPED, false);
 		
@@ -224,6 +222,8 @@ class TenUp3 extends Game {
 		Cfg.verkaeuferin.inventory.pick(Cfg.cent);
 		
 		Cfg.mann.inventory.pick(Cfg.euro); // allways needed
+		
+		Dialogues.setVerkStartDlg();
 	}
 	
 	public override function update() {
@@ -363,10 +363,14 @@ class TenUp3 extends Game {
 					choices.push( [ new StartDialogue(Dialogues.restartGameDlg) ] );
 					var i = 2;
 					for (l in Localization.availableLanguages.keys()) {
-						choices.push([new StartDialogue(function() { Cfg.language = l; } )]);
-						msg += '\n($i): Set language to "${Localization.availableLanguages[l]}"';
-						++i;
+						if (l != Cfg.language) {
+							choices.push([new StartDialogue(function() { Cfg.language = l; } )]);
+							msg += '\n($i): Set language to "${Localization.availableLanguages[l]}"';
+							++i;
+						}
 					}
+					msg += '\n($i): Back"';
+					choices.push( [] );
 					Dialogue.insert( [
 						new BlaWithChoices(msg, null, choices)
 						, new StartDialogue(Cfg.save)
