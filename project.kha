@@ -353,6 +353,18 @@
 				"blue": 201
 			},
 			"scale": 2
+		},
+		{
+			"id": "26c569b3-d810-45f6-880e-7366fe377ca2",
+			"type": "image",
+			"file": "broetchen1.png",
+			"name": "broetchen1"
+		},
+		{
+			"id": "9a8c0961-861b-450f-b0db-95eeee9820a1",
+			"type": "image",
+			"file": "broetchen2.png",
+			"name": "broetchen2"
 		}
 	],
 	"rooms": [
@@ -398,7 +410,9 @@
 				"ff27f696-4aa1-47e8-9f4d-bf03263d5178",
 				"0b2f792e-f476-40c9-9e4c-d9c72892c9a6",
 				"9008d05e-00da-4065-9e71-f37236b34524",
-				"48d83f30-67f3-44a4-a51a-ebd0b2acf6c0"
+				"48d83f30-67f3-44a4-a51a-ebd0b2acf6c0",
+				"26c569b3-d810-45f6-880e-7366fe377ca2",
+				"9a8c0961-861b-450f-b0db-95eeee9820a1"
 			]
 		},
 		{
