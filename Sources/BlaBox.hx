@@ -68,7 +68,7 @@ class BlaBox {
 		var sx : Float = -1;
 		var sy : Float = -1;
 		if (pointed != null) {
-			sx = pointed.x + pointed.width / 2 - Scene.the.screenOffsetX;
+			sx = pointed.x + (0.5 * pointed.collisionRect().width) - Scene.the.screenOffsetX;
 			sy = pointed.y - 15 - Scene.the.screenOffsetY;
 		}
 		
