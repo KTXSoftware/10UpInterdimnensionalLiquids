@@ -372,6 +372,12 @@
 			"file": "ZornigeFrau.png",
 			"name": "ZornigeFrau",
 			"scale": 2
+		},
+		{
+			"id": "24eb691f-2649-434f-a181-ba2022d18357",
+			"type": "image",
+			"file": "Bratpfanne.png",
+			"name": "Bratpfanne"
 		}
 	],
 	"rooms": [
@@ -420,7 +426,8 @@
 				"48d83f30-67f3-44a4-a51a-ebd0b2acf6c0",
 				"26c569b3-d810-45f6-880e-7366fe377ca2",
 				"9a8c0961-861b-450f-b0db-95eeee9820a1",
-				"633ac900-ed9b-47a5-89fb-ec63c88f3be9"
+				"633ac900-ed9b-47a5-89fb-ec63c88f3be9",
+				"24eb691f-2649-434f-a181-ba2022d18357"
 			]
 		},
 		{
@@ -436,7 +443,8 @@
 				"aaa16854-a794-4fa2-b037-bdd7e31b5a96",
 				"a3e173ef-3e50-432d-88cb-66259fd9b22d",
 				"7c62211a-40e1-4c3b-b989-e134f216e90e",
-				"26c569b3-d810-45f6-880e-7366fe377ca2"
+				"26c569b3-d810-45f6-880e-7366fe377ca2",
+				"24eb691f-2649-434f-a181-ba2022d18357"
 			]
 		}
 	]

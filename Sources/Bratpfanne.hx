@@ -5,7 +5,7 @@ import kha.Sprite;
 
 class Bratpfanne extends Sprite {
 	public function new() {
-		super(Loader.the.getImage('cent')); // TODO!!!
+		super(Loader.the.getImage('Bratpfanne')); // TODO!!!
 		this.speedx = 10;
 		accy = 0;
 	}
