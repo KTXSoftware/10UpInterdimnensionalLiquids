@@ -36,6 +36,7 @@ enum SubGame {
 }
 
 enum Mode {
+	Menu;
 	Game;
 	BlaBlaBla;
 }
@@ -96,17 +97,18 @@ class TenUp3 extends Game {
 	}
 	
 	public function startGame() {
+		Cfg.init(); // TODO: load previous data
+		
 		switch(subgame) {
 		case SubGame.TEN_UP_3:
 			startGame_TenUp3();
 		case SubGame.JUST_A_NORMAL_DAY:
+			Cfg.mann.setCurrent(); // TODO: Player select
 			startGame_JustANormalDay();
 		}
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
 		Keyboard.get().notify(keydown, keyup);
 		Mouse.get().notify(mousedown, mouseup, mousemove, mousewheel);
-		
-		Cfg.init(); // TODO: load previous data
 		
 		Configuration.setScreen(this);
 	}
@@ -127,25 +129,23 @@ class TenUp3 extends Game {
 	
 	var cfg: Cfg;
 	public function startGame_JustANormalDay() {
-		var mann = Cfg.mann;
+		Player.current().inventory.itemWidth = 64;
+		Player.current().inventory.itemHeight = 64;
 		
-		Scene.the.addHero(mann);
-		mann.setCurrent();
+		if (Player.current() == Cfg.mann) {
+			// Play as Mann
+			Scene.the.addHero(Cfg.mann);
+			
+		} else {
+			// Play as Verkäuferin
+			Scene.the.addHero(Cfg.verkaeuferin);
+			Cfg.verkaeuferin.inventory.pick(Cfg.cent);
+		}
 		
-		var euro = new Sprite(Loader.the.getImage("euro"));
-		euro.scaleX = euro.scaleY = 0.5;
-		var cent = new Sprite(Loader.the.getImage("cent"));
-		cent.scaleX = cent.scaleY = 0.5;
-		mann.inventory.pick(euro);
+		Cfg.mann.inventory.pick(Cfg.euro);
 		
-		var eheweib = Cfg.eheweib;
-		Scene.the.addEnemy(eheweib);
-		
-		var verkaeuferin = new Verkaeuferin(400, 350);
-		Scene.the.addHero(verkaeuferin);
-				
-		//Dialogues.setStartDlg(mann, eheweib);
-		Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, cent);
+		Dialogues.setStartDlg(Cfg.mann, Cfg.eheweib);
+		//Dialogues.setTestDlg(mann, eheweib, verkaeuferin, euro, cent, cent);
 	}
 	
 	public override function update() {
@@ -156,7 +156,7 @@ class TenUp3 extends Game {
 			case TEN_UP_3:
 				Scene.the.camy = Std.int(player.y) + Std.int(player.height / 2);
 			case JUST_A_NORMAL_DAY:
-				Scene.the.camy = Std.int(player.y - 0.35 * height) + Std.int(player.height / 2);
+				Scene.the.camy = Std.int(player.y + player.height + 80 - height);
 		}
 		if (advanceDialogue) {
 			Dialogue.next();
@@ -169,12 +169,21 @@ class TenUp3 extends Game {
 		}
 	}
 	
+	public var renderOverlay : Bool;
+	public var overlayColor : Color;
 	public override function render(frame: Framebuffer) {
 		var g = backbuffer.g2;
 		g.begin();
 		scene.render(g);
 		g.transformation = Matrix3.identity();
+		if (Player.current() != null) {
+			Player.current().inventory.render(g);
+		}
 		BlaBox.render(g);
+		if (renderOverlay) {
+			g.color = overlayColor;
+			g.fillRect(0, 0, width, height);
+		}
 		g.end();
 		
 		startRender(frame);
@@ -296,8 +305,7 @@ class TenUp3 extends Game {
 				switch(mode) {
 					case Mode.Game:
 						Player.current().useSpecialAbilityA();
-					case Mode.BlaBlaBla:
-						
+					default:
 				}
 			case SubGame.JUST_A_NORMAL_DAY:
 				
@@ -321,11 +329,11 @@ class TenUp3 extends Game {
 	public function mousewheel(delta: Int): Void {
 		if (delta > 0) {
 			--inventorySelection;
-			if (inventorySelection > 3) inventorySelection = 0;
+			if (inventorySelection < 0) inventorySelection = 3;
 		}
 		else {
 			++inventorySelection;
-			if (inventorySelection < 0) inventorySelection = 3;
+			if (inventorySelection > 3) inventorySelection = 0;
 		}
 		Player.current().inventory.selectIndex(inventorySelection);
 	}

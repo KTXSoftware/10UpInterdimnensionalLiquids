@@ -9,13 +9,22 @@ import kha.math.Vector2;
 import kha.Sprite;
 
 class Inventory {
-	public var y : Float;
-	public var itemWidth : Int = 32;
-	public var spacing = 5;
-	public var itemHeight : Int = 32;
+	var y : Float;
+	public var itemWidth : Int = 48;
+	public var spacing(default, set) = 15;
+	public var itemHeight(default, set) : Int = 48;
 	var items : Array<Sprite> = new Array();
 	var selected : Int = -1;
 	var offset : Int = 0;
+	
+	function set_spacing(value: Int) : Int {
+		y = Game.the.height - itemHeight - 2 * value;
+		return spacing = value;
+	}
+	function set_itemHeight(value: Int) : Int {
+		y = Game.the.height - value - 2 * spacing;
+		return itemHeight = value;
+	}
 	
 	public function new() {
 		items = new Array();

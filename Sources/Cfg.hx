@@ -1,4 +1,5 @@
 package ;
+import kha.Loader;
 import kha.math.Vector2i;
 import kha.Sprite;
 import localization.Keys_text;
@@ -65,6 +66,12 @@ class Cfg
 	static public function init() {
 		the = new Cfg();
 		// TODO: load previous data
+		
+		
+		Cfg.euro = new Sprite(Loader.the.getImage("euro"));
+		Cfg.euro.scaleX = Cfg.euro.scaleY = 0.5;
+		Cfg.cent = new Sprite(Loader.the.getImage("cent"));
+		Cfg.cent.scaleX = Cfg.cent.scaleY = 0.5;
 	}
 	
 	private function new() {

@@ -368,11 +368,5 @@ class Player extends DestructibleSprite {
 		painter.drawRect( x - collider.x, y - collider.y, width, height );
 		painter.setColor( kha.Color.fromBytes(0,255,0) );
 		painter.fillRect( x - 2, y - 2, 5, 5 );*/
-		
-		if (this == current()) {
-			g.pushTransformation(Matrix3.identity());
-			inventory.render(g);
-			g.popTransformation();
-		}
 	}
 }

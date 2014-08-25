@@ -1,10 +1,12 @@
 package dialogue;
 
 import Dialogue.DialogueItem;
+import kha.Color;
 import kha.Sprite;
 
 enum ActionType {
 	MG;
+	FADE;
 }
 
 class Action implements DialogueItem {
@@ -27,15 +29,27 @@ class Action implements DialogueItem {
 			switch(type) {
 				case ActionType.MG:
 					// TODO
+				case ActionType.FADE:
+					TenUp3.getInstance().renderOverlay = true;
+					TenUp3.getInstance().overlayColor = Color.fromValue(0x00000000);
 			}
 			return;
 		} else {
 			switch(type) {
 				case ActionType.MG:
 					// TODO
+					actionFinished();
+				case ActionType.FADE:
+					++counter;
+					if (counter >= 512) {
+						actionFinished();
+					} else if (counter >= 256) {
+						TenUp3.getInstance().overlayColor.Ab = 512 - counter;
+					} else {
+						TenUp3.getInstance().overlayColor.Ab = counter;
+					}
 			}
 		}
-		actionFinished();
 	}
 	
 	@:access(Dialogue.isActionActive) 

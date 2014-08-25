@@ -104,6 +104,7 @@ class Level {
 				sprite.y = y;
 				sprite.accy = 0;
 				Cfg.eheweib = sprite;
+				Scene.the.addEnemy(sprite);
 			case 1: // Mann
 				if (Cfg.mann == null) {
 					Cfg.mann = new ZeroEightFifteenMan(x, y);
