@@ -377,6 +377,18 @@
 				"blue": 201
 			},
 			"scale": 2
+		},
+		{
+			"id": "48d83f30-67f3-44a4-a51a-ebd0b2acf6c0",
+			"type": "image",
+			"file": "nullachtfuenfzehnmann.png",
+			"name": "nullachtfuenfzehnmann",
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			},
+			"scale": 2
 		}
 	],
 	"rooms": [
@@ -427,7 +439,8 @@
 				"158e28a2-c261-4dee-9cdd-63ee75f991b9",
 				"ff27f696-4aa1-47e8-9f4d-bf03263d5178",
 				"0b2f792e-f476-40c9-9e4c-d9c72892c9a6",
-				"9008d05e-00da-4065-9e71-f37236b34524"
+				"9008d05e-00da-4065-9e71-f37236b34524",
+				"48d83f30-67f3-44a4-a51a-ebd0b2acf6c0"
 			]
 		},
 		{

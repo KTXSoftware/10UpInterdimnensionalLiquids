@@ -160,6 +160,7 @@ class TenUp3 extends Game {
 		
 		
 		Cfg.mann.setCurrent();
+		Cfg.mann.disableActions = false;
 		Cfg.mann.lookRight = false;
 		Scene.the.addHero(Cfg.mann);
 		
@@ -188,6 +189,7 @@ class TenUp3 extends Game {
 		Cfg.setVictoryCondition(VictoryCondition.CENT_DROPPED, false);
 		
 		Cfg.verkaeuferin.setCurrent();
+		Cfg.verkaeuferin.disableActions = false;
 		Scene.the.addHero(Cfg.verkaeuferin);
 		
 		// Play as Verkäuferin
@@ -228,11 +230,11 @@ class TenUp3 extends Game {
 		if (Player.current() != null) {
 			Player.current().inventory.render(g);
 		}
-		BlaBox.render(g);
 		if (renderOverlay) {
 			g.color = overlayColor;
 			g.fillRect(0, 0, width, height);
 		}
+		BlaBox.render(g);
 		g.end();
 		
 		startRender(frame);

@@ -19,6 +19,7 @@ class Cfg
 	public static var cent: Sprite;
 	public static var broetchen: Sprite;
 	public static var theke: Sprite;
+	public static var backdoor: Door;
 	public static var bratpfanne: Sprite;
 	public static var verkaeuferinPositions : Array<Vector2i>;
 	public static var mannPositions : Array<Vector2i>;
@@ -75,6 +76,13 @@ class Cfg
 		Cfg.verkaeuferinPositions = new Array();
 		Cfg.eheweib = null;
 		Cfg.mafioso = null;
+		Cfg.backdoor = null;
+		Cfg.euro = new Sprite(Loader.the.getImage("euro"));
+		Cfg.euro.scaleX = Cfg.euro.scaleY = 0.5;
+		Cfg.cent = new Sprite(Loader.the.getImage("cent"));
+		Cfg.cent.scaleX = Cfg.cent.scaleY = 0.5;
+		Cfg.broetchen = new Broetchen();
+		Cfg.bratpfanne = new Bratpfanne();
 		
 		#if JUST_A_NORMAL_DAY
 		#else
@@ -83,13 +91,6 @@ class Cfg
 		Cfg.setVictoryCondition(VictoryCondition.GULLI, false);
 		Cfg.setVictoryCondition(VictoryCondition.TENUPWEG, false);
 		#end
-		
-		Cfg.euro = new Sprite(Loader.the.getImage("euro"));
-		Cfg.euro.scaleX = Cfg.euro.scaleY = 0.5;
-		Cfg.cent = new Sprite(Loader.the.getImage("cent"));
-		Cfg.cent.scaleX = Cfg.cent.scaleY = 0.5;
-		Cfg.broetchen = new Broetchen();
-		Cfg.bratpfanne = new Bratpfanne();
 	}
 	
 	static public function save(): Void {

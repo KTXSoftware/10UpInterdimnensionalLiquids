@@ -8,7 +8,8 @@ import kha.Sprite;
 
 enum ActionType {
 	MG;
-	FADE;
+	FADE_TO_BLACK;
+	FADE_FROM_BLACK;
 	THROW;
 }
 
@@ -32,10 +33,12 @@ class Action implements DialogueItem {
 			switch(type) {
 				case ActionType.MG:
 					Cfg.mafioso.useMg = true;
-				case ActionType.FADE:
+				case ActionType.FADE_TO_BLACK:
 					TenUp3.getInstance().renderOverlay = true;
 					TenUp3.getInstance().overlayColor = Color.fromValue(0x00000000);
-				case THROW:
+				case ActionType.FADE_FROM_BLACK:
+					counter = 255;
+				case ActionType.THROW:
 					var from = sprites[0];
 					var to = sprites[1];
 					var proj = sprites[2];
@@ -58,12 +61,20 @@ class Action implements DialogueItem {
 				case ActionType.MG:
 					// TODO
 					actionFinished();
-				case ActionType.FADE:
+				case ActionType.FADE_TO_BLACK:
 					++counter;
-					if (counter >= 512) {
+					++counter;
+					if (counter >= 256) {
 						actionFinished();
-					} else if (counter >= 256) {
-						TenUp3.getInstance().overlayColor.Ab = 512 - counter;
+					} else {
+						TenUp3.getInstance().overlayColor.Ab = counter;
+					}
+				case ActionType.FADE_FROM_BLACK:
+					--counter;
+					--counter;
+					if (!TenUp3.getInstance().renderOverlay || counter <= 0) {
+						TenUp3.getInstance().renderOverlay = false;
+						actionFinished();
 					} else {
 						TenUp3.getInstance().overlayColor.Ab = counter;
 					}

@@ -15,6 +15,10 @@ class Keys_text {
 	static public var DLG_START_4 = "dlg_Start_4";
 	static public var DLG_START_5 = "dlg_Start_5";
 	static public var DLG_START_6 = "dlg_Start_6";
+	static public var DLG_VERK_START_1 = "dlg_Verk_Start_1";
+	static public var DLG_VERK_START_FALSCHE_RICHTUNG = "dlg_Verk_Start_Falsche_Richtung";
+	static public var DLG_VERK_START_2 = "dlg_Verk_Start_2";
+	static public var DLG_VERK_START_3 = "dlg_Verk_Start_3";
 	static public var DLG_GELD_GEFUNDEN_1_C = "dlg_Geld_Gefunden_1_c";
 	static public var DLG_GELD_GEFUNDEN_1 = "dlg_Geld_Gefunden_1";
 	static public var DLG_GELD_GEFUNDEN_1A = "dlg_Geld_Gefunden_1a";
