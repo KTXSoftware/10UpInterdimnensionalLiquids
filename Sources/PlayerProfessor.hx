@@ -52,7 +52,7 @@ class PlayerProfessor extends Player {
 				timecannon.originX = timecannon.width - timecannon.originX;
 			}
 		} else {
-			timecannon.x -= 15;
+			timecannon.x -= 60;
 			timecannon.angle = timecannon.angle + Math.PI;
 			if (timecannon.animation.indices != timecannon.leftAnim.indices) {
 				timecannon.animation.indices = timecannon.leftAnim.indices;
@@ -78,10 +78,8 @@ class PlayerProfessor extends Player {
 	}
 	
 	override public function render(g: Graphics): Void {
+		timecannon.render(g);
 		super.render(g);
-		//if (isCrosshairVisible || timeCannonNextFireTime > TenUp.instance.currentGameTime + 23.5) {
-			timecannon.render(g);
-		//}
 	}
 	
 	/**
