@@ -6,22 +6,20 @@ import kha.Scene;
 import kha.Scheduler;
 import kha.Sprite;
 
-class WaterSplash extends Sprite {
+class Haze extends Sprite {
 	private var start: Float;
 	
-	public function new(x: Float, y: Float, speedx: Float, speedy: Float) {
-		super(Loader.the.getImage('watersplash'), 32, 32);
+	public function new(x: Float, y: Float) {
+		super(Loader.the.getImage('haze'));
 		this.x = x;
 		this.y = y;
-		this.speedx = speedx;
-		this.speedy = speedy;
-		scaleX = scaleY = 0.5;
+		accy = -0.1;
 		start = Scheduler.time();
 	}
 	
 	override public function update(): Void {
 		super.update();
-		var alpha = Scheduler.time() - start;
+		var alpha = (Scheduler.time() - start) * 0.2;
 		if (alpha > 1) {
 			Scene.the.removeProjectile(this);
 			return;
@@ -29,12 +27,11 @@ class WaterSplash extends Sprite {
 	}
 	
 	override public function render(g: Graphics): Void {
-		var alpha = Scheduler.time() - start;
+		var alpha = (Scheduler.time() - start) * 0.2;
 		if (alpha > 1) {
 			return;
 		}
 		g.pushOpacity(1 - alpha);
-		scaleX = scaleY = (1 - alpha) / 2;
 		super.render(g);
 		g.popOpacity();
 	}

@@ -104,9 +104,9 @@ class Portal extends Sprite {
 				}
 				switch (canIndex) {
 					case 0:
-						Scene.the.addOther(new WaterSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
+						Scene.the.addProjectile(new WaterSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
 					case 1:
-						Scene.the.addOther(new LavaSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
+						Scene.the.addProjectile(new LavaSplash(x, y, (Random.getIn(0, 2000) - 1000) / 250, -4));
 					case 2:
 						if (count % 50 == 0) Scene.the.addOther(new Gas(x + (Random.getIn(0, 2000) - 1000) / 100, y));
 				}

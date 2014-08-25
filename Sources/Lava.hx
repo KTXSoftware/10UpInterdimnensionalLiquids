@@ -4,6 +4,7 @@ import kha.Animation;
 import kha.Direction;
 import kha.Loader;
 import kha.math.Vector2i;
+import kha.Scene;
 import kha.Sprite;
 
 class Lava extends Sprite {
@@ -32,6 +33,10 @@ class Lava extends Sprite {
 		return value > 19 && value < 36;
 	}
 	
+	private function isWallOrLiquid(value: Int): Bool {
+		return value == 0 || isLava(value) || Water.isWater(value);
+	}
+	
 	private function isWallOrLava(value: Int): Bool {
 		return value == 0 || isLava(value);
 	}
@@ -53,12 +58,20 @@ class Lava extends Sprite {
 			Level.liquids.set(tile.x, tile.y + 1, 1);
 			return;
 		}
-		var floored = isWallOrLava(value) || isWallOrLava(valueBelow);		
+		var floored = isWallOrLiquid(value) || isWallOrLiquid(valueBelow);		
 		if (lastTile == null || tile.x != lastTile.x) {
 			lastTile = tile;
 			if (floored) {
 				if (isLava(valueBelow) && valueBelow < 35) Level.liquids.set(tile.x, tile.y + 1, valueBelow == 1 ? 20 : valueBelow + 1);
 				else if (value == 1 || value > 19 && value < 35) Level.liquids.set(tile.x, tile.y, value == 1 ? 20 : value + 1);
+				else if (Water.isWater(value)) {
+					Level.liquids.set(tile.x, tile.y, value - 1);
+					Scene.the.addProjectile(new Haze(x + collider.width / 2, y));
+				}
+				else if (Water.isWater(valueBelow)) {
+					Level.liquids.set(tile.x, tile.y + 1, valueBelow - 1);
+					Scene.the.addProjectile(new Haze(x + collider.width / 2, y));
+				}
 			}
 		}
 	}

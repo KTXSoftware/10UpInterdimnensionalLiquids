@@ -22,7 +22,7 @@ class LavaSplash extends Sprite {
 		super.update();
 		var alpha = Scheduler.time() - start;
 		if (alpha > 1) {
-			Scene.the.removeOther(this);
+			Scene.the.removeProjectile(this);
 			return;
 		}
 	}

@@ -4,6 +4,7 @@ import kha.Animation;
 import kha.Direction;
 import kha.Loader;
 import kha.math.Vector2i;
+import kha.Scene;
 import kha.Sprite;
 
 class Water extends Sprite {
@@ -28,7 +29,7 @@ class Water extends Sprite {
 		splash();
 	}
 	
-	private function isWater(value: Int): Bool {
+	public static function isWater(value: Int): Bool {
 		return value > 1 && value < 18;
 	}
 	
@@ -46,6 +47,24 @@ class Water extends Sprite {
 			if (floored) {
 				if (isWater(valueBelow) && valueBelow < 17) Level.liquids.set(tile.x, tile.y + 1, valueBelow + 1);
 				else if (value > 0 && value < 17) Level.liquids.set(tile.x, tile.y, value + 1);
+				else if (Lava.isLava(value)) {
+					if (value == 20) {
+						Level.liquids.set(tile.x, tile.y, 1);
+					}
+					else {
+						Level.liquids.set(tile.x, tile.y, value - 1);
+					}
+					Scene.the.addProjectile(new Haze(x + collider.width / 2, y));
+				}
+				else if (Lava.isLava(valueBelow)) {
+					if (valueBelow == 20) {
+						Level.liquids.set(tile.x, tile.y + 1, 1);
+					}
+					else {
+						Level.liquids.set(tile.x, tile.y + 1, valueBelow - 1);
+					}
+					Scene.the.addProjectile(new Haze(x + collider.width / 2, y));
+				}
 			}
 		}
 	}
