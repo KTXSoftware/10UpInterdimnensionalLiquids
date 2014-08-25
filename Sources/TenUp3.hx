@@ -54,6 +54,8 @@ class TenUp3 extends Game {
 	
 	public var mouseX: Float;
 	public var mouseY: Float;
+	private var screenMouseX: Float;
+	private var screenMouseY: Float;
 	
 #if JUST_A_NORMAL_DAY
 	var subgame : SubGame = SubGame.JUST_A_NORMAL_DAY;
@@ -158,6 +160,7 @@ class TenUp3 extends Game {
 	
 	public override function update() {
 		super.update();
+		updateMouse();
 		var player = Player.current();
 		Scene.the.camx = Std.int(player.x) + Std.int(player.width / 2);
 		switch (subgame) {
@@ -304,10 +307,16 @@ class TenUp3 extends Game {
 			default:
 		}
 	}
+	
+	private function updateMouse(): Void {
+		mouseX = screenMouseX + Scene.the.screenOffsetX;
+		mouseY = screenMouseY + Scene.the.screenOffsetY;
+	}
 
 	public function mousedown(button: Int, x: Int, y: Int): Void {
-		mouseX = x + Scene.the.screenOffsetX;
-		mouseY = y + Scene.the.screenOffsetY;
+		screenMouseX = x;
+		screenMouseY = y;
+		updateMouse();
 		switch (subgame) {
 			case SubGame.TEN_UP_3:
 				switch(mode) {
@@ -322,16 +331,18 @@ class TenUp3 extends Game {
 	
 	public var advanceDialogue: Bool = false;
 	public function mouseup(button: Int, x: Int, y: Int): Void {
-		mouseX = x + Scene.the.screenOffsetX;
-		mouseY = y + Scene.the.screenOffsetY;
+		screenMouseX = x;
+		screenMouseY = y;
+		updateMouse();
 		if (mode == BlaBlaBla) {
 			advanceDialogue = true;
 		}
 	}
 	
 	public function mousemove(x: Int, y: Int): Void {
-		mouseX = x + Scene.the.screenOffsetX;
-		mouseY = y + Scene.the.screenOffsetY;
+		screenMouseX = x;
+		screenMouseY = y;
+		updateMouse();
 	}
 	
 	public function mousewheel(delta: Int): Void {
