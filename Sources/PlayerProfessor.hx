@@ -91,6 +91,7 @@ class PlayerProfessor extends Player {
 		if (gameover) return;
 		//Scene.the.addOther(new Water(x + 10, y));
 		//Scene.the.addOther(new Lava(x + 10, y));
+		Cfg.setVictoryCondition(VictoryCondition.WATER, false);
 		var dir = new Vector2(TenUp3.instance.mouseX, TenUp3.instance.mouseY).sub(new Vector2(x, y));
 		dir.length = 4;
 		if (lastPortal != null) {
@@ -152,6 +153,8 @@ class PlayerProfessor extends Player {
 		Dialogues.startProfWinDialog(this);
 		finishedGame = true;
 		Cfg.setMap(Level.getSaveMap());
+		Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
+		Cfg.setVictoryCondition(VictoryCondition.SLEEPY, lotsOfGas());
 		Cfg.save();
 	}
 	
@@ -163,11 +166,8 @@ class PlayerProfessor extends Player {
 		speedx = 0;
 		Cfg.setMap(Level.getSaveMap());
 		Cfg.setProfPosition(x, y);
-		
 		Cfg.setVictoryCondition(VictoryCondition.PLAYED_PROFESSOR, true);
-		Cfg.setVictoryCondition(VictoryCondition.WATER, lastPortal != null && lastPortal.canIndex == 1);
 		Cfg.setVictoryCondition(VictoryCondition.SLEEPY, lotsOfGas());
-		
 		Cfg.save();
 	}
 }

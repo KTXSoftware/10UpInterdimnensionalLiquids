@@ -106,8 +106,6 @@ class TenUp3 extends Game {
 		Keyboard.get().notify(keydown, keyup);
 		Mouse.get().notify(mousedown, mouseup, mousemove, mousewheel);
 		
-		Cfg.init(); // TODO: load previous data
-		
 		Configuration.setScreen(this);
 	}
 	

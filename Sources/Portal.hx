@@ -38,6 +38,7 @@ class Portal extends Sprite {
 		speedy = 0;
 		switch (canIndex) {
 			case 0:
+				Cfg.setVictoryCondition(VictoryCondition.WATER, true);
 				switch (dir) {
 					case UP:
 						setAnimation(Animation.create(2));

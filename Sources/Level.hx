@@ -39,6 +39,8 @@ class Level {
 	}
 	
 	private static function initLevel(): Void {
+		Cfg.init();
+		
 		var tileColissions = new Array<Tile>();
 		for (i in 0...600) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
@@ -73,10 +75,13 @@ class Level {
 		Scene.the.setBackgroundColor(Color.fromBytes(255, 255, 255));
 		
 		var liquidMap = new Array<Array<Int>>();
-		for (x in 0...levelWidth) {
-			liquidMap.push(new Array<Int>());
-			for (y in 0...levelHeight) {
-				liquidMap[x].push(isCollidable(originalmap[x][y]) ? 0 : 1);
+		if (Cfg.getMap() != null) liquidMap = Cfg.getMap();
+		else {
+			for (x in 0...levelWidth) {
+				liquidMap.push(new Array<Int>());
+				for (y in 0...levelHeight) {
+					liquidMap[x].push(isCollidable(originalmap[x][y]) ? 0 : 1);
+				}
 			}
 		}
 		var liquidTiles = new Array<Tile>();
