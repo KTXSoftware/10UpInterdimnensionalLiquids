@@ -38,8 +38,6 @@ class Portal extends Sprite {
 	
 	override public function hitFrom(dir: Direction): Void {
 		super.hitFrom(dir);
-		speedx = 0;
-		speedy = 0;
 		switch (canIndex) {
 			case 0:
 				Cfg.setVictoryCondition(VictoryCondition.WATER, true);
@@ -59,7 +57,7 @@ class Portal extends Sprite {
 				switch (dir) {
 				case UP:
 					setAnimation(Animation.create(2));
-					Scene.the.addOther(lava = new Lava(x, y, 12, -0));
+					Scene.the.addOther(lava = new Lava(x, y, speedx > 0 ? 12 : -12, -0));
 				case LEFT:
 					setAnimation(Animation.create(1));
 					Scene.the.addOther(lava = new Lava(x, y, -12, 0));
@@ -68,7 +66,7 @@ class Portal extends Sprite {
 					Scene.the.addOther(lava = new Lava(x, y, 12, 0));
 				case DOWN:
 					setAnimation(Animation.create(3));
-					Scene.the.addOther(lava = new Lava(x, y, -12, 0));
+					Scene.the.addOther(lava = new Lava(x, y, speedx > 0 ? 12 : -12, 0));
 				}
 			default:
 				switch (dir) {
@@ -82,6 +80,8 @@ class Portal extends Sprite {
 						setAnimation(Animation.create(3));
 				}
 		}
+		speedx = 0;
+		speedy = 0;
 	}
 	
 	override public function update(): Void {
