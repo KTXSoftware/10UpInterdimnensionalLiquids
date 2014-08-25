@@ -11,6 +11,7 @@ import kha.Sprite;
 
 class PlayerProfessor extends Player {
 	var timecannon : TimeCannon;
+	private var sleeping = false;
 	
 	public function new(x: Float, y: Float) {
 		super(x, y - 8, "professor", Std.int(410 / 10 * 2), Std.int(455 / 7 * 2));
@@ -38,6 +39,7 @@ class PlayerProfessor extends Player {
 	@:access(kha.Animation) 
 	override public function update() {
 		if (gameover) return;
+		if (sleeping) return;
 		super.update();
 		timecannon.update();
 		var c = center;
@@ -75,6 +77,14 @@ class PlayerProfessor extends Player {
 				if (!Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) Dialogues.setGefeuertProfDlg();
 			}
 		}
+		
+		if (!sleeping && x > 2000 && y < 500 && PlayerProfessor.lotsOfGas()) {
+			sleeping = true;
+			if (lookRight) angle = Math.PI * 1.5;
+			else angle = Math.PI * 0.5;
+			originX = collider.width / 2;
+			originY = collider.height;
+		}
 	}
 	
 	override public function render(g: Graphics): Void {
@@ -94,6 +104,7 @@ class PlayerProfessor extends Player {
 	
 	override public function useSpecialAbilityA() : Void {
 		if (gameover) return;
+		if (sleeping) return;
 		Cfg.setVictoryCondition(VictoryCondition.WATER, false);
 		var dir = new Vector2(TenUp3.instance.mouseX - 16, TenUp3.instance.mouseY - 16).sub(new Vector2(x, y));
 		dir.length = 8;
@@ -135,7 +146,7 @@ class PlayerProfessor extends Player {
 		}
 	}
 	
-	private function lotsOfGas(): Bool {
+	public static function lotsOfGas(): Bool {
 		var gas: Int = 0;
 		for (i in 0...Scene.the.countOthers()) {
 			var other = Scene.the.getOther(i);
