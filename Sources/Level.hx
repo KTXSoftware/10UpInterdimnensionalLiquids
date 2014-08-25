@@ -181,8 +181,10 @@ class Level {
 			/*case 3: // door
 				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
 				Scene.the.addOther(sprite);*/
-			/*case 4: // theke
-				*/
+			case 4: // theke
+				sprite = new TenUpShelf(x, y);
+				Cfg.theke = sprite;
+				Scene.the.addEnemy(sprite);
 			/*case 5: // backdoor
 				sprite = new Door(sprites[i * 3 + 1], sprites[i * 3 + 2]);
 				Scene.the.addOther(sprite);*/

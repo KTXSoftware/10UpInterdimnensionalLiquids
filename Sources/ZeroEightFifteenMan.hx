@@ -1,5 +1,6 @@
 package;
 
+import dialogue.EndGame;
 import kha.Animation;
 import kha.Color;
 import kha.graphics2.Graphics;
@@ -7,6 +8,7 @@ import kha.Loader;
 import kha.math.Vector2;
 import kha.Rectangle;
 import kha.Scene;
+import kha.Scheduler;
 import kha.Sprite;
 
 class ZeroEightFifteenMan extends Player {
@@ -30,7 +32,21 @@ class ZeroEightFifteenMan extends Player {
 		jumpRight = Animation.create(6);
 	}
 	
+	override public function update():Void {
+		if (health <= 0) return;
+		super.update();
+		
+		if (x > Cfg.mannPositions[0].x + 300) {
+			doEnde = true;
+		} else if (x < Cfg.mannPositions[0].x + 75 && doEnde) {
+			doEnde = false;
+			Dialogues.setMannEndeDlg();
+		}
+	}
+	
+	var doEnde = false;
 	var doCent = true;
+	var doTheke = true;
 	override public function hit(sprite:Sprite):Void 
 	{
 		super.hit(sprite);
@@ -39,6 +55,29 @@ class ZeroEightFifteenMan extends Player {
 				doCent = false;
 				Dialogues.setGeldGefundenMannDlg();
 			}
+		}
+		if (doTheke) {
+			if (sprite == Cfg.theke) {
+				doTheke = false;
+				Dialogues.setVerkaufMannDlg();
+			}
+		}
+		
+		if (Std.is(sprite, Bratpfanne) || Std.is(sprite, Shot)) {
+			die();
+			if (Std.is(sprite, Bratpfanne)) {
+				sprite.speedx = 0;
+			}
+		}
+	}
+	
+	private function die(): Void {
+		if (health > 0) {
+			health = 0;
+			if (lookRight) setAnimation(Animation.create(22));
+			else setAnimation(Animation.create(23));
+			speedx = 0;
+			Scheduler.addTimeTask(Dialogues.setGameEnd, 1);
 		}
 	}
 }

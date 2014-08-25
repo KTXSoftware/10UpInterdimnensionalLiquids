@@ -52,7 +52,7 @@ class Localization
 				texts[key] = new Map();
 				for (language in item.elements()) {
 					var l = language.nodeName.toLowerCase();
-					texts[key][l] = StringTools.replace(StringTools.replace(language.firstChild().nodeValue, "\r\n", "\n"),"\r","\n");
+					texts[key][l] = StringTools.replace(StringTools.replace(StringTools.replace(language.firstChild().nodeValue, "\r\n", "\n"),"\r","\n"), "\t", "");
 				}
 			}
 		}

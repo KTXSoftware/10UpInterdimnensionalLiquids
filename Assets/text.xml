@@ -218,7 +218,7 @@
 
 <dlg_Arbeitslos_3a_1>
 	<de>Bestimmt nicht, weil ich etwas was verschenke!
-	
+
 Du bist gefeuert!</de>
 </dlg_Arbeitslos_3a_1>
 
@@ -234,19 +234,22 @@ Hast ziemlich lange gebraucht!</de>
 <dlg_Eheweib_2>
 	<de>Worauf wartest du? Schmeiß die Brötchen rauf!</de>
 </dlg_Eheweib_2>
-<dlg_Eheweib_3>
+<dlg_Eheweib_3a_1>
 	<de>Ja Schatz...</de>
-</dlg_Eheweib_3>
-<dlg_Eheweib_4>
+</dlg_Eheweib_3a_1>
+<dlg_Eheweib_3b_1>
+	<de>Ich habe noch keine Brötchen...</de>
+</dlg_Eheweib_3b_1>
+<dlg_Eheweib_3a_2>
 	<de>*raschel*
 *schmatz*</de>
-</dlg_Eheweib_4>
-<dlg_Eheweib_5>
+</dlg_Eheweib_3a_2>
+<dlg_Eheweib_3a_3>
 	<de>Was fällt dir ein mir zwei Wasserweck zu bringen?</de>
-</dlg_Eheweib_5>
-<dlg_Eheweib_6>
-	<de>Sieh zu, dass du mir mein Mehrkornbrötchen bringst, sonst kannst du aber was erleben! [schmeißt Bratpfanne]</de>
-</dlg_Eheweib_6>
+</dlg_Eheweib_3a_3>
+<dlg_Eheweib_3a_4>
+	<de>Sieh zu, dass du mir mein Mehrkornbrötchen bringst, sonst kannst du aber was Erleben! [schmeißt Bratpfanne]</de>
+</dlg_Eheweib_3a_4>
 
 <!-- SPIEL ENDE -->
 <game_versagt>
@@ -255,6 +258,9 @@ Hast ziemlich lange gebraucht!</de>
 <game_erfolg>
 	<de>Welch ein normaler Tag... (Gewonnen)</de>
 </game_erfolg>
+<game_aber>
+	<de>Anderswo zur gleichen Zeit...</de>
+</game_aber>
 
 <!-- TEN UP INTRO -->
 <prof1>

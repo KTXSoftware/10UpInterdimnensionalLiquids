@@ -18,6 +18,8 @@ class Cfg
 	public static var euro: Sprite;
 	public static var cent: Sprite;
 	public static var broetchen: Sprite;
+	public static var theke: Sprite;
+	public static var bratpfanne: Sprite;
 	public static var verkaeuferinPositions : Array<Vector2i> = new Array();
 	public static var mannPositions : Array<Vector2i> = new Array();
 	
@@ -71,6 +73,8 @@ class Cfg
 		Cfg.euro.scaleX = Cfg.euro.scaleY = 0.5;
 		Cfg.cent = new Sprite(Loader.the.getImage("cent"));
 		Cfg.cent.scaleX = Cfg.cent.scaleY = 0.5;
+		Cfg.broetchen = new Broetchen();
+		Cfg.bratpfanne = new Bratpfanne();
 	}
 	
 	static public function save(): Void {

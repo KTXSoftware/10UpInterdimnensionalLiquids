@@ -2,11 +2,14 @@ package dialogue;
 
 import Dialogue.DialogueItem;
 import kha.Color;
+import kha.math.Vector2;
+import kha.Scene;
 import kha.Sprite;
 
 enum ActionType {
 	MG;
 	FADE;
+	THROW;
 }
 
 class Action implements DialogueItem {
@@ -32,6 +35,22 @@ class Action implements DialogueItem {
 				case ActionType.FADE:
 					TenUp3.getInstance().renderOverlay = true;
 					TenUp3.getInstance().overlayColor = Color.fromValue(0x00000000);
+				case THROW:
+					var from = sprites[0];
+					var to = sprites[1];
+					var proj = sprites[2];
+					var spos = new Vector2(from.x + 0.5 * from.y, from.y + 0.5 * from.height);
+					var dpos = new Vector2(to.x + 0.5 * to.width, to.y + 0.5 * to.height);
+					var speed = dpos.sub(spos);
+					speed.length = proj.speedx;
+					proj.x = spos.x;
+					proj.y = spos.y;
+					proj.speedx = speed.x;
+					proj.speedy = speed.y;
+					proj.maxspeedy = speed.y;
+					proj.accx = 0;
+					proj.accy = 0;
+					Scene.the.addProjectile(proj);
 			}
 			return;
 		} else {
@@ -48,6 +67,8 @@ class Action implements DialogueItem {
 					} else {
 						TenUp3.getInstance().overlayColor.Ab = counter;
 					}
+				case ActionType.THROW:
+					actionFinished();
 			}
 		}
 	}

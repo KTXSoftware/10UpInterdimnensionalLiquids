@@ -8,6 +8,7 @@ import dialogue.Branch.IntBranch;
 import dialogue.EndGame;
 import dialogue.InventoryAction;
 import dialogue.SetVictoryCondition;
+import dialogue.ShowOther;
 import dialogue.StartDialogue;
 import Cfg;
 import haxe.macro.Expr.Var;
@@ -141,6 +142,7 @@ class Dialogues {
 			] )
 			, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_1,verkaeuferin)
 			, new InventoryAction(mann, broetchen, InventoryActionMode.ADD)
+			, new SetVictoryCondition(VictoryCondition.BOUGHT_ROLLS, true)
 			, new Bla(Keys_text.DLG_VERKAUFEN_ERFOLG_2,mann)
 		];
 		Dialogue.insert(part1);
@@ -236,12 +238,69 @@ class Dialogues {
 	}
 	
 	static public function setMannEndeDlg() {
-		
+		var weib = Cfg.eheweib;
+		var mann = Cfg.mann;
+		var broetchen = Cfg.broetchen;
+		var bratpfanne = Cfg.bratpfanne;
+		Dialogue.insert( [
+			new Bla(Keys_text.DLG_EHEWEIB_1, weib)
+			, new Bla(Keys_text.DLG_EHEWEIB_2, weib)
+			, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.BOUGHT_ROLLS),
+				[ // Brötchen gekauft
+					new Bla(Keys_text.DLG_EHEWEIB_3A_1, mann)
+					, new Action([mann, weib, bratpfanne], ActionType.THROW)
+					, new Bla(Keys_text.DLG_EHEWEIB_3A_2, weib)
+					, new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MEHRKORN),
+						[ // 1 Wasserweck + 1 Mehrkorn
+							new EndGame()
+						]
+						, [ // 2 Wasserweck :(
+							new Bla(Keys_text.DLG_EHEWEIB_3A_3, weib)
+							, new Bla(Keys_text.DLG_EHEWEIB_3A_4, weib)
+							, new Action([weib, mann, bratpfanne], ActionType.THROW)
+						]
+					)
+				]
+				, [ // keine Brötchen...
+					new Bla(Keys_text.DLG_EHEWEIB_3B_1, weib)
+					, new Bla(Keys_text.DLG_EHEWEIB_3A_4, weib)
+					, new Action([weib, mann, bratpfanne], ActionType.THROW)
+				]
+			)
+		] );
 	}
 	
-	static public function setVerkEndeDlg() {
-		
+	static public function setGameEnd() {
+		if (Player.current() == Cfg.mann) {
+			// Mann:
+			Dialogue.insert( [
+				new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MEHRKORN), 
+					[ // MEhrkorn
+						new Bla(Keys_text.GAME_ERFOLG, null)
+						, new ShowOther()
+					]
+					, [ // kein Mehrkorn...
+						new Bla(Keys_text.GAME_VERSAGT, null)
+					]
+				)
+			] );
+		} else {
+			// Frau:
+			Dialogue.insert( [
+				new BooleanBranch(Cfg.getVictoryCondition.bind(VictoryCondition.MATHEGENIE), 
+					[ // Mathegenie
+						new Bla(Keys_text.GAME_ERFOLG, null)
+						, new ShowOther()
+					]
+					, [ // Plus, minus, mal? Ist doch alles das selbe...
+						new Bla(Keys_text.GAME_VERSAGT, null)
+						, new ShowOther()
+					]
+				)
+			] );
+		}
 	}
+	
 	
 	static public function setTestDlg(mann : ZeroEightFifteenMan, eheweib: Sprite, verkaeuferin: Verkaeuferin, euro: Sprite, cent: Sprite, broetchen: Sprite) {
 		var t2 = new StartDialogue(setTestDlg.bind(mann, eheweib, verkaeuferin, euro, cent, broetchen));

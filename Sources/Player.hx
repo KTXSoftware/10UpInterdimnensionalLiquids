@@ -19,7 +19,7 @@ class Player extends DestructibleSprite {
 	public var left : Bool;
 	public var right : Bool;
 	public var up : Bool;
-	public var lookRight(default, null) : Bool;
+	public var lookRight : Bool;
 	public var walking: Bool = false;
 	public var index: Int;
 	private var zzzzz: Image;
