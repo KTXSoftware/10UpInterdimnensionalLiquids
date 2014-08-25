@@ -1,5 +1,7 @@
-package ;
+package;
+
 import kha.Sprite;
+import kha.Storage;
 import localization.Keys_text;
 
 enum VictoryCondition {
@@ -9,6 +11,11 @@ enum VictoryCondition {
 	CENT_TAKEN;
 	MEHRKORN;
 	MATHEGENIE;
+	
+	WATER;
+	SLEEPY;
+	GULLI;
+	TENUPWEG;
 }
 
 class UpdateData {
