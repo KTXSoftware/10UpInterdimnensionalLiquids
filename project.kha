@@ -328,6 +328,12 @@
 			"type": "blob",
 			"file": "localizations.xml",
 			"name": "localizations"
+		},
+		{
+			"id": "115f1278-9f46-4d1d-9e78-aaa09befbaac",
+			"type": "image",
+			"file": "haze.png",
+			"name": "haze"
 		}
 	],
 	"rooms": [
@@ -373,7 +379,8 @@
 				"032e09da-eae2-4846-bfa0-9ad6b2e48a55",
 				"334155cf-3ba6-41df-a62d-56164e299099",
 				"0173a8b3-4118-4a79-a51c-1af54bd1792e",
-				"0d97149b-727c-4657-926a-bfcf884e4261"
+				"0d97149b-727c-4657-926a-bfcf884e4261",
+				"115f1278-9f46-4d1d-9e78-aaa09befbaac"
 			]
 		},
 		{
