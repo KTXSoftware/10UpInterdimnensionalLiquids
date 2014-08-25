@@ -36,7 +36,7 @@ class ZeroEightFifteenMan extends Player {
 		if (health <= 0) return;
 		super.update();
 		
-		if (Player.current() != this) return;
+		if (disableActions || Player.current() != this) return;
 		
 		if (x > Cfg.mannPositions[0].x + 300) {
 			doEnde = true;
@@ -51,6 +51,7 @@ class ZeroEightFifteenMan extends Player {
 		}
 	}
 	
+	public var disableActions = true;
 	var doGulli = true;
 	var doEnde = false;
 	var doCent = true;
@@ -58,6 +59,16 @@ class ZeroEightFifteenMan extends Player {
 	override public function hit(sprite:Sprite):Void 
 	{
 		super.hit(sprite);
+		
+		if (Std.is(sprite, Bratpfanne) || Std.is(sprite, Shot)) {
+			die();
+			if (Std.is(sprite, Bratpfanne)) {
+				sprite.speedx = 0;
+			}
+		}
+		
+		if (disableActions || Player.current() != this) return;
+		
 		if (doCent) {
 			if (sprite == Cfg.cent) {
 				doCent = false;
@@ -70,13 +81,6 @@ class ZeroEightFifteenMan extends Player {
 				Dialogues.setVerkaufMannDlg();
 			}
 		}
-		
-		if (Std.is(sprite, Bratpfanne) || Std.is(sprite, Shot)) {
-			die();
-			if (Std.is(sprite, Bratpfanne)) {
-				sprite.speedx = 0;
-			}
-		}
 	}
 	
 	private function die(): Void {
@@ -85,7 +89,9 @@ class ZeroEightFifteenMan extends Player {
 			if (lookRight) setAnimation(Animation.create(22));
 			else setAnimation(Animation.create(23));
 			speedx = 0;
-			Scheduler.addTimeTask(Dialogues.setGameEnd, 1);
+			if (Player.current() == this) {
+				Scheduler.addTimeTask(Dialogues.setGameEnd, 1);
+			}
 		}
 	}
 }

@@ -13,6 +13,10 @@ class Door extends Sprite {
 	
 	override public function hit(sprite: Sprite): Void {
 		super.hit(sprite);
+		open();
+	}
+	
+	public function open() {
 		setAnimation(Animation.create(1));
 	}
 }

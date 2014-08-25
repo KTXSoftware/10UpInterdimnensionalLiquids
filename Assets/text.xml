@@ -43,6 +43,7 @@
 		(3): Zufällig</de>
 </dlg_Select_Role>
 
+<!-- starte als mann -->
 <dlg_Start_1>
 	<de>Schatz, ich geh jetzt Brötchen kaufen.</de>
 	<en>Bonny, I'll get some buns.</en>
@@ -67,6 +68,21 @@
 	<de>Ja Schatz...</de>
 	<en>Yes bonny...</en>
 </dlg_Start_6>
+
+<!-- starte als verkäuferin -->
+<dlg_Verk_Start_1>
+	<de>Ich sollte mich beleien, sonst komme ich zu spät zur Arbeit!</de>
+</dlg_Verk_Start_1>
+<dlg_Verk_Start_Falsche_Richtung>
+	<de>Die Bäckerei ist in der anderen Richtung!</de>
+</dlg_Verk_Start_Falsche_Richtung>
+<dlg_Verk_Start_2>
+	<de>Wird aber auch Zeit, dass du Auftauchst!
+		Und jetzt ab an die Arbeit.</de>
+</dlg_Verk_Start_2>
+<dlg_Verk_Start_3>
+	<de>Einige Zeit später...</de>
+</dlg_Verk_Start_3>
 
 <!-- GELD GEFUNDEN -->
 <dlg_Geld_Gefunden_1_c>

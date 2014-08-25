@@ -60,10 +60,21 @@ class Action implements DialogueItem {
 					actionFinished();
 				case ActionType.FADE:
 					++counter;
+					++counter;
 					if (counter >= 512) {
 						actionFinished();
-					} else if (counter >= 256) {
-						TenUp3.getInstance().overlayColor.Ab = 512 - counter;
+					} else if (counter == 256) {
+						TenUp3.getInstance().overlayColor = Color.Black;
+						Scene.the.removeHero(Cfg.mann);
+						Cfg.mann.x = Cfg.mannPositions[1].x;
+						Cfg.mann.y = Cfg.mannPositions[1].y;
+						Cfg.mann.lookRight = true;
+						Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
+						Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+						Cfg.verkaeuferin.lookRight = false;
+						Scene.the.addHero(Cfg.mann);
+					} else if (counter > 270) {
+						TenUp3.getInstance().overlayColor.Ab = 526 - counter;
 					} else {
 						TenUp3.getInstance().overlayColor.Ab = counter;
 					}

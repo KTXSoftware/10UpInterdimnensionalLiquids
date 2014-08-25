@@ -307,22 +307,24 @@ class Dialogues {
 	}
 	
 	
-	static public function setTestDlg(mann : ZeroEightFifteenMan, eheweib: Sprite, verkaeuferin: Verkaeuferin, euro: Sprite, cent: Sprite, broetchen: Sprite) {
-		var t2 = new StartDialogue(setTestDlg.bind(mann, eheweib, verkaeuferin, euro, cent, broetchen));
-		
-		var test = new BlaWithChoices("Welchen Dialog testen?\n"
-			+ "(1): Geld Gefunden\n"
-			+ "(2): Geld Verlohren\n"
-			+ "(3): Brötchen kaufen\n"
-			+ "(4): Brötchen verkaufen\n"
-			+ "(5): Gefeuert werden\n", mann, [
-				[new StartDialogue(setGeldGefundenMannDlg), t2]
-				, [new StartDialogue(setGeldVerlohrenVerkDlg), t2]
-				, [new StartDialogue(setVerkaufMannDlg), t2 ]
-				, [new StartDialogue(setVerkaufVerkDlg), t2 ]
-				, [new StartDialogue(setGefeuertDlg), t2 ]
-			]);
-		
-		Dialogue.insert([ test ]);
+	static public function setVerkStartDlg() {
+		Dialogue.insert( [
+			new Bla(Keys_text.DLG_VERK_START_1, Cfg.verkaeuferin)
+		] );
+	}
+	
+	static public function setWrongDirection() {
+		Dialogue.insert( [
+			new Bla(Keys_text.DLG_VERK_START_FALSCHE_RICHTUNG, Cfg.verkaeuferin)
+		] );
+	}
+	
+	static public function setVerkaufStartDlg() {
+		Dialogue.insert( [
+			new Bla(Keys_text.DLG_VERK_START_2, Cfg.mafioso)
+			, new Action([], ActionType.FADE)
+			, new Bla(Keys_text.DLG_VERK_START_3, null)
+			, new StartDialogue(setVerkaufVerkDlg)
+		] );
 	}
 }
