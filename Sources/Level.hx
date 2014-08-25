@@ -186,9 +186,8 @@ class Level {
 				sprite = new Door(x, y, false);
 				Scene.the.addProjectile(sprite);
 			case 4: // theke
-				sprite = new Theke(x, y);
-				Cfg.theke = sprite;
-				Scene.the.addEnemy(sprite);
+				Cfg.theke = new Theke(x, y);
+				Scene.the.addEnemy(Cfg.theke);
 			case 5: // backdoor
 				Cfg.backdoor = new Door(x, y, true);
 				Scene.the.addProjectile(Cfg.backdoor);

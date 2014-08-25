@@ -19,7 +19,7 @@ class Cfg
 	public static var cent: Sprite;
 	public static var broetchen: Sprite;
 	public static var broetchen_mehrkorn: Sprite;
-	public static var theke: Sprite;
+	public static var theke: Theke;
 	public static var backdoor: Door;
 	public static var bratpfanne: Sprite;
 	public static var verkaeuferinPositions : Array<Vector2i>;

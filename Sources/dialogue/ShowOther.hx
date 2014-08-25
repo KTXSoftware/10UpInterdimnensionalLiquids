@@ -17,7 +17,7 @@ class ShowOther extends Bla
 			Scene.the.removeHero(Cfg.verkaeuferin);
 			Scene.the.addHero(Cfg.verkaeuferin);
 			Cfg.verkaeuferin.setCurrent();
-			Dialogues.setGefeuertDlg();
+			Dialogues.setGefeuertProfDlg();
 			super.execute();
 		} else if (Player.current() == Cfg.verkaeuferin && Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN)) {
 			// verkäuferin => mann

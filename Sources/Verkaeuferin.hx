@@ -55,6 +55,14 @@ class Verkaeuferin extends Player {
 		}
 	}
 	
+	var noTheke = true;
+	override public function render(g:Graphics):Void 
+	{
+		if (noTheke) {
+			super.render(g);
+		}
+	}
+	
 	override public function hit(sprite:Sprite):Void 
 	{
 		super.hit(sprite);
@@ -73,6 +81,20 @@ class Verkaeuferin extends Player {
 				doTheke = false;
 				Dialogues.setVerkaufStartDlg();
 			}
+		}
+	}
+	
+	public function operateTheke(doIt: Bool) {
+		if (doIt) {
+			noTheke = false;
+			Cfg.theke.besetzt();
+			Cfg.verkaeuferin.x = Cfg.theke.x + 0.4 * Cfg.theke.width;
+			Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+		} else {
+			noTheke = true;
+			Cfg.theke.frei();
+			Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
+			Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
 		}
 	}
 	

@@ -245,8 +245,10 @@ class Dialogues {
 	
 	
 	static public function setGefeuertDlg() {
+		Cfg.backdoor.open(true);
 		Scene.the.removeHero(Cfg.mann);
 		var verkaeuferin = Cfg.verkaeuferin;
+		verkaeuferin.operateTheke(false);
 		verkaeuferin.lookRight = true;
 		var mafioso = Cfg.mafioso;
 		if (Cfg.getVictoryCondition(VictoryCondition.MATHEGENIE)) {
@@ -271,6 +273,7 @@ class Dialogues {
 		verkaeuferin.lookRight = true;
 		verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
 		verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+		verkaeuferin.operateTheke(false);
 		Scene.the.removeHero(verkaeuferin);
 		Scene.the.addHero(verkaeuferin);
 		var mafioso = Cfg.mafioso;
@@ -416,10 +419,9 @@ class Dialogues {
 	static public function setVerkaufStart2Dlg() {
 		Scene.the.removeHero(Cfg.mann);
 		Cfg.mann.x = Cfg.mannPositions[1].x;
-		Cfg.mann.y = Cfg.mannPositions[1].y;
+		Cfg.mann.y = Cfg.mannPositions[1].y + 50;
 		Cfg.mann.lookRight = true;
-		Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
-		Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
+		Cfg.verkaeuferin.operateTheke(true);
 		Cfg.verkaeuferin.lookRight = false;
 		Scene.the.addHero(Cfg.mann);
 		

@@ -28,9 +28,9 @@ class Door extends Sprite {
 		}
 	}
 	
-	public function open() {
+	public function open(noShooting = false) {
 		isopen = true;
 		setAnimation(Animation.create(1));
-		if (backdoor) Mafioso.the().useMg = true;
+		if (backdoor && !noShooting) Mafioso.the().useMg = true;
 	}
 }

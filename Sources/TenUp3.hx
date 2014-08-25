@@ -205,6 +205,7 @@ class TenUp3 extends Game {
 		Cfg.verkaeuferin.x = Cfg.verkaeuferinPositions[1].x;
 		Cfg.verkaeuferin.y = Cfg.verkaeuferinPositions[1].y;
 		Scene.the.addHero(Cfg.verkaeuferin);
+		Cfg.verkaeuferin.operateTheke(true);
 		
 		Dialogues.setStartDlg();
 	}
