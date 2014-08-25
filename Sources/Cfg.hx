@@ -75,6 +75,15 @@ class Cfg
 		Cfg.verkaeuferinPositions = new Array();
 		Cfg.eheweib = null;
 		Cfg.mafioso = null;
+		
+		#if JUST_A_NORMAL_DAY
+		#else
+		Cfg.setVictoryCondition(VictoryCondition.WATER, false);
+		Cfg.setVictoryCondition(VictoryCondition.SLEEPY, false);
+		Cfg.setVictoryCondition(VictoryCondition.GULLI, false);
+		Cfg.setVictoryCondition(VictoryCondition.TENUPWEG, false);
+		#end
+		
 		Cfg.euro = new Sprite(Loader.the.getImage("euro"));
 		Cfg.euro.scaleX = Cfg.euro.scaleY = 0.5;
 		Cfg.cent = new Sprite(Loader.the.getImage("cent"));

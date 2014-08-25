@@ -99,7 +99,6 @@ class TenUp3 extends Game {
 	}
 
 	function initLevel(): Void {
-		Random.init(Std.int(Scheduler.time() * 10000));
 		backbuffer = Image.createRenderTarget(800, 600);
 		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
 		startGame();
