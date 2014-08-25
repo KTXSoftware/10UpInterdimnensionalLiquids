@@ -26,6 +26,8 @@ class Lava extends Sprite {
 	
 	override public function update(): Void {
 		super.update();
+		if (speedx < 0) setAnimation(left);
+		else setAnimation(right);
 		splash();
 	}
 	
@@ -74,7 +76,7 @@ class Lava extends Sprite {
 					Level.liquids.set(tile.x, tile.y, value - 1);
 					Scene.the.addProjectile(new Haze(x + collider.width / 2, y));
 				}
-				if (Water.isWater(valueBelow)) {
+				else if (Water.isWater(valueBelow)) {
 					Level.liquids.set(tile.x, tile.y + 1, valueBelow - 1);
 					Scene.the.addProjectile(new Haze(x + collider.width / 2, y));
 				}
