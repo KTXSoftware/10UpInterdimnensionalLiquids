@@ -143,6 +143,14 @@ class Level {
 				}
 			}
 		}
+		for (x in 0...levelWidth) {
+			for (y in 0...levelHeight) {
+				if (map[x][y] == 346 && liquidMap[x][y] == 1) {
+					map[x][y] = 344;
+				}
+				if (map[x][y] == 347 && liquidMap[x][y] == 1) map[x][y] = 345;
+			}
+		}
 		//var jmpMan = Jumpman.getInstance();
 		for (i in 0...spriteCount) {
 			var sprite: kha.Sprite;
