@@ -127,6 +127,7 @@ class PlayerProfessor extends Player {
 	
 	override public function hit(sprite: Sprite): Void {
 		if (!foundTenUp && Std.is(sprite, TenUpShelf)) {
+			sprite.setAnimation(Animation.create(1));
 			Dialogues.startProfGotItDialog(this);
 			foundTenUp = true;
 			if (lotsOfGas()) {
