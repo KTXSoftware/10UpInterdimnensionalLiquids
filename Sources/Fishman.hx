@@ -14,8 +14,8 @@ class Fishman extends Sprite {
 		this.x = x;
 		this.y = y;
 		speedx = -3;
-		left = Animation.createRange(0, 8, 4);
-		right = Animation.createRange(9, 17, 4);
+		left = Animation.createRange(1, 8, 4);
+		right = Animation.createRange(10, 17, 4);
 		setAnimation(left);
 	}
 	
