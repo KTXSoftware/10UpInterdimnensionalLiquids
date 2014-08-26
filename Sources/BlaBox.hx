@@ -9,7 +9,7 @@ import kha.Scene;
 import kha.Sprite;
 
 class BlaBox {
-	private static var padding = 10;
+	private static var padding = 15;
 	private static var maxWidth = 500;
 	private static var width : Float;
 	private static var height : Float;
