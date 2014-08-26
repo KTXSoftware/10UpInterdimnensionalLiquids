@@ -19,7 +19,7 @@ class Verkaeuferin extends Player {
 	}
 	
 	public function new(x: Float, y: Float) {
-		super(x, y - 8, "mechanic", Std.int(410 / 10) * 2, Std.int(455 / 7) * 2);
+		super(x, y - 8, "mechanic", Std.int(410 / 10) * 2, Std.int(128 / 2) * 2);
 		me = this;
 		Player.setPlayer(2, this);
 		collider = new Rectangle(20, 30, 41 * 2 - 40, (65 - 1) * 2 - 30);
