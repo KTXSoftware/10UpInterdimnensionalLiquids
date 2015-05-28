@@ -156,7 +156,7 @@ class TenUp3 extends Game {
 		prof.inventory.pick(new Sprite(Loader.the.getImage('gasflow')));
 		prof.inventory.pick(new Sprite(Loader.the.getImage('noflow')));
 		prof.inventory.selectIndex(0);
-		Dialogues.startProfStartDialog(prof);
+		//Dialogues.startProfStartDialog(prof);
 	}
 	
 	var cfg: Cfg;
