@@ -44,8 +44,7 @@
 		{
 			"type": "image",
 			"file": "outside.png",
-			"name": "outside",
-			"scale": 2
+			"name": "outside"
 		},
 		{
 			"type": "blob",
@@ -60,14 +59,17 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
 			"file": "timecannon.png",
 			"name": "timecannon",
-			"scale": 2
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			}
 		},
 		{
 			"type": "image",
@@ -77,8 +79,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -88,14 +89,17 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
 			"file": "liquids.png",
 			"name": "liquids",
-			"scale": 2
+			"background": {
+				"red": 255,
+				"green": 174,
+				"blue": 201
+			}
 		},
 		{
 			"type": "blob",
@@ -120,8 +124,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -181,8 +184,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -192,8 +194,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -203,8 +204,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -214,8 +214,7 @@
 		{
 			"type": "image",
 			"file": "10up.png",
-			"name": "10up",
-			"scale": 2
+			"name": "10up"
 		},
 		{
 			"type": "image",
@@ -225,8 +224,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -236,8 +234,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -247,8 +244,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "blob",
@@ -268,8 +264,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -279,8 +274,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -290,8 +284,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -301,8 +294,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -312,8 +304,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
@@ -333,8 +324,7 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			},
-			"scale": 2
+			}
 		},
 		{
 			"type": "image",
