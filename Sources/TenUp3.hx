@@ -68,7 +68,7 @@ class TenUp3 extends Game {
 	var mode : Mode;
 	
 	public function new() {
-		super("SML", true);
+		super("TenUp3");
 		instance = this;
 		shiftPressed = false;
 		highscoreName = "";
@@ -91,6 +91,7 @@ class TenUp3 extends Game {
 		backbuffer = Image.createRenderTarget(960, 600);
 		
 		Cfg.init();
+		Cfg.language = "en";
 		if (Cfg.language == null) {
 			Configuration.setScreen(this);
 			var msg = "Please select your language:";
@@ -257,6 +258,7 @@ class TenUp3 extends Game {
 	public override function render(frame: Framebuffer) {
 		var g = backbuffer.g2;
 		g.begin();
+		Scene.the.camy = 0;
 		Scene.the.render(g);
 		g.transformation = Matrix3.identity();
 		if (Player.current() != null) {
