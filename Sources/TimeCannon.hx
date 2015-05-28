@@ -1,11 +1,11 @@
 package ;
 
-import kha.Animation;
+import kha2d.Animation;
 import kha.graphics2.Graphics;
 import kha.Image;
 import kha.math.Vector2;
 import kha.Rotation;
-import kha.Sprite;
+import kha2d.Sprite;
 
 
 class TimeCannon extends Sprite {

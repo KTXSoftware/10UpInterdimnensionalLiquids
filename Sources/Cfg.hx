@@ -3,7 +3,7 @@ package;
 import kha.Loader;
 import kha.math.Vector2;
 import kha.math.Vector2i;
-import kha.Sprite;
+import kha2d.Sprite;
 import kha.Storage;
 import localization.Keys_text;
 

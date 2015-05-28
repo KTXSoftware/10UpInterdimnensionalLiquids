@@ -1,9 +1,9 @@
 package;
 
 import dialogue.Action;
-import kha.Animation;
+import kha2d.Animation;
 import kha.Loader;
-import kha.Sprite;
+import kha2d.Sprite;
 
 class Weib extends Sprite {
 	public function new(x: Float, y: Float) {
@@ -18,7 +18,7 @@ class Weib extends Sprite {
 	override public function hit(sprite:Sprite):Void {
 		if (Std.is(sprite, Broetchen)) {
 			++count;
-			kha.Scene.the.removeProjectile(sprite);
+			kha2d.Scene.the.removeProjectile(sprite);
 			if (count >= 2)  {
 				Action.finishThrow = true;
 				Dialogue.next();

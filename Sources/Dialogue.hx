@@ -1,7 +1,7 @@
 package;
 
 import TenUp3.Mode;
-import kha.Scene;
+import kha2d.Scene;
 
 interface DialogueItem {
 	public function execute() : Void;

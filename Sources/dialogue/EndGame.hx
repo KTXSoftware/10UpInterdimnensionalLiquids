@@ -1,5 +1,5 @@
 package dialogue;
-import kha.Scene;
+import kha2d.Scene;
 
 class EndGame implements Dialogue.DialogueItem
 {

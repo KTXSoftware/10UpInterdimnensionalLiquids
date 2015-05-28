@@ -3,7 +3,7 @@ package dialogue;
 import Dialogue.DialogueItem;
 import kha.input.Keyboard;
 import kha.Key;
-import kha.Sprite;
+import kha2d.Sprite;
 
 using StringTools;
 

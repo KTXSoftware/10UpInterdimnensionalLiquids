@@ -5,8 +5,8 @@ import kha.Font;
 import kha.FontStyle;
 import kha.Loader;
 import kha.graphics2.Graphics;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
 class BlaBox {
 	private static var padding = 15;

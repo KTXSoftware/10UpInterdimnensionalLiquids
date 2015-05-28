@@ -1,14 +1,14 @@
 package;
 
-import kha.Animation;
+import kha2d.Animation;
 import kha.Color;
 import kha.graphics2.Graphics;
 import kha.Loader;
 import kha.math.Vector2;
 import kha.Rectangle;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Scheduler;
-import kha.Sprite;
+import kha2d.Sprite;
 
 class Verkaeuferin extends Player {
 	private static var me: Verkaeuferin;

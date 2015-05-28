@@ -1,13 +1,13 @@
 package;
 
-import kha.Animation;
+import kha2d.Animation;
 import kha.Color;
 import kha.graphics2.Graphics;
 import kha.Loader;
 import kha.math.Vector2;
 import kha.Rectangle;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
 class PlayerProfessor extends Player {
 	var timecannon : TimeCannon;
@@ -36,7 +36,7 @@ class PlayerProfessor extends Player {
 		return "Hack";
 	}
 	
-	@:access(kha.Animation) 
+	@:access(kha2d.Animation) 
 	override public function update() {
 		if (gameover) return;
 		if (sleeping) return;

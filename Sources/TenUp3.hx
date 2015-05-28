@@ -21,16 +21,16 @@ import kha.math.Matrix3;
 import kha.math.Random;
 import kha.Music;
 import kha.Scaler;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Scheduler;
 import kha.Score;
 import kha.Configuration;
 import kha.ScreenRotation;
 import kha.SoundChannel;
-import kha.Sprite;
+import kha2d.Sprite;
 import kha.Storage;
-import kha.Tile;
-import kha.Tilemap;
+import kha2d.Tile;
+import kha2d.Tilemap;
 import localization.Keys_text;
 
 enum SubGame {
@@ -229,6 +229,7 @@ class TenUp3 extends Game {
 	
 	public override function update() {
 		super.update();
+		Scene.the.update();
 		updateMouse();
 		var player = Player.current();
 		if (player != null) {
@@ -256,7 +257,7 @@ class TenUp3 extends Game {
 	public override function render(frame: Framebuffer) {
 		var g = backbuffer.g2;
 		g.begin();
-		scene.render(g);
+		Scene.the.render(g);
 		g.transformation = Matrix3.identity();
 		if (Player.current() != null) {
 			Player.current().inventory.render(g);

@@ -9,12 +9,12 @@ import kha.Loader;
 import kha.LoadingScreen;
 import kha.math.Random;
 import kha.math.Vector2i;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Scheduler;
-import kha.Sprite;
+import kha2d.Sprite;
 import kha.Storage;
-import kha.Tile;
-import kha.Tilemap;
+import kha2d.Tile;
+import kha2d.Tilemap;
 
 class Level {
 	public static var solution : Bool = false;
@@ -157,7 +157,7 @@ class Level {
 		}
 		//var jmpMan = Jumpman.getInstance();
 		for (i in 0...spriteCount) {
-			var sprite: kha.Sprite;
+			var sprite: kha2d.Sprite;
 			var x = sprites[i * 3 + 1];
 			var y = sprites[i * 3 + 2];
 			if (levelName == "level1") {

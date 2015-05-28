@@ -1,17 +1,17 @@
 package;
 
-import kha.Animation;
-import kha.Direction;
+import kha2d.Animation;
+import kha2d.Direction;
 import kha.graphics2.Graphics;
 import kha.Image;
 import kha.math.Vector2;
 import kha.Rectangle;
 import kha.Rotation;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
-@:access(kha.Animation) 
-@:access(kha.Sprite)
+@:access(kha2d.Animation) 
+@:access(kha2d.Sprite)
 class TimedSpriteInfo {
 	public var time(default, null) : Float;
 	

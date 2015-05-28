@@ -1,8 +1,8 @@
 package;
 
-import kha.Animation;
+import kha2d.Animation;
 import kha.Loader;
-import kha.Sprite;
+import kha2d.Sprite;
 
 class TenUpShelf extends Sprite {
 	public function new(x: Float, y: Float) {

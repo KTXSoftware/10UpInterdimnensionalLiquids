@@ -3,8 +3,8 @@ package;
 import kha.graphics2.Graphics;
 import kha.Image;
 import kha.Loader;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
 class Mafioso extends Sprite {
 	private var count: Int = 0;
