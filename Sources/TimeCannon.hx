@@ -25,4 +25,8 @@ class TimeCannon extends Sprite {
 	//override public function render(g: Graphics): Void {
 	//	g.drawScaledSubImage(image, Std.int(animation.get() * width) % image.width, Math.floor(animation.get() * width / image.width) * height, width, height, Math.round(x - collider.x), Math.round(y - collider.y), width, height, rotation);
 	//}
+	
+	override public function render(g: Graphics): Void {
+		
+	}
 }

@@ -101,7 +101,7 @@ class Cfg
 	}
 	
 	static public function save(): Void {
-		Storage.defaultFile().writeObject(the);
+		//Storage.defaultFile().writeObject(the);
 	}
 	
 	private function new() {
