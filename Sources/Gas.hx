@@ -1,10 +1,10 @@
 package;
 
-import kha2d.Direction;
+import kha.Direction;
 import kha.Loader;
 import kha.math.Vector2;
 import kha.Rectangle;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class Gas extends Sprite {
 	public function new(x: Float, y: Float, speedx: Float, speedy: Float) {

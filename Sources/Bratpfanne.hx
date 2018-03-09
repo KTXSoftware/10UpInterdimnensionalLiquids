@@ -1,7 +1,7 @@
 package;
 
 import kha.Loader;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class Bratpfanne extends Sprite {
 	public function new() {

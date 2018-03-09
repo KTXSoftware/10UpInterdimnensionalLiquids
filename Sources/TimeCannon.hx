@@ -1,11 +1,11 @@
 package ;
 
-import kha2d.Animation;
+import kha.Animation;
 import kha.graphics2.Graphics;
 import kha.Image;
 import kha.math.Vector2;
 import kha.Rotation;
-import kha2d.Sprite;
+import kha.Sprite;
 
 
 class TimeCannon extends Sprite {
@@ -25,8 +25,4 @@ class TimeCannon extends Sprite {
 	//override public function render(g: Graphics): Void {
 	//	g.drawScaledSubImage(image, Std.int(animation.get() * width) % image.width, Math.floor(animation.get() * width / image.width) * height, width, height, Math.round(x - collider.x), Math.round(y - collider.y), width, height, rotation);
 	//}
-	
-	override public function render(g: Graphics): Void {
-		
-	}
 }

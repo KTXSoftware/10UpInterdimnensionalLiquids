@@ -2,7 +2,3 @@
 	path = Kha
 	url = ../Kha
 	branch = master
-[submodule "Libraries/Kha2D"]
-	path = Libraries/Kha2D
-	url = ../Kha2D
-	branch = master

@@ -1,7 +1,7 @@
 package;
 
 import kha.Image;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class Enemy extends Sprite {
 	private var killed: Bool;

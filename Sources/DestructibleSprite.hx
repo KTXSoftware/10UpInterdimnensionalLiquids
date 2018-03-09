@@ -1,7 +1,7 @@
 package;
 
 import kha.Image;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class DestructibleSprite extends TimeTravelSprite {
 	var maxHealth : Int;

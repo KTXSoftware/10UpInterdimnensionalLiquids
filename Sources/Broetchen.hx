@@ -3,7 +3,7 @@ package;
 import kha.graphics2.Graphics;
 import kha.Image;
 import kha.Loader;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class Broetchen extends Sprite {
 	public function new(mehrkorn = false) {

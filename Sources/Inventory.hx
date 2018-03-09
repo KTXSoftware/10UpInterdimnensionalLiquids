@@ -1,13 +1,13 @@
 package;
 
-import kha2d.Animation;
+import kha.Animation;
 import kha.Color;
 import kha.Game;
 import kha.graphics2.Graphics;
 import kha.Loader;
 import kha.math.Vector2;
-import kha2d.Scene;
-import kha2d.Sprite;
+import kha.Scene;
+import kha.Sprite;
 
 class Inventory {
 	var y : Float;
@@ -21,14 +21,14 @@ class Inventory {
 	function set_spacing(value: Int) : Int {
 		y = Game.the.height - itemHeight - 2 * value;
 		if (Player.current() != null && Player.current().inventory == this) {
-			//**Scene.the.camyHack = itemHeight + 2 * value;
+			Scene.the.camyHack = itemHeight + 2 * value;
 		}
 		return spacing = value;
 	}
 	function set_itemHeight(value: Int) : Int {
 		y = Game.the.height - value - 2 * spacing;
 		if (Player.current() != null && Player.current().inventory == this) {
-			//**Scene.the.camyHack = value + 2 * spacing;
+			Scene.the.camyHack = value + 2 * spacing;
 		}
 		return itemHeight = value;
 	}

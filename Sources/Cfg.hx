@@ -3,7 +3,7 @@ package;
 import kha.Loader;
 import kha.math.Vector2;
 import kha.math.Vector2i;
-import kha2d.Sprite;
+import kha.Sprite;
 import kha.Storage;
 import localization.Keys_text;
 
@@ -71,7 +71,7 @@ class Cfg
 	}
 	
 	static public function init() {
-		var data = null; // Storage.defaultFile().readObject();
+		var data = Storage.defaultFile().readObject();
 		if (data == null) the = new Cfg();
 		else the = cast data;
 		
@@ -101,7 +101,7 @@ class Cfg
 	}
 	
 	static public function save(): Void {
-		//Storage.defaultFile().writeObject(the);
+		Storage.defaultFile().writeObject(the);
 	}
 	
 	private function new() {

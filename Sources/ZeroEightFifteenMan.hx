@@ -2,15 +2,15 @@ package;
 
 import dialogue.Action;
 import dialogue.EndGame;
-import kha2d.Animation;
+import kha.Animation;
 import kha.Color;
 import kha.graphics2.Graphics;
 import kha.Loader;
 import kha.math.Vector2;
 import kha.Rectangle;
-import kha2d.Scene;
+import kha.Scene;
 import kha.Scheduler;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class ZeroEightFifteenMan extends Player {
 	private static var me: ZeroEightFifteenMan;

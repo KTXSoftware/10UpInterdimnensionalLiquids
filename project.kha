@@ -1,57 +1,68 @@
 {
-	"format": 2,
+	"format": 1,
 	"game": {
-		"name": "TenUp3",
+		"name": "SML",
 		"width": 960,
 		"height": 600
 	},
 	"assets": [
 		{
+			"id": "9c8c0db0-d7cc-11e1-9b23-0800200c9a66",
 			"type": "image",
 			"file": "blockcoin.png",
 			"name": "blockcoin"
 		},
 		{
+			"id": "a7a42c00-d7cc-11e1-9b23-0800200c9a66",
 			"type": "image",
 			"file": "bonusblock.png",
 			"name": "bonusblock"
 		},
 		{
+			"id": "2348bd75-d7ce-11e1-9b23-0800200c9a66",
 			"type": "sound",
 			"file": "coin",
 			"name": "coin"
 		},
 		{
+			"id": "2348bd76-d7ce-11e1-9b23-0800200c9a66",
 			"type": "sound",
 			"file": "die",
 			"name": "die"
 		},
 		{
+			"id": "2348bd77-d7ce-11e1-9b23-0800200c9a66",
 			"type": "sound",
 			"file": "jump",
 			"name": "jump"
 		},
 		{
+			"id": "2348bd78-d7ce-11e1-9b23-0800200c9a66",
 			"type": "sound",
 			"file": "stomp",
 			"name": "stomp"
 		},
 		{
+			"id": "15b1ea20-4032-11e2-a25f-0800200c9a66",
 			"type": "blob",
 			"file": "Arial12.kravur",
 			"name": "Arial12.kravur"
 		},
 		{
+			"id": "17f8b182-af09-4762-aab8-073ac22824e3",
 			"type": "image",
 			"file": "outside.png",
-			"name": "outside"
+			"name": "outside",
+			"scale": 2
 		},
 		{
+			"id": "a093355c-6c09-4de0-8d80-8b4a71398701",
 			"type": "blob",
 			"file": "level1",
 			"name": "level1"
 		},
 		{
+			"id": "60aef4c6-7f6a-4691-ac26-83a3b04fffe4",
 			"type": "image",
 			"file": "professor.png",
 			"name": "professor",
@@ -59,19 +70,18 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "83e4b061-56bc-462a-b187-52987619a14e",
 			"type": "image",
 			"file": "timecannon.png",
 			"name": "timecannon",
-			"background": {
-				"red": 255,
-				"green": 174,
-				"blue": 201
-			}
+			"scale": 2
 		},
 		{
+			"id": "981ecab7-2b5f-4c61-b508-2fda90853742",
 			"type": "image",
 			"file": "zzzzz.png",
 			"name": "zzzzz",
@@ -79,9 +89,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "f37f1d5d-4a1d-4ac6-a9c6-292ebbcaecf5",
 			"type": "image",
 			"file": "water.png",
 			"name": "water",
@@ -89,34 +101,36 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "075058f8-4f66-43af-b69b-f775253c5212",
 			"type": "image",
 			"file": "liquids.png",
 			"name": "liquids",
-			"background": {
-				"red": 255,
-				"green": 174,
-				"blue": 201
-			}
+			"scale": 2
 		},
 		{
+			"id": "aaa16854-a794-4fa2-b037-bdd7e31b5a96",
 			"type": "blob",
 			"file": "text.xml",
 			"name": "text"
 		},
 		{
+			"id": "4b083c38-3a9c-41cf-825f-0c645de83535",
 			"type": "blob",
 			"file": "Liberation Sans-Regular20.kravur",
 			"name": "Liberation Sans20.kravur"
 		},
 		{
+			"id": "bada0129-afb0-4267-bb54-8c0d45f46916",
 			"type": "blob",
 			"file": "Liberation Sans-Regular14.kravur",
 			"name": "Liberation Sans14.kravur"
 		},
 		{
+			"id": "4ea4d94b-5091-4d2f-a94c-837be598e8fb",
 			"type": "image",
 			"file": "lava.png",
 			"name": "lava",
@@ -124,19 +138,23 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "a3e173ef-3e50-432d-88cb-66259fd9b22d",
 			"type": "image",
 			"file": "euro.png",
 			"name": "euro"
 		},
 		{
+			"id": "7c62211a-40e1-4c3b-b989-e134f216e90e",
 			"type": "image",
 			"file": "cent.png",
 			"name": "cent"
 		},
 		{
+			"id": "ad0fc651-69ed-4900-84e0-d2dd5c606416",
 			"type": "image",
 			"file": "gasflow.png",
 			"name": "gasflow",
@@ -147,6 +165,7 @@
 			}
 		},
 		{
+			"id": "544d80ae-7cb7-4ed5-b455-d0eeed449fa5",
 			"type": "image",
 			"file": "lavaflow.png",
 			"name": "lavaflow",
@@ -157,6 +176,7 @@
 			}
 		},
 		{
+			"id": "79814a31-b1fa-49bf-9547-73cf08ee62af",
 			"type": "image",
 			"file": "waterflow.png",
 			"name": "waterflow",
@@ -167,6 +187,7 @@
 			}
 		},
 		{
+			"id": "9188beee-1a7f-43a8-bac3-60d448462971",
 			"type": "image",
 			"file": "noflow.png",
 			"name": "noflow",
@@ -177,6 +198,7 @@
 			}
 		},
 		{
+			"id": "c2463eea-d0f5-4b19-81ce-9e1698b37583",
 			"type": "image",
 			"file": "portal.png",
 			"name": "portal",
@@ -184,9 +206,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "cc475837-ea13-4560-a648-6cafd58ce8ba",
 			"type": "image",
 			"file": "watersplash.png",
 			"name": "watersplash",
@@ -194,9 +218,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "4f4c34c2-fa42-4775-baca-3dba9e23b9b6",
 			"type": "image",
 			"file": "lavasplash.png",
 			"name": "lavasplash",
@@ -204,19 +230,24 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "511ce524-b37f-4834-9da1-0fa96a3c0eff",
 			"type": "image",
 			"file": "gas.png",
 			"name": "gas"
 		},
 		{
+			"id": "032e09da-eae2-4846-bfa0-9ad6b2e48a55",
 			"type": "image",
 			"file": "10up.png",
-			"name": "10up"
+			"name": "10up",
+			"scale": 2
 		},
 		{
+			"id": "334155cf-3ba6-41df-a62d-56164e299099",
 			"type": "image",
 			"file": "machinegun.png",
 			"name": "machinegun",
@@ -224,9 +255,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "0173a8b3-4118-4a79-a51c-1af54bd1792e",
 			"type": "image",
 			"file": "shot.png",
 			"name": "shot",
@@ -234,9 +267,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "0d97149b-727c-4657-926a-bfcf884e4261",
 			"type": "image",
 			"file": "backfrau.png",
 			"name": "mechanic",
@@ -244,19 +279,23 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "f51576a5-d96a-43f4-b275-8a9b7f0136c2",
 			"type": "blob",
 			"file": "localizations.xml",
 			"name": "localizations"
 		},
 		{
+			"id": "115f1278-9f46-4d1d-9e78-aaa09befbaac",
 			"type": "image",
 			"file": "haze.png",
 			"name": "haze"
 		},
 		{
+			"id": "158e28a2-c261-4dee-9cdd-63ee75f991b9",
 			"type": "image",
 			"file": "fishy.png",
 			"name": "fishy",
@@ -264,9 +303,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "ff27f696-4aa1-47e8-9f4d-bf03263d5178",
 			"type": "image",
 			"file": "boss.png",
 			"name": "boss",
@@ -274,9 +315,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "0b2f792e-f476-40c9-9e4c-d9c72892c9a6",
 			"type": "image",
 			"file": "door.png",
 			"name": "door",
@@ -284,9 +327,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "9008d05e-00da-4065-9e71-f37236b34524",
 			"type": "image",
 			"file": "theke.png",
 			"name": "theke",
@@ -294,9 +339,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "48d83f30-67f3-44a4-a51a-ebd0b2acf6c0",
 			"type": "image",
 			"file": "nullachtsechzehnmann.png",
 			"name": "nullachtfuenfzehnmann",
@@ -304,19 +351,23 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "26c569b3-d810-45f6-880e-7366fe377ca2",
 			"type": "image",
 			"file": "broetchen1.png",
 			"name": "broetchen1"
 		},
 		{
+			"id": "9a8c0961-861b-450f-b0db-95eeee9820a1",
 			"type": "image",
 			"file": "broetchen2.png",
 			"name": "broetchen2"
 		},
 		{
+			"id": "633ac900-ed9b-47a5-89fb-ec63c88f3be9",
 			"type": "image",
 			"file": "ZornigeFrau.png",
 			"name": "ZornigeFrau",
@@ -324,9 +375,11 @@
 				"red": 255,
 				"green": 174,
 				"blue": 201
-			}
+			},
+			"scale": 2
 		},
 		{
+			"id": "24eb691f-2649-434f-a181-ba2022d18357",
 			"type": "image",
 			"file": "Bratpfanne.png",
 			"name": "Bratpfanne"
@@ -334,68 +387,70 @@
 	],
 	"rooms": [
 		{
+			"id": "657f6c70-d7ce-11e1-9b23-0800200c9a66",
 			"name": "level1",
 			"parent": null,
 			"neighbours": [],
 			"assets": [
-				"blockcoin",
-				"bonusblock",
-				"coin",
-				"die",
-				"jump",
-				"stomp",
-				"Arial12.kravur",
-				"outside",
-				"level1",
-				"professor",
-				"timecannon",
-				"zzzzz",
-				"water",
-				"liquids",
-				"Liberation Sans20.kravur",
-				"Liberation Sans14.kravur",
-				"lava",
-				"euro",
-				"cent",
-				"gasflow",
-				"lavaflow",
-				"waterflow",
-				"noflow",
-				"portal",
-				"watersplash",
-				"lavasplash",
-				"gas",
-				"10up",
-				"machinegun",
-				"shot",
-				"mechanic",
-				"haze",
-				"fishy",
-				"boss",
-				"door",
-				"theke",
-				"nullachtfuenfzehnmann",
-				"broetchen1",
-				"broetchen2",
-				"ZornigeFrau",
-				"Bratpfanne"
+				"9c8c0db0-d7cc-11e1-9b23-0800200c9a66",
+				"a7a42c00-d7cc-11e1-9b23-0800200c9a66",
+				"2348bd75-d7ce-11e1-9b23-0800200c9a66",
+				"2348bd76-d7ce-11e1-9b23-0800200c9a66",
+				"2348bd77-d7ce-11e1-9b23-0800200c9a66",
+				"2348bd78-d7ce-11e1-9b23-0800200c9a66",
+				"15b1ea20-4032-11e2-a25f-0800200c9a66",
+				"17f8b182-af09-4762-aab8-073ac22824e3",
+				"a093355c-6c09-4de0-8d80-8b4a71398701",
+				"60aef4c6-7f6a-4691-ac26-83a3b04fffe4",
+				"83e4b061-56bc-462a-b187-52987619a14e",
+				"981ecab7-2b5f-4c61-b508-2fda90853742",
+				"f37f1d5d-4a1d-4ac6-a9c6-292ebbcaecf5",
+				"075058f8-4f66-43af-b69b-f775253c5212",
+				"4b083c38-3a9c-41cf-825f-0c645de83535",
+				"bada0129-afb0-4267-bb54-8c0d45f46916",
+				"4ea4d94b-5091-4d2f-a94c-837be598e8fb",
+				"a3e173ef-3e50-432d-88cb-66259fd9b22d",
+				"7c62211a-40e1-4c3b-b989-e134f216e90e",
+				"ad0fc651-69ed-4900-84e0-d2dd5c606416",
+				"544d80ae-7cb7-4ed5-b455-d0eeed449fa5",
+				"79814a31-b1fa-49bf-9547-73cf08ee62af",
+				"9188beee-1a7f-43a8-bac3-60d448462971",
+				"c2463eea-d0f5-4b19-81ce-9e1698b37583",
+				"cc475837-ea13-4560-a648-6cafd58ce8ba",
+				"4f4c34c2-fa42-4775-baca-3dba9e23b9b6",
+				"511ce524-b37f-4834-9da1-0fa96a3c0eff",
+				"032e09da-eae2-4846-bfa0-9ad6b2e48a55",
+				"334155cf-3ba6-41df-a62d-56164e299099",
+				"0173a8b3-4118-4a79-a51c-1af54bd1792e",
+				"0d97149b-727c-4657-926a-bfcf884e4261",
+				"115f1278-9f46-4d1d-9e78-aaa09befbaac",
+				"158e28a2-c261-4dee-9cdd-63ee75f991b9",
+				"ff27f696-4aa1-47e8-9f4d-bf03263d5178",
+				"0b2f792e-f476-40c9-9e4c-d9c72892c9a6",
+				"9008d05e-00da-4065-9e71-f37236b34524",
+				"48d83f30-67f3-44a4-a51a-ebd0b2acf6c0",
+				"26c569b3-d810-45f6-880e-7366fe377ca2",
+				"9a8c0961-861b-450f-b0db-95eeee9820a1",
+				"633ac900-ed9b-47a5-89fb-ec63c88f3be9",
+				"24eb691f-2649-434f-a181-ba2022d18357"
 			]
 		},
 		{
+			"id": "dfe79def-8e13-4036-afd6-395cc922a10e",
 			"name": "start",
 			"parent": null,
 			"neighbours": [],
 			"assets": [
-				"localizations",
-				"Liberation Sans20.kravur",
-				"Liberation Sans14.kravur",
-				"Arial12.kravur",
-				"text",
-				"euro",
-				"cent",
-				"broetchen1",
-				"Bratpfanne",
-				"broetchen2"
+				"f51576a5-d96a-43f4-b275-8a9b7f0136c2",
+				"4b083c38-3a9c-41cf-825f-0c645de83535",
+				"bada0129-afb0-4267-bb54-8c0d45f46916",
+				"15b1ea20-4032-11e2-a25f-0800200c9a66",
+				"aaa16854-a794-4fa2-b037-bdd7e31b5a96",
+				"a3e173ef-3e50-432d-88cb-66259fd9b22d",
+				"7c62211a-40e1-4c3b-b989-e134f216e90e",
+				"26c569b3-d810-45f6-880e-7366fe377ca2",
+				"24eb691f-2649-434f-a181-ba2022d18357",
+				"9a8c0961-861b-450f-b0db-95eeee9820a1"
 			]
 		}
 	]

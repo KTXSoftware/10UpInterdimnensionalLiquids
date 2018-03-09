@@ -21,16 +21,16 @@ import kha.math.Matrix3;
 import kha.math.Random;
 import kha.Music;
 import kha.Scaler;
-import kha2d.Scene;
+import kha.Scene;
 import kha.Scheduler;
 import kha.Score;
 import kha.Configuration;
 import kha.ScreenRotation;
 import kha.SoundChannel;
-import kha2d.Sprite;
+import kha.Sprite;
 import kha.Storage;
-import kha2d.Tile;
-import kha2d.Tilemap;
+import kha.Tile;
+import kha.Tilemap;
 import localization.Keys_text;
 
 enum SubGame {
@@ -68,7 +68,7 @@ class TenUp3 extends Game {
 	var mode : Mode;
 	
 	public function new() {
-		super("TenUp3");
+		super("SML", true);
 		instance = this;
 		shiftPressed = false;
 		highscoreName = "";
@@ -91,7 +91,6 @@ class TenUp3 extends Game {
 		backbuffer = Image.createRenderTarget(960, 600);
 		
 		Cfg.init();
-		Cfg.language = "en";
 		if (Cfg.language == null) {
 			Configuration.setScreen(this);
 			var msg = "Please select your language:";
@@ -156,7 +155,7 @@ class TenUp3 extends Game {
 		prof.inventory.pick(new Sprite(Loader.the.getImage('gasflow')));
 		prof.inventory.pick(new Sprite(Loader.the.getImage('noflow')));
 		prof.inventory.selectIndex(0);
-		//Dialogues.startProfStartDialog(prof);
+		Dialogues.startProfStartDialog(prof);
 	}
 	
 	var cfg: Cfg;
@@ -230,7 +229,6 @@ class TenUp3 extends Game {
 	
 	public override function update() {
 		super.update();
-		Scene.the.update();
 		updateMouse();
 		var player = Player.current();
 		if (player != null) {
@@ -258,8 +256,7 @@ class TenUp3 extends Game {
 	public override function render(frame: Framebuffer) {
 		var g = backbuffer.g2;
 		g.begin();
-		Scene.the.camy = 0;
-		Scene.the.render(g);
+		scene.render(g);
 		g.transformation = Matrix3.identity();
 		if (Player.current() != null) {
 			Player.current().inventory.render(g);

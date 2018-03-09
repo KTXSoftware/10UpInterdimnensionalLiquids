@@ -1,8 +1,8 @@
 package;
 
-import kha2d.Animation;
+import kha.Animation;
 import kha.Loader;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class Door extends Sprite {
 	private var backdoor: Bool;

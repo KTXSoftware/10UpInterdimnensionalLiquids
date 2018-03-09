@@ -3,9 +3,9 @@ package dialogue;
 import Dialogue.DialogueItem;
 import kha.Color;
 import kha.math.Vector2;
-import kha2d.Scene;
+import kha.Scene;
 import kha.Scheduler;
-import kha2d.Sprite;
+import kha.Sprite;
 
 enum ActionType {
 	MG;

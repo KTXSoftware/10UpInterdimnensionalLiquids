@@ -5,8 +5,8 @@ import kha.Font;
 import kha.FontStyle;
 import kha.Loader;
 import kha.graphics2.Graphics;
-import kha2d.Scene;
-import kha2d.Sprite;
+import kha.Scene;
+import kha.Sprite;
 
 class BlaBox {
 	private static var padding = 15;
@@ -22,7 +22,7 @@ class BlaBox {
 	}
 	
 	public static function setText(text: String): Void {
-		/*if (text != null) {
+		if (text != null) {
 			if (font == null) font = Loader.the.loadFont("Liberation Sans", new FontStyle(false, false, false), 20);
 			var maxWidth = BlaBox.maxWidth - 2 * padding;
 			BlaBox.text = new Array();
@@ -56,9 +56,9 @@ class BlaBox {
 			}
 			width += 2 * padding;
 			height = (font.getHeight() * BlaBox.text.length) + 2 * padding;
-		} else {*/
+		} else {
 			BlaBox.text = null;
-		//}
+		}
 	}
 	
 	public static function render(g: Graphics): Void {

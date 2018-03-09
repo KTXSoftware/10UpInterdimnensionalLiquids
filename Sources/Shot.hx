@@ -1,7 +1,7 @@
 package;
 
 import kha.Loader;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class Shot extends Sprite {
 	public function new(x: Float, y: Float, speedx: Float) {

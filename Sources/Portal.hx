@@ -1,11 +1,11 @@
 package;
 
-import kha2d.Animation;
-import kha2d.Direction;
+import kha.Animation;
+import kha.Direction;
 import kha.Loader;
 import kha.math.Random;
-import kha2d.Scene;
-import kha2d.Sprite;
+import kha.Scene;
+import kha.Sprite;
 
 class Portal extends Sprite {
 	private var count: Int = 0;

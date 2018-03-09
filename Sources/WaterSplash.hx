@@ -2,9 +2,9 @@ package;
 
 import kha.graphics2.Graphics;
 import kha.Loader;
-import kha2d.Scene;
+import kha.Scene;
 import kha.Scheduler;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class WaterSplash extends Sprite {
 	private var start: Float;

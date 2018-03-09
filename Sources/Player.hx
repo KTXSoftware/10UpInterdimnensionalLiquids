@@ -1,8 +1,8 @@
 package;
 
-import kha2d.Animation;
+import kha.Animation;
 import kha.Color;
-import kha2d.Direction;
+import kha.Direction;
 import kha.graphics2.Graphics;
 import kha.Image;
 import kha.Loader;
@@ -11,9 +11,9 @@ import kha.math.Vector2;
 import kha.Music;
 import kha.Rectangle;
 import kha.Rotation;
-import kha2d.Scene;
+import kha.Scene;
 import kha.Sound;
-import kha2d.Sprite;
+import kha.Sprite;
 
 class Player extends DestructibleSprite {
 	public var left : Bool;
@@ -102,7 +102,7 @@ class Player extends DestructibleSprite {
 	
 	public function setCurrent(): Void {
 		currentPlayer = this;
-		//**Scene.the.camyHack = inventory.itemHeight + 2 * inventory.spacing;
+		Scene.the.camyHack = inventory.itemHeight + 2 * inventory.spacing;
 	}
 	
 	public function timeLeft(): Float {

@@ -3,7 +3,7 @@ package;
 import kha.Image;
 import kha.Rectangle;
 
-class LiquidTile extends kha2d.Tile {
+class LiquidTile extends kha.Tile {
 	private var lines: Array<Int>;
 	
 	public function new(imageIndex: Int) {

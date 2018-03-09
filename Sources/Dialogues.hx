@@ -13,8 +13,8 @@ import dialogue.StartDialogue;
 import Cfg;
 import haxe.macro.Expr.Var;
 import localization.Keys_text;
-import kha2d.Scene;
-import kha2d.Sprite;
+import kha.Scene;
+import kha.Sprite;
 
 using Lambda;
 

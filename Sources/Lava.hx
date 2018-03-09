@@ -1,11 +1,11 @@
 package;
 
-import kha2d.Animation;
-import kha2d.Direction;
+import kha.Animation;
+import kha.Direction;
 import kha.Loader;
 import kha.math.Vector2i;
-import kha2d.Scene;
-import kha2d.Sprite;
+import kha.Scene;
+import kha.Sprite;
 
 class Lava extends Sprite {
 	private var lastTile: Vector2i;
