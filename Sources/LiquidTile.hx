@@ -1,9 +1,9 @@
 package;
 
 import kha.Image;
-import kha.Rectangle;
+import kha2d.Rectangle;
 
-class LiquidTile extends kha.Tile {
+class LiquidTile extends kha2d.Tile {
 	private var lines: Array<Int>;
 	
 	public function new(imageIndex: Int) {

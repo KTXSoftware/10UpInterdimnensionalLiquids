@@ -1,16 +1,16 @@
 package;
 
+import kha.Assets;
 import kha.graphics2.Graphics;
-import kha.Loader;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Scheduler;
-import kha.Sprite;
+import kha2d.Sprite;
 
 class Haze extends Sprite {
 	private var start: Float;
 	
 	public function new(x: Float, y: Float) {
-		super(Loader.the.getImage('haze'));
+		super(Assets.images.haze);
 		this.x = x;
 		this.y = y;
 		accy = -0.1;

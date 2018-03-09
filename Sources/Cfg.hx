@@ -1,9 +1,9 @@
 package;
 
-import kha.Loader;
+import kha.Assets;
 import kha.math.Vector2;
 import kha.math.Vector2i;
-import kha.Sprite;
+import kha2d.Sprite;
 import kha.Storage;
 import localization.Keys_text;
 
@@ -83,9 +83,9 @@ class Cfg
 		Cfg.eheweib = null;
 		Cfg.mafioso = null;
 		Cfg.backdoor = null;
-		Cfg.euro = new Sprite(Loader.the.getImage("euro"));
+		Cfg.euro = new Sprite(Assets.images.euro);
 		Cfg.euro.scaleX = Cfg.euro.scaleY = 0.5;
-		Cfg.cent = new Sprite(Loader.the.getImage("cent"));
+		Cfg.cent = new Sprite(Assets.images.cent);
 		Cfg.cent.scaleX = Cfg.cent.scaleY = 0.5;
 		Cfg.broetchen = new Broetchen();
 		Cfg.broetchen_mehrkorn = new Broetchen(true);

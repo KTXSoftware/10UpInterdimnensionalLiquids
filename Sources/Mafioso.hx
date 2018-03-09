@@ -1,10 +1,10 @@
 package;
 
+import kha.Assets;
 import kha.graphics2.Graphics;
 import kha.Image;
-import kha.Loader;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
 class Mafioso extends Sprite {
 	private var count: Int = 0;
@@ -19,9 +19,9 @@ class Mafioso extends Sprite {
 	}
 	
 	public function new(x: Float, y: Float) {
-		super(Loader.the.getImage('boss'));
+		super(Assets.images.boss);
 		me = this;
-		mg = new Sprite(Loader.the.getImage('machinegun'));
+		mg = new Sprite(Assets.images.machinegun);
 		this.x = x;
 		this.y = y;
 	}

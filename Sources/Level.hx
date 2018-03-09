@@ -1,20 +1,17 @@
 package;
 
 import haxe.io.Bytes;
+import kha.Assets;
 import kha.Blob;
 import kha.Color;
-import kha.Configuration;
-import kha.Game;
-import kha.Loader;
-import kha.LoadingScreen;
 import kha.math.Random;
 import kha.math.Vector2i;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Scheduler;
-import kha.Sprite;
+import kha2d.Sprite;
 import kha.Storage;
-import kha.Tile;
-import kha.Tilemap;
+import kha2d.Tile;
+import kha2d.Tilemap;
 
 class Level {
 	public static var solution : Bool = false;
@@ -28,8 +25,7 @@ class Level {
 	public static function load(levelName: String, done: Void -> Void): Void {
 		Level.levelName = levelName;
 		Level.done = done;
-		Configuration.setScreen(new LoadingScreen());
-		Loader.the.loadRoom(levelName, initLevel);
+		initLevel();
 	}
 	
 	public static function getSaveMap(): Array<Array<Int>> {
@@ -53,15 +49,15 @@ class Level {
 		for (i in 0...600) {
 			tileColissions.push(new Tile(i, isCollidable(i)));
 		}
-		var blob = Loader.the.getBlob(levelName);
-		blob.reset();
-		levelWidth = blob.readS32BE();
-		levelHeight = blob.readS32BE();
+		var blob = Assets.blobs.get(levelName);
+		var fileIndex = 0;
+		levelWidth = blob.readS32BE(fileIndex); fileIndex += 4;
+		levelHeight = blob.readS32BE(fileIndex); fileIndex += 4;
 		var originalmap = new Array<Array<Int>>();
 		for (x in 0...levelWidth) {
 			originalmap.push(new Array<Int>());
 			for (y in 0...levelHeight) {
-				originalmap[x].push(blob.readS32BE());
+				originalmap[x].push(blob.readS32BE(fileIndex)); fileIndex += 4;
 			}
 		}
 		var map = new Array<Array<Int>>();
@@ -71,12 +67,12 @@ class Level {
 				map[x].push(0);
 			}
 		}
-		var spriteCount = blob.readS32BE();
+		var spriteCount = blob.readS32BE(fileIndex); fileIndex += 4;
 		var sprites = new Array<Int>();
 		for (i in 0...spriteCount) {
-			sprites.push(blob.readS32BE());
-			sprites.push(blob.readS32BE());
-			sprites.push(blob.readS32BE());
+			sprites.push(blob.readS32BE(fileIndex)); fileIndex += 4;
+			sprites.push(blob.readS32BE(fileIndex)); fileIndex += 4;
+			sprites.push(blob.readS32BE(fileIndex)); fileIndex += 4;
 		}
 		
 		Scene.the.clear();
@@ -127,13 +123,13 @@ class Level {
 		
 		var liquidTiles = new Array<Tile>();
 		for (i in 0...100) liquidTiles.push(new LiquidTile(i));
-		liquids = new Tilemap("liquids", 32, 32, liquidMap, liquidTiles);
+		liquids = new Tilemap(Assets.images.liquids, 32, 32, liquidMap, liquidTiles);
 		
 		//var tileset = "sml_tiles";
 		//if (levelName == "level1") tileset = "tileset1";
 		var tileset = "outside";
 		
-		tilemap = new Tilemap(tileset, 32, 32, map, tileColissions);
+		tilemap = new Tilemap(Assets.images.get(tileset), 32, 32, map, tileColissions);
 		Scene.the.setColissionMap(liquids);
 		Scene.the.addBackgroundTilemap(tilemap, 1);
 		Scene.the.addForegroundTilemap(liquids, 1);
@@ -157,7 +153,7 @@ class Level {
 		}
 		//var jmpMan = Jumpman.getInstance();
 		for (i in 0...spriteCount) {
-			var sprite: kha.Sprite;
+			var sprite: kha2d.Sprite;
 			var x = sprites[i * 3 + 1];
 			var y = sprites[i * 3 + 2];
 			if (levelName == "level1") {
@@ -213,7 +209,6 @@ class Level {
 		}
 		#end
 		
-		Configuration.setScreen(TenUp3.getInstance());
 		done();
 	}
 	

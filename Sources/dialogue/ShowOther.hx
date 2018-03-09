@@ -1,5 +1,6 @@
 package dialogue;
-import kha.Scene;
+
+import kha2d.Scene;
 import localization.Keys_text;
 
 class ShowOther extends Bla

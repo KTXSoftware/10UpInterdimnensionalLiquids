@@ -2,35 +2,29 @@ package;
 
 import dialogue.BlaWithChoices;
 import dialogue.StartDialogue;
-import kha.Button;
+import kha.Assets;
 import kha.Color;
 import kha.Font;
 import kha.FontStyle;
 import kha.Framebuffer;
-import kha.Game;
 import kha.graphics4.TextureFormat;
-import kha.HighscoreList;
 import kha.Image;
 import kha.input.Gamepad;
 import kha.input.Keyboard;
 import kha.input.Mouse;
-import kha.Key;
-import kha.Loader;
-import kha.LoadingScreen;
-import kha.math.Matrix3;
+import kha.input.KeyCode;
+import kha.math.FastMatrix3;
 import kha.math.Random;
-import kha.Music;
 import kha.Scaler;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Scheduler;
-import kha.Score;
-import kha.Configuration;
 import kha.ScreenRotation;
-import kha.SoundChannel;
-import kha.Sprite;
+import kha2d.Sprite;
+import kha.Sound;
 import kha.Storage;
-import kha.Tile;
-import kha.Tilemap;
+import kha.System;
+import kha2d.Tile;
+import kha2d.Tilemap;
 import localization.Keys_text;
 
 enum SubGame {
@@ -44,15 +38,18 @@ enum Mode {
 	BlaBlaBla;
 }
 
-class TenUp3 extends Game {
+class TenUp3 {
+	public static inline var width = 960;
+	public static inline var height = 600;
 	public static var instance : TenUp3;
-	var music : Music;
+	var music : Sound;
 	var tileColissions : Array<Tile>;
 	var map : Array<Array<Int>>;
 	var originalmap : Array<Array<Int>>;
 	var highscoreName : String;
 	var shiftPressed : Bool;
 	private var font: Font;
+	private var fontSize: Int;
 	private var backbuffer: Image;
 	
 	public var mouseX: Float;
@@ -68,31 +65,31 @@ class TenUp3 extends Game {
 	var mode : Mode;
 	
 	public function new() {
-		super("SML", true);
 		instance = this;
 		shiftPressed = false;
 		highscoreName = "";
 		mode = Mode.Game;
+		System.init({title: "10Up: Interdimensional Liquids", width: width, height: height}, init);
 	}
 	
 	public static function getInstance(): TenUp3 {
 		return instance;
 	}
 	
-	public override function init(): Void {
-		Configuration.setScreen(new LoadingScreen());
+	function init(): Void {
 		Player.init();
-		Loader.the.loadRoom("start", initMenu);
+		Assets.loadEverything(initMenu);
 	}
 	
 	function initMenu() {
-		Localization.init("localizations");
+		System.notifyOnRender(render);
+		Scheduler.addTimeTask(update, 0, 1 / 60);
+		Localization.init("localizations_xml");
 		
 		backbuffer = Image.createRenderTarget(960, 600);
 		
 		Cfg.init();
 		if (Cfg.language == null) {
-			Configuration.setScreen(this);
 			var msg = "Please select your language:";
 			var choices = new Array<Array<Dialogue.DialogueItem>>();
 			var i = 1;
@@ -126,7 +123,8 @@ class TenUp3 extends Game {
 
 	function initLevel(): Void {
 		Dialogue.set(null);
-		font = Loader.the.loadFont("Arial", new FontStyle(false, false, false), 12);
+		font = Assets.fonts.arial;
+		fontSize = 12;
 		startGame();
 	}
 	
@@ -140,8 +138,6 @@ class TenUp3 extends Game {
 		if (Gamepad.get(0) != null) Gamepad.get(0).notify(axisListener, buttonListener);
 		Keyboard.get().notify(keydown, keyup);
 		Mouse.get().notify(mousedown, mouseup, mousemove, mousewheel);
-		
-		Configuration.setScreen(this);
 	}
 	
 	private var inventorySelection: Int = 0;
@@ -150,17 +146,17 @@ class TenUp3 extends Game {
 		var prof = new PlayerProfessor(400, 10);
 		prof.setCurrent();
 		Scene.the.addHero(prof);
-		prof.inventory.pick(new Sprite(Loader.the.getImage('waterflow')));
-		prof.inventory.pick(new Sprite(Loader.the.getImage('lavaflow')));
-		prof.inventory.pick(new Sprite(Loader.the.getImage('gasflow')));
-		prof.inventory.pick(new Sprite(Loader.the.getImage('noflow')));
+		prof.inventory.pick(new Sprite(Assets.images.waterflow));
+		prof.inventory.pick(new Sprite(Assets.images.lavaflow));
+		prof.inventory.pick(new Sprite(Assets.images.gasflow));
+		prof.inventory.pick(new Sprite(Assets.images.noflow));
 		prof.inventory.selectIndex(0);
 		Dialogues.startProfStartDialog(prof);
 	}
 	
 	var cfg: Cfg;
 	function startGame_JustANormalDay() {
-		kha.Sys.mouse.hide();
+		//kha.Sys.mouse.hide();
 		overlayColor = Color.Black;
 		renderOverlay = true;
 		if (Cfg.getVictoryCondition(VictoryCondition.PLAYED_MANN) == Cfg.getVictoryCondition(VictoryCondition.PLAYED_VERKAEUFERIN)) {
@@ -227,8 +223,8 @@ class TenUp3 extends Game {
 		Dialogues.setVerkStartDlg();
 	}
 	
-	public override function update() {
-		super.update();
+	function update() {
+		Scene.the.update();
 		updateMouse();
 		var player = Player.current();
 		if (player != null) {
@@ -253,11 +249,12 @@ class TenUp3 extends Game {
 	
 	public var renderOverlay : Bool;
 	public var overlayColor : Color;
-	public override function render(frame: Framebuffer) {
+	
+	function render(frame: Framebuffer) {
 		var g = backbuffer.g2;
 		g.begin();
-		scene.render(g);
-		g.transformation = Matrix3.identity();
+		Scene.the.render(g);
+		g.transformation = FastMatrix3.identity();
 		if (Player.current() != null) {
 			Player.current().inventory.render(g);
 		}
@@ -268,9 +265,9 @@ class TenUp3 extends Game {
 		BlaBox.render(g);
 		g.end();
 		
-		startRender(frame);
-		Scaler.scale(backbuffer, frame, kha.Sys.screenRotation);
-		endRender(frame);
+		frame.g2.begin();
+		Scaler.scale(backbuffer, frame, System.screenRotation);
+		frame.g2.end();
 	}
 	
 	private function axisListener(axis: Int, value: Float): Void {
@@ -317,47 +314,33 @@ class TenUp3 extends Game {
 		}
 	}
 
-	public function keydown(key: Key, char: String) : Void {
+	public function keydown(key: KeyCode) : Void {
 		if (mode == Mode.Game) {
 			switch (key) {
-				case Key.CTRL:
+				case Control:
 					Dialogue.next();
-				case Key.CHAR:
-					if (char == 'a') {
-						Player.current().left = true;
-					}
-					else if (char == 'd') {
-						Player.current().right = true;
-					}
-					else if (char == 'w') {
-						Player.current().setUp();
-					}
-					else if (char == '1') {
-						Player.current().inventory.selectIndex(0);
-					}
-					else if (char == '2') {
-						Player.current().inventory.selectIndex(1);
-					}
-					else if (char == '3') {
-						Player.current().inventory.selectIndex(2);
-					}
-					else if (char == '4') {
-						Player.current().inventory.selectIndex(3);
-					}
-				case Key.LEFT:
+				case One:
+					Player.current().inventory.selectIndex(0);
+				case Two:
+					Player.current().inventory.selectIndex(1);
+				case Three:
+					Player.current().inventory.selectIndex(2);
+				case Four:
+					Player.current().inventory.selectIndex(3);
+				case Left, A:
 					Player.current().left = true;
-				case Key.RIGHT:
+				case Right, D:
 					Player.current().right = true;
-				case Key.UP:
+				case Up, W:
 					Player.current().setUp();
 				default:
 			}
 		}
 	}
 	
-	public function keyup(key: Key, char: String) : Void {
+	public function keyup(key: KeyCode) : Void {
 		switch (key) {
-			case Key.ESC:
+			case Escape:
 				{
 				var msg = "What to do?\n(1): Restart";
 					var choices = new Array<Array<Dialogue.DialogueItem>>();
@@ -378,23 +361,13 @@ class TenUp3 extends Game {
 						, new StartDialogue(function () { Localization.language = Cfg.language; } )
 					], true );
 				}
-			case Key.CTRL:
+			case Control:
 				Player.current().up = false;
-			case Key.CHAR:
-				if (char == 'a') {
-					Player.current().left = false;
-				}
-				else if (char == 'd') {
-					Player.current().right = false;
-				}
-				else if (char == 'w') {
-					Player.current().up = false;
-				}
-			case Key.LEFT:
+			case Left, A:
 				Player.current().left = false;
-			case Key.RIGHT:
+			case Right, D:
 				Player.current().right = false;
-			case Key.UP:
+			case Up, W:
 				Player.current().up = false;
 			default:
 		}
@@ -431,7 +404,7 @@ class TenUp3 extends Game {
 		}
 	}
 	
-	public function mousemove(x: Int, y: Int): Void {
+	public function mousemove(x: Int, y: Int, mx: Int, my: Int): Void {
 		screenMouseX = x;
 		screenMouseY = y;
 		updateMouse();

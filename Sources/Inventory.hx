@@ -1,13 +1,11 @@
 package;
 
-import kha.Animation;
+import kha2d.Animation;
 import kha.Color;
-import kha.Game;
 import kha.graphics2.Graphics;
-import kha.Loader;
 import kha.math.Vector2;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
 class Inventory {
 	var y : Float;
@@ -19,16 +17,16 @@ class Inventory {
 	var offset : Int = 0;
 	
 	function set_spacing(value: Int) : Int {
-		y = Game.the.height - itemHeight - 2 * value;
+		y = TenUp3.height - itemHeight - 2 * value;
 		if (Player.current() != null && Player.current().inventory == this) {
-			Scene.the.camyHack = itemHeight + 2 * value;
+			//** Scene.the.camyHack = itemHeight + 2 * value;
 		}
 		return spacing = value;
 	}
 	function set_itemHeight(value: Int) : Int {
-		y = Game.the.height - value - 2 * spacing;
+		y = TenUp3.height - value - 2 * spacing;
 		if (Player.current() != null && Player.current().inventory == this) {
-			Scene.the.camyHack = value + 2 * spacing;
+			//** Scene.the.camyHack = value + 2 * spacing;
 		}
 		return itemHeight = value;
 	}
@@ -36,7 +34,7 @@ class Inventory {
 	public function new() {
 		items = new Array();
 		selected = -1;
-		y = Game.the.height - itemHeight - 2 * spacing;
+		y = TenUp3.height - itemHeight - 2 * spacing;
 	}
 	
 	public function isEmpty() : Bool {
@@ -97,7 +95,7 @@ class Inventory {
 		var itemX = spacing;
 		var itemY = y + spacing;
 		g.color = Color.Black;
-		g.fillRect(0, y, Game.the.width, itemHeight + 2 * spacing);
+		g.fillRect(0, y, TenUp3.width, itemHeight + 2 * spacing);
 		for (i in offset...items.length) {
 			var item = items[i];
 			item.x = itemX;

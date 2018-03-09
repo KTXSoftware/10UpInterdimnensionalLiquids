@@ -1,19 +1,18 @@
 package;
 
-import kha.Animation;
+import kha2d.Animation;
+import kha.Assets;
 import kha.Color;
-import kha.Direction;
+import kha2d.Direction;
 import kha.graphics2.Graphics;
 import kha.Image;
-import kha.Loader;
 import kha.math.Matrix3;
 import kha.math.Vector2;
-import kha.Music;
-import kha.Rectangle;
+import kha2d.Rectangle;
 import kha.Rotation;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Sound;
-import kha.Sprite;
+import kha2d.Sprite;
 
 class Player extends DestructibleSprite {
 	public var left : Bool;
@@ -45,7 +44,7 @@ class Player extends DestructibleSprite {
 	var muzzlePoint : Vector2;
 	
 	public function new(x: Float, y: Float, image: String, width: Int, height: Int, maxHealth: Int = 50) {
-		super(maxHealth, Loader.the.getImage(image), width, height, 1);
+		super(maxHealth, Assets.images.get(image), width, height, 1);
 		this.x = x;
 		this.y = y;
 		standing = false;
@@ -68,7 +67,7 @@ class Player extends DestructibleSprite {
 		crosshair = new Vector2(1, 0);
 		isRepairable = true;
 		//hitSound = Loader.the.getSound("hit");
-		zzzzz = Loader.the.getImage("zzzzz");
+		zzzzz = Assets.images.zzzzz;
 		inventory = new Inventory();
 	}
 	
@@ -102,7 +101,7 @@ class Player extends DestructibleSprite {
 	
 	public function setCurrent(): Void {
 		currentPlayer = this;
-		Scene.the.camyHack = inventory.itemHeight + 2 * inventory.spacing;
+		//** Scene.the.camyHack = inventory.itemHeight + 2 * inventory.spacing;
 	}
 	
 	public function timeLeft(): Float {

@@ -1,7 +1,7 @@
 package;
 
 import TenUp3.Mode;
-import kha.Scene;
+import kha2d.Scene;
 
 interface DialogueItem {
 	public function execute() : Void;
@@ -26,7 +26,7 @@ class Dialogue {
 		Dialogue.items = items;
 		index = -1;
 		TenUp3.getInstance().mode = Mode.BlaBlaBla;
-		kha.Sys.mouse.hide();
+		//kha.Sys.mouse.hide();
 		next();
 	}
 	
@@ -80,7 +80,7 @@ class Dialogue {
 		if (index >= items.length) {
 			TenUp3.getInstance().mode = Mode.Game;
 			if (TenUp3.instance.subgame == TenUp3.SubGame.TEN_UP_3) {
-				kha.Sys.mouse.show();
+				//kha.Sys.mouse.show();
 			}
 			items = null;
 			index = -1;

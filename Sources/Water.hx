@@ -1,11 +1,11 @@
 package;
 
-import kha.Animation;
-import kha.Direction;
-import kha.Loader;
+import kha.Assets;
+import kha2d.Animation;
+import kha2d.Direction;
 import kha.math.Vector2i;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
 class Water extends Sprite {
 	private var lastTile: Vector2i;
@@ -13,7 +13,7 @@ class Water extends Sprite {
 	private var left: Animation;
 	
 	public function new(x: Float, y: Float, speedx: Float, speedy: Float) {
-		super(Loader.the.getImage("water"), 32, 32);
+		super(Assets.images.water, 32, 32);
 		this.x = x;
 		this.y = y;
 		this.speedx = speedx;

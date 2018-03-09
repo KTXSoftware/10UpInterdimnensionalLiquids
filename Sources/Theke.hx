@@ -1,13 +1,13 @@
 package;
 
-import kha.Animation;
-import kha.Loader;
-import kha.Sprite;
-import kha.Rectangle;
+import kha.Assets;
+import kha2d.Animation;
+import kha2d.Sprite;
+import kha2d.Rectangle;
 
 class Theke extends Sprite {
 	public function new(x: Float, y: Float) {
-		var i = Loader.the.getImage('theke');
+		var i = Assets.images.theke;
 		super(i, Std.int(i.width / 2));
 		this.x = x - 0.3 * width;
 		this.y = y;

@@ -1,15 +1,15 @@
 package;
 
-import kha.Animation;
-import kha.Loader;
-import kha.Sprite;
+import kha.Assets;
+import kha2d.Animation;
+import kha2d.Sprite;
 
 class Door extends Sprite {
 	private var backdoor: Bool;
 	private var isopen = false;
 	
 	public function new(x: Float, y: Float, backdoor: Bool) {
-		super(Loader.the.getImage('door'), Std.int(128 * 2 / 4), 64 * 2, 0);
+		super(Assets.images.door, Std.int(128 * 2 / 4), 64 * 2, 0);
 		this.x = x;
 		this.y = y;
 		this.backdoor = backdoor;

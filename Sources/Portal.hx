@@ -1,11 +1,11 @@
 package;
 
-import kha.Animation;
-import kha.Direction;
-import kha.Loader;
+import kha.Assets;
+import kha2d.Animation;
+import kha2d.Direction;
 import kha.math.Random;
-import kha.Scene;
-import kha.Sprite;
+import kha2d.Scene;
+import kha2d.Sprite;
 
 class Portal extends Sprite {
 	private var count: Int = 0;
@@ -15,7 +15,7 @@ class Portal extends Sprite {
 	public var canIndex: Int;
 	
 	public function new(x: Float, y: Float, speedx: Float, speedy: Float, canIndex: Int) {
-		super(Loader.the.getImage('portal'), 32, 32);
+		super(Assets.images.portal, 32, 32);
 		this.x = x;
 		this.y = y;
 		this.speedx = speedx;

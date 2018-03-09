@@ -1,14 +1,14 @@
 package;
 
-import kha.Direction;
-import kha.Loader;
+import kha.Assets;
+import kha2d.Direction;
 import kha.math.Vector2;
-import kha.Rectangle;
-import kha.Sprite;
+import kha2d.Rectangle;
+import kha2d.Sprite;
 
 class Gas extends Sprite {
 	public function new(x: Float, y: Float, speedx: Float, speedy: Float) {
-		super(Loader.the.getImage('gas'));
+		super(Assets.images.gas);
 		this.x = x;
 		this.y = y;
 		this.speedx = speedx;

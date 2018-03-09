@@ -1,12 +1,12 @@
 package;
 
-import kha.Animation;
-import kha.Loader;
-import kha.Sprite;
+import kha.Assets;
+import kha2d.Animation;
+import kha2d.Sprite;
 
 class TenUpShelf extends Sprite {
 	public function new(x: Float, y: Float) {
-		super(Loader.the.getImage('10up'), 94, 33 * 2);
+		super(Assets.images._10up, 94, 33 * 2);
 		this.x = x;
 		this.y = y;
 		accy = 0;

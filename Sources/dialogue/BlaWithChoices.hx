@@ -2,8 +2,8 @@ package dialogue;
 
 import Dialogue.DialogueItem;
 import kha.input.Keyboard;
-import kha.Key;
-import kha.Sprite;
+import kha.input.KeyCode;
+import kha2d.Sprite;
 
 using StringTools;
 
@@ -26,11 +26,11 @@ class BlaWithChoices extends Bla {
 	}
 	
 	@:access(Dialogues.dlgChoices) 
-	private function keyUpListener(key:Key, char: String) {
+	private function keyPressListener(char: String) {
 		var choice = char.fastCodeAt(0) - '1'.fastCodeAt(0);
 		if (choice >= 0 && choice < choices.length) {
 			Cfg.setDlgChoice(txtKey, choice);
-			Keyboard.get().remove(null, keyUpListener);
+			Keyboard.get().remove(null, null, keyPressListener);
 			this.finished = true;
 			Dialogue.insert(choices[choice]);
 			Dialogue.next();
@@ -41,7 +41,7 @@ class BlaWithChoices extends Bla {
 		switch (status) {
 			case BlaWithChoicesStatus.BLA:
 				super.execute();
-				Keyboard.get().notify(null, keyUpListener);
+				Keyboard.get().notify(null, null, keyPressListener);
 				status = BlaWithChoicesStatus.CHOICE;
 			case BlaWithChoicesStatus.CHOICE:
 				// just wait for input

@@ -1,16 +1,16 @@
 package;
 
+import kha.Assets;
 import kha.graphics2.Graphics;
-import kha.Loader;
-import kha.Scene;
+import kha2d.Scene;
 import kha.Scheduler;
-import kha.Sprite;
+import kha2d.Sprite;
 
 class WaterSplash extends Sprite {
 	private var start: Float;
 	
 	public function new(x: Float, y: Float, speedx: Float, speedy: Float) {
-		super(Loader.the.getImage('watersplash'), 32, 32);
+		super(Assets.images.watersplash, 32, 32);
 		this.x = x;
 		this.y = y;
 		this.speedx = speedx;

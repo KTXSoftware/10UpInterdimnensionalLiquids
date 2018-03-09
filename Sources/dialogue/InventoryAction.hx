@@ -1,6 +1,7 @@
 package dialogue;
-import kha.Scene;
-import kha.Sprite;
+
+import kha2d.Scene;
+import kha2d.Sprite;
 
 enum InventoryActionMode {
 	ADD;
