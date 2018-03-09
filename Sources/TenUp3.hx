@@ -82,6 +82,7 @@ class TenUp3 {
 	}
 	
 	function initMenu() {
+		Scene.the.setSize(width, height);
 		System.notifyOnRender(render);
 		Scheduler.addTimeTask(update, 0, 1 / 60);
 		Localization.init("localizations_xml");
@@ -111,7 +112,7 @@ class TenUp3 {
 	function advanceMenu() {
 		Localization.language = Cfg.language;
 		
-		Localization.buildKeys("../Assets/text.xml","text");
+		Localization.buildKeys("../Assets/Blobs/text.xml", "text");
 		//Localization.load("text");
 		
 		loadTheOneAndOnlyLevel();

@@ -111,6 +111,7 @@ class BlaBox {
 			g.color = Color.Black;
 		}
 		g.font = font;
+		g.fontSize = fontSize;
 		
 		var tx: Float = x + padding;
 		var ty: Float = y + padding;
